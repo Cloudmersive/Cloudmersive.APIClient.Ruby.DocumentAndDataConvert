@@ -9,4 +9,4 @@
 
 #& npm build ./client
 
-& gem build ./client/cloudmersive-convert-api-client.gemspec
+#& gem build ./client/cloudmersive-convert-api-client.gemspec

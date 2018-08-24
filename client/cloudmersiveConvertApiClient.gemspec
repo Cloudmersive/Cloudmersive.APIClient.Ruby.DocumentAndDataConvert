@@ -13,10 +13,10 @@ Swagger Codegen version: unset
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "cloudmersive-convert-api-client/version"
+require "cloudmersiveConvertApiClient/version"
 
 Gem::Specification.new do |s|
-  s.name        = "cloudmersive-convert-api-client"
+  s.name        = "cloudmersiveConvertApiClient"
   s.version     = CloudmersiveConvertApiClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Cloudmersive"]

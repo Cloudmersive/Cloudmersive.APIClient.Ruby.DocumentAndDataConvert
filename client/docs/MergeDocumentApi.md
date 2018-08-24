@@ -19,7 +19,7 @@ Combine multiple Office Word Documents (docx) into one single Office Word docume
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -76,7 +76,7 @@ Combine multiple Office PowerPoint presentations (pptx) into one single Office P
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -133,7 +133,7 @@ Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spr
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

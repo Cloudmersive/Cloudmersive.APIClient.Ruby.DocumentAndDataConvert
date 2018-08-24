@@ -18,7 +18,7 @@ Convert a CSV file to a JSON object array
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -72,7 +72,7 @@ Convert an XML string or file into JSON
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

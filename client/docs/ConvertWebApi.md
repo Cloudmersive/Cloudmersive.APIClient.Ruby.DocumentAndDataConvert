@@ -21,7 +21,7 @@ Convert HTML to Office Word Document (DOCX) format
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -75,7 +75,7 @@ Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS a
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -129,7 +129,7 @@ Convert a markdown file (.md) to HTML
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -183,7 +183,7 @@ Fully renders a website and returns a PDF of the full page.  Javascript, HTML5, 
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -237,7 +237,7 @@ Fully renders a website and returns a PNG screenshot of the full page image.  Ja
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersive-convert-api-client'
+require 'cloudmersiveConvertApiClient'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

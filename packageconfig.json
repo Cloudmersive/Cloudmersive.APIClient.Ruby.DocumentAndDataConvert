@@ -1,7 +1,8 @@
 ﻿{
 
-  "gemName" : "cloudmersive-convert-api-client",
-  "gemVersion": "1.2.3",
+  "gemName" : "cloudmersiveConvertApiClient",
+  
+  "gemVersion": "1.2.6",
   "gemHomepage": "https://www.cloudmersive.com/convert-api",
   "gemSummary": "Convert API lets you effortlessly convert file formats and types.",
   "gemDescription": "Convert files and content between file formats. Convert data between file formats. Instantly.",
