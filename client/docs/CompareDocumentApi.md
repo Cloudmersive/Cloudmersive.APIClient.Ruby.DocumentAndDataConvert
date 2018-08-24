@@ -17,7 +17,7 @@ Compare two Office Word Documents (docx) files and highlight the differences
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

@@ -17,7 +17,7 @@ Creates an HTML embed code for a simple web-based viewer of a document; supports
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

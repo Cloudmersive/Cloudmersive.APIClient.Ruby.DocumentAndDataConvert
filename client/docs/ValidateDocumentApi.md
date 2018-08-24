@@ -19,7 +19,7 @@ Validate a Word document (DOCX); if the document is not valid, identifies the er
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -73,7 +73,7 @@ Validate a PowerPoint presentation (PPTX); if the document is not valid, identif
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
@@ -127,7 +127,7 @@ Validate a Excel document (XLSX); if the document is not valid, identifies the e
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

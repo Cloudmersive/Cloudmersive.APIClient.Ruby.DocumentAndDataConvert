@@ -17,7 +17,7 @@ Convert between over 100 file formats, including key formats such as Photoshop (
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey

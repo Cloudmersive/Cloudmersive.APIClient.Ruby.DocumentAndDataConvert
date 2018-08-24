@@ -17,7 +17,7 @@ Apply operations to fill in an HTML template, generating a final HTML result
 ### Example
 ```ruby
 # load the gem
-require 'cloudmersiveConvertApiClient'
+require 'cloudmersive-convert-api-client'
 # setup authorization
 CloudmersiveConvertApiClient.configure do |config|
   # Configure API key authorization: Apikey
