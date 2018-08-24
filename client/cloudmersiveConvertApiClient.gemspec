@@ -24,8 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://www.cloudmersive.com/convert-api"
   s.summary     = "Convert API lets you effortlessly convert file formats and types."
   s.description = "Convert files and content between file formats. Convert data between file formats. Instantly."
-  # TODO uncommnet and update below with a proper license 
-  #s.license     = "Apache 2.0"
+  s.license     = "Apache 2.0"
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
