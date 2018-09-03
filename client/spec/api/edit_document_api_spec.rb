@@ -44,6 +44,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_body
+  # Get body from a DOCX
+  # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxBodyResponse]
+  describe 'edit_document_docx_body test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a DOCX
   # Returns the footer content from a Word Document (DOCX) format file
@@ -51,6 +63,30 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetDocxHeadersAndFootersResponse]
   describe 'edit_document_docx_get_headers_and_footers test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_get_images
+  # Get images from a DOCX
+  # Returns the images defined in the Word Document (DOCX) format file
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxImagesResponse]
+  describe 'edit_document_docx_get_images test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_get_sections
+  # Get sections from a DOCX
+  # Returns the sections defined in the Word Document (DOCX) format file
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxSectionsResponse]
+  describe 'edit_document_docx_get_sections test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -92,6 +128,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_insert_paragraph
+  # Insert a new paragraph into a DOCX
+  # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [InsertDocxInsertParagraphResponse]
+  describe 'edit_document_docx_insert_paragraph test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_insert_table
   # Insert a new table into a DOCX
   # Adds a new table into a DOCX and returns the result
@@ -111,6 +159,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [RemoveDocxHeadersAndFootersResponse]
   describe 'edit_document_docx_remove_headers_and_footers test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_remove_object
+  # Delete any object in a DOCX
+  # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [DocxRemoveObjectResponse]
+  describe 'edit_document_docx_remove_object test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -171,6 +231,78 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_document_pptx_replace test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_columns
+  # Get rows and cells from a XLSX worksheet
+  # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxColumnsResponse]
+  describe 'edit_document_xlsx_get_columns test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_images
+  # Get images from a XLSX worksheet
+  # Returns the images defined in the Excel Spreadsheet worksheet
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxImagesResponse]
+  describe 'edit_document_xlsx_get_images test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_rows_and_cells
+  # Get rows and cells from a XLSX worksheet
+  # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxRowsAndCellsResponse]
+  describe 'edit_document_xlsx_get_rows_and_cells test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_styles
+  # Get styles from a XLSX worksheet
+  # Returns the style defined in the Excel Spreadsheet
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxStylesResponse]
+  describe 'edit_document_xlsx_get_styles test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_worksheets
+  # Get worksheets from a XLSX
+  # Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxWorksheetsResponse]
+  describe 'edit_document_xlsx_get_worksheets test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_insert_worksheet
+  # Insert a new worksheet into an XLSX spreadsheet
+  # Inserts a new worksheet into an Excel Spreadsheet
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [InsertXlsxWorksheetResponse]
+  describe 'edit_document_xlsx_insert_worksheet test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

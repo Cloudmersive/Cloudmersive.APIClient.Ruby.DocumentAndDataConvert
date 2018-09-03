@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # The index of the paragraph; 0-based
     attr_accessor :paragraph_index
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # The content runs in the paragraph - this is where text is stored; similar to a span in HTML
     attr_accessor :content_runs
 
@@ -29,6 +32,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'paragraph_index' => :'ParagraphIndex',
+        :'path' => :'Path',
         :'content_runs' => :'ContentRuns',
         :'style_id' => :'StyleID'
       }
@@ -38,6 +42,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'paragraph_index' => :'Integer',
+        :'path' => :'String',
         :'content_runs' => :'Array<DocxRun>',
         :'style_id' => :'String'
       }
@@ -53,6 +58,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'ParagraphIndex')
         self.paragraph_index = attributes[:'ParagraphIndex']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'ContentRuns')
@@ -86,6 +95,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           paragraph_index == o.paragraph_index &&
+          path == o.path &&
           content_runs == o.content_runs &&
           style_id == o.style_id
     end
@@ -99,7 +109,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [paragraph_index, content_runs, style_id].hash
+      [paragraph_index, path, content_runs, style_id].hash
     end
 
     # Builds the object from hash

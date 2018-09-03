@@ -15,8 +15,11 @@ require 'date'
 module CloudmersiveConvertApiClient
   # A table in a Word Document (DOCX) file
   class DocxTable
-    # The ID of the table
+    # The ID of the table; leave blank for new tables
     attr_accessor :table_id
+
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
 
     # The Width of the table, or 0 if not specified
     attr_accessor :width
@@ -134,6 +137,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'table_id' => :'TableID',
+        :'path' => :'Path',
         :'width' => :'Width',
         :'width_type' => :'WidthType',
         :'table_rows' => :'TableRows',
@@ -178,6 +182,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'table_id' => :'String',
+        :'path' => :'String',
         :'width' => :'String',
         :'width_type' => :'String',
         :'table_rows' => :'Array<DocxTableRow>',
@@ -228,6 +233,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'TableID')
         self.table_id = attributes[:'TableID']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'Width')
@@ -401,6 +410,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           table_id == o.table_id &&
+          path == o.path &&
           width == o.width &&
           width_type == o.width_type &&
           table_rows == o.table_rows &&
@@ -449,7 +459,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [table_id, width, width_type, table_rows, top_border_type, top_border_size, top_border_space, top_border_color, bottom_border_type, bottom_border_size, bottom_border_space, bottom_border_color, left_border_type, left_border_size, left_border_space, left_border_color, right_border_type, right_border_size, right_border_space, right_border_color, cell_horizontal_border_type, cell_horizontal_border_size, cell_horizontal_border_space, cell_horizontal_border_color, cell_vertical_border_type, cell_vertical_border_size, cell_vertical_border_space, cell_vertical_border_color, start_border_type, start_border_size, start_border_space, start_border_color, end_border_type, end_border_size, end_border_space, end_border_color, table_indentation_mode, table_indentation_width].hash
+      [table_id, path, width, width_type, table_rows, top_border_type, top_border_size, top_border_space, top_border_color, bottom_border_type, bottom_border_size, bottom_border_space, bottom_border_color, left_border_type, left_border_size, left_border_space, left_border_color, right_border_type, right_border_size, right_border_space, right_border_color, cell_horizontal_border_type, cell_horizontal_border_size, cell_horizontal_border_space, cell_horizontal_border_color, cell_vertical_border_type, cell_vertical_border_size, cell_vertical_border_space, cell_vertical_border_color, start_border_type, start_border_size, start_border_space, start_border_color, end_border_type, end_border_size, end_border_space, end_border_color, table_indentation_mode, table_indentation_width].hash
     end
 
     # Builds the object from hash

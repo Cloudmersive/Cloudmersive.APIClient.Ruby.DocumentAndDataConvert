@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # Index of the text content in the run; 0-based
     attr_accessor :text_index
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Text string containing the text content of this text content item
     attr_accessor :text_content
 
@@ -26,6 +29,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'text_index' => :'TextIndex',
+        :'path' => :'Path',
         :'text_content' => :'TextContent'
       }
     end
@@ -34,6 +38,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'text_index' => :'Integer',
+        :'path' => :'String',
         :'text_content' => :'String'
       }
     end
@@ -48,6 +53,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'TextIndex')
         self.text_index = attributes[:'TextIndex']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'TextContent')
@@ -75,6 +84,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           text_index == o.text_index &&
+          path == o.path &&
           text_content == o.text_content
     end
 
@@ -87,7 +97,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [text_index, text_content].hash
+      [text_index, path, text_content].hash
     end
 
     # Builds the object from hash

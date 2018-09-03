@@ -101,7 +101,9 @@ Class | Method | HTTP request | Description
 *CloudmersiveConvertApiClient::ConvertDocumentApi* | [**convert_document_xls_to_xlsx**](docs/ConvertDocumentApi.md#convert_document_xls_to_xlsx) | **POST** /convert/xls/to/xlsx | Excel XLS (97-03) to XLSX
 *CloudmersiveConvertApiClient::ConvertDocumentApi* | [**convert_document_xlsx_to_csv**](docs/ConvertDocumentApi.md#convert_document_xlsx_to_csv) | **POST** /convert/xlsx/to/csv | Excel XLSX to CSV
 *CloudmersiveConvertApiClient::ConvertDocumentApi* | [**convert_document_xlsx_to_pdf**](docs/ConvertDocumentApi.md#convert_document_xlsx_to_pdf) | **POST** /convert/xlsx/to/pdf | Excel XLSX to PDF
+*CloudmersiveConvertApiClient::ConvertImageApi* | [**convert_image_get_image_info**](docs/ConvertImageApi.md#convert_image_get_image_info) | **POST** /convert/image/get-info | Get information about an image
 *CloudmersiveConvertApiClient::ConvertImageApi* | [**convert_image_image_format_convert**](docs/ConvertImageApi.md#convert_image_image_format_convert) | **POST** /convert/image/{format1}/to/{format2} | Image format conversion
+*CloudmersiveConvertApiClient::ConvertImageApi* | [**convert_image_image_set_dpi**](docs/ConvertImageApi.md#convert_image_image_set_dpi) | **POST** /convert/image/set-dpi/{dpi} | Change image DPI
 *CloudmersiveConvertApiClient::ConvertTemplateApi* | [**convert_template_apply_html_template**](docs/ConvertTemplateApi.md#convert_template_apply_html_template) | **POST** /convert/template/html/apply | Apply HTML template
 *CloudmersiveConvertApiClient::ConvertWebApi* | [**convert_web_html_to_docx**](docs/ConvertWebApi.md#convert_web_html_to_docx) | **POST** /convert/html/to/docx | HTML to DOCX
 *CloudmersiveConvertApiClient::ConvertWebApi* | [**convert_web_html_to_pdf**](docs/ConvertWebApi.md#convert_web_html_to_pdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
@@ -109,17 +111,28 @@ Class | Method | HTTP request | Description
 *CloudmersiveConvertApiClient::ConvertWebApi* | [**convert_web_url_to_pdf**](docs/ConvertWebApi.md#convert_web_url_to_pdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 *CloudmersiveConvertApiClient::ConvertWebApi* | [**convert_web_url_to_screenshot**](docs/ConvertWebApi.md#convert_web_url_to_screenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_begin_editing**](docs/EditDocumentApi.md#edit_document_begin_editing) | **POST** /convert/edit/begin-editing | Begin editing a document
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_body**](docs/EditDocumentApi.md#edit_document_docx_body) | **POST** /convert/edit/docx/get-body | Get body from a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_get_headers_and_footers**](docs/EditDocumentApi.md#edit_document_docx_get_headers_and_footers) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a DOCX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_get_images**](docs/EditDocumentApi.md#edit_document_docx_get_images) | **POST** /convert/edit/docx/get-images | Get images from a DOCX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_get_sections**](docs/EditDocumentApi.md#edit_document_docx_get_sections) | **POST** /convert/edit/docx/get-sections | Get sections from a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_get_styles**](docs/EditDocumentApi.md#edit_document_docx_get_styles) | **POST** /convert/edit/docx/get-styles | Get styles from a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_get_tables**](docs/EditDocumentApi.md#edit_document_docx_get_tables) | **POST** /convert/edit/docx/get-tables | Get tables in DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_insert_image**](docs/EditDocumentApi.md#edit_document_docx_insert_image) | **POST** /convert/edit/docx/insert-image | Insert image into a DOCX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_insert_paragraph**](docs/EditDocumentApi.md#edit_document_docx_insert_paragraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_insert_table**](docs/EditDocumentApi.md#edit_document_docx_insert_table) | **POST** /convert/edit/docx/insert-table | Insert a new table into a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_remove_headers_and_footers**](docs/EditDocumentApi.md#edit_document_docx_remove_headers_and_footers) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from DOCX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_remove_object**](docs/EditDocumentApi.md#edit_document_docx_remove_object) | **POST** /convert/edit/docx/remove-object | Delete any object in a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_replace**](docs/EditDocumentApi.md#edit_document_docx_replace) | **POST** /convert/edit/docx/replace-all | Replace string in DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_set_footer**](docs/EditDocumentApi.md#edit_document_docx_set_footer) | **POST** /convert/edit/docx/set-footer | Set the footer in a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_docx_set_header**](docs/EditDocumentApi.md#edit_document_docx_set_header) | **POST** /convert/edit/docx/set-header | Set the header in a DOCX
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_finish_editing**](docs/EditDocumentApi.md#edit_document_finish_editing) | **POST** /convert/edit/finish-editing | Download result from document editing
 *CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_pptx_replace**](docs/EditDocumentApi.md#edit_document_pptx_replace) | **POST** /convert/edit/pptx/replace-all | Replace string in PPTX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_get_columns**](docs/EditDocumentApi.md#edit_document_xlsx_get_columns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a XLSX worksheet
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_get_images**](docs/EditDocumentApi.md#edit_document_xlsx_get_images) | **POST** /convert/edit/xlsx/get-images | Get images from a XLSX worksheet
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_get_rows_and_cells**](docs/EditDocumentApi.md#edit_document_xlsx_get_rows_and_cells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a XLSX worksheet
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_get_styles**](docs/EditDocumentApi.md#edit_document_xlsx_get_styles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a XLSX worksheet
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_get_worksheets**](docs/EditDocumentApi.md#edit_document_xlsx_get_worksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a XLSX
+*CloudmersiveConvertApiClient::EditDocumentApi* | [**edit_document_xlsx_insert_worksheet**](docs/EditDocumentApi.md#edit_document_xlsx_insert_worksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an XLSX spreadsheet
 *CloudmersiveConvertApiClient::MergeDocumentApi* | [**merge_document_docx**](docs/MergeDocumentApi.md#merge_document_docx) | **POST** /convert/merge/docx | Merge Multple Word DOCX Together
 *CloudmersiveConvertApiClient::MergeDocumentApi* | [**merge_document_pptx**](docs/MergeDocumentApi.md#merge_document_pptx) | **POST** /convert/merge/pptx | Merge Multple PowerPoint PPTX Together
 *CloudmersiveConvertApiClient::MergeDocumentApi* | [**merge_document_xlsx**](docs/MergeDocumentApi.md#merge_document_xlsx) | **POST** /convert/merge/xlsx | Merge Multple Excel XLSX Together
@@ -134,11 +147,16 @@ Class | Method | HTTP request | Description
  - [CloudmersiveConvertApiClient::ConvertedPngPage](docs/ConvertedPngPage.md)
  - [CloudmersiveConvertApiClient::DocumentValidationError](docs/DocumentValidationError.md)
  - [CloudmersiveConvertApiClient::DocumentValidationResult](docs/DocumentValidationResult.md)
+ - [CloudmersiveConvertApiClient::DocxBody](docs/DocxBody.md)
+ - [CloudmersiveConvertApiClient::DocxCellStyle](docs/DocxCellStyle.md)
  - [CloudmersiveConvertApiClient::DocxFooter](docs/DocxFooter.md)
  - [CloudmersiveConvertApiClient::DocxHeader](docs/DocxHeader.md)
+ - [CloudmersiveConvertApiClient::DocxImage](docs/DocxImage.md)
  - [CloudmersiveConvertApiClient::DocxInsertImageRequest](docs/DocxInsertImageRequest.md)
  - [CloudmersiveConvertApiClient::DocxInsertImageResponse](docs/DocxInsertImageResponse.md)
  - [CloudmersiveConvertApiClient::DocxParagraph](docs/DocxParagraph.md)
+ - [CloudmersiveConvertApiClient::DocxRemoveObjectRequest](docs/DocxRemoveObjectRequest.md)
+ - [CloudmersiveConvertApiClient::DocxRemoveObjectResponse](docs/DocxRemoveObjectResponse.md)
  - [CloudmersiveConvertApiClient::DocxRun](docs/DocxRun.md)
  - [CloudmersiveConvertApiClient::DocxSection](docs/DocxSection.md)
  - [CloudmersiveConvertApiClient::DocxSetFooterRequest](docs/DocxSetFooterRequest.md)
@@ -150,27 +168,54 @@ Class | Method | HTTP request | Description
  - [CloudmersiveConvertApiClient::DocxTableCell](docs/DocxTableCell.md)
  - [CloudmersiveConvertApiClient::DocxTableRow](docs/DocxTableRow.md)
  - [CloudmersiveConvertApiClient::DocxText](docs/DocxText.md)
+ - [CloudmersiveConvertApiClient::ExifValue](docs/ExifValue.md)
  - [CloudmersiveConvertApiClient::FinishEditingRequest](docs/FinishEditingRequest.md)
+ - [CloudmersiveConvertApiClient::GetDocxBodyRequest](docs/GetDocxBodyRequest.md)
+ - [CloudmersiveConvertApiClient::GetDocxBodyResponse](docs/GetDocxBodyResponse.md)
  - [CloudmersiveConvertApiClient::GetDocxHeadersAndFootersRequest](docs/GetDocxHeadersAndFootersRequest.md)
  - [CloudmersiveConvertApiClient::GetDocxHeadersAndFootersResponse](docs/GetDocxHeadersAndFootersResponse.md)
+ - [CloudmersiveConvertApiClient::GetDocxImagesRequest](docs/GetDocxImagesRequest.md)
+ - [CloudmersiveConvertApiClient::GetDocxImagesResponse](docs/GetDocxImagesResponse.md)
+ - [CloudmersiveConvertApiClient::GetDocxSectionsRequest](docs/GetDocxSectionsRequest.md)
+ - [CloudmersiveConvertApiClient::GetDocxSectionsResponse](docs/GetDocxSectionsResponse.md)
  - [CloudmersiveConvertApiClient::GetDocxStylesRequest](docs/GetDocxStylesRequest.md)
  - [CloudmersiveConvertApiClient::GetDocxStylesResponse](docs/GetDocxStylesResponse.md)
  - [CloudmersiveConvertApiClient::GetDocxTablesRequest](docs/GetDocxTablesRequest.md)
  - [CloudmersiveConvertApiClient::GetDocxTablesResponse](docs/GetDocxTablesResponse.md)
+ - [CloudmersiveConvertApiClient::GetImageInfoResult](docs/GetImageInfoResult.md)
+ - [CloudmersiveConvertApiClient::GetXlsxColumnsRequest](docs/GetXlsxColumnsRequest.md)
+ - [CloudmersiveConvertApiClient::GetXlsxColumnsResponse](docs/GetXlsxColumnsResponse.md)
+ - [CloudmersiveConvertApiClient::GetXlsxImagesRequest](docs/GetXlsxImagesRequest.md)
+ - [CloudmersiveConvertApiClient::GetXlsxImagesResponse](docs/GetXlsxImagesResponse.md)
+ - [CloudmersiveConvertApiClient::GetXlsxRowsAndCellsRequest](docs/GetXlsxRowsAndCellsRequest.md)
+ - [CloudmersiveConvertApiClient::GetXlsxRowsAndCellsResponse](docs/GetXlsxRowsAndCellsResponse.md)
+ - [CloudmersiveConvertApiClient::GetXlsxStylesRequest](docs/GetXlsxStylesRequest.md)
+ - [CloudmersiveConvertApiClient::GetXlsxStylesResponse](docs/GetXlsxStylesResponse.md)
+ - [CloudmersiveConvertApiClient::GetXlsxWorksheetsRequest](docs/GetXlsxWorksheetsRequest.md)
+ - [CloudmersiveConvertApiClient::GetXlsxWorksheetsResponse](docs/GetXlsxWorksheetsResponse.md)
  - [CloudmersiveConvertApiClient::HtmlMdResult](docs/HtmlMdResult.md)
  - [CloudmersiveConvertApiClient::HtmlTemplateApplicationRequest](docs/HtmlTemplateApplicationRequest.md)
  - [CloudmersiveConvertApiClient::HtmlTemplateApplicationResponse](docs/HtmlTemplateApplicationResponse.md)
  - [CloudmersiveConvertApiClient::HtmlTemplateOperation](docs/HtmlTemplateOperation.md)
  - [CloudmersiveConvertApiClient::HtmlToOfficeRequest](docs/HtmlToOfficeRequest.md)
  - [CloudmersiveConvertApiClient::HtmlToPdfRequest](docs/HtmlToPdfRequest.md)
+ - [CloudmersiveConvertApiClient::InsertDocxInsertParagraphRequest](docs/InsertDocxInsertParagraphRequest.md)
+ - [CloudmersiveConvertApiClient::InsertDocxInsertParagraphResponse](docs/InsertDocxInsertParagraphResponse.md)
  - [CloudmersiveConvertApiClient::InsertDocxTablesRequest](docs/InsertDocxTablesRequest.md)
  - [CloudmersiveConvertApiClient::InsertDocxTablesResponse](docs/InsertDocxTablesResponse.md)
+ - [CloudmersiveConvertApiClient::InsertXlsxWorksheetRequest](docs/InsertXlsxWorksheetRequest.md)
+ - [CloudmersiveConvertApiClient::InsertXlsxWorksheetResponse](docs/InsertXlsxWorksheetResponse.md)
  - [CloudmersiveConvertApiClient::PdfToPngResult](docs/PdfToPngResult.md)
  - [CloudmersiveConvertApiClient::RemoveDocxHeadersAndFootersRequest](docs/RemoveDocxHeadersAndFootersRequest.md)
  - [CloudmersiveConvertApiClient::RemoveDocxHeadersAndFootersResponse](docs/RemoveDocxHeadersAndFootersResponse.md)
  - [CloudmersiveConvertApiClient::ReplaceStringRequest](docs/ReplaceStringRequest.md)
  - [CloudmersiveConvertApiClient::ScreenshotRequest](docs/ScreenshotRequest.md)
  - [CloudmersiveConvertApiClient::ViewerResponse](docs/ViewerResponse.md)
+ - [CloudmersiveConvertApiClient::XlsxImage](docs/XlsxImage.md)
+ - [CloudmersiveConvertApiClient::XlsxSpreadsheetCell](docs/XlsxSpreadsheetCell.md)
+ - [CloudmersiveConvertApiClient::XlsxSpreadsheetColumn](docs/XlsxSpreadsheetColumn.md)
+ - [CloudmersiveConvertApiClient::XlsxSpreadsheetRow](docs/XlsxSpreadsheetRow.md)
+ - [CloudmersiveConvertApiClient::XlsxWorksheet](docs/XlsxWorksheet.md)
 
 
 ## Documentation for Authorization

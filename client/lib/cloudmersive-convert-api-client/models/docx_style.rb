@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # ID of the style
     attr_accessor :style_id
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Style applies bold formatting
     attr_accessor :bold
 
@@ -38,6 +41,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'style_id' => :'StyleID',
+        :'path' => :'Path',
         :'bold' => :'Bold',
         :'italic' => :'Italic',
         :'underline' => :'Underline',
@@ -50,6 +54,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'style_id' => :'String',
+        :'path' => :'String',
         :'bold' => :'BOOLEAN',
         :'italic' => :'BOOLEAN',
         :'underline' => :'BOOLEAN',
@@ -68,6 +73,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'StyleID')
         self.style_id = attributes[:'StyleID']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'Bold')
@@ -111,6 +120,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           style_id == o.style_id &&
+          path == o.path &&
           bold == o.bold &&
           italic == o.italic &&
           underline == o.underline &&
@@ -127,7 +137,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [style_id, bold, italic, underline, font_size, font_family].hash
+      [style_id, path, bold, italic, underline, font_size, font_family].hash
     end
 
     # Builds the object from hash

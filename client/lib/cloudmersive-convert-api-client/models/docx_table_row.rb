@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # Index of the row, 0-based
     attr_accessor :row_index
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Cells in the row; this is where the contents of the row is stored
     attr_accessor :row_cells
 
@@ -26,6 +29,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'row_index' => :'RowIndex',
+        :'path' => :'Path',
         :'row_cells' => :'RowCells'
       }
     end
@@ -34,6 +38,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'row_index' => :'Integer',
+        :'path' => :'String',
         :'row_cells' => :'Array<DocxTableCell>'
       }
     end
@@ -48,6 +53,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'RowIndex')
         self.row_index = attributes[:'RowIndex']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'RowCells')
@@ -77,6 +86,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           row_index == o.row_index &&
+          path == o.path &&
           row_cells == o.row_cells
     end
 
@@ -89,7 +99,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [row_index, row_cells].hash
+      [row_index, path, row_cells].hash
     end
 
     # Builds the object from hash

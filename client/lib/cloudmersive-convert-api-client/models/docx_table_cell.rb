@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # The index of the cell, 0-based
     attr_accessor :cell_index
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Paragraphs inside the cell; this is where the contents of the cell are stored
     attr_accessor :paragraphs
 
@@ -41,6 +44,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'cell_index' => :'CellIndex',
+        :'path' => :'Path',
         :'paragraphs' => :'Paragraphs',
         :'cell_shading_color' => :'CellShadingColor',
         :'cell_shading_fill' => :'CellShadingFill',
@@ -54,6 +58,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'cell_index' => :'Integer',
+        :'path' => :'String',
         :'paragraphs' => :'Array<DocxParagraph>',
         :'cell_shading_color' => :'String',
         :'cell_shading_fill' => :'String',
@@ -73,6 +78,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'CellIndex')
         self.cell_index = attributes[:'CellIndex']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'Paragraphs')
@@ -122,6 +131,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           cell_index == o.cell_index &&
+          path == o.path &&
           paragraphs == o.paragraphs &&
           cell_shading_color == o.cell_shading_color &&
           cell_shading_fill == o.cell_shading_fill &&
@@ -139,7 +149,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [cell_index, paragraphs, cell_shading_color, cell_shading_fill, cell_shading_pattern, cell_width_mode, cell_width].hash
+      [cell_index, path, paragraphs, cell_shading_color, cell_shading_fill, cell_shading_pattern, cell_width_mode, cell_width].hash
     end
 
     # Builds the object from hash

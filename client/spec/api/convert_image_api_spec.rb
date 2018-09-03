@@ -32,6 +32,18 @@ describe 'ConvertImageApi' do
     end
   end
 
+  # unit tests for convert_image_get_image_info
+  # Get information about an image
+  # Get details from an image such as size, format and MIME type, compression, EXIF data such as location, DPI, unique colors, transparency information, and more
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetImageInfoResult]
+  describe 'convert_image_get_image_info test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_image_image_format_convert
   # Image format conversion
   # Convert between over 100 file formats, including key formats such as Photoshop (PSD), PNG, JPG, GIF, NEF, and BMP.
@@ -41,6 +53,19 @@ describe 'ConvertImageApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_image_image_format_convert test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_image_image_set_dpi
+  # Change image DPI
+  # Resize an image to have a different DPI
+  # @param dpi New DPI in pixels-per-inch, for example 300 DPI or 600 DPI
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_image_image_set_dpi test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

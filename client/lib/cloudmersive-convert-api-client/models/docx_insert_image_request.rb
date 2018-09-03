@@ -21,17 +21,20 @@ module CloudmersiveConvertApiClient
     # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
     attr_accessor :input_document_file_url
 
-    # Optional: Bytes of the input image file to operate on
+    # Optional: Bytes of the input image file to operate on; if you supply this value do not supply InputImageFileUrl or ImageToAdd.
     attr_accessor :input_image_file_bytes
 
-    # Optional: URL of an image file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # Optional: URL of an image file to operate on as input; if you supply this value do not supply InputImageFileBytes or ImageToAdd.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
     attr_accessor :input_image_file_url
 
-    # Width in points of the image, set to 0 for default
-    attr_accessor :image_width
+    # Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl.
+    attr_accessor :image_to_add
 
-    # Height in point of the image, set to 0 for default
-    attr_accessor :image_height
+    # Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)
+    attr_accessor :insert_placement
+
+    # Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject
+    attr_accessor :insert_path
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -41,8 +44,9 @@ module CloudmersiveConvertApiClient
         :'input_document_file_url' => :'InputDocumentFileUrl',
         :'input_image_file_bytes' => :'InputImageFileBytes',
         :'input_image_file_url' => :'InputImageFileUrl',
-        :'image_width' => :'ImageWidth',
-        :'image_height' => :'ImageHeight'
+        :'image_to_add' => :'ImageToAdd',
+        :'insert_placement' => :'InsertPlacement',
+        :'insert_path' => :'InsertPath'
       }
     end
 
@@ -53,8 +57,9 @@ module CloudmersiveConvertApiClient
         :'input_document_file_url' => :'String',
         :'input_image_file_bytes' => :'String',
         :'input_image_file_url' => :'String',
-        :'image_width' => :'Integer',
-        :'image_height' => :'Integer'
+        :'image_to_add' => :'DocxImage',
+        :'insert_placement' => :'String',
+        :'insert_path' => :'String'
       }
     end
 
@@ -82,12 +87,16 @@ module CloudmersiveConvertApiClient
         self.input_image_file_url = attributes[:'InputImageFileUrl']
       end
 
-      if attributes.has_key?(:'ImageWidth')
-        self.image_width = attributes[:'ImageWidth']
+      if attributes.has_key?(:'ImageToAdd')
+        self.image_to_add = attributes[:'ImageToAdd']
       end
 
-      if attributes.has_key?(:'ImageHeight')
-        self.image_height = attributes[:'ImageHeight']
+      if attributes.has_key?(:'InsertPlacement')
+        self.insert_placement = attributes[:'InsertPlacement']
+      end
+
+      if attributes.has_key?(:'InsertPath')
+        self.insert_path = attributes[:'InsertPath']
       end
 
     end
@@ -146,8 +155,9 @@ module CloudmersiveConvertApiClient
           input_document_file_url == o.input_document_file_url &&
           input_image_file_bytes == o.input_image_file_bytes &&
           input_image_file_url == o.input_image_file_url &&
-          image_width == o.image_width &&
-          image_height == o.image_height
+          image_to_add == o.image_to_add &&
+          insert_placement == o.insert_placement &&
+          insert_path == o.insert_path
     end
 
     # @see the `==` method
@@ -159,7 +169,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [input_document_file_bytes, input_document_file_url, input_image_file_bytes, input_image_file_url, image_width, image_height].hash
+      [input_document_file_bytes, input_document_file_url, input_image_file_bytes, input_image_file_url, image_to_add, insert_placement, insert_path].hash
     end
 
     # Builds the object from hash

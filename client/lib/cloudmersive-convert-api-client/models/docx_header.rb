@@ -15,6 +15,9 @@ require 'date'
 module CloudmersiveConvertApiClient
   # Header of a Word Document (DOCX)
   class DocxHeader
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Paragraphs in this header
     attr_accessor :paragraphs
 
@@ -25,6 +28,7 @@ module CloudmersiveConvertApiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'path' => :'Path',
         :'paragraphs' => :'Paragraphs',
         :'sections_with_header' => :'SectionsWithHeader'
       }
@@ -33,6 +37,7 @@ module CloudmersiveConvertApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'path' => :'String',
         :'paragraphs' => :'Array<DocxParagraph>',
         :'sections_with_header' => :'Array<DocxSection>'
       }
@@ -45,6 +50,10 @@ module CloudmersiveConvertApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
+      end
 
       if attributes.has_key?(:'Paragraphs')
         if (value = attributes[:'Paragraphs']).is_a?(Array)
@@ -78,6 +87,7 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          path == o.path &&
           paragraphs == o.paragraphs &&
           sections_with_header == o.sections_with_header
     end
@@ -91,7 +101,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [paragraphs, sections_with_header].hash
+      [path, paragraphs, sections_with_header].hash
     end
 
     # Builds the object from hash

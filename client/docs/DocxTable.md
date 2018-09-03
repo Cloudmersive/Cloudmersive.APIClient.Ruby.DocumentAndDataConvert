@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**table_id** | **String** | The ID of the table | [optional] 
+**table_id** | **String** | The ID of the table; leave blank for new tables | [optional] 
+**path** | **String** | The Path of the location of this object; leave blank for new tables | [optional] 
 **width** | **String** | The Width of the table, or 0 if not specified | [optional] 
 **width_type** | **String** | The Width configuration type of the table | [optional] 
 **table_rows** | [**Array&lt;DocxTableRow&gt;**](DocxTableRow.md) | Rows in the table; this is where the contents is located | [optional] 

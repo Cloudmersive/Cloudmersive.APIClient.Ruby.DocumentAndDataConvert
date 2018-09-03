@@ -24,13 +24,21 @@ module CloudmersiveConvertApiClient
     # Table you would like to insert
     attr_accessor :table_to_insert
 
+    # Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object)
+    attr_accessor :insert_placement
+
+    # Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject
+    attr_accessor :insert_path
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'input_file_bytes' => :'InputFileBytes',
         :'input_file_url' => :'InputFileUrl',
-        :'table_to_insert' => :'TableToInsert'
+        :'table_to_insert' => :'TableToInsert',
+        :'insert_placement' => :'InsertPlacement',
+        :'insert_path' => :'InsertPath'
       }
     end
 
@@ -39,7 +47,9 @@ module CloudmersiveConvertApiClient
       {
         :'input_file_bytes' => :'String',
         :'input_file_url' => :'String',
-        :'table_to_insert' => :'DocxTable'
+        :'table_to_insert' => :'DocxTable',
+        :'insert_placement' => :'String',
+        :'insert_path' => :'String'
       }
     end
 
@@ -61,6 +71,14 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'TableToInsert')
         self.table_to_insert = attributes[:'TableToInsert']
+      end
+
+      if attributes.has_key?(:'InsertPlacement')
+        self.insert_placement = attributes[:'InsertPlacement']
+      end
+
+      if attributes.has_key?(:'InsertPath')
+        self.insert_path = attributes[:'InsertPath']
       end
 
     end
@@ -101,7 +119,9 @@ module CloudmersiveConvertApiClient
       self.class == o.class &&
           input_file_bytes == o.input_file_bytes &&
           input_file_url == o.input_file_url &&
-          table_to_insert == o.table_to_insert
+          table_to_insert == o.table_to_insert &&
+          insert_placement == o.insert_placement &&
+          insert_path == o.insert_path
     end
 
     # @see the `==` method
@@ -113,7 +133,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [input_file_bytes, input_file_url, table_to_insert].hash
+      [input_file_bytes, input_file_url, table_to_insert, insert_placement, insert_path].hash
     end
 
     # Builds the object from hash

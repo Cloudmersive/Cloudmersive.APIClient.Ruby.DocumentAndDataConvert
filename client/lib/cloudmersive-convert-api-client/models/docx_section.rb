@@ -18,18 +18,23 @@ module CloudmersiveConvertApiClient
     # Page numbers that the section starts at, typically just one
     attr_accessor :starting_page_numbers
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'starting_page_numbers' => :'StartingPageNumbers'
+        :'starting_page_numbers' => :'StartingPageNumbers',
+        :'path' => :'Path'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'starting_page_numbers' => :'Array<Integer>'
+        :'starting_page_numbers' => :'Array<Integer>',
+        :'path' => :'String'
       }
     end
 
@@ -45,6 +50,10 @@ module CloudmersiveConvertApiClient
         if (value = attributes[:'StartingPageNumbers']).is_a?(Array)
           self.starting_page_numbers = value
         end
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
     end
@@ -67,7 +76,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          starting_page_numbers == o.starting_page_numbers
+          starting_page_numbers == o.starting_page_numbers &&
+          path == o.path
     end
 
     # @see the `==` method
@@ -79,7 +89,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [starting_page_numbers].hash
+      [starting_page_numbers, path].hash
     end
 
     # Builds the object from hash

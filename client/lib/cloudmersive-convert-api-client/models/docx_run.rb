@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # Index of the run, 0-based
     attr_accessor :run_index
 
+    # The Path of the location of this object; leave blank for new tables
+    attr_accessor :path
+
     # Text items inside the run; this is where the actual text content is stored
     attr_accessor :text_items
 
@@ -41,6 +44,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'run_index' => :'RunIndex',
+        :'path' => :'Path',
         :'text_items' => :'TextItems',
         :'bold' => :'Bold',
         :'italic' => :'Italic',
@@ -54,6 +58,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'run_index' => :'Integer',
+        :'path' => :'String',
         :'text_items' => :'Array<DocxText>',
         :'bold' => :'BOOLEAN',
         :'italic' => :'BOOLEAN',
@@ -73,6 +78,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'RunIndex')
         self.run_index = attributes[:'RunIndex']
+      end
+
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
       if attributes.has_key?(:'TextItems')
@@ -122,6 +131,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           run_index == o.run_index &&
+          path == o.path &&
           text_items == o.text_items &&
           bold == o.bold &&
           italic == o.italic &&
@@ -139,7 +149,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [run_index, text_items, bold, italic, underline, font_family, font_size].hash
+      [run_index, path, text_items, bold, italic, underline, font_family, font_size].hash
     end
 
     # Builds the object from hash

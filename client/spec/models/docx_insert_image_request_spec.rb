@@ -56,13 +56,19 @@ describe 'DocxInsertImageRequest' do
     end
   end
 
-  describe 'test attribute "image_width"' do
+  describe 'test attribute "image_to_add"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "image_height"' do
+  describe 'test attribute "insert_placement"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "insert_path"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

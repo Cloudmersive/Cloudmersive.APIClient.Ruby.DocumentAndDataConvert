@@ -76,6 +76,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Get body from a DOCX
+    # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxBodyResponse]
+    def edit_document_docx_body(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_body_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get body from a DOCX
+    # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxBodyResponse, Fixnum, Hash)>] GetDocxBodyResponse data, response status code and response headers
+    def edit_document_docx_body_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_body ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_body"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-body"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxBodyResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_body\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content of a footer from a DOCX
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config 
@@ -127,6 +182,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'GetDocxHeadersAndFootersResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_headers_and_footers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get images from a DOCX
+    # Returns the images defined in the Word Document (DOCX) format file
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxImagesResponse]
+    def edit_document_docx_get_images(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_images_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get images from a DOCX
+    # Returns the images defined in the Word Document (DOCX) format file
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxImagesResponse, Fixnum, Hash)>] GetDocxImagesResponse data, response status code and response headers
+    def edit_document_docx_get_images_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_images ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_images"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-images"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxImagesResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get sections from a DOCX
+    # Returns the sections defined in the Word Document (DOCX) format file
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxSectionsResponse]
+    def edit_document_docx_get_sections(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_sections_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get sections from a DOCX
+    # Returns the sections defined in the Word Document (DOCX) format file
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxSectionsResponse, Fixnum, Hash)>] GetDocxSectionsResponse data, response status code and response headers
+    def edit_document_docx_get_sections_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_sections ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_sections"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-sections"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxSectionsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_sections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -296,6 +461,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Insert a new paragraph into a DOCX
+    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [InsertDocxInsertParagraphResponse]
+    def edit_document_docx_insert_paragraph(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_insert_paragraph_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Insert a new paragraph into a DOCX
+    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InsertDocxInsertParagraphResponse, Fixnum, Hash)>] InsertDocxInsertParagraphResponse data, response status code and response headers
+    def edit_document_docx_insert_paragraph_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_insert_paragraph ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_insert_paragraph"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/insert-paragraph"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InsertDocxInsertParagraphResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_insert_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Insert a new table into a DOCX
     # Adds a new table into a DOCX and returns the result
     # @param req_config 
@@ -402,6 +622,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'RemoveDocxHeadersAndFootersResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_remove_headers_and_footers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete any object in a DOCX
+    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [DocxRemoveObjectResponse]
+    def edit_document_docx_remove_object(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_remove_object_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Delete any object in a DOCX
+    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocxRemoveObjectResponse, Fixnum, Hash)>] DocxRemoveObjectResponse data, response status code and response headers
+    def edit_document_docx_remove_object_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_remove_object ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_remove_object"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/remove-object"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocxRemoveObjectResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_remove_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -677,6 +952,336 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_replace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get rows and cells from a XLSX worksheet
+    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxColumnsResponse]
+    def edit_document_xlsx_get_columns(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_columns_with_http_info(input, opts)
+      return data
+    end
+
+    # Get rows and cells from a XLSX worksheet
+    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxColumnsResponse, Fixnum, Hash)>] GetXlsxColumnsResponse data, response status code and response headers
+    def edit_document_xlsx_get_columns_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_columns ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_columns"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-columns"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxColumnsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_columns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get images from a XLSX worksheet
+    # Returns the images defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxImagesResponse]
+    def edit_document_xlsx_get_images(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_images_with_http_info(input, opts)
+      return data
+    end
+
+    # Get images from a XLSX worksheet
+    # Returns the images defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxImagesResponse, Fixnum, Hash)>] GetXlsxImagesResponse data, response status code and response headers
+    def edit_document_xlsx_get_images_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_images ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_images"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-images"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxImagesResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get rows and cells from a XLSX worksheet
+    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxRowsAndCellsResponse]
+    def edit_document_xlsx_get_rows_and_cells(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_rows_and_cells_with_http_info(input, opts)
+      return data
+    end
+
+    # Get rows and cells from a XLSX worksheet
+    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxRowsAndCellsResponse, Fixnum, Hash)>] GetXlsxRowsAndCellsResponse data, response status code and response headers
+    def edit_document_xlsx_get_rows_and_cells_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_rows_and_cells ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_rows_and_cells"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-rows-and-cells"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxRowsAndCellsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_rows_and_cells\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get styles from a XLSX worksheet
+    # Returns the style defined in the Excel Spreadsheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxStylesResponse]
+    def edit_document_xlsx_get_styles(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_styles_with_http_info(input, opts)
+      return data
+    end
+
+    # Get styles from a XLSX worksheet
+    # Returns the style defined in the Excel Spreadsheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxStylesResponse, Fixnum, Hash)>] GetXlsxStylesResponse data, response status code and response headers
+    def edit_document_xlsx_get_styles_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_styles ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_styles"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-styles"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxStylesResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_styles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get worksheets from a XLSX
+    # Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxWorksheetsResponse]
+    def edit_document_xlsx_get_worksheets(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_worksheets_with_http_info(input, opts)
+      return data
+    end
+
+    # Get worksheets from a XLSX
+    # Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxWorksheetsResponse, Fixnum, Hash)>] GetXlsxWorksheetsResponse data, response status code and response headers
+    def edit_document_xlsx_get_worksheets_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_worksheets ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_worksheets"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-worksheets"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxWorksheetsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_worksheets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Insert a new worksheet into an XLSX spreadsheet
+    # Inserts a new worksheet into an Excel Spreadsheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [InsertXlsxWorksheetResponse]
+    def edit_document_xlsx_insert_worksheet(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_insert_worksheet_with_http_info(input, opts)
+      return data
+    end
+
+    # Insert a new worksheet into an XLSX spreadsheet
+    # Inserts a new worksheet into an Excel Spreadsheet
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InsertXlsxWorksheetResponse, Fixnum, Hash)>] InsertXlsxWorksheetResponse data, response status code and response headers
+    def edit_document_xlsx_insert_worksheet_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_insert_worksheet ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_insert_worksheet"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/insert-worksheet"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InsertXlsxWorksheetResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_insert_worksheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
