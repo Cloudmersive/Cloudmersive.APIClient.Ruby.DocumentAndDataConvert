@@ -10,4 +10,9 @@ Remove-Item *.gem
 
 #& npm build ./client
 
-& gem build ./client/cloudmersive-convert-api-client.gemspec
+Push-Location
+& cd ./client
+
+& gem build ./cloudmersive-convert-api-client.gemspec
+
+Pop-Location
