@@ -13,83 +13,38 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveConvertApiClient
+  # Result of an autodetect/get-info operation
+  class AutodetectGetInfoResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-  class DocxImage
-    # The Path of the location of this object; leave blank for new tables
-    attr_accessor :path
+    # Detected file extension of the file format, with a leading period
+    attr_accessor :detected_file_extension
 
-    # The Name of the image
-    attr_accessor :image_name
+    # MIME type of this file extension
+    attr_accessor :detected_mime_type
 
-    # The Id of the image
-    attr_accessor :image_id
-
-    # The Description of the image
-    attr_accessor :image_description
-
-    # Width of the image in EMUs (English Metric Units); set to 0 to default to page width and aspect-ratio based height
-    attr_accessor :image_width
-
-    # Height of the image in EMUs (English Metric Units); set to 0 to default to page width and aspect-ratio based height
-    attr_accessor :image_height
-
-    # X (horizontal) offset of the image
-    attr_accessor :x_offset
-
-    # Y (vertical) offset of the image
-    attr_accessor :y_offset
-
-    # Read-only; internal ID for the image contents
-    attr_accessor :image_data_embed_id
-
-    # Read-only; image data MIME content-type
-    attr_accessor :image_data_content_type
-
-    # Read-only; internal file name/path for the image
-    attr_accessor :image_internal_file_name
-
-    # URL to the image contents; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the contents.
-    attr_accessor :image_contents_url
-
-    # True if the image is inline with the text; false if it is floating
-    attr_accessor :inline_with_text
+    # Alternate file type options and their probability
+    attr_accessor :alternate_file_type_candidates
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'path' => :'Path',
-        :'image_name' => :'ImageName',
-        :'image_id' => :'ImageId',
-        :'image_description' => :'ImageDescription',
-        :'image_width' => :'ImageWidth',
-        :'image_height' => :'ImageHeight',
-        :'x_offset' => :'XOffset',
-        :'y_offset' => :'YOffset',
-        :'image_data_embed_id' => :'ImageDataEmbedId',
-        :'image_data_content_type' => :'ImageDataContentType',
-        :'image_internal_file_name' => :'ImageInternalFileName',
-        :'image_contents_url' => :'ImageContentsURL',
-        :'inline_with_text' => :'InlineWithText'
+        :'successful' => :'Successful',
+        :'detected_file_extension' => :'DetectedFileExtension',
+        :'detected_mime_type' => :'DetectedMimeType',
+        :'alternate_file_type_candidates' => :'AlternateFileTypeCandidates'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'path' => :'String',
-        :'image_name' => :'String',
-        :'image_id' => :'Integer',
-        :'image_description' => :'String',
-        :'image_width' => :'Integer',
-        :'image_height' => :'Integer',
-        :'x_offset' => :'Integer',
-        :'y_offset' => :'Integer',
-        :'image_data_embed_id' => :'String',
-        :'image_data_content_type' => :'String',
-        :'image_internal_file_name' => :'String',
-        :'image_contents_url' => :'String',
-        :'inline_with_text' => :'BOOLEAN'
+        :'successful' => :'BOOLEAN',
+        :'detected_file_extension' => :'String',
+        :'detected_mime_type' => :'String',
+        :'alternate_file_type_candidates' => :'Array<AlternateFileFormatCandidate>'
       }
     end
 
@@ -101,56 +56,22 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'ImageName')
-        self.image_name = attributes[:'ImageName']
+      if attributes.has_key?(:'DetectedFileExtension')
+        self.detected_file_extension = attributes[:'DetectedFileExtension']
       end
 
-      if attributes.has_key?(:'ImageId')
-        self.image_id = attributes[:'ImageId']
+      if attributes.has_key?(:'DetectedMimeType')
+        self.detected_mime_type = attributes[:'DetectedMimeType']
       end
 
-      if attributes.has_key?(:'ImageDescription')
-        self.image_description = attributes[:'ImageDescription']
-      end
-
-      if attributes.has_key?(:'ImageWidth')
-        self.image_width = attributes[:'ImageWidth']
-      end
-
-      if attributes.has_key?(:'ImageHeight')
-        self.image_height = attributes[:'ImageHeight']
-      end
-
-      if attributes.has_key?(:'XOffset')
-        self.x_offset = attributes[:'XOffset']
-      end
-
-      if attributes.has_key?(:'YOffset')
-        self.y_offset = attributes[:'YOffset']
-      end
-
-      if attributes.has_key?(:'ImageDataEmbedId')
-        self.image_data_embed_id = attributes[:'ImageDataEmbedId']
-      end
-
-      if attributes.has_key?(:'ImageDataContentType')
-        self.image_data_content_type = attributes[:'ImageDataContentType']
-      end
-
-      if attributes.has_key?(:'ImageInternalFileName')
-        self.image_internal_file_name = attributes[:'ImageInternalFileName']
-      end
-
-      if attributes.has_key?(:'ImageContentsURL')
-        self.image_contents_url = attributes[:'ImageContentsURL']
-      end
-
-      if attributes.has_key?(:'InlineWithText')
-        self.inline_with_text = attributes[:'InlineWithText']
+      if attributes.has_key?(:'AlternateFileTypeCandidates')
+        if (value = attributes[:'AlternateFileTypeCandidates']).is_a?(Array)
+          self.alternate_file_type_candidates = value
+        end
       end
 
     end
@@ -173,19 +94,10 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          path == o.path &&
-          image_name == o.image_name &&
-          image_id == o.image_id &&
-          image_description == o.image_description &&
-          image_width == o.image_width &&
-          image_height == o.image_height &&
-          x_offset == o.x_offset &&
-          y_offset == o.y_offset &&
-          image_data_embed_id == o.image_data_embed_id &&
-          image_data_content_type == o.image_data_content_type &&
-          image_internal_file_name == o.image_internal_file_name &&
-          image_contents_url == o.image_contents_url &&
-          inline_with_text == o.inline_with_text
+          successful == o.successful &&
+          detected_file_extension == o.detected_file_extension &&
+          detected_mime_type == o.detected_mime_type &&
+          alternate_file_type_candidates == o.alternate_file_type_candidates
     end
 
     # @see the `==` method
@@ -197,7 +109,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [path, image_name, image_id, image_description, image_width, image_height, x_offset, y_offset, image_data_embed_id, image_data_content_type, image_internal_file_name, image_contents_url, inline_with_text].hash
+      [successful, detected_file_extension, detected_mime_type, alternate_file_type_candidates].hash
     end
 
     # Builds the object from hash

@@ -17,6 +17,8 @@ require 'cloudmersive-convert-api-client/version'
 require 'cloudmersive-convert-api-client/configuration'
 
 # Models
+require 'cloudmersive-convert-api-client/models/alternate_file_format_candidate'
+require 'cloudmersive-convert-api-client/models/autodetect_get_info_result'
 require 'cloudmersive-convert-api-client/models/converted_png_page'
 require 'cloudmersive-convert-api-client/models/document_validation_error'
 require 'cloudmersive-convert-api-client/models/document_validation_result'

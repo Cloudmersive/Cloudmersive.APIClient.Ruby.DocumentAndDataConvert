@@ -32,6 +32,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_autodetect_get_info
+  # Get document type information
+  # Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [AutodetectGetInfoResult]
+  describe 'convert_document_autodetect_get_info test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_autodetect_to_pdf
   # Convert Document to PDF
   # Automatically detect file type and convert it to PDF.
