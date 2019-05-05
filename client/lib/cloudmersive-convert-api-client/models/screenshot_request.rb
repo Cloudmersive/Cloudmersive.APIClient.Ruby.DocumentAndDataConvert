@@ -19,12 +19,18 @@ module CloudmersiveConvertApiClient
 
     attr_accessor :extra_loading_wait
 
+    attr_accessor :screenshot_width
+
+    attr_accessor :screenshot_height
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'url' => :'Url',
-        :'extra_loading_wait' => :'ExtraLoadingWait'
+        :'extra_loading_wait' => :'ExtraLoadingWait',
+        :'screenshot_width' => :'ScreenshotWidth',
+        :'screenshot_height' => :'ScreenshotHeight'
       }
     end
 
@@ -32,7 +38,9 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'url' => :'String',
-        :'extra_loading_wait' => :'Integer'
+        :'extra_loading_wait' => :'Integer',
+        :'screenshot_width' => :'Integer',
+        :'screenshot_height' => :'Integer'
       }
     end
 
@@ -50,6 +58,14 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'ExtraLoadingWait')
         self.extra_loading_wait = attributes[:'ExtraLoadingWait']
+      end
+
+      if attributes.has_key?(:'ScreenshotWidth')
+        self.screenshot_width = attributes[:'ScreenshotWidth']
+      end
+
+      if attributes.has_key?(:'ScreenshotHeight')
+        self.screenshot_height = attributes[:'ScreenshotHeight']
       end
 
     end
@@ -73,7 +89,9 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           url == o.url &&
-          extra_loading_wait == o.extra_loading_wait
+          extra_loading_wait == o.extra_loading_wait &&
+          screenshot_width == o.screenshot_width &&
+          screenshot_height == o.screenshot_height
     end
 
     # @see the `==` method
@@ -85,7 +103,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, extra_loading_wait].hash
+      [url, extra_loading_wait, screenshot_width, screenshot_height].hash
     end
 
     # Builds the object from hash
