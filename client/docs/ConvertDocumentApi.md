@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_xls_to_pdf**
-> Object convert_document_xls_to_pdf(input_file)
+> String convert_document_xls_to_pdf(input_file)
 
 Excel XLS (97-03) to PDF
 
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 

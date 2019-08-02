@@ -157,7 +157,7 @@ describe 'ConvertDocumentApi' do
   # Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_xls_to_pdf test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

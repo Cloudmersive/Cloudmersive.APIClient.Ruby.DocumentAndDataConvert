@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_web_html_to_pdf**
-> Object convert_web_html_to_pdf(input)
+> String convert_web_html_to_pdf(input)
 
 Convert HTML string to PDF
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 

@@ -13,38 +13,26 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Document validation result
-  class DocumentValidationResult
-    # True if the document is valid and has no errors, false otherwise
-    attr_accessor :document_is_valid
+  # Converted page as an image
+  class PageConversionResult
+    attr_accessor :filename
 
-    # Number of validation errors found in the document
-    attr_accessor :error_count
-
-    # Number of validation warnings found in the document
-    attr_accessor :warning_count
-
-    # Details of errors and warnings found
-    attr_accessor :errors_and_warnings
+    attr_accessor :file_bytes
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'document_is_valid' => :'DocumentIsValid',
-        :'error_count' => :'ErrorCount',
-        :'warning_count' => :'WarningCount',
-        :'errors_and_warnings' => :'ErrorsAndWarnings'
+        :'filename' => :'Filename',
+        :'file_bytes' => :'FileBytes'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'document_is_valid' => :'BOOLEAN',
-        :'error_count' => :'Integer',
-        :'warning_count' => :'Integer',
-        :'errors_and_warnings' => :'Array<DocumentValidationError>'
+        :'filename' => :'String',
+        :'file_bytes' => :'String'
       }
     end
 
@@ -56,22 +44,12 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'DocumentIsValid')
-        self.document_is_valid = attributes[:'DocumentIsValid']
+      if attributes.has_key?(:'Filename')
+        self.filename = attributes[:'Filename']
       end
 
-      if attributes.has_key?(:'ErrorCount')
-        self.error_count = attributes[:'ErrorCount']
-      end
-
-      if attributes.has_key?(:'WarningCount')
-        self.warning_count = attributes[:'WarningCount']
-      end
-
-      if attributes.has_key?(:'ErrorsAndWarnings')
-        if (value = attributes[:'ErrorsAndWarnings']).is_a?(Array)
-          self.errors_and_warnings = value
-        end
+      if attributes.has_key?(:'FileBytes')
+        self.file_bytes = attributes[:'FileBytes']
       end
 
     end
@@ -80,13 +58,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@file_bytes.nil? && @file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@file_bytes.nil? && @file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] file_bytes Value to be assigned
+    def file_bytes=(file_bytes)
+
+      if !file_bytes.nil? && file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @file_bytes = file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -94,10 +88,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          document_is_valid == o.document_is_valid &&
-          error_count == o.error_count &&
-          warning_count == o.warning_count &&
-          errors_and_warnings == o.errors_and_warnings
+          filename == o.filename &&
+          file_bytes == o.file_bytes
     end
 
     # @see the `==` method
@@ -109,7 +101,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [document_is_valid, error_count, warning_count, errors_and_warnings].hash
+      [filename, file_bytes].hash
     end
 
     # Builds the object from hash

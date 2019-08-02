@@ -13,38 +13,30 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Document validation result
-  class DocumentValidationResult
-    # True if the document is valid and has no errors, false otherwise
-    attr_accessor :document_is_valid
+  # Result of converting a multi-page image into individual pages with a different format
+  class MultipageImageFormatConversionResult
+    attr_accessor :successful
 
-    # Number of validation errors found in the document
-    attr_accessor :error_count
+    attr_accessor :page_count
 
-    # Number of validation warnings found in the document
-    attr_accessor :warning_count
-
-    # Details of errors and warnings found
-    attr_accessor :errors_and_warnings
+    attr_accessor :pages
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'document_is_valid' => :'DocumentIsValid',
-        :'error_count' => :'ErrorCount',
-        :'warning_count' => :'WarningCount',
-        :'errors_and_warnings' => :'ErrorsAndWarnings'
+        :'successful' => :'Successful',
+        :'page_count' => :'PageCount',
+        :'pages' => :'Pages'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'document_is_valid' => :'BOOLEAN',
-        :'error_count' => :'Integer',
-        :'warning_count' => :'Integer',
-        :'errors_and_warnings' => :'Array<DocumentValidationError>'
+        :'successful' => :'BOOLEAN',
+        :'page_count' => :'Integer',
+        :'pages' => :'Array<PageConversionResult>'
       }
     end
 
@@ -56,21 +48,17 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'DocumentIsValid')
-        self.document_is_valid = attributes[:'DocumentIsValid']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'ErrorCount')
-        self.error_count = attributes[:'ErrorCount']
+      if attributes.has_key?(:'PageCount')
+        self.page_count = attributes[:'PageCount']
       end
 
-      if attributes.has_key?(:'WarningCount')
-        self.warning_count = attributes[:'WarningCount']
-      end
-
-      if attributes.has_key?(:'ErrorsAndWarnings')
-        if (value = attributes[:'ErrorsAndWarnings']).is_a?(Array)
-          self.errors_and_warnings = value
+      if attributes.has_key?(:'Pages')
+        if (value = attributes[:'Pages']).is_a?(Array)
+          self.pages = value
         end
       end
 
@@ -94,10 +82,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          document_is_valid == o.document_is_valid &&
-          error_count == o.error_count &&
-          warning_count == o.warning_count &&
-          errors_and_warnings == o.errors_and_warnings
+          successful == o.successful &&
+          page_count == o.page_count &&
+          pages == o.pages
     end
 
     # @see the `==` method
@@ -109,7 +96,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [document_is_valid, error_count, warning_count, errors_and_warnings].hash
+      [successful, page_count, pages].hash
     end
 
     # Builds the object from hash

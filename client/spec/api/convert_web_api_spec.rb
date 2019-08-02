@@ -49,7 +49,7 @@ describe 'ConvertWebApi' do
   # Fully renders a website and returns a PDF of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
   # @param input HTML to PDF request parameters
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'convert_web_html_to_pdf test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
