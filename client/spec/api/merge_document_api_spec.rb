@@ -45,6 +45,19 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_pdf
+  # Merge Multple PDF Files Together
+  # Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'merge_document_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_pptx
   # Merge Multple PowerPoint PPTX Together
   # Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation

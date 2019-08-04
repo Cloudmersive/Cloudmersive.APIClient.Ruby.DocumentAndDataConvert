@@ -104,6 +104,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pdf_to_docx
+  # PDF to Word DOCX
+  # Convert standard PDF to Office Word Documents (docx).    Converts a PDF at high fidelity into Word format, where it can be easily edited and processed.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_pdf_to_docx test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pdf_to_png_array
   # PDF to PNG Array
   # Convert PDF document to PNG array, one image per page.
@@ -111,6 +123,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [PdfToPngResult]
   describe 'convert_document_pdf_to_png_array test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_pdf_to_pptx
+  # PDF to PowerPoint PPTX
+  # Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_pdf_to_pptx test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
