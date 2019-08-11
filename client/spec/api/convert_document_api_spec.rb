@@ -34,7 +34,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_autodetect_get_info
   # Get document type information
-  # Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.
+  # Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.  Even if no file extension is present, the auto-detect system will reliably analyze the contents of the file and identify its file type.  Supports over 100 image file formats, Office document file formats, PDF, and more.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [AutodetectGetInfoResult]
@@ -46,11 +46,23 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_autodetect_to_pdf
   # Convert Document to PDF
-  # Automatically detect file type and convert it to PDF.
+  # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_autodetect_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_autodetect_to_png_array
+  # Convert Document to PNG array
+  # Automatically detect file type and convert it to an array of PNG images.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [AutodetectToPngResult]
+  describe 'convert_document_autodetect_to_png_array test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

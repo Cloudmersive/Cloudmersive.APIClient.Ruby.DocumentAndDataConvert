@@ -21,7 +21,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Get document type information
-    # Auto-detects a document's type information; does not require file extension.  Analyzes file contents to confirm file type.
+    # Auto-detects a document's type information; does not require file extension.  Analyzes file contents to confirm file type.  Even if no file extension is present, the auto-detect system will reliably analyze the contents of the file and identify its file type.  Supports over 100 image file formats, Office document file formats, PDF, and more.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [AutodetectGetInfoResult]
@@ -31,7 +31,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Get document type information
-    # Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.
+    # Auto-detects a document&#39;s type information; does not require file extension.  Analyzes file contents to confirm file type.  Even if no file extension is present, the auto-detect system will reliably analyze the contents of the file and identify its file type.  Supports over 100 image file formats, Office document file formats, PDF, and more.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AutodetectGetInfoResult, Fixnum, Hash)>] AutodetectGetInfoResult data, response status code and response headers
@@ -77,7 +77,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert Document to PDF
-    # Automatically detect file type and convert it to PDF.
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [String]
@@ -87,7 +87,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert Document to PDF
-    # Automatically detect file type and convert it to PDF.
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
@@ -128,6 +128,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Document to PNG array
+    # Automatically detect file type and convert it to an array of PNG images.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [AutodetectToPngResult]
+    def convert_document_autodetect_to_png_array(input_file, opts = {})
+      data, _status_code, _headers = convert_document_autodetect_to_png_array_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Document to PNG array
+    # Automatically detect file type and convert it to an array of PNG images.  Supports all of the major Office document file formats, over 100 image formats, and even multi-page TIFF files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AutodetectToPngResult, Fixnum, Hash)>] AutodetectToPngResult data, response status code and response headers
+    def convert_document_autodetect_to_png_array_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_autodetect_to_png_array ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_autodetect_to_png_array"
+      end
+      # resource path
+      local_var_path = "/convert/autodetect/to/png"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AutodetectToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_png_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
