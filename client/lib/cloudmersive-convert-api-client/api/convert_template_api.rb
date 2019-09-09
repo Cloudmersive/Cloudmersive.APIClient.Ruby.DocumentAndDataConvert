@@ -20,6 +20,65 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Apply Word DOCX template
+    # Apply operations to fill in a Word DOCX template by replacing target template/placeholder strings in the DOCX with values, generating a final Word DOCX result.  For example, you could create a Word Document invoice containing strings such as \"{FirstName}\" and \"{LastName}\" and then replace these values with \"John\" and \"Smith\".
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :template_definition Template definition for the document, including what values to replace
+    # @return [String]
+    def convert_template_apply_docx_template(input_file, opts = {})
+      data, _status_code, _headers = convert_template_apply_docx_template_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Apply Word DOCX template
+    # Apply operations to fill in a Word DOCX template by replacing target template/placeholder strings in the DOCX with values, generating a final Word DOCX result.  For example, you could create a Word Document invoice containing strings such as \&quot;{FirstName}\&quot; and \&quot;{LastName}\&quot; and then replace these values with \&quot;John\&quot; and \&quot;Smith\&quot;.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :template_definition Template definition for the document, including what values to replace
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_template_apply_docx_template_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertTemplateApi.convert_template_apply_docx_template ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertTemplateApi.convert_template_apply_docx_template"
+      end
+      # resource path
+      local_var_path = "/convert/template/docx/apply"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'templateDefinition'] = opts[:'template_definition'] if !opts[:'template_definition'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertTemplateApi#convert_template_apply_docx_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Apply HTML template
     # Apply operations to fill in an HTML template, generating a final HTML result
     # @param value Operations to apply to template

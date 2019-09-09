@@ -14,12 +14,12 @@ require 'date'
 
 module CloudmersiveConvertApiClient
 
-  class HtmlTemplateOperation
+  class DocxTemplateOperation
     # Operation action to take; possible values are \"Replace\"
     attr_accessor :action
 
     # For Replace operations, the string to match against (to be replaced with ReplaceWith string)
-    attr_accessor :match_agsint
+    attr_accessor :match_against
 
     # For Replace operations, the string to Replace the original string with
     attr_accessor :replace_with
@@ -50,7 +50,7 @@ module CloudmersiveConvertApiClient
     def self.attribute_map
       {
         :'action' => :'Action',
-        :'match_agsint' => :'MatchAgsint',
+        :'match_against' => :'MatchAgainst',
         :'replace_with' => :'ReplaceWith'
       }
     end
@@ -59,7 +59,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'action' => :'Integer',
-        :'match_agsint' => :'String',
+        :'match_against' => :'String',
         :'replace_with' => :'String'
       }
     end
@@ -76,8 +76,8 @@ module CloudmersiveConvertApiClient
         self.action = attributes[:'Action']
       end
 
-      if attributes.has_key?(:'MatchAgsint')
-        self.match_agsint = attributes[:'MatchAgsint']
+      if attributes.has_key?(:'MatchAgainst')
+        self.match_against = attributes[:'MatchAgainst']
       end
 
       if attributes.has_key?(:'ReplaceWith')
@@ -117,7 +117,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           action == o.action &&
-          match_agsint == o.match_agsint &&
+          match_against == o.match_against &&
           replace_with == o.replace_with
     end
 
@@ -130,7 +130,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [action, match_agsint, replace_with].hash
+      [action, match_against, replace_with].hash
     end
 
     # Builds the object from hash

@@ -15,10 +15,13 @@ require 'date'
 module CloudmersiveConvertApiClient
   # HTML template application request
   class HtmlTemplateApplicationRequest
+    # HTML template input as a string
     attr_accessor :html_template
 
+    # URL to HTML template input
     attr_accessor :html_template_url
 
+    # Operations to apply to this template
     attr_accessor :operations
 
 

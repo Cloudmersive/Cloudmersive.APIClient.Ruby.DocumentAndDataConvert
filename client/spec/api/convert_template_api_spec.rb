@@ -32,6 +32,19 @@ describe 'ConvertTemplateApi' do
     end
   end
 
+  # unit tests for convert_template_apply_docx_template
+  # Apply Word DOCX template
+  # Apply operations to fill in a Word DOCX template by replacing target template/placeholder strings in the DOCX with values, generating a final Word DOCX result.  For example, you could create a Word Document invoice containing strings such as \&quot;{FirstName}\&quot; and \&quot;{LastName}\&quot; and then replace these values with \&quot;John\&quot; and \&quot;Smith\&quot;.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :template_definition Template definition for the document, including what values to replace
+  # @return [String]
+  describe 'convert_template_apply_docx_template test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_template_apply_html_template
   # Apply HTML template
   # Apply operations to fill in an HTML template, generating a final HTML result

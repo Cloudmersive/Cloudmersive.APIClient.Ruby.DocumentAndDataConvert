@@ -15,8 +15,10 @@ require 'date'
 module CloudmersiveConvertApiClient
   # Converted page as an image
   class PageConversionResult
+    # File name of the image in the converted file format
     attr_accessor :filename
 
+    # File bytes (contents) of the image in converted file format
     attr_accessor :file_bytes
 
 

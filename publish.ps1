@@ -1,1 +1,1 @@
-& gem push .\client\cloudmersive-convert-api-client-1.3.7.gem
+& gem push .\client\cloudmersive-convert-api-client-1.3.8.gem

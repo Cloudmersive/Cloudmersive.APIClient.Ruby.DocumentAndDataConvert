@@ -13,54 +13,23 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveConvertApiClient
+  # Word DOCX template application request
+  class DocxTemplateApplicationRequest
+    # Operations to apply to this template
+    attr_accessor :operations
 
-  class HtmlTemplateOperation
-    # Operation action to take; possible values are \"Replace\"
-    attr_accessor :action
-
-    # For Replace operations, the string to match against (to be replaced with ReplaceWith string)
-    attr_accessor :match_agsint
-
-    # For Replace operations, the string to Replace the original string with
-    attr_accessor :replace_with
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'action' => :'Action',
-        :'match_agsint' => :'MatchAgsint',
-        :'replace_with' => :'ReplaceWith'
+        :'operations' => :'Operations'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'action' => :'Integer',
-        :'match_agsint' => :'String',
-        :'replace_with' => :'String'
+        :'operations' => :'Array<DocxTemplateOperation>'
       }
     end
 
@@ -72,16 +41,10 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Action')
-        self.action = attributes[:'Action']
-      end
-
-      if attributes.has_key?(:'MatchAgsint')
-        self.match_agsint = attributes[:'MatchAgsint']
-      end
-
-      if attributes.has_key?(:'ReplaceWith')
-        self.replace_with = attributes[:'ReplaceWith']
+      if attributes.has_key?(:'Operations')
+        if (value = attributes[:'Operations']).is_a?(Array)
+          self.operations = value
+        end
       end
 
     end
@@ -96,19 +59,7 @@ module CloudmersiveConvertApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      action_validator = EnumAttributeValidator.new('Integer', ["1"])
-      return false unless action_validator.valid?(@action)
       return true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] action Object to be assigned
-    def action=(action)
-      validator = EnumAttributeValidator.new('Integer', ["1"])
-      unless validator.valid?(action)
-        fail ArgumentError, "invalid value for 'action', must be one of #{validator.allowable_values}."
-      end
-      @action = action
     end
 
     # Checks equality by comparing each attribute.
@@ -116,9 +67,7 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          action == o.action &&
-          match_agsint == o.match_agsint &&
-          replace_with == o.replace_with
+          operations == o.operations
     end
 
     # @see the `==` method
@@ -130,7 +79,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [action, match_agsint, replace_with].hash
+      [operations].hash
     end
 
     # Builds the object from hash

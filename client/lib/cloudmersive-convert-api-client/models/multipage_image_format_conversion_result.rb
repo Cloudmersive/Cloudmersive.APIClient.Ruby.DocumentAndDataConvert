@@ -15,10 +15,13 @@ require 'date'
 module CloudmersiveConvertApiClient
   # Result of converting a multi-page image into individual pages with a different format
   class MultipageImageFormatConversionResult
+    # True if successful, false otherwise
     attr_accessor :successful
 
+    # The number of pages in the converted output
     attr_accessor :page_count
 
+    # Converted page results
     attr_accessor :pages
 
 
