@@ -15,6 +15,7 @@ require 'date'
 module CloudmersiveConvertApiClient
   # Details of the HTML to Office request
   class HtmlToOfficeRequest
+    # HTML to render to Office format
     attr_accessor :html
 
 

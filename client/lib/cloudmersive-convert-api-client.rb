@@ -90,6 +90,7 @@ require 'cloudmersive-convert-api-client/models/remove_docx_headers_and_footers_
 require 'cloudmersive-convert-api-client/models/remove_docx_headers_and_footers_response'
 require 'cloudmersive-convert-api-client/models/replace_string_request'
 require 'cloudmersive-convert-api-client/models/screenshot_request'
+require 'cloudmersive-convert-api-client/models/text_conversion_result'
 require 'cloudmersive-convert-api-client/models/viewer_response'
 require 'cloudmersive-convert-api-client/models/xlsx_image'
 require 'cloudmersive-convert-api-client/models/xlsx_spreadsheet_cell'

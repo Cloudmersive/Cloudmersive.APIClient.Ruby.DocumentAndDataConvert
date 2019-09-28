@@ -68,6 +68,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_autodetect_to_txt
+  # Convert Document to Text
+  # Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_autodetect_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_csv_to_xlsx
   # CSV to Excel XLSX
   # Convert CSV file to Office Excel XLSX Workbooks file format.
@@ -111,6 +123,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_docx_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_docx_to_txt
+  # Word DOCX to Text
+  # Convert Office Word Documents (docx) to text
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_docx_to_txt test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -176,6 +200,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pdf_to_txt
+  # PDF to Text
+  # PDF document to text
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_pdf_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_ppt_to_pdf
   # PowerPoint PPT (97-03) to PDF
   # Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
@@ -207,6 +243,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_pptx_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_pptx_to_txt
+  # PowerPoint PPTX to Text
+  # Convert Office PowerPoint Documents (pptx) to standard Text
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_pptx_to_txt test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -255,6 +303,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_xlsx_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_xlsx_to_txt
+  # Excel XLSX to Text
+  # Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_xlsx_to_txt test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

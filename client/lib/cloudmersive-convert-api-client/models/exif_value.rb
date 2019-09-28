@@ -15,10 +15,13 @@ require 'date'
 module CloudmersiveConvertApiClient
   # EXIF tag and value
   class ExifValue
+    # Tag name for the EXIF value
     attr_accessor :tag
 
+    # Date type of the EXIF value
     attr_accessor :data_type
 
+    # Value, formatted as a string of the EXIF value
     attr_accessor :data_value
 
 

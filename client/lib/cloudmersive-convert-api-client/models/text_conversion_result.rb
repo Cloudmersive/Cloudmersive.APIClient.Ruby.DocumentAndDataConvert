@@ -13,20 +13,20 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Response from an HTML template application
-  class HtmlTemplateApplicationResponse
+  # Text conversion result from converting a document to Plain Text (TXT) format
+  class TextConversionResult
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
-    # Final HTML result of all operations on input
-    attr_accessor :final_html
+    # Plain Text (TXT) format conversion result of the input document.  The text result is returned as a string.
+    attr_accessor :text_result
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'final_html' => :'FinalHtml'
+        :'text_result' => :'TextResult'
       }
     end
 
@@ -34,7 +34,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'final_html' => :'String'
+        :'text_result' => :'String'
       }
     end
 
@@ -50,8 +50,8 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'FinalHtml')
-        self.final_html = attributes[:'FinalHtml']
+      if attributes.has_key?(:'TextResult')
+        self.text_result = attributes[:'TextResult']
       end
 
     end
@@ -75,7 +75,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          final_html == o.final_html
+          text_result == o.text_result
     end
 
     # @see the `==` method
@@ -87,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, final_html].hash
+      [successful, text_result].hash
     end
 
     # Builds the object from hash

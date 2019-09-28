@@ -15,8 +15,10 @@ require 'date'
 module CloudmersiveConvertApiClient
   # Details of the HTML to PDF request
   class HtmlToPdfRequest
+    # HTML to render to PDF
     attr_accessor :html
 
+    # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
     attr_accessor :extra_loading_wait
 
 

@@ -1,9 +1,9 @@
-# CloudmersiveConvertApiClient::HtmlTemplateApplicationResponse
+# CloudmersiveConvertApiClient::TextConversionResult
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **successful** | **BOOLEAN** | True if the operation was successful, false otherwise | [optional] 
-**final_html** | **String** | Final HTML result of all operations on input | [optional] 
+**text_result** | **String** | Plain Text (TXT) format conversion result of the input document.  The text result is returned as a string. | [optional] 
 
 
