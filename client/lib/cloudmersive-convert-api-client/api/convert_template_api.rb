@@ -54,7 +54,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'templateDefinition'] = opts[:'template_definition'] if !opts[:'template_definition'].nil?

@@ -260,6 +260,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_xls_to_csv
+  # Excel XLS (97-03) to CSV
+  # Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_xls_to_csv test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_xls_to_pdf
   # Excel XLS (97-03) to PDF
   # Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
@@ -286,7 +298,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_xlsx_to_csv
   # Excel XLSX to CSV
-  # Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+  # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [String]
@@ -298,7 +310,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_xlsx_to_pdf
   # Excel XLSX to PDF
-  # Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+  # Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [String]
@@ -310,7 +322,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_xlsx_to_txt
   # Excel XLSX to Text
-  # Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+  # Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [TextConversionResult]

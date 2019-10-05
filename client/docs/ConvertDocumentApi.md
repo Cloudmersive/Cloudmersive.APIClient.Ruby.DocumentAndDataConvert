@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**convert_document_ppt_to_pptx**](ConvertDocumentApi.md#convert_document_ppt_to_pptx) | **POST** /convert/ppt/to/pptx | PowerPoint PPT (97-03) to PPTX
 [**convert_document_pptx_to_pdf**](ConvertDocumentApi.md#convert_document_pptx_to_pdf) | **POST** /convert/pptx/to/pdf | PowerPoint PPTX to PDF
 [**convert_document_pptx_to_txt**](ConvertDocumentApi.md#convert_document_pptx_to_txt) | **POST** /convert/pptx/to/txt | PowerPoint PPTX to Text
+[**convert_document_xls_to_csv**](ConvertDocumentApi.md#convert_document_xls_to_csv) | **POST** /convert/xls/to/csv | Excel XLS (97-03) to CSV
 [**convert_document_xls_to_pdf**](ConvertDocumentApi.md#convert_document_xls_to_pdf) | **POST** /convert/xls/to/pdf | Excel XLS (97-03) to PDF
 [**convert_document_xls_to_xlsx**](ConvertDocumentApi.md#convert_document_xls_to_xlsx) | **POST** /convert/xls/to/xlsx | Excel XLS (97-03) to XLSX
 [**convert_document_xlsx_to_csv**](ConvertDocumentApi.md#convert_document_xlsx_to_csv) | **POST** /convert/xlsx/to/csv | Excel XLSX to CSV
@@ -80,7 +81,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 
 
@@ -1056,6 +1057,60 @@ Name | Type | Description  | Notes
 
 
 
+# **convert_document_xls_to_csv**
+> String convert_document_xls_to_csv(input_file)
+
+Excel XLS (97-03) to CSV
+
+Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Excel XLS (97-03) to CSV
+  result = api_instance.convert_document_xls_to_csv(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_xls_to_csv: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
 # **convert_document_xls_to_pdf**
 > String convert_document_xls_to_pdf(input_file)
 
@@ -1169,7 +1224,7 @@ Name | Type | Description  | Notes
 
 Excel XLSX to CSV
 
-Convert Office Excel Workbooks (xlsx) to standard Comma-Separated Values (CSV) format.
+Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
 
 ### Example
 ```ruby
@@ -1223,7 +1278,7 @@ Name | Type | Description  | Notes
 
 Excel XLSX to PDF
 
-Convert Office Excel Workbooks (xlsx) to standard PDF.  Converts all worksheets in the workbook to PDF.
+Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
 
 ### Example
 ```ruby
@@ -1277,7 +1332,7 @@ Name | Type | Description  | Notes
 
 Excel XLSX to Text
 
-Convert Office Excel Workbooks (xlsx) to standard Text.  Converts all worksheets in the workbook to Text.
+Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
 
 ### Example
 ```ruby
