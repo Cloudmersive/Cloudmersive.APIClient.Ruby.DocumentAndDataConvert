@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**edit_document_docx_remove_object**](EditDocumentApi.md#edit_document_docx_remove_object) | **POST** /convert/edit/docx/remove-object | Delete any object in a DOCX
 [**edit_document_docx_replace**](EditDocumentApi.md#edit_document_docx_replace) | **POST** /convert/edit/docx/replace-all | Replace string in DOCX
 [**edit_document_docx_set_footer**](EditDocumentApi.md#edit_document_docx_set_footer) | **POST** /convert/edit/docx/set-footer | Set the footer in a DOCX
+[**edit_document_docx_set_footer_add_page_number**](EditDocumentApi.md#edit_document_docx_set_footer_add_page_number) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a DOCX
 [**edit_document_docx_set_header**](EditDocumentApi.md#edit_document_docx_set_header) | **POST** /convert/edit/docx/set-header | Set the header in a DOCX
 [**edit_document_finish_editing**](EditDocumentApi.md#edit_document_finish_editing) | **POST** /convert/edit/finish-editing | Download result from document editing
 [**edit_document_pptx_replace**](EditDocumentApi.md#edit_document_pptx_replace) | **POST** /convert/edit/pptx/replace-all | Replace string in PPTX
@@ -769,6 +770,60 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **req_config** | [**DocxSetFooterRequest**](DocxSetFooterRequest.md)|  | 
+
+### Return type
+
+[**DocxSetFooterResponse**](DocxSetFooterResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_docx_set_footer_add_page_number**
+> DocxSetFooterResponse edit_document_docx_set_footer_add_page_number(req_config)
+
+Add page number to footer in a DOCX
+
+Set the footer in a Word Document (DOCX) to contain a page number
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+req_config = CloudmersiveConvertApiClient::DocxSetFooterAddPageNumberRequest.new # DocxSetFooterAddPageNumberRequest | 
+
+
+begin
+  #Add page number to footer in a DOCX
+  result = api_instance.edit_document_docx_set_footer_add_page_number(req_config)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_docx_set_footer_add_page_number: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **req_config** | [**DocxSetFooterAddPageNumberRequest**](DocxSetFooterAddPageNumberRequest.md)|  | 
 
 ### Return type
 
