@@ -1220,7 +1220,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_xlsx_to_csv**
-> String convert_document_xlsx_to_csv(input_file)
+> String convert_document_xlsx_to_csv(input_file, opts)
 
 Excel XLSX to CSV
 
@@ -1242,10 +1242,13 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
+opts = { 
+  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
+}
 
 begin
   #Excel XLSX to CSV
-  result = api_instance.convert_document_xlsx_to_csv(input_file)
+  result = api_instance.convert_document_xlsx_to_csv(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_xlsx_to_csv: #{e}"
@@ -1257,6 +1260,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **output_encoding** | **String**| Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. | [optional] 
 
 ### Return type
 
