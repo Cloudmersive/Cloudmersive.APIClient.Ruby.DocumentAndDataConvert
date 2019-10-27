@@ -188,6 +188,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pdf_to_png_single
+  # PDF to Single PNG image
+  # Convert PDF document to a single tall PNG image, by stacking/concatenating the images vertically into a single \&quot;tall\&quot; image
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_pdf_to_png_single test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pdf_to_pptx
   # PDF to PowerPoint PPTX
   # Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
