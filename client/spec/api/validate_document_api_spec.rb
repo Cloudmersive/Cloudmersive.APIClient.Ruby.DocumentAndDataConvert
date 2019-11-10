@@ -32,6 +32,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_autodetect_validation
+  # Autodetect content type and validate
+  # Automatically detect the type of content, verify and validate that the content is indeed fully valid at depth, and then report the validation result.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [AutodetectDocumentValidationResult]
+  describe 'validate_document_autodetect_validation test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_docx_validation
   # Validate a Word document (DOCX)
   # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -39,6 +51,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_docx_validation test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_executable_validation
+  # Validate if a file is executable
+  # Validate if an input file is a binary executable file; if the document is not valid
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_executable_validation test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

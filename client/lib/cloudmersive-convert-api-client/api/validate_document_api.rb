@@ -20,6 +20,62 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Autodetect content type and validate
+    # Automatically detect the type of content, verify and validate that the content is indeed fully valid at depth, and then report the validation result.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [AutodetectDocumentValidationResult]
+    def validate_document_autodetect_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_autodetect_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Autodetect content type and validate
+    # Automatically detect the type of content, verify and validate that the content is indeed fully valid at depth, and then report the validation result.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AutodetectDocumentValidationResult, Fixnum, Hash)>] AutodetectDocumentValidationResult data, response status code and response headers
+    def validate_document_autodetect_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_autodetect_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_autodetect_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/autodetect"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AutodetectDocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_autodetect_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate a Word document (DOCX)
     # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
     # @param input_file Input file to perform the operation on.
@@ -52,7 +108,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -72,6 +128,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocumentValidationResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_docx_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate if a file is executable
+    # Validate if an input file is a binary executable file; if the document is not valid
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_executable_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_executable_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Validate if a file is executable
+    # Validate if an input file is a binary executable file; if the document is not valid
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_executable_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_executable_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_executable_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/executable"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_executable_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -108,7 +220,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -164,7 +276,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -220,7 +332,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -276,7 +388,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -332,7 +444,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
