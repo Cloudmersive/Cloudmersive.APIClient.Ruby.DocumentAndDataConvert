@@ -33,8 +33,8 @@ describe 'MergeDocumentApi' do
   end
 
   # unit tests for merge_document_docx
-  # Merge Multple Word DOCX Together
-  # Combine multiple Office Word Documents (docx) into one single Office Word document
+  # Merge Two Word DOCX Together
+  # Combine two Office Word Documents (docx) into one single Office Word document
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
@@ -45,14 +45,56 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_docx_multi
+  # Merge Multple Word DOCX Together
+  # Combine multiple Office Word Documents (docx) into one single Office Word document
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'merge_document_docx_multi test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_pdf
-  # Merge Multple PDF Files Together
-  # Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+  # Merge Two PDF Files Together
+  # Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'merge_document_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_pdf_multi
+  # Merge Multple PDF Files Together
+  # Combine multiple PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'merge_document_pdf_multi test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -72,8 +114,8 @@ describe 'MergeDocumentApi' do
   end
 
   # unit tests for merge_document_pptx
-  # Merge Multple PowerPoint PPTX Together
-  # Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+  # Merge Two PowerPoint PPTX Together
+  # Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
@@ -84,14 +126,56 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_pptx_multi
+  # Merge Multple PowerPoint PPTX Together
+  # Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'merge_document_pptx_multi test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_xlsx
-  # Merge Multple Excel XLSX Together
-  # Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+  # Merge Two Excel XLSX Together
+  # Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'merge_document_xlsx test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_xlsx_multi
+  # Merge Multple Excel XLSX Together
+  # Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'merge_document_xlsx_multi test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

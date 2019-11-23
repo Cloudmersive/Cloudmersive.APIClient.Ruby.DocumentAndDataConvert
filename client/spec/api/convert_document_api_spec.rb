@@ -224,6 +224,27 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_png_array_to_pdf
+  # PNG Array to PDF
+  # Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'convert_document_png_array_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_ppt_to_pdf
   # PowerPoint PPT (97-03) to PDF
   # Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
