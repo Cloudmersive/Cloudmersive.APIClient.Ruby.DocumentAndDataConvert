@@ -82,6 +82,118 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Gets PDF Form fields and values
+    # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [PdfFormFields]
+    def edit_pdf_get_form_fields(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_get_form_fields_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Gets PDF Form fields and values
+    # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PdfFormFields, Fixnum, Hash)>] PdfFormFields data, response status code and response headers
+    def edit_pdf_get_form_fields_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_get_form_fields ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_get_form_fields"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/form/get-fields"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PdfFormFields')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_form_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get PDF document metadata
+    # Returns the metadata from the PDF document, including Title, Author, etc.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [PdfMetadata]
+    def edit_pdf_get_metadata(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_get_metadata_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Get PDF document metadata
+    # Returns the metadata from the PDF document, including Title, Author, etc.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PdfMetadata, Fixnum, Hash)>] PdfMetadata data, response status code and response headers
+    def edit_pdf_get_metadata_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_get_metadata ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_get_metadata"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/get-metadata"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PdfMetadata')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Rasterize a PDF to an image-based PDF
     # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
     # @param input_file Input file to perform the operation on.
@@ -134,6 +246,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Sets ands fills PDF Form field values
+    # Fill in the form fields in a PDF form with specific values.  Use form/get-fields to enumerate the available fields and their data types in an input form.
+    # @param field_values 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_set_form_fields(field_values, opts = {})
+      data, _status_code, _headers = edit_pdf_set_form_fields_with_http_info(field_values, opts)
+      return data
+    end
+
+    # Sets ands fills PDF Form field values
+    # Fill in the form fields in a PDF form with specific values.  Use form/get-fields to enumerate the available fields and their data types in an input form.
+    # @param field_values 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_set_form_fields_with_http_info(field_values, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_set_form_fields ..."
+      end
+      # verify the required parameter 'field_values' is set
+      if @api_client.config.client_side_validation && field_values.nil?
+        fail ArgumentError, "Missing the required parameter 'field_values' when calling EditPdfApi.edit_pdf_set_form_fields"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/form/set-fields"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(field_values)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_set_form_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Sets PDF document metadata
+    # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def edit_pdf_set_metadata(request, opts = {})
+      data, _status_code, _headers = edit_pdf_set_metadata_with_http_info(request, opts)
+      return data
+    end
+
+    # Sets PDF document metadata
+    # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def edit_pdf_set_metadata_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_set_metadata ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditPdfApi.edit_pdf_set_metadata"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/set-metadata"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

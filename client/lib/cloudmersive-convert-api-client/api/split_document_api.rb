@@ -20,6 +20,65 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Split a PDF file into separate PDF files, one per page
+    # Split an input PDF file into separate pages, comprised of one PDF file per page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false.
+    # @return [SplitPdfResult]
+    def split_document_pdf_by_page(input_file, opts = {})
+      data, _status_code, _headers = split_document_pdf_by_page_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Split a PDF file into separate PDF files, one per page
+    # Split an input PDF file into separate pages, comprised of one PDF file per page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false.
+    # @return [Array<(SplitPdfResult, Fixnum, Hash)>] SplitPdfResult data, response status code and response headers
+    def split_document_pdf_by_page_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SplitDocumentApi.split_document_pdf_by_page ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling SplitDocumentApi.split_document_pdf_by_page"
+      end
+      # resource path
+      local_var_path = "/convert/split/pdf"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'returnDocumentContents'] = opts[:'return_document_contents'] if !opts[:'return_document_contents'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SplitPdfResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_pdf_by_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Split a single Excel XLSX into Separate Worksheets
     # Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
     # @param input_file Input file to perform the operation on.
@@ -52,7 +111,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 

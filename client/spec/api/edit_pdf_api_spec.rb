@@ -46,6 +46,30 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_get_form_fields
+  # Gets PDF Form fields and values
+  # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [PdfFormFields]
+  describe 'edit_pdf_get_form_fields test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_get_metadata
+  # Get PDF document metadata
+  # Returns the metadata from the PDF document, including Title, Author, etc.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [PdfMetadata]
+  describe 'edit_pdf_get_metadata test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_rasterize
   # Rasterize a PDF to an image-based PDF
   # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -53,6 +77,30 @@ describe 'EditPdfApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_pdf_rasterize test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_set_form_fields
+  # Sets ands fills PDF Form field values
+  # Fill in the form fields in a PDF form with specific values.  Use form/get-fields to enumerate the available fields and their data types in an input form.
+  # @param field_values 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_set_form_fields test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_set_metadata
+  # Sets PDF document metadata
+  # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'edit_pdf_set_metadata test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
