@@ -32,6 +32,19 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_decrypt
+  # Decrypt and password-protect a PDF
+  # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+  # @param password Valid password for the PDF file
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_decrypt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_delete_pages
   # Remove / delete pages from a PDF document
   # Remove one or more pages from a PDF document
@@ -53,6 +66,7 @@ describe 'EditPdfApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :user_password Password of a user (reader) of the PDF file
   # @option opts [String] :owner_password Password of a owner (creator/editor) of the PDF file
+  # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
   # @return [String]
   describe 'edit_pdf_encrypt test' do
     it "should work" do
@@ -140,9 +154,10 @@ describe 'EditPdfApi' do
   # Encrypt, password-protect and set restricted permissions on a PDF
   # Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
   # @param owner_password Password of a owner (creator/editor) of the PDF file (required)
+  # @param user_password Password of a user (reader) of the PDF file (optional)
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :user_password Password of a user (reader) of the PDF file (optional)
+  # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
   # @option opts [BOOLEAN] :allow_printing Set to false to disable printing through DRM.  Default is true.
   # @option opts [BOOLEAN] :allow_document_assembly Set to false to disable document assembly through DRM.  Default is true.
   # @option opts [BOOLEAN] :allow_content_extraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.

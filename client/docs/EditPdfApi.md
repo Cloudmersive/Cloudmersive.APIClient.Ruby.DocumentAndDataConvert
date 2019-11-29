@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**edit_pdf_decrypt**](EditPdfApi.md#edit_pdf_decrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 [**edit_pdf_delete_pages**](EditPdfApi.md#edit_pdf_delete_pages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**edit_pdf_encrypt**](EditPdfApi.md#edit_pdf_encrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**edit_pdf_get_form_fields**](EditPdfApi.md#edit_pdf_get_form_fields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
@@ -14,6 +15,63 @@ Method | HTTP request | Description
 [**edit_pdf_set_metadata**](EditPdfApi.md#edit_pdf_set_metadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 [**edit_pdf_set_permissions**](EditPdfApi.md#edit_pdf_set_permissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**edit_pdf_watermark_text**](EditPdfApi.md#edit_pdf_watermark_text) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
+
+
+# **edit_pdf_decrypt**
+> String edit_pdf_decrypt(password, input_file)
+
+Decrypt and password-protect a PDF
+
+Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
+
+password = "password_example" # String | Valid password for the PDF file
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Decrypt and password-protect a PDF
+  result = api_instance.edit_pdf_decrypt(password, input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditPdfApi->edit_pdf_decrypt: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Valid password for the PDF file | 
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 
 
 # **edit_pdf_delete_pages**
@@ -101,7 +159,8 @@ input_file = File.new("/path/to/file.txt") # File | Input file to perform the op
 
 opts = { 
   user_password: "user_password_example", # String | Password of a user (reader) of the PDF file
-  owner_password: "owner_password_example" # String | Password of a owner (creator/editor) of the PDF file
+  owner_password: "owner_password_example", # String | Password of a owner (creator/editor) of the PDF file
+  encryption_key_length: "encryption_key_length_example" # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
 }
 
 begin
@@ -120,6 +179,7 @@ Name | Type | Description  | Notes
  **input_file** | **File**| Input file to perform the operation on. | 
  **user_password** | **String**| Password of a user (reader) of the PDF file | [optional] 
  **owner_password** | **String**| Password of a owner (creator/editor) of the PDF file | [optional] 
+ **encryption_key_length** | **String**| Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. | [optional] 
 
 ### Return type
 
@@ -473,7 +533,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_pdf_set_permissions**
-> String edit_pdf_set_permissions(owner_password, input_file, opts)
+> String edit_pdf_set_permissions(owner_password, user_password, input_file, opts)
 
 Encrypt, password-protect and set restricted permissions on a PDF
 
@@ -495,10 +555,12 @@ api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
 owner_password = "owner_password_example" # String | Password of a owner (creator/editor) of the PDF file (required)
 
+user_password = "user_password_example" # String | Password of a user (reader) of the PDF file (optional)
+
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
 opts = { 
-  user_password: "user_password_example", # String | Password of a user (reader) of the PDF file (optional)
+  encryption_key_length: "encryption_key_length_example", # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
   allow_printing: true, # BOOLEAN | Set to false to disable printing through DRM.  Default is true.
   allow_document_assembly: true, # BOOLEAN | Set to false to disable document assembly through DRM.  Default is true.
   allow_content_extraction: true, # BOOLEAN | Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.
@@ -510,7 +572,7 @@ opts = {
 
 begin
   #Encrypt, password-protect and set restricted permissions on a PDF
-  result = api_instance.edit_pdf_set_permissions(owner_password, input_file, opts)
+  result = api_instance.edit_pdf_set_permissions(owner_password, user_password, input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling EditPdfApi->edit_pdf_set_permissions: #{e}"
@@ -522,8 +584,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner_password** | **String**| Password of a owner (creator/editor) of the PDF file (required) | 
+ **user_password** | **String**| Password of a user (reader) of the PDF file (optional) | 
  **input_file** | **File**| Input file to perform the operation on. | 
- **user_password** | **String**| Password of a user (reader) of the PDF file (optional) | [optional] 
+ **encryption_key_length** | **String**| Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256. | [optional] 
  **allow_printing** | **BOOLEAN**| Set to false to disable printing through DRM.  Default is true. | [optional] 
  **allow_document_assembly** | **BOOLEAN**| Set to false to disable document assembly through DRM.  Default is true. | [optional] 
  **allow_content_extraction** | **BOOLEAN**| Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. | [optional] 

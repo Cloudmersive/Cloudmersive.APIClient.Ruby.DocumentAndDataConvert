@@ -20,6 +20,69 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Decrypt and password-protect a PDF
+    # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+    # @param password Valid password for the PDF file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_decrypt(password, input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_decrypt_with_http_info(password, input_file, opts)
+      return data
+    end
+
+    # Decrypt and password-protect a PDF
+    # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+    # @param password Valid password for the PDF file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_decrypt_with_http_info(password, input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_decrypt ..."
+      end
+      # verify the required parameter 'password' is set
+      if @api_client.config.client_side_validation && password.nil?
+        fail ArgumentError, "Missing the required parameter 'password' when calling EditPdfApi.edit_pdf_decrypt"
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_decrypt"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/decrypt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'password'] = password
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_decrypt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove / delete pages from a PDF document
     # Remove one or more pages from a PDF document
     # @param input_file Input file to perform the operation on.
@@ -96,6 +159,7 @@ module CloudmersiveConvertApiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :user_password Password of a user (reader) of the PDF file
     # @option opts [String] :owner_password Password of a owner (creator/editor) of the PDF file
+    # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
     # @return [String]
     def edit_pdf_encrypt(input_file, opts = {})
       data, _status_code, _headers = edit_pdf_encrypt_with_http_info(input_file, opts)
@@ -108,6 +172,7 @@ module CloudmersiveConvertApiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :user_password Password of a user (reader) of the PDF file
     # @option opts [String] :owner_password Password of a owner (creator/editor) of the PDF file
+    # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_pdf_encrypt_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -131,6 +196,7 @@ module CloudmersiveConvertApiClient
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'userPassword'] = opts[:'user_password'] if !opts[:'user_password'].nil?
       header_params[:'ownerPassword'] = opts[:'owner_password'] if !opts[:'owner_password'].nil?
+      header_params[:'encryptionKeyLength'] = opts[:'encryption_key_length'] if !opts[:'encryption_key_length'].nil?
 
       # form parameters
       form_params = {}
@@ -517,9 +583,10 @@ module CloudmersiveConvertApiClient
     # Encrypt, password-protect and set restricted permissions on a PDF
     # Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
     # @param owner_password Password of a owner (creator/editor) of the PDF file (required)
+    # @param user_password Password of a user (reader) of the PDF file (optional)
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :user_password Password of a user (reader) of the PDF file (optional)
+    # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
     # @option opts [BOOLEAN] :allow_printing Set to false to disable printing through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_document_assembly Set to false to disable document assembly through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_content_extraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.
@@ -528,17 +595,18 @@ module CloudmersiveConvertApiClient
     # @option opts [BOOLEAN] :allow_annotations Set to false to disable annotations and editing of annotations in the PDF through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_degraded_printing Set to false to disable degraded printing of the PDF through DRM.  Default is true.
     # @return [String]
-    def edit_pdf_set_permissions(owner_password, input_file, opts = {})
-      data, _status_code, _headers = edit_pdf_set_permissions_with_http_info(owner_password, input_file, opts)
+    def edit_pdf_set_permissions(owner_password, user_password, input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_set_permissions_with_http_info(owner_password, user_password, input_file, opts)
       return data
     end
 
     # Encrypt, password-protect and set restricted permissions on a PDF
     # Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
     # @param owner_password Password of a owner (creator/editor) of the PDF file (required)
+    # @param user_password Password of a user (reader) of the PDF file (optional)
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :user_password Password of a user (reader) of the PDF file (optional)
+    # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
     # @option opts [BOOLEAN] :allow_printing Set to false to disable printing through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_document_assembly Set to false to disable document assembly through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_content_extraction Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.
@@ -547,13 +615,17 @@ module CloudmersiveConvertApiClient
     # @option opts [BOOLEAN] :allow_annotations Set to false to disable annotations and editing of annotations in the PDF through DRM.  Default is true.
     # @option opts [BOOLEAN] :allow_degraded_printing Set to false to disable degraded printing of the PDF through DRM.  Default is true.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def edit_pdf_set_permissions_with_http_info(owner_password, input_file, opts = {})
+    def edit_pdf_set_permissions_with_http_info(owner_password, user_password, input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_set_permissions ..."
       end
       # verify the required parameter 'owner_password' is set
       if @api_client.config.client_side_validation && owner_password.nil?
         fail ArgumentError, "Missing the required parameter 'owner_password' when calling EditPdfApi.edit_pdf_set_permissions"
+      end
+      # verify the required parameter 'user_password' is set
+      if @api_client.config.client_side_validation && user_password.nil?
+        fail ArgumentError, "Missing the required parameter 'user_password' when calling EditPdfApi.edit_pdf_set_permissions"
       end
       # verify the required parameter 'input_file' is set
       if @api_client.config.client_side_validation && input_file.nil?
@@ -572,7 +644,8 @@ module CloudmersiveConvertApiClient
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'ownerPassword'] = owner_password
-      header_params[:'userPassword'] = opts[:'user_password'] if !opts[:'user_password'].nil?
+      header_params[:'userPassword'] = user_password
+      header_params[:'encryptionKeyLength'] = opts[:'encryption_key_length'] if !opts[:'encryption_key_length'].nil?
       header_params[:'allowPrinting'] = opts[:'allow_printing'] if !opts[:'allow_printing'].nil?
       header_params[:'allowDocumentAssembly'] = opts[:'allow_document_assembly'] if !opts[:'allow_document_assembly'].nil?
       header_params[:'allowContentExtraction'] = opts[:'allow_content_extraction'] if !opts[:'allow_content_extraction'].nil?
