@@ -20,7 +20,7 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
-    # CSV to JSON conversion
+    # Convert CSV to JSON conversion
     # Convert a CSV file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -30,7 +30,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # CSV to JSON conversion
+    # Convert CSV to JSON conversion
     # Convert a CSV file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -76,7 +76,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Excel (97-2003) XLS to JSON conversion
+    # Convert Excel (97-2003) XLS to JSON conversion
     # Convert an Excel (97-2003) XLS file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -86,7 +86,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Excel (97-2003) XLS to JSON conversion
+    # Convert Excel (97-2003) XLS to JSON conversion
     # Convert an Excel (97-2003) XLS file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -132,7 +132,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Excel XLSX to JSON conversion
+    # Convert Excel XLSX to JSON conversion
     # Convert an Excel XLSX file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -142,7 +142,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Excel XLSX to JSON conversion
+    # Convert Excel XLSX to JSON conversion
     # Convert an Excel XLSX file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -188,7 +188,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # XML to JSON conversion
+    # Convert XML to JSON conversion
     # Convert an XML string or file into JSON
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -198,7 +198,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # XML to JSON conversion
+    # Convert XML to JSON conversion
     # Convert an XML string or file into JSON
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters

@@ -4,14 +4,76 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**edit_pdf_delete_pages**](EditPdfApi.md#edit_pdf_delete_pages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**edit_pdf_encrypt**](EditPdfApi.md#edit_pdf_encrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**edit_pdf_get_form_fields**](EditPdfApi.md#edit_pdf_get_form_fields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**edit_pdf_get_metadata**](EditPdfApi.md#edit_pdf_get_metadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+[**edit_pdf_insert_pages**](EditPdfApi.md#edit_pdf_insert_pages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**edit_pdf_rasterize**](EditPdfApi.md#edit_pdf_rasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**edit_pdf_set_form_fields**](EditPdfApi.md#edit_pdf_set_form_fields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
 [**edit_pdf_set_metadata**](EditPdfApi.md#edit_pdf_set_metadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 [**edit_pdf_set_permissions**](EditPdfApi.md#edit_pdf_set_permissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**edit_pdf_watermark_text**](EditPdfApi.md#edit_pdf_watermark_text) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
+
+
+# **edit_pdf_delete_pages**
+> String edit_pdf_delete_pages(input_file, page_start, page_end)
+
+Remove / delete pages from a PDF document
+
+Remove one or more pages from a PDF document
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+page_start = 56 # Integer | Page number (1 based) to start deleting pages from (inclusive).
+
+page_end = 56 # Integer | Page number (1 based) to stop deleting pages from (inclusive).
+
+
+begin
+  #Remove / delete pages from a PDF document
+  result = api_instance.edit_pdf_delete_pages(input_file, page_start, page_end)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditPdfApi->edit_pdf_delete_pages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **page_start** | **Integer**| Page number (1 based) to start deleting pages from (inclusive). | 
+ **page_end** | **Integer**| Page number (1 based) to stop deleting pages from (inclusive). | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
 
 
 # **edit_pdf_encrypt**
@@ -182,6 +244,72 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_pdf_insert_pages**
+> String edit_pdf_insert_pages(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation)
+
+Insert / copy pages from one PDF document into another
+
+Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
+
+source_file = File.new("/path/to/file.txt") # File | Source PDF file to copy pages from.
+
+destination_file = File.new("/path/to/file.txt") # File | Destination PDF file to copy pages into.
+
+page_start_source = 56 # Integer | Page number (1 based) to start copying pages from (inclusive) in the Source file.
+
+page_end_source = 56 # Integer | Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+
+page_insert_before_desitnation = 56 # Integer | Page number (1 based) to insert the pages before in the Destination file.
+
+
+begin
+  #Insert / copy pages from one PDF document into another
+  result = api_instance.edit_pdf_insert_pages(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditPdfApi->edit_pdf_insert_pages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source_file** | **File**| Source PDF file to copy pages from. | 
+ **destination_file** | **File**| Destination PDF file to copy pages into. | 
+ **page_start_source** | **Integer**| Page number (1 based) to start copying pages from (inclusive) in the Source file. | 
+ **page_end_source** | **Integer**| Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. | 
+ **page_insert_before_desitnation** | **Integer**| Page number (1 based) to insert the pages before in the Destination file. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
 # **edit_pdf_rasterize**
 > String edit_pdf_rasterize(input_file)
 
@@ -291,7 +419,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_pdf_set_metadata**
-> Object edit_pdf_set_metadata(request)
+> String edit_pdf_set_metadata(request)
 
 Sets PDF document metadata
 
@@ -331,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 

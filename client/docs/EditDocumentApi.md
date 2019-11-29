@@ -5,29 +5,29 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edit_document_begin_editing**](EditDocumentApi.md#edit_document_begin_editing) | **POST** /convert/edit/begin-editing | Begin editing a document
-[**edit_document_docx_body**](EditDocumentApi.md#edit_document_docx_body) | **POST** /convert/edit/docx/get-body | Get body from a DOCX
-[**edit_document_docx_get_headers_and_footers**](EditDocumentApi.md#edit_document_docx_get_headers_and_footers) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a DOCX
-[**edit_document_docx_get_images**](EditDocumentApi.md#edit_document_docx_get_images) | **POST** /convert/edit/docx/get-images | Get images from a DOCX
-[**edit_document_docx_get_sections**](EditDocumentApi.md#edit_document_docx_get_sections) | **POST** /convert/edit/docx/get-sections | Get sections from a DOCX
-[**edit_document_docx_get_styles**](EditDocumentApi.md#edit_document_docx_get_styles) | **POST** /convert/edit/docx/get-styles | Get styles from a DOCX
-[**edit_document_docx_get_tables**](EditDocumentApi.md#edit_document_docx_get_tables) | **POST** /convert/edit/docx/get-tables | Get tables in DOCX
-[**edit_document_docx_insert_image**](EditDocumentApi.md#edit_document_docx_insert_image) | **POST** /convert/edit/docx/insert-image | Insert image into a DOCX
-[**edit_document_docx_insert_paragraph**](EditDocumentApi.md#edit_document_docx_insert_paragraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a DOCX
-[**edit_document_docx_insert_table**](EditDocumentApi.md#edit_document_docx_insert_table) | **POST** /convert/edit/docx/insert-table | Insert a new table into a DOCX
-[**edit_document_docx_remove_headers_and_footers**](EditDocumentApi.md#edit_document_docx_remove_headers_and_footers) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from DOCX
-[**edit_document_docx_remove_object**](EditDocumentApi.md#edit_document_docx_remove_object) | **POST** /convert/edit/docx/remove-object | Delete any object in a DOCX
-[**edit_document_docx_replace**](EditDocumentApi.md#edit_document_docx_replace) | **POST** /convert/edit/docx/replace-all | Replace string in DOCX
-[**edit_document_docx_set_footer**](EditDocumentApi.md#edit_document_docx_set_footer) | **POST** /convert/edit/docx/set-footer | Set the footer in a DOCX
-[**edit_document_docx_set_footer_add_page_number**](EditDocumentApi.md#edit_document_docx_set_footer_add_page_number) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a DOCX
-[**edit_document_docx_set_header**](EditDocumentApi.md#edit_document_docx_set_header) | **POST** /convert/edit/docx/set-header | Set the header in a DOCX
+[**edit_document_docx_body**](EditDocumentApi.md#edit_document_docx_body) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
+[**edit_document_docx_get_headers_and_footers**](EditDocumentApi.md#edit_document_docx_get_headers_and_footers) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
+[**edit_document_docx_get_images**](EditDocumentApi.md#edit_document_docx_get_images) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
+[**edit_document_docx_get_sections**](EditDocumentApi.md#edit_document_docx_get_sections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
+[**edit_document_docx_get_styles**](EditDocumentApi.md#edit_document_docx_get_styles) | **POST** /convert/edit/docx/get-styles | Get styles from a Word DOCX document
+[**edit_document_docx_get_tables**](EditDocumentApi.md#edit_document_docx_get_tables) | **POST** /convert/edit/docx/get-tables | Get tables in Word DOCX document
+[**edit_document_docx_insert_image**](EditDocumentApi.md#edit_document_docx_insert_image) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
+[**edit_document_docx_insert_paragraph**](EditDocumentApi.md#edit_document_docx_insert_paragraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
+[**edit_document_docx_insert_table**](EditDocumentApi.md#edit_document_docx_insert_table) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
+[**edit_document_docx_remove_headers_and_footers**](EditDocumentApi.md#edit_document_docx_remove_headers_and_footers) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
+[**edit_document_docx_remove_object**](EditDocumentApi.md#edit_document_docx_remove_object) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
+[**edit_document_docx_replace**](EditDocumentApi.md#edit_document_docx_replace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
+[**edit_document_docx_set_footer**](EditDocumentApi.md#edit_document_docx_set_footer) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
+[**edit_document_docx_set_footer_add_page_number**](EditDocumentApi.md#edit_document_docx_set_footer_add_page_number) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
+[**edit_document_docx_set_header**](EditDocumentApi.md#edit_document_docx_set_header) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
 [**edit_document_finish_editing**](EditDocumentApi.md#edit_document_finish_editing) | **POST** /convert/edit/finish-editing | Download result from document editing
-[**edit_document_pptx_replace**](EditDocumentApi.md#edit_document_pptx_replace) | **POST** /convert/edit/pptx/replace-all | Replace string in PPTX
-[**edit_document_xlsx_get_columns**](EditDocumentApi.md#edit_document_xlsx_get_columns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a XLSX worksheet
-[**edit_document_xlsx_get_images**](EditDocumentApi.md#edit_document_xlsx_get_images) | **POST** /convert/edit/xlsx/get-images | Get images from a XLSX worksheet
-[**edit_document_xlsx_get_rows_and_cells**](EditDocumentApi.md#edit_document_xlsx_get_rows_and_cells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a XLSX worksheet
-[**edit_document_xlsx_get_styles**](EditDocumentApi.md#edit_document_xlsx_get_styles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a XLSX worksheet
-[**edit_document_xlsx_get_worksheets**](EditDocumentApi.md#edit_document_xlsx_get_worksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a XLSX
-[**edit_document_xlsx_insert_worksheet**](EditDocumentApi.md#edit_document_xlsx_insert_worksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an XLSX spreadsheet
+[**edit_document_pptx_replace**](EditDocumentApi.md#edit_document_pptx_replace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+[**edit_document_xlsx_get_columns**](EditDocumentApi.md#edit_document_xlsx_get_columns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
+[**edit_document_xlsx_get_images**](EditDocumentApi.md#edit_document_xlsx_get_images) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
+[**edit_document_xlsx_get_rows_and_cells**](EditDocumentApi.md#edit_document_xlsx_get_rows_and_cells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a Word XLSX spreadsheet, worksheet
+[**edit_document_xlsx_get_styles**](EditDocumentApi.md#edit_document_xlsx_get_styles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
+[**edit_document_xlsx_get_worksheets**](EditDocumentApi.md#edit_document_xlsx_get_worksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
+[**edit_document_xlsx_insert_worksheet**](EditDocumentApi.md#edit_document_xlsx_insert_worksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
 
 
 # **edit_document_begin_editing**
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_body**
 > GetDocxBodyResponse edit_document_docx_body(req_config)
 
-Get body from a DOCX
+Get body from a Word DOCX document
 
 Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
 
@@ -105,11 +105,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxBodyRequest.new # GetDocxBodyRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxBodyRequest.new # GetDocxBodyRequest | Document input request
 
 
 begin
-  #Get body from a DOCX
+  #Get body from a Word DOCX document
   result = api_instance.edit_document_docx_body(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -121,7 +121,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxBodyRequest**](GetDocxBodyRequest.md)|  | 
+ **req_config** | [**GetDocxBodyRequest**](GetDocxBodyRequest.md)| Document input request | 
 
 ### Return type
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_get_headers_and_footers**
 > GetDocxHeadersAndFootersResponse edit_document_docx_get_headers_and_footers(req_config)
 
-Get content of a footer from a DOCX
+Get content of a footer from a Word DOCX document
 
 Returns the footer content from a Word Document (DOCX) format file
 
@@ -159,11 +159,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxHeadersAndFootersRequest.new # GetDocxHeadersAndFootersRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxHeadersAndFootersRequest.new # GetDocxHeadersAndFootersRequest | Document input request
 
 
 begin
-  #Get content of a footer from a DOCX
+  #Get content of a footer from a Word DOCX document
   result = api_instance.edit_document_docx_get_headers_and_footers(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -175,7 +175,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxHeadersAndFootersRequest**](GetDocxHeadersAndFootersRequest.md)|  | 
+ **req_config** | [**GetDocxHeadersAndFootersRequest**](GetDocxHeadersAndFootersRequest.md)| Document input request | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_get_images**
 > GetDocxImagesResponse edit_document_docx_get_images(req_config)
 
-Get images from a DOCX
+Get images from a Word DOCX document
 
 Returns the images defined in the Word Document (DOCX) format file
 
@@ -213,11 +213,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxImagesRequest.new # GetDocxImagesRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxImagesRequest.new # GetDocxImagesRequest | Document input request
 
 
 begin
-  #Get images from a DOCX
+  #Get images from a Word DOCX document
   result = api_instance.edit_document_docx_get_images(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -229,7 +229,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxImagesRequest**](GetDocxImagesRequest.md)|  | 
+ **req_config** | [**GetDocxImagesRequest**](GetDocxImagesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_get_sections**
 > GetDocxSectionsResponse edit_document_docx_get_sections(req_config)
 
-Get sections from a DOCX
+Get sections from a Word DOCX document
 
 Returns the sections defined in the Word Document (DOCX) format file
 
@@ -267,11 +267,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxSectionsRequest.new # GetDocxSectionsRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxSectionsRequest.new # GetDocxSectionsRequest | Document input request
 
 
 begin
-  #Get sections from a DOCX
+  #Get sections from a Word DOCX document
   result = api_instance.edit_document_docx_get_sections(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -283,7 +283,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxSectionsRequest**](GetDocxSectionsRequest.md)|  | 
+ **req_config** | [**GetDocxSectionsRequest**](GetDocxSectionsRequest.md)| Document input request | 
 
 ### Return type
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_get_styles**
 > GetDocxStylesResponse edit_document_docx_get_styles(req_config)
 
-Get styles from a DOCX
+Get styles from a Word DOCX document
 
 Returns the styles defined in the Word Document (DOCX) format file
 
@@ -321,11 +321,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxStylesRequest.new # GetDocxStylesRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxStylesRequest.new # GetDocxStylesRequest | Document input request
 
 
 begin
-  #Get styles from a DOCX
+  #Get styles from a Word DOCX document
   result = api_instance.edit_document_docx_get_styles(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -337,7 +337,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxStylesRequest**](GetDocxStylesRequest.md)|  | 
+ **req_config** | [**GetDocxStylesRequest**](GetDocxStylesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_get_tables**
 > GetDocxTablesResponse edit_document_docx_get_tables(req_config)
 
-Get tables in DOCX
+Get tables in Word DOCX document
 
 Returns all the table objects in an Office Word Document (docx)
 
@@ -375,11 +375,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::GetDocxTablesRequest.new # GetDocxTablesRequest | 
+req_config = CloudmersiveConvertApiClient::GetDocxTablesRequest.new # GetDocxTablesRequest | Document input request
 
 
 begin
-  #Get tables in DOCX
+  #Get tables in Word DOCX document
   result = api_instance.edit_document_docx_get_tables(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -391,7 +391,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**GetDocxTablesRequest**](GetDocxTablesRequest.md)|  | 
+ **req_config** | [**GetDocxTablesRequest**](GetDocxTablesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -411,9 +411,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_insert_image**
 > DocxInsertImageResponse edit_document_docx_insert_image(req_config)
 
-Insert image into a DOCX
+Insert image into a Word DOCX document
 
-Set the footer in a Word Document (DOCX)
+Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -429,11 +429,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::DocxInsertImageRequest.new # DocxInsertImageRequest | 
+req_config = CloudmersiveConvertApiClient::DocxInsertImageRequest.new # DocxInsertImageRequest | Document input request
 
 
 begin
-  #Insert image into a DOCX
+  #Insert image into a Word DOCX document
   result = api_instance.edit_document_docx_insert_image(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -445,7 +445,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**DocxInsertImageRequest**](DocxInsertImageRequest.md)|  | 
+ **req_config** | [**DocxInsertImageRequest**](DocxInsertImageRequest.md)| Document input request | 
 
 ### Return type
 
@@ -465,9 +465,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_insert_paragraph**
 > InsertDocxInsertParagraphResponse edit_document_docx_insert_paragraph(req_config)
 
-Insert a new paragraph into a DOCX
+Insert a new paragraph into a Word DOCX document
 
-Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
+Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -483,11 +483,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::InsertDocxInsertParagraphRequest.new # InsertDocxInsertParagraphRequest | 
+req_config = CloudmersiveConvertApiClient::InsertDocxInsertParagraphRequest.new # InsertDocxInsertParagraphRequest | Document input request
 
 
 begin
-  #Insert a new paragraph into a DOCX
+  #Insert a new paragraph into a Word DOCX document
   result = api_instance.edit_document_docx_insert_paragraph(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -499,7 +499,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**InsertDocxInsertParagraphRequest**](InsertDocxInsertParagraphRequest.md)|  | 
+ **req_config** | [**InsertDocxInsertParagraphRequest**](InsertDocxInsertParagraphRequest.md)| Document input request | 
 
 ### Return type
 
@@ -519,9 +519,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_insert_table**
 > InsertDocxTablesResponse edit_document_docx_insert_table(req_config)
 
-Insert a new table into a DOCX
+Insert a new table into a Word DOCX document
 
-Adds a new table into a DOCX and returns the result
+Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -537,11 +537,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::InsertDocxTablesRequest.new # InsertDocxTablesRequest | 
+req_config = CloudmersiveConvertApiClient::InsertDocxTablesRequest.new # InsertDocxTablesRequest | Document input request
 
 
 begin
-  #Insert a new table into a DOCX
+  #Insert a new table into a Word DOCX document
   result = api_instance.edit_document_docx_insert_table(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -553,7 +553,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**InsertDocxTablesRequest**](InsertDocxTablesRequest.md)|  | 
+ **req_config** | [**InsertDocxTablesRequest**](InsertDocxTablesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -573,9 +573,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_remove_headers_and_footers**
 > RemoveDocxHeadersAndFootersResponse edit_document_docx_remove_headers_and_footers(req_config)
 
-Remove headers and footers from DOCX
+Remove headers and footers from Word DOCX document
 
-Remove all headers, or footers, or both from a Word Document (DOCX)
+Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -591,11 +591,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::RemoveDocxHeadersAndFootersRequest.new # RemoveDocxHeadersAndFootersRequest | 
+req_config = CloudmersiveConvertApiClient::RemoveDocxHeadersAndFootersRequest.new # RemoveDocxHeadersAndFootersRequest | Document input request
 
 
 begin
-  #Remove headers and footers from DOCX
+  #Remove headers and footers from Word DOCX document
   result = api_instance.edit_document_docx_remove_headers_and_footers(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -607,7 +607,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**RemoveDocxHeadersAndFootersRequest**](RemoveDocxHeadersAndFootersRequest.md)|  | 
+ **req_config** | [**RemoveDocxHeadersAndFootersRequest**](RemoveDocxHeadersAndFootersRequest.md)| Document input request | 
 
 ### Return type
 
@@ -627,9 +627,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_remove_object**
 > DocxRemoveObjectResponse edit_document_docx_remove_object(req_config)
 
-Delete any object in a DOCX
+Delete any object in a Word DOCX document
 
-Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
+Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -645,11 +645,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::DocxRemoveObjectRequest.new # DocxRemoveObjectRequest | 
+req_config = CloudmersiveConvertApiClient::DocxRemoveObjectRequest.new # DocxRemoveObjectRequest | Document input request
 
 
 begin
-  #Delete any object in a DOCX
+  #Delete any object in a Word DOCX document
   result = api_instance.edit_document_docx_remove_object(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -661,7 +661,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**DocxRemoveObjectRequest**](DocxRemoveObjectRequest.md)|  | 
+ **req_config** | [**DocxRemoveObjectRequest**](DocxRemoveObjectRequest.md)| Document input request | 
 
 ### Return type
 
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 # **edit_document_docx_replace**
 > String edit_document_docx_replace(req_config)
 
-Replace string in DOCX
+Replace string in Word DOCX document
 
 Replace all instances of a string in an Office Word Document (docx)
 
@@ -699,11 +699,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::ReplaceStringRequest.new # ReplaceStringRequest | 
+req_config = CloudmersiveConvertApiClient::ReplaceStringRequest.new # ReplaceStringRequest | Document string replacement configuration input
 
 
 begin
-  #Replace string in DOCX
+  #Replace string in Word DOCX document
   result = api_instance.edit_document_docx_replace(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -715,7 +715,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**ReplaceStringRequest**](ReplaceStringRequest.md)|  | 
+ **req_config** | [**ReplaceStringRequest**](ReplaceStringRequest.md)| Document string replacement configuration input | 
 
 ### Return type
 
@@ -735,9 +735,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_set_footer**
 > DocxSetFooterResponse edit_document_docx_set_footer(req_config)
 
-Set the footer in a DOCX
+Set the footer in a Word DOCX document
 
-Set the footer in a Word Document (DOCX)
+Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -753,11 +753,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::DocxSetFooterRequest.new # DocxSetFooterRequest | 
+req_config = CloudmersiveConvertApiClient::DocxSetFooterRequest.new # DocxSetFooterRequest | Document input request
 
 
 begin
-  #Set the footer in a DOCX
+  #Set the footer in a Word DOCX document
   result = api_instance.edit_document_docx_set_footer(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -769,7 +769,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**DocxSetFooterRequest**](DocxSetFooterRequest.md)|  | 
+ **req_config** | [**DocxSetFooterRequest**](DocxSetFooterRequest.md)| Document input request | 
 
 ### Return type
 
@@ -789,9 +789,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_set_footer_add_page_number**
 > DocxSetFooterResponse edit_document_docx_set_footer_add_page_number(req_config)
 
-Add page number to footer in a DOCX
+Add page number to footer in a Word DOCX document
 
-Set the footer in a Word Document (DOCX) to contain a page number
+Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -807,11 +807,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::DocxSetFooterAddPageNumberRequest.new # DocxSetFooterAddPageNumberRequest | 
+req_config = CloudmersiveConvertApiClient::DocxSetFooterAddPageNumberRequest.new # DocxSetFooterAddPageNumberRequest | Document input request
 
 
 begin
-  #Add page number to footer in a DOCX
+  #Add page number to footer in a Word DOCX document
   result = api_instance.edit_document_docx_set_footer_add_page_number(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -823,7 +823,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**DocxSetFooterAddPageNumberRequest**](DocxSetFooterAddPageNumberRequest.md)|  | 
+ **req_config** | [**DocxSetFooterAddPageNumberRequest**](DocxSetFooterAddPageNumberRequest.md)| Document input request | 
 
 ### Return type
 
@@ -843,9 +843,9 @@ Name | Type | Description  | Notes
 # **edit_document_docx_set_header**
 > DocxSetHeaderResponse edit_document_docx_set_header(req_config)
 
-Set the header in a DOCX
+Set the header in a Word DOCX document
 
-Set the header in a Word Document (DOCX)
+Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
 
 ### Example
 ```ruby
@@ -861,11 +861,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::DocxSetHeaderRequest.new # DocxSetHeaderRequest | 
+req_config = CloudmersiveConvertApiClient::DocxSetHeaderRequest.new # DocxSetHeaderRequest | Document input request
 
 
 begin
-  #Set the header in a DOCX
+  #Set the header in a Word DOCX document
   result = api_instance.edit_document_docx_set_header(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -877,7 +877,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**DocxSetHeaderRequest**](DocxSetHeaderRequest.md)|  | 
+ **req_config** | [**DocxSetHeaderRequest**](DocxSetHeaderRequest.md)| Document input request | 
 
 ### Return type
 
@@ -915,7 +915,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::FinishEditingRequest.new # FinishEditingRequest | 
+req_config = CloudmersiveConvertApiClient::FinishEditingRequest.new # FinishEditingRequest | Cloudmersive Document URL to complete editing on
 
 
 begin
@@ -931,7 +931,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**FinishEditingRequest**](FinishEditingRequest.md)|  | 
+ **req_config** | [**FinishEditingRequest**](FinishEditingRequest.md)| Cloudmersive Document URL to complete editing on | 
 
 ### Return type
 
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 # **edit_document_pptx_replace**
 > String edit_document_pptx_replace(req_config)
 
-Replace string in PPTX
+Replace string in PowerPoint PPTX presentation
 
 Replace all instances of a string in an Office PowerPoint Document (pptx)
 
@@ -969,11 +969,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-req_config = CloudmersiveConvertApiClient::ReplaceStringRequest.new # ReplaceStringRequest | 
+req_config = CloudmersiveConvertApiClient::ReplaceStringRequest.new # ReplaceStringRequest | Replacement document configuration input
 
 
 begin
-  #Replace string in PPTX
+  #Replace string in PowerPoint PPTX presentation
   result = api_instance.edit_document_pptx_replace(req_config)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -985,7 +985,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **req_config** | [**ReplaceStringRequest**](ReplaceStringRequest.md)|  | 
+ **req_config** | [**ReplaceStringRequest**](ReplaceStringRequest.md)| Replacement document configuration input | 
 
 ### Return type
 
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_get_columns**
 > GetXlsxColumnsResponse edit_document_xlsx_get_columns(input)
 
-Get rows and cells from a XLSX worksheet
+Get rows and cells from a Excel XLSX spreadsheet, worksheet
 
 Returns the rows and cells defined in the Excel Spreadsheet worksheet
 
@@ -1023,11 +1023,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::GetXlsxColumnsRequest.new # GetXlsxColumnsRequest | 
+input = CloudmersiveConvertApiClient::GetXlsxColumnsRequest.new # GetXlsxColumnsRequest | Document input request
 
 
 begin
-  #Get rows and cells from a XLSX worksheet
+  #Get rows and cells from a Excel XLSX spreadsheet, worksheet
   result = api_instance.edit_document_xlsx_get_columns(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1039,7 +1039,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**GetXlsxColumnsRequest**](GetXlsxColumnsRequest.md)|  | 
+ **input** | [**GetXlsxColumnsRequest**](GetXlsxColumnsRequest.md)| Document input request | 
 
 ### Return type
 
@@ -1059,7 +1059,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_get_images**
 > GetXlsxImagesResponse edit_document_xlsx_get_images(input)
 
-Get images from a XLSX worksheet
+Get images from a Excel XLSX spreadsheet, worksheet
 
 Returns the images defined in the Excel Spreadsheet worksheet
 
@@ -1077,11 +1077,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::GetXlsxImagesRequest.new # GetXlsxImagesRequest | 
+input = CloudmersiveConvertApiClient::GetXlsxImagesRequest.new # GetXlsxImagesRequest | Document input request
 
 
 begin
-  #Get images from a XLSX worksheet
+  #Get images from a Excel XLSX spreadsheet, worksheet
   result = api_instance.edit_document_xlsx_get_images(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1093,7 +1093,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**GetXlsxImagesRequest**](GetXlsxImagesRequest.md)|  | 
+ **input** | [**GetXlsxImagesRequest**](GetXlsxImagesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -1113,7 +1113,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_get_rows_and_cells**
 > GetXlsxRowsAndCellsResponse edit_document_xlsx_get_rows_and_cells(input)
 
-Get rows and cells from a XLSX worksheet
+Get rows and cells from a Word XLSX spreadsheet, worksheet
 
 Returns the rows and cells defined in the Excel Spreadsheet worksheet
 
@@ -1131,11 +1131,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::GetXlsxRowsAndCellsRequest.new # GetXlsxRowsAndCellsRequest | 
+input = CloudmersiveConvertApiClient::GetXlsxRowsAndCellsRequest.new # GetXlsxRowsAndCellsRequest | Document input request
 
 
 begin
-  #Get rows and cells from a XLSX worksheet
+  #Get rows and cells from a Word XLSX spreadsheet, worksheet
   result = api_instance.edit_document_xlsx_get_rows_and_cells(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1147,7 +1147,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**GetXlsxRowsAndCellsRequest**](GetXlsxRowsAndCellsRequest.md)|  | 
+ **input** | [**GetXlsxRowsAndCellsRequest**](GetXlsxRowsAndCellsRequest.md)| Document input request | 
 
 ### Return type
 
@@ -1167,7 +1167,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_get_styles**
 > GetXlsxStylesResponse edit_document_xlsx_get_styles(input)
 
-Get styles from a XLSX worksheet
+Get styles from a Excel XLSX spreadsheet, worksheet
 
 Returns the style defined in the Excel Spreadsheet
 
@@ -1185,11 +1185,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::GetXlsxStylesRequest.new # GetXlsxStylesRequest | 
+input = CloudmersiveConvertApiClient::GetXlsxStylesRequest.new # GetXlsxStylesRequest | Document input request
 
 
 begin
-  #Get styles from a XLSX worksheet
+  #Get styles from a Excel XLSX spreadsheet, worksheet
   result = api_instance.edit_document_xlsx_get_styles(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1201,7 +1201,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**GetXlsxStylesRequest**](GetXlsxStylesRequest.md)|  | 
+ **input** | [**GetXlsxStylesRequest**](GetXlsxStylesRequest.md)| Document input request | 
 
 ### Return type
 
@@ -1221,7 +1221,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_get_worksheets**
 > GetXlsxWorksheetsResponse edit_document_xlsx_get_worksheets(input)
 
-Get worksheets from a XLSX
+Get worksheets from a Excel XLSX spreadsheet
 
 Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
 
@@ -1239,11 +1239,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::GetXlsxWorksheetsRequest.new # GetXlsxWorksheetsRequest | 
+input = CloudmersiveConvertApiClient::GetXlsxWorksheetsRequest.new # GetXlsxWorksheetsRequest | Document input request
 
 
 begin
-  #Get worksheets from a XLSX
+  #Get worksheets from a Excel XLSX spreadsheet
   result = api_instance.edit_document_xlsx_get_worksheets(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1255,7 +1255,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**GetXlsxWorksheetsRequest**](GetXlsxWorksheetsRequest.md)|  | 
+ **input** | [**GetXlsxWorksheetsRequest**](GetXlsxWorksheetsRequest.md)| Document input request | 
 
 ### Return type
 
@@ -1275,7 +1275,7 @@ Name | Type | Description  | Notes
 # **edit_document_xlsx_insert_worksheet**
 > InsertXlsxWorksheetResponse edit_document_xlsx_insert_worksheet(input)
 
-Insert a new worksheet into an XLSX spreadsheet
+Insert a new worksheet into an Excel XLSX spreadsheet
 
 Inserts a new worksheet into an Excel Spreadsheet
 
@@ -1293,11 +1293,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
 
-input = CloudmersiveConvertApiClient::InsertXlsxWorksheetRequest.new # InsertXlsxWorksheetRequest | 
+input = CloudmersiveConvertApiClient::InsertXlsxWorksheetRequest.new # InsertXlsxWorksheetRequest | Document input request
 
 
 begin
-  #Insert a new worksheet into an XLSX spreadsheet
+  #Insert a new worksheet into an Excel XLSX spreadsheet
   result = api_instance.edit_document_xlsx_insert_worksheet(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1309,7 +1309,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**InsertXlsxWorksheetRequest**](InsertXlsxWorksheetRequest.md)|  | 
+ **input** | [**InsertXlsxWorksheetRequest**](InsertXlsxWorksheetRequest.md)| Document input request | 
 
 ### Return type
 

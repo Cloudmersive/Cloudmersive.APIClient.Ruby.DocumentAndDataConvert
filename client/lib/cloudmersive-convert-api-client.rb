@@ -79,6 +79,7 @@ require 'cloudmersive-convert-api-client/models/html_template_application_respon
 require 'cloudmersive-convert-api-client/models/html_template_operation'
 require 'cloudmersive-convert-api-client/models/html_to_office_request'
 require 'cloudmersive-convert-api-client/models/html_to_pdf_request'
+require 'cloudmersive-convert-api-client/models/html_to_png_request'
 require 'cloudmersive-convert-api-client/models/insert_docx_insert_paragraph_request'
 require 'cloudmersive-convert-api-client/models/insert_docx_insert_paragraph_response'
 require 'cloudmersive-convert-api-client/models/insert_docx_tables_request'

@@ -76,9 +76,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get body from a DOCX
+    # Get body from a Word DOCX document
     # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxBodyResponse]
     def edit_document_docx_body(req_config, opts = {})
@@ -86,9 +86,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get body from a DOCX
+    # Get body from a Word DOCX document
     # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxBodyResponse, Fixnum, Hash)>] GetDocxBodyResponse data, response status code and response headers
     def edit_document_docx_body_with_http_info(req_config, opts = {})
@@ -131,9 +131,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get content of a footer from a DOCX
+    # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxHeadersAndFootersResponse]
     def edit_document_docx_get_headers_and_footers(req_config, opts = {})
@@ -141,9 +141,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get content of a footer from a DOCX
+    # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxHeadersAndFootersResponse, Fixnum, Hash)>] GetDocxHeadersAndFootersResponse data, response status code and response headers
     def edit_document_docx_get_headers_and_footers_with_http_info(req_config, opts = {})
@@ -186,9 +186,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get images from a DOCX
+    # Get images from a Word DOCX document
     # Returns the images defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxImagesResponse]
     def edit_document_docx_get_images(req_config, opts = {})
@@ -196,9 +196,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get images from a DOCX
+    # Get images from a Word DOCX document
     # Returns the images defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxImagesResponse, Fixnum, Hash)>] GetDocxImagesResponse data, response status code and response headers
     def edit_document_docx_get_images_with_http_info(req_config, opts = {})
@@ -241,9 +241,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get sections from a DOCX
+    # Get sections from a Word DOCX document
     # Returns the sections defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxSectionsResponse]
     def edit_document_docx_get_sections(req_config, opts = {})
@@ -251,9 +251,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get sections from a DOCX
+    # Get sections from a Word DOCX document
     # Returns the sections defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxSectionsResponse, Fixnum, Hash)>] GetDocxSectionsResponse data, response status code and response headers
     def edit_document_docx_get_sections_with_http_info(req_config, opts = {})
@@ -296,9 +296,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get styles from a DOCX
+    # Get styles from a Word DOCX document
     # Returns the styles defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxStylesResponse]
     def edit_document_docx_get_styles(req_config, opts = {})
@@ -306,9 +306,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get styles from a DOCX
+    # Get styles from a Word DOCX document
     # Returns the styles defined in the Word Document (DOCX) format file
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxStylesResponse, Fixnum, Hash)>] GetDocxStylesResponse data, response status code and response headers
     def edit_document_docx_get_styles_with_http_info(req_config, opts = {})
@@ -351,9 +351,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get tables in DOCX
+    # Get tables in Word DOCX document
     # Returns all the table objects in an Office Word Document (docx)
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetDocxTablesResponse]
     def edit_document_docx_get_tables(req_config, opts = {})
@@ -361,9 +361,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get tables in DOCX
+    # Get tables in Word DOCX document
     # Returns all the table objects in an Office Word Document (docx)
-    # @param req_config 
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetDocxTablesResponse, Fixnum, Hash)>] GetDocxTablesResponse data, response status code and response headers
     def edit_document_docx_get_tables_with_http_info(req_config, opts = {})
@@ -406,9 +406,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Insert image into a DOCX
-    # Set the footer in a Word Document (DOCX)
-    # @param req_config 
+    # Insert image into a Word DOCX document
+    # Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [DocxInsertImageResponse]
     def edit_document_docx_insert_image(req_config, opts = {})
@@ -416,9 +416,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Insert image into a DOCX
-    # Set the footer in a Word Document (DOCX)
-    # @param req_config 
+    # Insert image into a Word DOCX document
+    # Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocxInsertImageResponse, Fixnum, Hash)>] DocxInsertImageResponse data, response status code and response headers
     def edit_document_docx_insert_image_with_http_info(req_config, opts = {})
@@ -461,9 +461,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Insert a new paragraph into a DOCX
-    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-    # @param req_config 
+    # Insert a new paragraph into a Word DOCX document
+    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [InsertDocxInsertParagraphResponse]
     def edit_document_docx_insert_paragraph(req_config, opts = {})
@@ -471,9 +471,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Insert a new paragraph into a DOCX
-    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-    # @param req_config 
+    # Insert a new paragraph into a Word DOCX document
+    # Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(InsertDocxInsertParagraphResponse, Fixnum, Hash)>] InsertDocxInsertParagraphResponse data, response status code and response headers
     def edit_document_docx_insert_paragraph_with_http_info(req_config, opts = {})
@@ -516,9 +516,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Insert a new table into a DOCX
-    # Adds a new table into a DOCX and returns the result
-    # @param req_config 
+    # Insert a new table into a Word DOCX document
+    # Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [InsertDocxTablesResponse]
     def edit_document_docx_insert_table(req_config, opts = {})
@@ -526,9 +526,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Insert a new table into a DOCX
-    # Adds a new table into a DOCX and returns the result
-    # @param req_config 
+    # Insert a new table into a Word DOCX document
+    # Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(InsertDocxTablesResponse, Fixnum, Hash)>] InsertDocxTablesResponse data, response status code and response headers
     def edit_document_docx_insert_table_with_http_info(req_config, opts = {})
@@ -571,9 +571,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Remove headers and footers from DOCX
-    # Remove all headers, or footers, or both from a Word Document (DOCX)
-    # @param req_config 
+    # Remove headers and footers from Word DOCX document
+    # Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [RemoveDocxHeadersAndFootersResponse]
     def edit_document_docx_remove_headers_and_footers(req_config, opts = {})
@@ -581,9 +581,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Remove headers and footers from DOCX
-    # Remove all headers, or footers, or both from a Word Document (DOCX)
-    # @param req_config 
+    # Remove headers and footers from Word DOCX document
+    # Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemoveDocxHeadersAndFootersResponse, Fixnum, Hash)>] RemoveDocxHeadersAndFootersResponse data, response status code and response headers
     def edit_document_docx_remove_headers_and_footers_with_http_info(req_config, opts = {})
@@ -626,9 +626,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Delete any object in a DOCX
-    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-    # @param req_config 
+    # Delete any object in a Word DOCX document
+    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [DocxRemoveObjectResponse]
     def edit_document_docx_remove_object(req_config, opts = {})
@@ -636,9 +636,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Delete any object in a DOCX
-    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-    # @param req_config 
+    # Delete any object in a Word DOCX document
+    # Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocxRemoveObjectResponse, Fixnum, Hash)>] DocxRemoveObjectResponse data, response status code and response headers
     def edit_document_docx_remove_object_with_http_info(req_config, opts = {})
@@ -681,9 +681,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Replace string in DOCX
+    # Replace string in Word DOCX document
     # Replace all instances of a string in an Office Word Document (docx)
-    # @param req_config 
+    # @param req_config Document string replacement configuration input
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_document_docx_replace(req_config, opts = {})
@@ -691,9 +691,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Replace string in DOCX
+    # Replace string in Word DOCX document
     # Replace all instances of a string in an Office Word Document (docx)
-    # @param req_config 
+    # @param req_config Document string replacement configuration input
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_document_docx_replace_with_http_info(req_config, opts = {})
@@ -736,9 +736,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Set the footer in a DOCX
-    # Set the footer in a Word Document (DOCX)
-    # @param req_config 
+    # Set the footer in a Word DOCX document
+    # Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [DocxSetFooterResponse]
     def edit_document_docx_set_footer(req_config, opts = {})
@@ -746,9 +746,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Set the footer in a DOCX
-    # Set the footer in a Word Document (DOCX)
-    # @param req_config 
+    # Set the footer in a Word DOCX document
+    # Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocxSetFooterResponse, Fixnum, Hash)>] DocxSetFooterResponse data, response status code and response headers
     def edit_document_docx_set_footer_with_http_info(req_config, opts = {})
@@ -791,9 +791,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Add page number to footer in a DOCX
-    # Set the footer in a Word Document (DOCX) to contain a page number
-    # @param req_config 
+    # Add page number to footer in a Word DOCX document
+    # Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [DocxSetFooterResponse]
     def edit_document_docx_set_footer_add_page_number(req_config, opts = {})
@@ -801,9 +801,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Add page number to footer in a DOCX
-    # Set the footer in a Word Document (DOCX) to contain a page number
-    # @param req_config 
+    # Add page number to footer in a Word DOCX document
+    # Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocxSetFooterResponse, Fixnum, Hash)>] DocxSetFooterResponse data, response status code and response headers
     def edit_document_docx_set_footer_add_page_number_with_http_info(req_config, opts = {})
@@ -846,9 +846,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Set the header in a DOCX
-    # Set the header in a Word Document (DOCX)
-    # @param req_config 
+    # Set the header in a Word DOCX document
+    # Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [DocxSetHeaderResponse]
     def edit_document_docx_set_header(req_config, opts = {})
@@ -856,9 +856,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Set the header in a DOCX
-    # Set the header in a Word Document (DOCX)
-    # @param req_config 
+    # Set the header in a Word DOCX document
+    # Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocxSetHeaderResponse, Fixnum, Hash)>] DocxSetHeaderResponse data, response status code and response headers
     def edit_document_docx_set_header_with_http_info(req_config, opts = {})
@@ -903,7 +903,7 @@ module CloudmersiveConvertApiClient
 
     # Download result from document editing
     # Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-    # @param req_config 
+    # @param req_config Cloudmersive Document URL to complete editing on
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_document_finish_editing(req_config, opts = {})
@@ -913,7 +913,7 @@ module CloudmersiveConvertApiClient
 
     # Download result from document editing
     # Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-    # @param req_config 
+    # @param req_config Cloudmersive Document URL to complete editing on
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_document_finish_editing_with_http_info(req_config, opts = {})
@@ -956,9 +956,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Replace string in PPTX
+    # Replace string in PowerPoint PPTX presentation
     # Replace all instances of a string in an Office PowerPoint Document (pptx)
-    # @param req_config 
+    # @param req_config Replacement document configuration input
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_document_pptx_replace(req_config, opts = {})
@@ -966,9 +966,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Replace string in PPTX
+    # Replace string in PowerPoint PPTX presentation
     # Replace all instances of a string in an Office PowerPoint Document (pptx)
-    # @param req_config 
+    # @param req_config Replacement document configuration input
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_document_pptx_replace_with_http_info(req_config, opts = {})
@@ -1011,9 +1011,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get rows and cells from a XLSX worksheet
+    # Get rows and cells from a Excel XLSX spreadsheet, worksheet
     # Returns the rows and cells defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxColumnsResponse]
     def edit_document_xlsx_get_columns(input, opts = {})
@@ -1021,9 +1021,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get rows and cells from a XLSX worksheet
+    # Get rows and cells from a Excel XLSX spreadsheet, worksheet
     # Returns the rows and cells defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxColumnsResponse, Fixnum, Hash)>] GetXlsxColumnsResponse data, response status code and response headers
     def edit_document_xlsx_get_columns_with_http_info(input, opts = {})
@@ -1066,9 +1066,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get images from a XLSX worksheet
+    # Get images from a Excel XLSX spreadsheet, worksheet
     # Returns the images defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxImagesResponse]
     def edit_document_xlsx_get_images(input, opts = {})
@@ -1076,9 +1076,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get images from a XLSX worksheet
+    # Get images from a Excel XLSX spreadsheet, worksheet
     # Returns the images defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxImagesResponse, Fixnum, Hash)>] GetXlsxImagesResponse data, response status code and response headers
     def edit_document_xlsx_get_images_with_http_info(input, opts = {})
@@ -1121,9 +1121,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get rows and cells from a XLSX worksheet
+    # Get rows and cells from a Word XLSX spreadsheet, worksheet
     # Returns the rows and cells defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxRowsAndCellsResponse]
     def edit_document_xlsx_get_rows_and_cells(input, opts = {})
@@ -1131,9 +1131,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get rows and cells from a XLSX worksheet
+    # Get rows and cells from a Word XLSX spreadsheet, worksheet
     # Returns the rows and cells defined in the Excel Spreadsheet worksheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxRowsAndCellsResponse, Fixnum, Hash)>] GetXlsxRowsAndCellsResponse data, response status code and response headers
     def edit_document_xlsx_get_rows_and_cells_with_http_info(input, opts = {})
@@ -1176,9 +1176,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get styles from a XLSX worksheet
+    # Get styles from a Excel XLSX spreadsheet, worksheet
     # Returns the style defined in the Excel Spreadsheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxStylesResponse]
     def edit_document_xlsx_get_styles(input, opts = {})
@@ -1186,9 +1186,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get styles from a XLSX worksheet
+    # Get styles from a Excel XLSX spreadsheet, worksheet
     # Returns the style defined in the Excel Spreadsheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxStylesResponse, Fixnum, Hash)>] GetXlsxStylesResponse data, response status code and response headers
     def edit_document_xlsx_get_styles_with_http_info(input, opts = {})
@@ -1231,9 +1231,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get worksheets from a XLSX
+    # Get worksheets from a Excel XLSX spreadsheet
     # Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxWorksheetsResponse]
     def edit_document_xlsx_get_worksheets(input, opts = {})
@@ -1241,9 +1241,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get worksheets from a XLSX
+    # Get worksheets from a Excel XLSX spreadsheet
     # Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxWorksheetsResponse, Fixnum, Hash)>] GetXlsxWorksheetsResponse data, response status code and response headers
     def edit_document_xlsx_get_worksheets_with_http_info(input, opts = {})
@@ -1286,9 +1286,9 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Insert a new worksheet into an XLSX spreadsheet
+    # Insert a new worksheet into an Excel XLSX spreadsheet
     # Inserts a new worksheet into an Excel Spreadsheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [InsertXlsxWorksheetResponse]
     def edit_document_xlsx_insert_worksheet(input, opts = {})
@@ -1296,9 +1296,9 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Insert a new worksheet into an XLSX spreadsheet
+    # Insert a new worksheet into an Excel XLSX spreadsheet
     # Inserts a new worksheet into an Excel Spreadsheet
-    # @param input 
+    # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(InsertXlsxWorksheetResponse, Fixnum, Hash)>] InsertXlsxWorksheetResponse data, response status code and response headers
     def edit_document_xlsx_insert_worksheet_with_http_info(input, opts = {})

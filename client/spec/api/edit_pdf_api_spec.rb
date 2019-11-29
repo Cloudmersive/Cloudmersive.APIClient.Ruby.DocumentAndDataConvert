@@ -32,6 +32,20 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_delete_pages
+  # Remove / delete pages from a PDF document
+  # Remove one or more pages from a PDF document
+  # @param input_file Input file to perform the operation on.
+  # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+  # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_delete_pages test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_encrypt
   # Encrypt and password-protect a PDF
   # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -70,6 +84,22 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_insert_pages
+  # Insert / copy pages from one PDF document into another
+  # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+  # @param source_file Source PDF file to copy pages from.
+  # @param destination_file Destination PDF file to copy pages into.
+  # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+  # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+  # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_insert_pages test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_rasterize
   # Rasterize a PDF to an image-based PDF
   # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -99,7 +129,7 @@ describe 'EditPdfApi' do
   # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
   # @param request 
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'edit_pdf_set_metadata test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -33,9 +33,9 @@ describe 'ConvertWebApi' do
   end
 
   # unit tests for convert_web_html_to_docx
-  # HTML to DOCX
+  # Convert HTML to DOCX
   # Convert HTML to Office Word Document (DOCX) format
-  # @param input_request 
+  # @param input_request HTL input to convert to DOCX
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_web_html_to_docx test' do
@@ -51,6 +51,18 @@ describe 'ConvertWebApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_web_html_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_web_html_to_png
+  # Convert HTML string to PNG
+  # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
+  # @param input HTML to PNG request parameters
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'convert_web_html_to_png test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -20,6 +20,76 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Remove / delete pages from a PDF document
+    # Remove one or more pages from a PDF document
+    # @param input_file Input file to perform the operation on.
+    # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+    # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_delete_pages(input_file, page_start, page_end, opts = {})
+      data, _status_code, _headers = edit_pdf_delete_pages_with_http_info(input_file, page_start, page_end, opts)
+      return data
+    end
+
+    # Remove / delete pages from a PDF document
+    # Remove one or more pages from a PDF document
+    # @param input_file Input file to perform the operation on.
+    # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+    # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_delete_pages_with_http_info(input_file, page_start, page_end, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_delete_pages ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_delete_pages"
+      end
+      # verify the required parameter 'page_start' is set
+      if @api_client.config.client_side_validation && page_start.nil?
+        fail ArgumentError, "Missing the required parameter 'page_start' when calling EditPdfApi.edit_pdf_delete_pages"
+      end
+      # verify the required parameter 'page_end' is set
+      if @api_client.config.client_side_validation && page_end.nil?
+        fail ArgumentError, "Missing the required parameter 'page_end' when calling EditPdfApi.edit_pdf_delete_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/pages/delete"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'pageStart'] = page_start
+      header_params[:'pageEnd'] = page_end
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_delete_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Encrypt and password-protect a PDF
     # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
     # @param input_file Input file to perform the operation on.
@@ -194,6 +264,90 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Insert / copy pages from one PDF document into another
+    # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+    # @param source_file Source PDF file to copy pages from.
+    # @param destination_file Destination PDF file to copy pages into.
+    # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+    # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+    # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_insert_pages(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts = {})
+      data, _status_code, _headers = edit_pdf_insert_pages_with_http_info(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts)
+      return data
+    end
+
+    # Insert / copy pages from one PDF document into another
+    # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+    # @param source_file Source PDF file to copy pages from.
+    # @param destination_file Destination PDF file to copy pages into.
+    # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+    # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+    # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_insert_pages_with_http_info(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_insert_pages ..."
+      end
+      # verify the required parameter 'source_file' is set
+      if @api_client.config.client_side_validation && source_file.nil?
+        fail ArgumentError, "Missing the required parameter 'source_file' when calling EditPdfApi.edit_pdf_insert_pages"
+      end
+      # verify the required parameter 'destination_file' is set
+      if @api_client.config.client_side_validation && destination_file.nil?
+        fail ArgumentError, "Missing the required parameter 'destination_file' when calling EditPdfApi.edit_pdf_insert_pages"
+      end
+      # verify the required parameter 'page_start_source' is set
+      if @api_client.config.client_side_validation && page_start_source.nil?
+        fail ArgumentError, "Missing the required parameter 'page_start_source' when calling EditPdfApi.edit_pdf_insert_pages"
+      end
+      # verify the required parameter 'page_end_source' is set
+      if @api_client.config.client_side_validation && page_end_source.nil?
+        fail ArgumentError, "Missing the required parameter 'page_end_source' when calling EditPdfApi.edit_pdf_insert_pages"
+      end
+      # verify the required parameter 'page_insert_before_desitnation' is set
+      if @api_client.config.client_side_validation && page_insert_before_desitnation.nil?
+        fail ArgumentError, "Missing the required parameter 'page_insert_before_desitnation' when calling EditPdfApi.edit_pdf_insert_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/pages/insert"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'pageStartSource'] = page_start_source
+      header_params[:'pageEndSource'] = page_end_source
+      header_params[:'pageInsertBeforeDesitnation'] = page_insert_before_desitnation
+
+      # form parameters
+      form_params = {}
+      form_params["sourceFile"] = source_file
+      form_params["destinationFile"] = destination_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_insert_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Rasterize a PDF to an image-based PDF
     # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
     # @param input_file Input file to perform the operation on.
@@ -309,7 +463,7 @@ module CloudmersiveConvertApiClient
     # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
     # @param request 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def edit_pdf_set_metadata(request, opts = {})
       data, _status_code, _headers = edit_pdf_set_metadata_with_http_info(request, opts)
       return data
@@ -319,7 +473,7 @@ module CloudmersiveConvertApiClient
     # Sets (writes) metadata into the input PDF document, including Title, Author, etc.
     # @param request 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_pdf_set_metadata_with_http_info(request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_set_metadata ..."
@@ -353,7 +507,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

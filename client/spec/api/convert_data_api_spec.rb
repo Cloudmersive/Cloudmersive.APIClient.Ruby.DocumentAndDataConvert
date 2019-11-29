@@ -33,7 +33,7 @@ describe 'ConvertDataApi' do
   end
 
   # unit tests for convert_data_csv_to_json
-  # CSV to JSON conversion
+  # Convert CSV to JSON conversion
   # Convert a CSV file to a JSON object array
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'ConvertDataApi' do
   end
 
   # unit tests for convert_data_xls_to_json
-  # Excel (97-2003) XLS to JSON conversion
+  # Convert Excel (97-2003) XLS to JSON conversion
   # Convert an Excel (97-2003) XLS file to a JSON object array
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -57,7 +57,7 @@ describe 'ConvertDataApi' do
   end
 
   # unit tests for convert_data_xlsx_to_json
-  # Excel XLSX to JSON conversion
+  # Convert Excel XLSX to JSON conversion
   # Convert an Excel XLSX file to a JSON object array
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -69,7 +69,7 @@ describe 'ConvertDataApi' do
   end
 
   # unit tests for convert_data_xml_to_json
-  # XML to JSON conversion
+  # Convert XML to JSON conversion
   # Convert an XML string or file into JSON
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
