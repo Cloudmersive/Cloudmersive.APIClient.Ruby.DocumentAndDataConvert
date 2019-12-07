@@ -56,6 +56,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_delete_pages
+  # Delete, remove pages from a Word DOCX document
+  # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_delete_pages test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a Word DOCX document
   # Returns the footer content from a Word Document (DOCX) format file
@@ -147,6 +159,30 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [InsertDocxTablesResponse]
   describe 'edit_document_docx_insert_table test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_insert_table_row
+  # Insert a new row into an existing table in a Word DOCX document
+  # Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [InsertDocxTableRowResponse]
+  describe 'edit_document_docx_insert_table_row test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_pages
+  # Get pages and content from a Word DOCX document
+  # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxPagesResponse]
+  describe 'edit_document_docx_pages test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -98,6 +98,18 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_get_pdf_text_by_pages
+  # Get text in a PDF document by page
+  # Gets the text in a PDF by page
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [PdfTextByPageResult]
+  describe 'edit_pdf_get_pdf_text_by_pages test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_insert_pages
   # Insert / copy pages from one PDF document into another
   # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).

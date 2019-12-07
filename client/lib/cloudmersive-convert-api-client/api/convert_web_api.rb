@@ -20,7 +20,7 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
-    # Convert HTML to DOCX
+    # Convert HTML to Word DOCX Document
     # Convert HTML to Office Word Document (DOCX) format
     # @param input_request HTL input to convert to DOCX
     # @param [Hash] opts the optional parameters
@@ -30,7 +30,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert HTML to DOCX
+    # Convert HTML to Word DOCX Document
     # Convert HTML to Office Word Document (DOCX) format
     # @param input_request HTL input to convert to DOCX
     # @param [Hash] opts the optional parameters

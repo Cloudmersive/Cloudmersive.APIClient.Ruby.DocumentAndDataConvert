@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**edit_pdf_encrypt**](EditPdfApi.md#edit_pdf_encrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**edit_pdf_get_form_fields**](EditPdfApi.md#edit_pdf_get_form_fields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**edit_pdf_get_metadata**](EditPdfApi.md#edit_pdf_get_metadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+[**edit_pdf_get_pdf_text_by_pages**](EditPdfApi.md#edit_pdf_get_pdf_text_by_pages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 [**edit_pdf_insert_pages**](EditPdfApi.md#edit_pdf_insert_pages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**edit_pdf_rasterize**](EditPdfApi.md#edit_pdf_rasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**edit_pdf_set_form_fields**](EditPdfApi.md#edit_pdf_set_form_fields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
@@ -292,6 +293,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PdfMetadata**](PdfMetadata.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_pdf_get_pdf_text_by_pages**
+> PdfTextByPageResult edit_pdf_get_pdf_text_by_pages(input_file)
+
+Get text in a PDF document by page
+
+Gets the text in a PDF by page
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Get text in a PDF document by page
+  result = api_instance.edit_pdf_get_pdf_text_by_pages(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditPdfApi->edit_pdf_get_pdf_text_by_pages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**PdfTextByPageResult**](PdfTextByPageResult.md)
 
 ### Authorization
 

@@ -131,6 +131,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Delete, remove pages from a Word DOCX document
+    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_document_docx_delete_pages(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_delete_pages_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Delete, remove pages from a Word DOCX document
+    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_docx_delete_pages_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_delete_pages ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_delete_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/delete-pages"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_delete_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config Document input request
@@ -567,6 +622,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'InsertDocxTablesResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_insert_table\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Insert a new row into an existing table in a Word DOCX document
+    # Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [InsertDocxTableRowResponse]
+    def edit_document_docx_insert_table_row(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_insert_table_row_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Insert a new row into an existing table in a Word DOCX document
+    # Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InsertDocxTableRowResponse, Fixnum, Hash)>] InsertDocxTableRowResponse data, response status code and response headers
+    def edit_document_docx_insert_table_row_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_insert_table_row ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_insert_table_row"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/insert-table-row"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InsertDocxTableRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_insert_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get pages and content from a Word DOCX document
+    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxPagesResponse]
+    def edit_document_docx_pages(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_pages_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get pages and content from a Word DOCX document
+    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxPagesResponse, Fixnum, Hash)>] GetDocxPagesResponse data, response status code and response headers
+    def edit_document_docx_pages_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_pages ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-pages"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxPagesResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

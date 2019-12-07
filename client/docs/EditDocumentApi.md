@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edit_document_begin_editing**](EditDocumentApi.md#edit_document_begin_editing) | **POST** /convert/edit/begin-editing | Begin editing a document
 [**edit_document_docx_body**](EditDocumentApi.md#edit_document_docx_body) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
+[**edit_document_docx_delete_pages**](EditDocumentApi.md#edit_document_docx_delete_pages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**edit_document_docx_get_headers_and_footers**](EditDocumentApi.md#edit_document_docx_get_headers_and_footers) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**edit_document_docx_get_images**](EditDocumentApi.md#edit_document_docx_get_images) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**edit_document_docx_get_sections**](EditDocumentApi.md#edit_document_docx_get_sections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -14,6 +15,8 @@ Method | HTTP request | Description
 [**edit_document_docx_insert_image**](EditDocumentApi.md#edit_document_docx_insert_image) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 [**edit_document_docx_insert_paragraph**](EditDocumentApi.md#edit_document_docx_insert_paragraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 [**edit_document_docx_insert_table**](EditDocumentApi.md#edit_document_docx_insert_table) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
+[**edit_document_docx_insert_table_row**](EditDocumentApi.md#edit_document_docx_insert_table_row) | **POST** /convert/edit/docx/insert-table-row | Insert a new row into an existing table in a Word DOCX document
+[**edit_document_docx_pages**](EditDocumentApi.md#edit_document_docx_pages) | **POST** /convert/edit/docx/get-pages | Get pages and content from a Word DOCX document
 [**edit_document_docx_remove_headers_and_footers**](EditDocumentApi.md#edit_document_docx_remove_headers_and_footers) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**edit_document_docx_remove_object**](EditDocumentApi.md#edit_document_docx_remove_object) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**edit_document_docx_replace**](EditDocumentApi.md#edit_document_docx_replace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
@@ -135,6 +138,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_docx_delete_pages**
+> String edit_document_docx_delete_pages(req_config)
+
+Delete, remove pages from a Word DOCX document
+
+Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+req_config = CloudmersiveConvertApiClient::RemoveDocxPagesRequest.new # RemoveDocxPagesRequest | Document input request
+
+
+begin
+  #Delete, remove pages from a Word DOCX document
+  result = api_instance.edit_document_docx_delete_pages(req_config)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_docx_delete_pages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **req_config** | [**RemoveDocxPagesRequest**](RemoveDocxPagesRequest.md)| Document input request | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
 
 
 
@@ -558,6 +615,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InsertDocxTablesResponse**](InsertDocxTablesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_docx_insert_table_row**
+> InsertDocxTableRowResponse edit_document_docx_insert_table_row(req_config)
+
+Insert a new row into an existing table in a Word DOCX document
+
+Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+req_config = CloudmersiveConvertApiClient::InsertDocxTableRowRequest.new # InsertDocxTableRowRequest | Document input request
+
+
+begin
+  #Insert a new row into an existing table in a Word DOCX document
+  result = api_instance.edit_document_docx_insert_table_row(req_config)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_docx_insert_table_row: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **req_config** | [**InsertDocxTableRowRequest**](InsertDocxTableRowRequest.md)| Document input request | 
+
+### Return type
+
+[**InsertDocxTableRowResponse**](InsertDocxTableRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_docx_pages**
+> GetDocxPagesResponse edit_document_docx_pages(req_config)
+
+Get pages and content from a Word DOCX document
+
+Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+req_config = CloudmersiveConvertApiClient::GetDocxPagesRequest.new # GetDocxPagesRequest | Document input request
+
+
+begin
+  #Get pages and content from a Word DOCX document
+  result = api_instance.edit_document_docx_pages(req_config)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_docx_pages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **req_config** | [**GetDocxPagesRequest**](GetDocxPagesRequest.md)| Document input request | 
+
+### Return type
+
+[**GetDocxPagesResponse**](GetDocxPagesResponse.md)
 
 ### Authorization
 

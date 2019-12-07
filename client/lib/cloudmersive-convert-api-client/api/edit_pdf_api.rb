@@ -330,6 +330,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Get text in a PDF document by page
+    # Gets the text in a PDF by page
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [PdfTextByPageResult]
+    def edit_pdf_get_pdf_text_by_pages(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_get_pdf_text_by_pages_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Get text in a PDF document by page
+    # Gets the text in a PDF by page
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PdfTextByPageResult, Fixnum, Hash)>] PdfTextByPageResult data, response status code and response headers
+    def edit_pdf_get_pdf_text_by_pages_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_get_pdf_text_by_pages ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_get_pdf_text_by_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/pages/get-text"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PdfTextByPageResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_pdf_text_by_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Insert / copy pages from one PDF document into another
     # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
     # @param source_file Source PDF file to copy pages from.
