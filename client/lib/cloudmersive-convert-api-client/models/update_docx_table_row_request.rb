@@ -25,7 +25,7 @@ module CloudmersiveConvertApiClient
     attr_accessor :row_to_update
 
     # 0-based index of the Table Row to update
-    attr_accessor :table_row_row_index
+    attr_accessor :table_row_index
 
     # Required; the path to the existing table to modify
     attr_accessor :existing_table_path
@@ -37,7 +37,7 @@ module CloudmersiveConvertApiClient
         :'input_file_bytes' => :'InputFileBytes',
         :'input_file_url' => :'InputFileUrl',
         :'row_to_update' => :'RowToUpdate',
-        :'table_row_row_index' => :'TableRowRowIndex',
+        :'table_row_index' => :'TableRowIndex',
         :'existing_table_path' => :'ExistingTablePath'
       }
     end
@@ -48,7 +48,7 @@ module CloudmersiveConvertApiClient
         :'input_file_bytes' => :'String',
         :'input_file_url' => :'String',
         :'row_to_update' => :'DocxTableRow',
-        :'table_row_row_index' => :'Integer',
+        :'table_row_index' => :'Integer',
         :'existing_table_path' => :'String'
       }
     end
@@ -73,8 +73,8 @@ module CloudmersiveConvertApiClient
         self.row_to_update = attributes[:'RowToUpdate']
       end
 
-      if attributes.has_key?(:'TableRowRowIndex')
-        self.table_row_row_index = attributes[:'TableRowRowIndex']
+      if attributes.has_key?(:'TableRowIndex')
+        self.table_row_index = attributes[:'TableRowIndex']
       end
 
       if attributes.has_key?(:'ExistingTablePath')
@@ -120,7 +120,7 @@ module CloudmersiveConvertApiClient
           input_file_bytes == o.input_file_bytes &&
           input_file_url == o.input_file_url &&
           row_to_update == o.row_to_update &&
-          table_row_row_index == o.table_row_row_index &&
+          table_row_index == o.table_row_index &&
           existing_table_path == o.existing_table_path
     end
 
@@ -133,7 +133,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [input_file_bytes, input_file_url, row_to_update, table_row_row_index, existing_table_path].hash
+      [input_file_bytes, input_file_url, row_to_update, table_row_index, existing_table_path].hash
     end
 
     # Builds the object from hash

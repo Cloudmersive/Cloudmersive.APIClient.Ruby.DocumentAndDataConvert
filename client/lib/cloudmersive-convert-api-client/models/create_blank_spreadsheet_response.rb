@@ -13,20 +13,20 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a Get-Worksheets command
-  class GetXlsxWorksheetsResponse
+  # Result of creating a blank worksheet
+  class CreateBlankSpreadsheetResponse
     # True if successful, false otherwise
     attr_accessor :successful
 
-    # Worksheets in the Excel XLSX spreadsheet
-    attr_accessor :worksheets
+    # URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
+    attr_accessor :edited_document_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'worksheets' => :'Worksheets'
+        :'edited_document_url' => :'EditedDocumentURL'
       }
     end
 
@@ -34,7 +34,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'worksheets' => :'Array<XlsxWorksheet>'
+        :'edited_document_url' => :'String'
       }
     end
 
@@ -50,10 +50,8 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Worksheets')
-        if (value = attributes[:'Worksheets']).is_a?(Array)
-          self.worksheets = value
-        end
+      if attributes.has_key?(:'EditedDocumentURL')
+        self.edited_document_url = attributes[:'EditedDocumentURL']
       end
 
     end
@@ -77,7 +75,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          worksheets == o.worksheets
+          edited_document_url == o.edited_document_url
     end
 
     # @see the `==` method
@@ -89,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, worksheets].hash
+      [successful, edited_document_url].hash
     end
 
     # Builds the object from hash

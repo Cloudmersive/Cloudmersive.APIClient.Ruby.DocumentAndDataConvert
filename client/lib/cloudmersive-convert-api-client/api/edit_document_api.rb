@@ -131,6 +131,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Create a blank Word DOCX document
+    # Returns a blank Word DOCX Document format file
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [CreateBlankDocxResponse]
+    def edit_document_docx_create_blank_document(input, opts = {})
+      data, _status_code, _headers = edit_document_docx_create_blank_document_with_http_info(input, opts)
+      return data
+    end
+
+    # Create a blank Word DOCX document
+    # Returns a blank Word DOCX Document format file
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateBlankDocxResponse, Fixnum, Hash)>] CreateBlankDocxResponse data, response status code and response headers
+    def edit_document_docx_create_blank_document_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_create_blank_document ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_docx_create_blank_document"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/create/blank"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CreateBlankDocxResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_create_blank_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete, remove pages from a Word DOCX document
     # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
     # @param req_config Document input request
@@ -1231,6 +1286,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Update, set contents of a table cell in an existing table in a Word DOCX document
+    # Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateDocxTableCellResponse]
+    def edit_document_docx_update_table_cell(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_update_table_cell_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Update, set contents of a table cell in an existing table in a Word DOCX document
+    # Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateDocxTableCellResponse, Fixnum, Hash)>] UpdateDocxTableCellResponse data, response status code and response headers
+    def edit_document_docx_update_table_cell_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_update_table_cell ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_update_table_cell"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/update-table-cell"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UpdateDocxTableCellResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_update_table_cell\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update, set contents of a table row in an existing table in a Word DOCX document
     # Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
     # @param req_config Document input request
@@ -1392,6 +1502,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_replace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a blank Excel XLSX spreadsheet
+    # Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [CreateBlankSpreadsheetResponse]
+    def edit_document_xlsx_create_blank_spreadsheet(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_create_blank_spreadsheet_with_http_info(input, opts)
+      return data
+    end
+
+    # Create a blank Excel XLSX spreadsheet
+    # Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateBlankSpreadsheetResponse, Fixnum, Hash)>] CreateBlankSpreadsheetResponse data, response status code and response headers
+    def edit_document_xlsx_create_blank_spreadsheet_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_create_blank_spreadsheet ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_create_blank_spreadsheet"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/create/blank"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CreateBlankSpreadsheetResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_create_blank_spreadsheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

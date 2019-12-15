@@ -13,28 +13,23 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a Get-Worksheets command
-  class GetXlsxWorksheetsResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
-
-    # Worksheets in the Excel XLSX spreadsheet
-    attr_accessor :worksheets
+  # Input to a Create Blank Spreadsheet request
+  class CreateBlankSpreadsheetRequest
+    # The blank Spreadsheet will have a default Worksheet in it; supply a name, or if left empty, will default to Worksheet1
+    attr_accessor :worksheet_name
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'worksheets' => :'Worksheets'
+        :'worksheet_name' => :'WorksheetName'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'worksheets' => :'Array<XlsxWorksheet>'
+        :'worksheet_name' => :'String'
       }
     end
 
@@ -46,14 +41,8 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
-      end
-
-      if attributes.has_key?(:'Worksheets')
-        if (value = attributes[:'Worksheets']).is_a?(Array)
-          self.worksheets = value
-        end
+      if attributes.has_key?(:'WorksheetName')
+        self.worksheet_name = attributes[:'WorksheetName']
       end
 
     end
@@ -76,8 +65,7 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          worksheets == o.worksheets
+          worksheet_name == o.worksheet_name
     end
 
     # @see the `==` method
@@ -89,7 +77,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, worksheets].hash
+      [worksheet_name].hash
     end
 
     # Builds the object from hash

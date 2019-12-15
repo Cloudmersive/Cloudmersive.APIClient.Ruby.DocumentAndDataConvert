@@ -13,28 +13,48 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a Get-Worksheets command
-  class GetXlsxWorksheetsResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # Input to a Update Table Cell request
+  class UpdateDocxTableCellRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # Worksheets in the Excel XLSX spreadsheet
-    attr_accessor :worksheets
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
+
+    # Table cell contents you would like to update the cell with
+    attr_accessor :cell_to_update
+
+    # 0-based index of the Table Row to update
+    attr_accessor :table_row_index
+
+    # 0-based index of the Table Cell (within the row) to update
+    attr_accessor :table_cell_index
+
+    # Required; the path to the existing table to modify
+    attr_accessor :existing_table_path
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'worksheets' => :'Worksheets'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'cell_to_update' => :'CellToUpdate',
+        :'table_row_index' => :'TableRowIndex',
+        :'table_cell_index' => :'TableCellIndex',
+        :'existing_table_path' => :'ExistingTablePath'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'worksheets' => :'Array<XlsxWorksheet>'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'cell_to_update' => :'DocxTableCell',
+        :'table_row_index' => :'Integer',
+        :'table_cell_index' => :'Integer',
+        :'existing_table_path' => :'String'
       }
     end
 
@@ -46,14 +66,28 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Worksheets')
-        if (value = attributes[:'Worksheets']).is_a?(Array)
-          self.worksheets = value
-        end
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
+      end
+
+      if attributes.has_key?(:'CellToUpdate')
+        self.cell_to_update = attributes[:'CellToUpdate']
+      end
+
+      if attributes.has_key?(:'TableRowIndex')
+        self.table_row_index = attributes[:'TableRowIndex']
+      end
+
+      if attributes.has_key?(:'TableCellIndex')
+        self.table_cell_index = attributes[:'TableCellIndex']
+      end
+
+      if attributes.has_key?(:'ExistingTablePath')
+        self.existing_table_path = attributes[:'ExistingTablePath']
       end
 
     end
@@ -62,13 +96,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -76,8 +126,12 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          worksheets == o.worksheets
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          cell_to_update == o.cell_to_update &&
+          table_row_index == o.table_row_index &&
+          table_cell_index == o.table_cell_index &&
+          existing_table_path == o.existing_table_path
     end
 
     # @see the `==` method
@@ -89,7 +143,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, worksheets].hash
+      [input_file_bytes, input_file_url, cell_to_update, table_row_index, table_cell_index, existing_table_path].hash
     end
 
     # Builds the object from hash

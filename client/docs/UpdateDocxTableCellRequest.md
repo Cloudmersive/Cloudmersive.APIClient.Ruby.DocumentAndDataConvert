@@ -1,12 +1,13 @@
-# CloudmersiveConvertApiClient::UpdateDocxTableRowRequest
+# CloudmersiveConvertApiClient::UpdateDocxTableCellRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **input_file_bytes** | **String** | Optional: Bytes of the input file to operate on | [optional] 
 **input_file_url** | **String** | Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). | [optional] 
-**row_to_update** | [**DocxTableRow**](DocxTableRow.md) | Table row contents you would like to update the row with | [optional] 
+**cell_to_update** | [**DocxTableCell**](DocxTableCell.md) | Table cell contents you would like to update the cell with | [optional] 
 **table_row_index** | **Integer** | 0-based index of the Table Row to update | [optional] 
+**table_cell_index** | **Integer** | 0-based index of the Table Cell (within the row) to update | [optional] 
 **existing_table_path** | **String** | Required; the path to the existing table to modify | [optional] 
 
 

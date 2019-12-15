@@ -56,6 +56,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_create_blank_document
+  # Create a blank Word DOCX document
+  # Returns a blank Word DOCX Document format file
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [CreateBlankDocxResponse]
+  describe 'edit_document_docx_create_blank_document test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_delete_pages
   # Delete, remove pages from a Word DOCX document
   # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
@@ -296,6 +308,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_update_table_cell
+  # Update, set contents of a table cell in an existing table in a Word DOCX document
+  # Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [UpdateDocxTableCellResponse]
+  describe 'edit_document_docx_update_table_cell test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_update_table_row
   # Update, set contents of a table row in an existing table in a Word DOCX document
   # Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
@@ -327,6 +351,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_document_pptx_replace test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_create_blank_spreadsheet
+  # Create a blank Excel XLSX spreadsheet
+  # Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [CreateBlankSpreadsheetResponse]
+  describe 'edit_document_xlsx_create_blank_spreadsheet test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
