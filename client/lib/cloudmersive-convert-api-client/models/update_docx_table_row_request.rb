@@ -13,63 +13,43 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of an autodetect/get-info operation
-  class PdfMetadata
-    # True if the operation was successful, false otherwise
-    attr_accessor :successful
+  # Input to a Update Table Row request
+  class UpdateDocxTableRowRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # Title of the document
-    attr_accessor :title
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
-    # Keywords of the document
-    attr_accessor :keywords
+    # Table row contents you would like to update the row with
+    attr_accessor :row_to_update
 
-    # Subject of the document
-    attr_accessor :subject
+    # 0-based index of the Table Row to update
+    attr_accessor :table_row_row_index
 
-    # User name of the creator/author of the document, if available, null if not available
-    attr_accessor :author
-
-    # Creator of the document
-    attr_accessor :creator
-
-    # The timestamp that the document was last modified, if available, null if not available
-    attr_accessor :date_modified
-
-    # The timestamp that the document was created, if available, null if not available
-    attr_accessor :date_created
-
-    # The number of pages in the document
-    attr_accessor :page_count
+    # Required; the path to the existing table to modify
+    attr_accessor :existing_table_path
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'title' => :'Title',
-        :'keywords' => :'Keywords',
-        :'subject' => :'Subject',
-        :'author' => :'Author',
-        :'creator' => :'Creator',
-        :'date_modified' => :'DateModified',
-        :'date_created' => :'DateCreated',
-        :'page_count' => :'PageCount'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'row_to_update' => :'RowToUpdate',
+        :'table_row_row_index' => :'TableRowRowIndex',
+        :'existing_table_path' => :'ExistingTablePath'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'title' => :'String',
-        :'keywords' => :'String',
-        :'subject' => :'String',
-        :'author' => :'String',
-        :'creator' => :'String',
-        :'date_modified' => :'DateTime',
-        :'date_created' => :'DateTime',
-        :'page_count' => :'Integer'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'row_to_update' => :'DocxTableRow',
+        :'table_row_row_index' => :'Integer',
+        :'existing_table_path' => :'String'
       }
     end
 
@@ -81,40 +61,24 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Title')
-        self.title = attributes[:'Title']
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
-      if attributes.has_key?(:'Keywords')
-        self.keywords = attributes[:'Keywords']
+      if attributes.has_key?(:'RowToUpdate')
+        self.row_to_update = attributes[:'RowToUpdate']
       end
 
-      if attributes.has_key?(:'Subject')
-        self.subject = attributes[:'Subject']
+      if attributes.has_key?(:'TableRowRowIndex')
+        self.table_row_row_index = attributes[:'TableRowRowIndex']
       end
 
-      if attributes.has_key?(:'Author')
-        self.author = attributes[:'Author']
-      end
-
-      if attributes.has_key?(:'Creator')
-        self.creator = attributes[:'Creator']
-      end
-
-      if attributes.has_key?(:'DateModified')
-        self.date_modified = attributes[:'DateModified']
-      end
-
-      if attributes.has_key?(:'DateCreated')
-        self.date_created = attributes[:'DateCreated']
-      end
-
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'ExistingTablePath')
+        self.existing_table_path = attributes[:'ExistingTablePath']
       end
 
     end
@@ -123,13 +87,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -137,15 +117,11 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          title == o.title &&
-          keywords == o.keywords &&
-          subject == o.subject &&
-          author == o.author &&
-          creator == o.creator &&
-          date_modified == o.date_modified &&
-          date_created == o.date_created &&
-          page_count == o.page_count
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          row_to_update == o.row_to_update &&
+          table_row_row_index == o.table_row_row_index &&
+          existing_table_path == o.existing_table_path
     end
 
     # @see the `==` method
@@ -157,7 +133,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, title, keywords, subject, author, creator, date_modified, date_created, page_count].hash
+      [input_file_bytes, input_file_url, row_to_update, table_row_row_index, existing_table_path].hash
     end
 
     # Builds the object from hash

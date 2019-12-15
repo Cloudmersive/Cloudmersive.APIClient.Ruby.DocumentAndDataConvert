@@ -186,6 +186,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Deletes a table row in an existing table in a Word DOCX document
+    # Deletes an existing table row in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [DeleteDocxTableRowResponse]
+    def edit_document_docx_delete_table_row(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_delete_table_row_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Deletes a table row in an existing table in a Word DOCX document
+    # Deletes an existing table row in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DeleteDocxTableRowResponse, Fixnum, Hash)>] DeleteDocxTableRowResponse data, response status code and response headers
+    def edit_document_docx_delete_table_row_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_delete_table_row ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_delete_table_row"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/delete-table-row"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DeleteDocxTableRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_delete_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config Document input request
@@ -406,7 +461,117 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Get tables in Word DOCX document
+    # Get a specific table by index in a Word DOCX document
+    # Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxTableByIndexResponse]
+    def edit_document_docx_get_table_by_index(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_table_by_index_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get a specific table by index in a Word DOCX document
+    # Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxTableByIndexResponse, Fixnum, Hash)>] GetDocxTableByIndexResponse data, response status code and response headers
+    def edit_document_docx_get_table_by_index_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_table_by_index ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_table_by_index"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-table/by-index"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxTableByIndexResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_table_by_index\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets the contents of an existing table row in an existing table in a Word DOCX document
+    # Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxTableRowResponse]
+    def edit_document_docx_get_table_row(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_table_row_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Gets the contents of an existing table row in an existing table in a Word DOCX document
+    # Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxTableRowResponse, Fixnum, Hash)>] GetDocxTableRowResponse data, response status code and response headers
+    def edit_document_docx_get_table_row_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_table_row ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_table_row"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-table-row"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxTableRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all tables in Word DOCX document
     # Returns all the table objects in an Office Word Document (docx)
     # @param req_config Document input request
     # @param [Hash] opts the optional parameters
@@ -416,7 +581,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Get tables in Word DOCX document
+    # Get all tables in Word DOCX document
     # Returns all the table objects in an Office Word Document (docx)
     # @param req_config Document input request
     # @param [Hash] opts the optional parameters
@@ -1062,6 +1227,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocxSetHeaderResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_set_header\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update, set contents of a table row in an existing table in a Word DOCX document
+    # Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateDocxTableRowResponse]
+    def edit_document_docx_update_table_row(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_update_table_row_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Update, set contents of a table row in an existing table in a Word DOCX document
+    # Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateDocxTableRowResponse, Fixnum, Hash)>] UpdateDocxTableRowResponse data, response status code and response headers
+    def edit_document_docx_update_table_row_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_update_table_row ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_update_table_row"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/update-table-row"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UpdateDocxTableRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_update_table_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -13,48 +13,20 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of an autodetect/get-info operation
-  class PdfMetadata
-    # True if the operation was successful, false otherwise
+  # Result of running an Delete Table Row command
+  class DeleteDocxTableRowResponse
+    # True if successful, false otherwise
     attr_accessor :successful
 
-    # Title of the document
-    attr_accessor :title
-
-    # Keywords of the document
-    attr_accessor :keywords
-
-    # Subject of the document
-    attr_accessor :subject
-
-    # User name of the creator/author of the document, if available, null if not available
-    attr_accessor :author
-
-    # Creator of the document
-    attr_accessor :creator
-
-    # The timestamp that the document was last modified, if available, null if not available
-    attr_accessor :date_modified
-
-    # The timestamp that the document was created, if available, null if not available
-    attr_accessor :date_created
-
-    # The number of pages in the document
-    attr_accessor :page_count
+    # URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
+    attr_accessor :edited_document_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'title' => :'Title',
-        :'keywords' => :'Keywords',
-        :'subject' => :'Subject',
-        :'author' => :'Author',
-        :'creator' => :'Creator',
-        :'date_modified' => :'DateModified',
-        :'date_created' => :'DateCreated',
-        :'page_count' => :'PageCount'
+        :'edited_document_url' => :'EditedDocumentURL'
       }
     end
 
@@ -62,14 +34,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'title' => :'String',
-        :'keywords' => :'String',
-        :'subject' => :'String',
-        :'author' => :'String',
-        :'creator' => :'String',
-        :'date_modified' => :'DateTime',
-        :'date_created' => :'DateTime',
-        :'page_count' => :'Integer'
+        :'edited_document_url' => :'String'
       }
     end
 
@@ -85,36 +50,8 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Title')
-        self.title = attributes[:'Title']
-      end
-
-      if attributes.has_key?(:'Keywords')
-        self.keywords = attributes[:'Keywords']
-      end
-
-      if attributes.has_key?(:'Subject')
-        self.subject = attributes[:'Subject']
-      end
-
-      if attributes.has_key?(:'Author')
-        self.author = attributes[:'Author']
-      end
-
-      if attributes.has_key?(:'Creator')
-        self.creator = attributes[:'Creator']
-      end
-
-      if attributes.has_key?(:'DateModified')
-        self.date_modified = attributes[:'DateModified']
-      end
-
-      if attributes.has_key?(:'DateCreated')
-        self.date_created = attributes[:'DateCreated']
-      end
-
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'EditedDocumentURL')
+        self.edited_document_url = attributes[:'EditedDocumentURL']
       end
 
     end
@@ -138,14 +75,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          title == o.title &&
-          keywords == o.keywords &&
-          subject == o.subject &&
-          author == o.author &&
-          creator == o.creator &&
-          date_modified == o.date_modified &&
-          date_created == o.date_created &&
-          page_count == o.page_count
+          edited_document_url == o.edited_document_url
     end
 
     # @see the `==` method
@@ -157,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, title, keywords, subject, author, creator, date_modified, date_created, page_count].hash
+      [successful, edited_document_url].hash
     end
 
     # Builds the object from hash

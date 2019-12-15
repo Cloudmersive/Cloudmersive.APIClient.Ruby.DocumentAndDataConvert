@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **creator** | **String** | Creator of the document | [optional] 
 **date_modified** | **DateTime** | The timestamp that the document was last modified, if available, null if not available | [optional] 
 **date_created** | **DateTime** | The timestamp that the document was created, if available, null if not available | [optional] 
+**page_count** | **Integer** | The number of pages in the document | [optional] 
 
 

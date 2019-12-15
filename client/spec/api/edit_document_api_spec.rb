@@ -68,6 +68,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_delete_table_row
+  # Deletes a table row in an existing table in a Word DOCX document
+  # Deletes an existing table row in a Word DOCX Document and returns the result.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [DeleteDocxTableRowResponse]
+  describe 'edit_document_docx_delete_table_row test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a Word DOCX document
   # Returns the footer content from a Word Document (DOCX) format file
@@ -116,8 +128,32 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_get_table_by_index
+  # Get a specific table by index in a Word DOCX document
+  # Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxTableByIndexResponse]
+  describe 'edit_document_docx_get_table_by_index test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_get_table_row
+  # Gets the contents of an existing table row in an existing table in a Word DOCX document
+  # Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxTableRowResponse]
+  describe 'edit_document_docx_get_table_row test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_tables
-  # Get tables in Word DOCX document
+  # Get all tables in Word DOCX document
   # Returns all the table objects in an Office Word Document (docx)
   # @param req_config Document input request
   # @param [Hash] opts the optional parameters
@@ -255,6 +291,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocxSetHeaderResponse]
   describe 'edit_document_docx_set_header test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_update_table_row
+  # Update, set contents of a table row in an existing table in a Word DOCX document
+  # Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [UpdateDocxTableRowResponse]
+  describe 'edit_document_docx_update_table_row test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
