@@ -36,6 +36,12 @@ module CloudmersiveConvertApiClient
     # Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject
     attr_accessor :insert_path
 
+    # Optional: The width of the image in EMUs
+    attr_accessor :width_in_em_us
+
+    # Optional: The height of the image in EMUs
+    attr_accessor :height_in_em_us
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -46,7 +52,9 @@ module CloudmersiveConvertApiClient
         :'input_image_file_url' => :'InputImageFileUrl',
         :'image_to_add' => :'ImageToAdd',
         :'insert_placement' => :'InsertPlacement',
-        :'insert_path' => :'InsertPath'
+        :'insert_path' => :'InsertPath',
+        :'width_in_em_us' => :'WidthInEMUs',
+        :'height_in_em_us' => :'HeightInEMUs'
       }
     end
 
@@ -59,7 +67,9 @@ module CloudmersiveConvertApiClient
         :'input_image_file_url' => :'String',
         :'image_to_add' => :'DocxImage',
         :'insert_placement' => :'String',
-        :'insert_path' => :'String'
+        :'insert_path' => :'String',
+        :'width_in_em_us' => :'Integer',
+        :'height_in_em_us' => :'Integer'
       }
     end
 
@@ -97,6 +107,14 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'InsertPath')
         self.insert_path = attributes[:'InsertPath']
+      end
+
+      if attributes.has_key?(:'WidthInEMUs')
+        self.width_in_em_us = attributes[:'WidthInEMUs']
+      end
+
+      if attributes.has_key?(:'HeightInEMUs')
+        self.height_in_em_us = attributes[:'HeightInEMUs']
       end
 
     end
@@ -157,7 +175,9 @@ module CloudmersiveConvertApiClient
           input_image_file_url == o.input_image_file_url &&
           image_to_add == o.image_to_add &&
           insert_placement == o.insert_placement &&
-          insert_path == o.insert_path
+          insert_path == o.insert_path &&
+          width_in_em_us == o.width_in_em_us &&
+          height_in_em_us == o.height_in_em_us
     end
 
     # @see the `==` method
@@ -169,7 +189,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [input_document_file_bytes, input_document_file_url, input_image_file_bytes, input_image_file_url, image_to_add, insert_placement, insert_path].hash
+      [input_document_file_bytes, input_document_file_url, input_image_file_bytes, input_image_file_url, image_to_add, insert_placement, insert_path, width_in_em_us, height_in_em_us].hash
     end
 
     # Builds the object from hash

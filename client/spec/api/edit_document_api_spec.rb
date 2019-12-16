@@ -368,6 +368,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_get_cell_by_index
+  # Get cell from an Excel XLSX spreadsheet, worksheet by index
+  # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxCellResponse]
+  describe 'edit_document_xlsx_get_cell_by_index test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_get_columns
   # Get rows and cells from a Excel XLSX spreadsheet, worksheet
   # Returns the rows and cells defined in the Excel Spreadsheet worksheet
@@ -393,7 +405,7 @@ describe 'EditDocumentApi' do
   end
 
   # unit tests for edit_document_xlsx_get_rows_and_cells
-  # Get rows and cells from a Word XLSX spreadsheet, worksheet
+  # Get rows and cells from a Excel XLSX spreadsheet, worksheet
   # Returns the rows and cells defined in the Excel Spreadsheet worksheet
   # @param input Document input request
   # @param [Hash] opts the optional parameters

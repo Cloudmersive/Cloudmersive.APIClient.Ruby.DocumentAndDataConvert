@@ -13,28 +13,43 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a Get-Images command
-  class GetXlsxImagesResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # Input to a Get Cell request
+  class GetXlsxCellRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # Spreadsheet Images in the XLSX document
-    attr_accessor :images
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
+
+    # Optional; Worksheet (tab) within the spreadsheet to get the rows and cells of; leave blank to default to the first worksheet
+    attr_accessor :worksheet_to_query
+
+    # 0-based index of the row, 0, 1, 2, ... to retrieve
+    attr_accessor :row_index
+
+    # 0-based index of the cell, 0, 1, 2, ... in the row to retrieve
+    attr_accessor :cell_index
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'images' => :'Images'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'worksheet_to_query' => :'WorksheetToQuery',
+        :'row_index' => :'RowIndex',
+        :'cell_index' => :'CellIndex'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'images' => :'Array<XlsxImage>'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'worksheet_to_query' => :'XlsxWorksheet',
+        :'row_index' => :'Integer',
+        :'cell_index' => :'Integer'
       }
     end
 
@@ -46,14 +61,24 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Images')
-        if (value = attributes[:'Images']).is_a?(Array)
-          self.images = value
-        end
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
+      end
+
+      if attributes.has_key?(:'WorksheetToQuery')
+        self.worksheet_to_query = attributes[:'WorksheetToQuery']
+      end
+
+      if attributes.has_key?(:'RowIndex')
+        self.row_index = attributes[:'RowIndex']
+      end
+
+      if attributes.has_key?(:'CellIndex')
+        self.cell_index = attributes[:'CellIndex']
       end
 
     end
@@ -62,13 +87,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -76,8 +117,11 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          images == o.images
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          worksheet_to_query == o.worksheet_to_query &&
+          row_index == o.row_index &&
+          cell_index == o.cell_index
     end
 
     # @see the `==` method
@@ -89,7 +133,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, images].hash
+      [input_file_bytes, input_file_url, worksheet_to_query, row_index, cell_index].hash
     end
 
     # Builds the object from hash

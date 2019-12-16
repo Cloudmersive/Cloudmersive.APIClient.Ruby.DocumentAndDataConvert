@@ -1,9 +1,9 @@
-# CloudmersiveConvertApiClient::GetXlsxImagesResponse
+# CloudmersiveConvertApiClient::GetXlsxCellResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **successful** | **BOOLEAN** | True if successful, false otherwise | [optional] 
-**images** | [**Array&lt;XlsxImage&gt;**](XlsxImage.md) | Spreadsheet Images in the XLSX document | [optional] 
+**cell** | [**XlsxSpreadsheetCell**](XlsxSpreadsheetCell.md) | Requested Cell in the Excel XLSX document | [optional] 
 
 

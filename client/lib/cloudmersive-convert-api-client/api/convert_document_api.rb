@@ -692,6 +692,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Convert PDF to Word DOCX Document based on rasterized version of the PDF
+    # Convert standard PDF to Office Word Documents (docx), but first rasterize the PDF.    Converts a PDF at high fidelity into Word format.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_pdf_to_docx_rasterize(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pdf_to_docx_rasterize_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert PDF to Word DOCX Document based on rasterized version of the PDF
+    # Convert standard PDF to Office Word Documents (docx), but first rasterize the PDF.    Converts a PDF at high fidelity into Word format.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_pdf_to_docx_rasterize_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_pdf_to_docx_rasterize ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pdf_to_docx_rasterize"
+      end
+      # resource path
+      local_var_path = "/convert/pdf/to/docx/rasterize"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_docx_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert PDF to PNG Image Array
     # Convert PDF document to PNG array, one image per page.
     # @param input_file Input file to perform the operation on.

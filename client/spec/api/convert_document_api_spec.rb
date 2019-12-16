@@ -176,6 +176,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pdf_to_docx_rasterize
+  # Convert PDF to Word DOCX Document based on rasterized version of the PDF
+  # Convert standard PDF to Office Word Documents (docx), but first rasterize the PDF.    Converts a PDF at high fidelity into Word format.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_pdf_to_docx_rasterize test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pdf_to_png_array
   # Convert PDF to PNG Image Array
   # Convert PDF document to PNG array, one image per page.

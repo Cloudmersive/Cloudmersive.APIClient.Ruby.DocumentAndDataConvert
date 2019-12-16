@@ -74,5 +74,17 @@ describe 'DocxInsertImageRequest' do
     end
   end
 
+  describe 'test attribute "width_in_em_us"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "height_in_em_us"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
 

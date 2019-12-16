@@ -44,6 +44,18 @@ describe 'ConvertDataApi' do
     end
   end
 
+  # unit tests for convert_data_json_to_xml
+  # Convert JSON to XML conversion
+  # Convert a JSON object into XML
+  # @param json_object 
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'convert_data_json_to_xml test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_data_xls_to_json
   # Convert Excel (97-2003) XLS to JSON conversion
   # Convert an Excel (97-2003) XLS file to a JSON object array

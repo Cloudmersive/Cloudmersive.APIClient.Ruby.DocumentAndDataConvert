@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**convert_document_html_to_pdf**](ConvertDocumentApi.md#convert_document_html_to_pdf) | **POST** /convert/html/to/pdf | Convert HTML to PDF Document
 [**convert_document_html_to_png**](ConvertDocumentApi.md#convert_document_html_to_png) | **POST** /convert/html/to/png | Convert HTML to PNG image array
 [**convert_document_pdf_to_docx**](ConvertDocumentApi.md#convert_document_pdf_to_docx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
+[**convert_document_pdf_to_docx_rasterize**](ConvertDocumentApi.md#convert_document_pdf_to_docx_rasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 [**convert_document_pdf_to_png_array**](ConvertDocumentApi.md#convert_document_pdf_to_png_array) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
 [**convert_document_pdf_to_png_single**](ConvertDocumentApi.md#convert_document_pdf_to_png_single) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 [**convert_document_pdf_to_pptx**](ConvertDocumentApi.md#convert_document_pdf_to_pptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
@@ -657,6 +658,60 @@ begin
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_docx: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_pdf_to_docx_rasterize**
+> String convert_document_pdf_to_docx_rasterize(input_file)
+
+Convert PDF to Word DOCX Document based on rasterized version of the PDF
+
+Convert standard PDF to Office Word Documents (docx), but first rasterize the PDF.    Converts a PDF at high fidelity into Word format.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Convert PDF to Word DOCX Document based on rasterized version of the PDF
+  result = api_instance.convert_document_pdf_to_docx_rasterize(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_docx_rasterize: #{e}"
 end
 ```
 

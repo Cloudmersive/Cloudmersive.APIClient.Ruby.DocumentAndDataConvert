@@ -18,7 +18,7 @@ module CloudmersiveConvertApiClient
     # True if successful, false otherwise
     attr_accessor :successful
 
-    # Spreadsheet Columns in the DOCX document
+    # Spreadsheet Columns in the XLSX document
     attr_accessor :columns
 
 

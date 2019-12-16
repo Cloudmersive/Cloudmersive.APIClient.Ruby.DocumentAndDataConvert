@@ -52,7 +52,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -72,6 +72,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'Object')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_csv_to_json\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert JSON to XML conversion
+    # Convert a JSON object into XML
+    # @param json_object 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def convert_data_json_to_xml(json_object, opts = {})
+      data, _status_code, _headers = convert_data_json_to_xml_with_http_info(json_object, opts)
+      return data
+    end
+
+    # Convert JSON to XML conversion
+    # Convert a JSON object into XML
+    # @param json_object 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_data_json_to_xml_with_http_info(json_object, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_json_to_xml ..."
+      end
+      # verify the required parameter 'json_object' is set
+      if @api_client.config.client_side_validation && json_object.nil?
+        fail ArgumentError, "Missing the required parameter 'json_object' when calling ConvertDataApi.convert_data_json_to_xml"
+      end
+      # resource path
+      local_var_path = "/convert/json/to/xml"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(json_object)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_json_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -108,7 +163,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -164,7 +219,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -220,7 +275,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 

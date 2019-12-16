@@ -13,20 +13,20 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a Get-Images command
-  class GetXlsxImagesResponse
+  # Result of running a Get-Cell command
+  class GetXlsxCellResponse
     # True if successful, false otherwise
     attr_accessor :successful
 
-    # Spreadsheet Images in the XLSX document
-    attr_accessor :images
+    # Requested Cell in the Excel XLSX document
+    attr_accessor :cell
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'images' => :'Images'
+        :'cell' => :'Cell'
       }
     end
 
@@ -34,7 +34,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'images' => :'Array<XlsxImage>'
+        :'cell' => :'XlsxSpreadsheetCell'
       }
     end
 
@@ -50,10 +50,8 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Images')
-        if (value = attributes[:'Images']).is_a?(Array)
-          self.images = value
-        end
+      if attributes.has_key?(:'Cell')
+        self.cell = attributes[:'Cell']
       end
 
     end
@@ -77,7 +75,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          images == o.images
+          cell == o.cell
     end
 
     # @see the `==` method
@@ -89,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, images].hash
+      [successful, cell].hash
     end
 
     # Builds the object from hash
