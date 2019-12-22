@@ -57,12 +57,36 @@ describe 'ConvertWebApi' do
   end
 
   # unit tests for convert_web_html_to_png
-  # Convert HTML string to PNG
+  # Convert HTML string to PNG screenshot
   # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
   # @param input HTML to PNG request parameters
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'convert_web_html_to_png test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_web_html_to_txt
+  # Convert website URL page to text (txt)
+  # Converts a website URL page into text (txt); extracts text from HTML
+  # @param input HTML to Text request parameters
+  # @param [Hash] opts the optional parameters
+  # @return [UrlToTextResponse]
+  describe 'convert_web_html_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_web_html_to_txt_0
+  # Convert HTML string to text (txt)
+  # Converts an HTML string input into text (txt); extracts text from HTML
+  # @param input HTML to Text request parameters
+  # @param [Hash] opts the optional parameters
+  # @return [HtmlToTextResponse]
+  describe 'convert_web_html_to_txt_0 test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -130,7 +130,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert HTML string to PNG
+    # Convert HTML string to PNG screenshot
     # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
     # @param input HTML to PNG request parameters
     # @param [Hash] opts the optional parameters
@@ -140,7 +140,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert HTML string to PNG
+    # Convert HTML string to PNG screenshot
     # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
     # @param input HTML to PNG request parameters
     # @param [Hash] opts the optional parameters
@@ -181,6 +181,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'Object')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertWebApi#convert_web_html_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert website URL page to text (txt)
+    # Converts a website URL page into text (txt); extracts text from HTML
+    # @param input HTML to Text request parameters
+    # @param [Hash] opts the optional parameters
+    # @return [UrlToTextResponse]
+    def convert_web_html_to_txt(input, opts = {})
+      data, _status_code, _headers = convert_web_html_to_txt_with_http_info(input, opts)
+      return data
+    end
+
+    # Convert website URL page to text (txt)
+    # Converts a website URL page into text (txt); extracts text from HTML
+    # @param input HTML to Text request parameters
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UrlToTextResponse, Fixnum, Hash)>] UrlToTextResponse data, response status code and response headers
+    def convert_web_html_to_txt_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertWebApi.convert_web_html_to_txt ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling ConvertWebApi.convert_web_html_to_txt"
+      end
+      # resource path
+      local_var_path = "/convert/web/url/to/txt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'UrlToTextResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertWebApi#convert_web_html_to_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert HTML string to text (txt)
+    # Converts an HTML string input into text (txt); extracts text from HTML
+    # @param input HTML to Text request parameters
+    # @param [Hash] opts the optional parameters
+    # @return [HtmlToTextResponse]
+    def convert_web_html_to_txt_0(input, opts = {})
+      data, _status_code, _headers = convert_web_html_to_txt_0_with_http_info(input, opts)
+      return data
+    end
+
+    # Convert HTML string to text (txt)
+    # Converts an HTML string input into text (txt); extracts text from HTML
+    # @param input HTML to Text request parameters
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HtmlToTextResponse, Fixnum, Hash)>] HtmlToTextResponse data, response status code and response headers
+    def convert_web_html_to_txt_0_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertWebApi.convert_web_html_to_txt_0 ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling ConvertWebApi.convert_web_html_to_txt_0"
+      end
+      # resource path
+      local_var_path = "/convert/web/html/to/txt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlToTextResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertWebApi#convert_web_html_to_txt_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

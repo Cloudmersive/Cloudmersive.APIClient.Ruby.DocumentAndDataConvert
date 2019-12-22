@@ -188,7 +188,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert Document to Text
+    # Convert Document to Text (txt)
     # Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -198,7 +198,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert Document to Text
+    # Convert Document to Text (txt)
     # Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -468,7 +468,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert Word DOCX Document to Text
+    # Convert Word DOCX Document to Text (txt)
     # Convert Office Word Documents (docx) to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -478,7 +478,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert Word DOCX Document to Text
+    # Convert Word DOCX Document to Text (txt)
     # Convert Office Word Documents (docx) to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -524,7 +524,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert HTML to PDF Document
+    # Convert HTML document file to PDF Document
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -534,7 +534,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert HTML to PDF Document
+    # Convert HTML document file to PDF Document
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -580,7 +580,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert HTML to PNG image array
+    # Convert HTML document file to PNG image array
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -590,7 +590,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert HTML to PNG image array
+    # Convert HTML document file to PNG image array
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -632,6 +632,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'PdfToPngResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_html_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # HTML Document file to Text (txt)
+    # HTML document to text
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [TextConversionResult]
+    def convert_document_html_to_txt(input_file, opts = {})
+      data, _status_code, _headers = convert_document_html_to_txt_with_http_info(input_file, opts)
+      return data
+    end
+
+    # HTML Document file to Text (txt)
+    # HTML document to text
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TextConversionResult, Fixnum, Hash)>] TextConversionResult data, response status code and response headers
+    def convert_document_html_to_txt_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_html_to_txt ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_html_to_txt"
+      end
+      # resource path
+      local_var_path = "/convert/html/to/txt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TextConversionResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_html_to_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -916,7 +972,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert PDF Document to Text
+    # Convert PDF Document to Text (txt)
     # PDF document to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -926,7 +982,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert PDF Document to Text
+    # Convert PDF Document to Text (txt)
     # PDF document to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1227,7 +1283,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert PowerPoint PPTX Presentation to Text
+    # Convert PowerPoint PPTX Presentation to Text (txt)
     # Convert Office PowerPoint Documents (pptx) to standard Text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1237,7 +1293,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert PowerPoint PPTX Presentation to Text
+    # Convert PowerPoint PPTX Presentation to Text (txt)
     # Convert Office PowerPoint Documents (pptx) to standard Text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1566,7 +1622,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert Excel XLSX Spreadsheet to Text
+    # Convert Excel XLSX Spreadsheet to Text (txt)
     # Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1576,7 +1632,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Convert Excel XLSX Spreadsheet to Text
+    # Convert Excel XLSX Spreadsheet to Text (txt)
     # Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
