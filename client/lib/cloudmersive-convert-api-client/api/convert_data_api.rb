@@ -80,7 +80,7 @@ module CloudmersiveConvertApiClient
     # Convert a JSON object into XML
     # @param json_object 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def convert_data_json_to_xml(json_object, opts = {})
       data, _status_code, _headers = convert_data_json_to_xml_with_http_info(json_object, opts)
       return data
@@ -90,7 +90,7 @@ module CloudmersiveConvertApiClient
     # Convert a JSON object into XML
     # @param json_object 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_data_json_to_xml_with_http_info(json_object, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_json_to_xml ..."
@@ -124,7 +124,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_json_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -243,6 +243,472 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Adds an attribute to all XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_attribute_name Name of the XML attribute to add
+    # @param xml_attribute_value Value of the XML attribute to add
+    # @param [Hash] opts the optional parameters
+    # @return [XmlAddAttributeWithXPathResult]
+    def convert_data_xml_edit_add_attribute_with_x_path(input_file, x_path_expression, xml_attribute_name, xml_attribute_value, opts = {})
+      data, _status_code, _headers = convert_data_xml_edit_add_attribute_with_x_path_with_http_info(input_file, x_path_expression, xml_attribute_name, xml_attribute_value, opts)
+      return data
+    end
+
+    # Adds an attribute to all XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_attribute_name Name of the XML attribute to add
+    # @param xml_attribute_value Value of the XML attribute to add
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlAddAttributeWithXPathResult, Fixnum, Hash)>] XmlAddAttributeWithXPathResult data, response status code and response headers
+    def convert_data_xml_edit_add_attribute_with_x_path_with_http_info(input_file, x_path_expression, xml_attribute_name, xml_attribute_value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_edit_add_attribute_with_x_path ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_edit_add_attribute_with_x_path"
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_edit_add_attribute_with_x_path"
+      end
+      # verify the required parameter 'xml_attribute_name' is set
+      if @api_client.config.client_side_validation && xml_attribute_name.nil?
+        fail ArgumentError, "Missing the required parameter 'xml_attribute_name' when calling ConvertDataApi.convert_data_xml_edit_add_attribute_with_x_path"
+      end
+      # verify the required parameter 'xml_attribute_value' is set
+      if @api_client.config.client_side_validation && xml_attribute_value.nil?
+        fail ArgumentError, "Missing the required parameter 'xml_attribute_value' when calling ConvertDataApi.convert_data_xml_edit_add_attribute_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/add-attribute"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XPathExpression'] = x_path_expression
+      header_params[:'XmlAttributeName'] = xml_attribute_name
+      header_params[:'XmlAttributeValue'] = xml_attribute_value
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlAddAttributeWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_edit_add_attribute_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Adds an XML node as a child to XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_node_to_add XML Node to add as a child
+    # @param [Hash] opts the optional parameters
+    # @return [XmlAddChildWithXPathResult]
+    def convert_data_xml_edit_add_child_with_x_path(input_file, x_path_expression, xml_node_to_add, opts = {})
+      data, _status_code, _headers = convert_data_xml_edit_add_child_with_x_path_with_http_info(input_file, x_path_expression, xml_node_to_add, opts)
+      return data
+    end
+
+    # Adds an XML node as a child to XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_node_to_add XML Node to add as a child
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlAddChildWithXPathResult, Fixnum, Hash)>] XmlAddChildWithXPathResult data, response status code and response headers
+    def convert_data_xml_edit_add_child_with_x_path_with_http_info(input_file, x_path_expression, xml_node_to_add, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_edit_add_child_with_x_path ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_edit_add_child_with_x_path"
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_edit_add_child_with_x_path"
+      end
+      # verify the required parameter 'xml_node_to_add' is set
+      if @api_client.config.client_side_validation && xml_node_to_add.nil?
+        fail ArgumentError, "Missing the required parameter 'xml_node_to_add' when calling ConvertDataApi.convert_data_xml_edit_add_child_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/add-child"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XPathExpression'] = x_path_expression
+      header_params[:'XmlNodeToAdd'] = xml_node_to_add
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlAddChildWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_edit_add_child_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+    # Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param [Hash] opts the optional parameters
+    # @return [XmlRemoveAllChildrenWithXPathResult]
+    def convert_data_xml_edit_remove_all_child_nodes_with_x_path(input_file, x_path_expression, opts = {})
+      data, _status_code, _headers = convert_data_xml_edit_remove_all_child_nodes_with_x_path_with_http_info(input_file, x_path_expression, opts)
+      return data
+    end
+
+    # Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+    # Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlRemoveAllChildrenWithXPathResult, Fixnum, Hash)>] XmlRemoveAllChildrenWithXPathResult data, response status code and response headers
+    def convert_data_xml_edit_remove_all_child_nodes_with_x_path_with_http_info(input_file, x_path_expression, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_edit_remove_all_child_nodes_with_x_path ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_edit_remove_all_child_nodes_with_x_path"
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_edit_remove_all_child_nodes_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/remove-all-children"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XPathExpression'] = x_path_expression
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlRemoveAllChildrenWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_edit_remove_all_child_nodes_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replaces XML nodes matching XPath expression with new node
+    # Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_node_replacement XML Node replacement content
+    # @param [Hash] opts the optional parameters
+    # @return [XmlReplaceWithXPathResult]
+    def convert_data_xml_edit_replace_with_x_path(input_file, x_path_expression, xml_node_replacement, opts = {})
+      data, _status_code, _headers = convert_data_xml_edit_replace_with_x_path_with_http_info(input_file, x_path_expression, xml_node_replacement, opts)
+      return data
+    end
+
+    # Replaces XML nodes matching XPath expression with new node
+    # Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_node_replacement XML Node replacement content
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlReplaceWithXPathResult, Fixnum, Hash)>] XmlReplaceWithXPathResult data, response status code and response headers
+    def convert_data_xml_edit_replace_with_x_path_with_http_info(input_file, x_path_expression, xml_node_replacement, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_edit_replace_with_x_path ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_edit_replace_with_x_path"
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_edit_replace_with_x_path"
+      end
+      # verify the required parameter 'xml_node_replacement' is set
+      if @api_client.config.client_side_validation && xml_node_replacement.nil?
+        fail ArgumentError, "Missing the required parameter 'xml_node_replacement' when calling ConvertDataApi.convert_data_xml_edit_replace_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/replace"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XPathExpression'] = x_path_expression
+      header_params[:'XmlNodeReplacement'] = xml_node_replacement
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlReplaceWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_edit_replace_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Sets the value contents of XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_value XML Value to set into the matching XML nodes
+    # @param [Hash] opts the optional parameters
+    # @return [XmlSetValueWithXPathResult]
+    def convert_data_xml_edit_set_value_with_x_path(input_file, x_path_expression, xml_value, opts = {})
+      data, _status_code, _headers = convert_data_xml_edit_set_value_with_x_path_with_http_info(input_file, x_path_expression, xml_value, opts)
+      return data
+    end
+
+    # Sets the value contents of XML nodes matching XPath expression
+    # Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_path_expression Valid XML XPath query expression
+    # @param xml_value XML Value to set into the matching XML nodes
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlSetValueWithXPathResult, Fixnum, Hash)>] XmlSetValueWithXPathResult data, response status code and response headers
+    def convert_data_xml_edit_set_value_with_x_path_with_http_info(input_file, x_path_expression, xml_value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_edit_set_value_with_x_path ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_edit_set_value_with_x_path"
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_edit_set_value_with_x_path"
+      end
+      # verify the required parameter 'xml_value' is set
+      if @api_client.config.client_side_validation && xml_value.nil?
+        fail ArgumentError, "Missing the required parameter 'xml_value' when calling ConvertDataApi.convert_data_xml_edit_set_value_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/set-value"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XPathExpression'] = x_path_expression
+      header_params[:'XmlValue'] = xml_value
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlSetValueWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_edit_set_value_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Filter, select XML nodes using XPath expression, get results
+    # Return the reuslts of filtering, selecting an XML document with an XPath expression
+    # @param x_path_expression Valid XML XPath query expression
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [XmlFIlterWithXPathResult]
+    def convert_data_xml_filter_with_x_path(x_path_expression, input_file, opts = {})
+      data, _status_code, _headers = convert_data_xml_filter_with_x_path_with_http_info(x_path_expression, input_file, opts)
+      return data
+    end
+
+    # Filter, select XML nodes using XPath expression, get results
+    # Return the reuslts of filtering, selecting an XML document with an XPath expression
+    # @param x_path_expression Valid XML XPath query expression
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlFIlterWithXPathResult, Fixnum, Hash)>] XmlFIlterWithXPathResult data, response status code and response headers
+    def convert_data_xml_filter_with_x_path_with_http_info(x_path_expression, input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_filter_with_x_path ..."
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_filter_with_x_path"
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_filter_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/select/xpath"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'XPathExpression'] = x_path_expression
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlFIlterWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_filter_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove, delete XML nodes and items matching XPath expression
+    # Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+    # @param x_path_expression Valid XML XPath query expression
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [XmlRemoveWithXPathResult]
+    def convert_data_xml_remove_with_x_path(x_path_expression, input_file, opts = {})
+      data, _status_code, _headers = convert_data_xml_remove_with_x_path_with_http_info(x_path_expression, input_file, opts)
+      return data
+    end
+
+    # Remove, delete XML nodes and items matching XPath expression
+    # Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+    # @param x_path_expression Valid XML XPath query expression
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlRemoveWithXPathResult, Fixnum, Hash)>] XmlRemoveWithXPathResult data, response status code and response headers
+    def convert_data_xml_remove_with_x_path_with_http_info(x_path_expression, input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_remove_with_x_path ..."
+      end
+      # verify the required parameter 'x_path_expression' is set
+      if @api_client.config.client_side_validation && x_path_expression.nil?
+        fail ArgumentError, "Missing the required parameter 'x_path_expression' when calling ConvertDataApi.convert_data_xml_remove_with_x_path"
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_remove_with_x_path"
+      end
+      # resource path
+      local_var_path = "/convert/xml/edit/xpath/remove"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'XPathExpression'] = x_path_expression
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlRemoveWithXPathResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_remove_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert XML to JSON conversion
     # Convert an XML string or file into JSON
     # @param input_file Input file to perform the operation on.
@@ -295,6 +761,67 @@ module CloudmersiveConvertApiClient
         :return_type => 'Object')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_to_json\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Transform XML document file with XSLT into a new XML document
+    # Convert an XML string or file into JSON
+    # @param input_file Input XML file to perform the operation on.
+    # @param transform_file Input XSLT file to use to transform the input XML file.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_data_xml_transform_with_xslt_to_xml(input_file, transform_file, opts = {})
+      data, _status_code, _headers = convert_data_xml_transform_with_xslt_to_xml_with_http_info(input_file, transform_file, opts)
+      return data
+    end
+
+    # Transform XML document file with XSLT into a new XML document
+    # Convert an XML string or file into JSON
+    # @param input_file Input XML file to perform the operation on.
+    # @param transform_file Input XSLT file to use to transform the input XML file.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_data_xml_transform_with_xslt_to_xml_with_http_info(input_file, transform_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_transform_with_xslt_to_xml ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_transform_with_xslt_to_xml"
+      end
+      # verify the required parameter 'transform_file' is set
+      if @api_client.config.client_side_validation && transform_file.nil?
+        fail ArgumentError, "Missing the required parameter 'transform_file' when calling ConvertDataApi.convert_data_xml_transform_with_xslt_to_xml"
+      end
+      # resource path
+      local_var_path = "/convert/xml/transform/xslt/to/xml"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/xml'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+      form_params["transformFile"] = transform_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_transform_with_xslt_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
