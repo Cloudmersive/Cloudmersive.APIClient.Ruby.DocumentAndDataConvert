@@ -588,7 +588,7 @@ module CloudmersiveConvertApiClient
     # @param x_path_expression Valid XML XPath query expression
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [XmlFIlterWithXPathResult]
+    # @return [XmlFilterWithXPathResult]
     def convert_data_xml_filter_with_x_path(x_path_expression, input_file, opts = {})
       data, _status_code, _headers = convert_data_xml_filter_with_x_path_with_http_info(x_path_expression, input_file, opts)
       return data
@@ -599,7 +599,7 @@ module CloudmersiveConvertApiClient
     # @param x_path_expression Valid XML XPath query expression
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(XmlFIlterWithXPathResult, Fixnum, Hash)>] XmlFIlterWithXPathResult data, response status code and response headers
+    # @return [Array<(XmlFilterWithXPathResult, Fixnum, Hash)>] XmlFilterWithXPathResult data, response status code and response headers
     def convert_data_xml_filter_with_x_path_with_http_info(x_path_expression, input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_filter_with_x_path ..."
@@ -639,9 +639,158 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'XmlFIlterWithXPathResult')
+        :return_type => 'XmlFilterWithXPathResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_filter_with_x_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Query an XML file using XQuery query, get results
+    # Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+    # @param [Hash] opts the optional parameters
+    # @return [XmlQueryWithXQueryResult]
+    def convert_data_xml_query_with_x_query(input_file, x_query, opts = {})
+      data, _status_code, _headers = convert_data_xml_query_with_x_query_with_http_info(input_file, x_query, opts)
+      return data
+    end
+
+    # Query an XML file using XQuery query, get results
+    # Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+    # @param input_file Input XML file to perform the operation on.
+    # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XmlQueryWithXQueryResult, Fixnum, Hash)>] XmlQueryWithXQueryResult data, response status code and response headers
+    def convert_data_xml_query_with_x_query_with_http_info(input_file, x_query, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_query_with_x_query ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xml_query_with_x_query"
+      end
+      # verify the required parameter 'x_query' is set
+      if @api_client.config.client_side_validation && x_query.nil?
+        fail ArgumentError, "Missing the required parameter 'x_query' when calling ConvertDataApi.convert_data_xml_query_with_x_query"
+      end
+      # resource path
+      local_var_path = "/convert/xml/query/xquery"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XQuery'] = x_query
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlQueryWithXQueryResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_query_with_x_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Query multiple XML files using XQuery query, get results
+    # Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\"books.xml\") or doc(\"restaurants.xml\") if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+    # @param input_file1 First input XML file to perform the operation on.
+    # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file2 Second input XML file to perform the operation on.
+    # @option opts [File] :input_file3 Third input XML file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input XML file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input XML file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input XML file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input XML file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input XML file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input XML file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input XML file to perform the operation on.
+    # @return [XmlQueryWithXQueryMultiResult]
+    def convert_data_xml_query_with_x_query_multi(input_file1, x_query, opts = {})
+      data, _status_code, _headers = convert_data_xml_query_with_x_query_multi_with_http_info(input_file1, x_query, opts)
+      return data
+    end
+
+    # Query multiple XML files using XQuery query, get results
+    # Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+    # @param input_file1 First input XML file to perform the operation on.
+    # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file2 Second input XML file to perform the operation on.
+    # @option opts [File] :input_file3 Third input XML file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input XML file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input XML file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input XML file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input XML file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input XML file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input XML file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input XML file to perform the operation on.
+    # @return [Array<(XmlQueryWithXQueryMultiResult, Fixnum, Hash)>] XmlQueryWithXQueryMultiResult data, response status code and response headers
+    def convert_data_xml_query_with_x_query_multi_with_http_info(input_file1, x_query, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDataApi.convert_data_xml_query_with_x_query_multi ..."
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling ConvertDataApi.convert_data_xml_query_with_x_query_multi"
+      end
+      # verify the required parameter 'x_query' is set
+      if @api_client.config.client_side_validation && x_query.nil?
+        fail ArgumentError, "Missing the required parameter 'x_query' when calling ConvertDataApi.convert_data_xml_query_with_x_query_multi"
+      end
+      # resource path
+      local_var_path = "/convert/xml/query/xquery/multi"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'XQuery'] = x_query
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile1"] = input_file1
+      form_params["inputFile2"] = opts[:'input_file2'] if !opts[:'input_file2'].nil?
+      form_params["inputFile3"] = opts[:'input_file3'] if !opts[:'input_file3'].nil?
+      form_params["inputFile4"] = opts[:'input_file4'] if !opts[:'input_file4'].nil?
+      form_params["inputFile5"] = opts[:'input_file5'] if !opts[:'input_file5'].nil?
+      form_params["inputFile6"] = opts[:'input_file6'] if !opts[:'input_file6'].nil?
+      form_params["inputFile7"] = opts[:'input_file7'] if !opts[:'input_file7'].nil?
+      form_params["inputFile8"] = opts[:'input_file8'] if !opts[:'input_file8'].nil?
+      form_params["inputFile9"] = opts[:'input_file9'] if !opts[:'input_file9'].nil?
+      form_params["inputFile10"] = opts[:'input_file10'] if !opts[:'input_file10'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XmlQueryWithXQueryMultiResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xml_query_with_x_query_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

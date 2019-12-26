@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**convert_data_xml_edit_replace_with_x_path**](ConvertDataApi.md#convert_data_xml_edit_replace_with_x_path) | **POST** /convert/xml/edit/xpath/replace | Replaces XML nodes matching XPath expression with new node
 [**convert_data_xml_edit_set_value_with_x_path**](ConvertDataApi.md#convert_data_xml_edit_set_value_with_x_path) | **POST** /convert/xml/edit/xpath/set-value | Sets the value contents of XML nodes matching XPath expression
 [**convert_data_xml_filter_with_x_path**](ConvertDataApi.md#convert_data_xml_filter_with_x_path) | **POST** /convert/xml/select/xpath | Filter, select XML nodes using XPath expression, get results
+[**convert_data_xml_query_with_x_query**](ConvertDataApi.md#convert_data_xml_query_with_x_query) | **POST** /convert/xml/query/xquery | Query an XML file using XQuery query, get results
+[**convert_data_xml_query_with_x_query_multi**](ConvertDataApi.md#convert_data_xml_query_with_x_query_multi) | **POST** /convert/xml/query/xquery/multi | Query multiple XML files using XQuery query, get results
 [**convert_data_xml_remove_with_x_path**](ConvertDataApi.md#convert_data_xml_remove_with_x_path) | **POST** /convert/xml/edit/xpath/remove | Remove, delete XML nodes and items matching XPath expression
 [**convert_data_xml_to_json**](ConvertDataApi.md#convert_data_xml_to_json) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
 [**convert_data_xml_transform_with_xslt_to_xml**](ConvertDataApi.md#convert_data_xml_transform_with_xslt_to_xml) | **POST** /convert/xml/transform/xslt/to/xml | Transform XML document file with XSLT into a new XML document
@@ -536,7 +538,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_data_xml_filter_with_x_path**
-> XmlFIlterWithXPathResult convert_data_xml_filter_with_x_path(x_path_expression, input_file)
+> XmlFilterWithXPathResult convert_data_xml_filter_with_x_path(x_path_expression, input_file)
 
 Filter, select XML nodes using XPath expression, get results
 
@@ -579,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**XmlFIlterWithXPathResult**](XmlFIlterWithXPathResult.md)
+[**XmlFilterWithXPathResult**](XmlFilterWithXPathResult.md)
 
 ### Authorization
 
@@ -588,6 +590,140 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **convert_data_xml_query_with_x_query**
+> XmlQueryWithXQueryResult convert_data_xml_query_with_x_query(input_file, x_query)
+
+Query an XML file using XQuery query, get results
+
+Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+
+x_query = "x_query_example" # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+
+
+begin
+  #Query an XML file using XQuery query, get results
+  result = api_instance.convert_data_xml_query_with_x_query(input_file, x_query)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDataApi->convert_data_xml_query_with_x_query: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input XML file to perform the operation on. | 
+ **x_query** | **String**| Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported | 
+
+### Return type
+
+[**XmlQueryWithXQueryResult**](XmlQueryWithXQueryResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **convert_data_xml_query_with_x_query_multi**
+> XmlQueryWithXQueryMultiResult convert_data_xml_query_with_x_query_multi(input_file1, x_query, opts)
+
+Query multiple XML files using XQuery query, get results
+
+Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\"books.xml\") or doc(\"restaurants.xml\") if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
+
+input_file1 = File.new("/path/to/file.txt") # File | First input XML file to perform the operation on.
+
+x_query = "x_query_example" # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+
+opts = { 
+  input_file2: File.new("/path/to/file.txt"), # File | Second input XML file to perform the operation on.
+  input_file3: File.new("/path/to/file.txt"), # File | Third input XML file to perform the operation on.
+  input_file4: File.new("/path/to/file.txt"), # File | Fourth input XML file to perform the operation on.
+  input_file5: File.new("/path/to/file.txt"), # File | Fifth input XML file to perform the operation on.
+  input_file6: File.new("/path/to/file.txt"), # File | Sixth input XML file to perform the operation on.
+  input_file7: File.new("/path/to/file.txt"), # File | Seventh input XML file to perform the operation on.
+  input_file8: File.new("/path/to/file.txt"), # File | Eighth input XML file to perform the operation on.
+  input_file9: File.new("/path/to/file.txt"), # File | Ninth input XML file to perform the operation on.
+  input_file10: File.new("/path/to/file.txt") # File | Tenth input XML file to perform the operation on.
+}
+
+begin
+  #Query multiple XML files using XQuery query, get results
+  result = api_instance.convert_data_xml_query_with_x_query_multi(input_file1, x_query, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDataApi->convert_data_xml_query_with_x_query_multi: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file1** | **File**| First input XML file to perform the operation on. | 
+ **x_query** | **String**| Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported | 
+ **input_file2** | **File**| Second input XML file to perform the operation on. | [optional] 
+ **input_file3** | **File**| Third input XML file to perform the operation on. | [optional] 
+ **input_file4** | **File**| Fourth input XML file to perform the operation on. | [optional] 
+ **input_file5** | **File**| Fifth input XML file to perform the operation on. | [optional] 
+ **input_file6** | **File**| Sixth input XML file to perform the operation on. | [optional] 
+ **input_file7** | **File**| Seventh input XML file to perform the operation on. | [optional] 
+ **input_file8** | **File**| Eighth input XML file to perform the operation on. | [optional] 
+ **input_file9** | **File**| Ninth input XML file to perform the operation on. | [optional] 
+ **input_file10** | **File**| Tenth input XML file to perform the operation on. | [optional] 
+
+### Return type
+
+[**XmlQueryWithXQueryMultiResult**](XmlQueryWithXQueryMultiResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 

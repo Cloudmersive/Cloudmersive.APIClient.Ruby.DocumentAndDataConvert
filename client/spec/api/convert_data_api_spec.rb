@@ -156,8 +156,43 @@ describe 'ConvertDataApi' do
   # @param x_path_expression Valid XML XPath query expression
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @return [XmlFIlterWithXPathResult]
+  # @return [XmlFilterWithXPathResult]
   describe 'convert_data_xml_filter_with_x_path test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_data_xml_query_with_x_query
+  # Query an XML file using XQuery query, get results
+  # Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+  # @param input_file Input XML file to perform the operation on.
+  # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+  # @param [Hash] opts the optional parameters
+  # @return [XmlQueryWithXQueryResult]
+  describe 'convert_data_xml_query_with_x_query test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_data_xml_query_with_x_query_multi
+  # Query multiple XML files using XQuery query, get results
+  # Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(\&quot;books.xml\&quot;) or doc(\&quot;restaurants.xml\&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+  # @param input_file1 First input XML file to perform the operation on.
+  # @param x_query Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file2 Second input XML file to perform the operation on.
+  # @option opts [File] :input_file3 Third input XML file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input XML file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input XML file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input XML file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input XML file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input XML file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input XML file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input XML file to perform the operation on.
+  # @return [XmlQueryWithXQueryMultiResult]
+  describe 'convert_data_xml_query_with_x_query_multi test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

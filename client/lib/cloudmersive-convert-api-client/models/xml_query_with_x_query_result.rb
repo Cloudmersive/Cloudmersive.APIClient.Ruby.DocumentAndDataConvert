@@ -13,24 +13,24 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of performing a filter operation on XML input using XPath
-  class XmlFIlterWithXPathResult
+  # Result of performing an XQuery operation on an XML document.
+  class XmlQueryWithXQueryResult
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
-    # Matching selected XML nodes as strings
-    attr_accessor :xml_nodes
+    # Resulting XML result output
+    attr_accessor :resulting_xml
 
-    # Count of the matching results
-    attr_accessor :result_count
+    # If an error occurs, additional details on the error
+    attr_accessor :error_message
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'xml_nodes' => :'XmlNodes',
-        :'result_count' => :'ResultCount'
+        :'resulting_xml' => :'ResultingXml',
+        :'error_message' => :'ErrorMessage'
       }
     end
 
@@ -38,8 +38,8 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'xml_nodes' => :'Array<String>',
-        :'result_count' => :'Integer'
+        :'resulting_xml' => :'String',
+        :'error_message' => :'String'
       }
     end
 
@@ -55,14 +55,12 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'XmlNodes')
-        if (value = attributes[:'XmlNodes']).is_a?(Array)
-          self.xml_nodes = value
-        end
+      if attributes.has_key?(:'ResultingXml')
+        self.resulting_xml = attributes[:'ResultingXml']
       end
 
-      if attributes.has_key?(:'ResultCount')
-        self.result_count = attributes[:'ResultCount']
+      if attributes.has_key?(:'ErrorMessage')
+        self.error_message = attributes[:'ErrorMessage']
       end
 
     end
@@ -86,8 +84,8 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          xml_nodes == o.xml_nodes &&
-          result_count == o.result_count
+          resulting_xml == o.resulting_xml &&
+          error_message == o.error_message
     end
 
     # @see the `==` method
@@ -99,7 +97,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, xml_nodes, result_count].hash
+      [successful, resulting_xml, error_message].hash
     end
 
     # Builds the object from hash
