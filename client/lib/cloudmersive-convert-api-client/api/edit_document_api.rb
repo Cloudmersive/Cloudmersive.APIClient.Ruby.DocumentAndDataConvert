@@ -187,7 +187,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Delete, remove pages from a Word DOCX document
-    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
     # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [String]
@@ -197,7 +197,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Delete, remove pages from a Word DOCX document
-    # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+    # Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
     # @param req_config Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
@@ -1447,6 +1447,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_finish_editing\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete, remove slides from a PowerPoint PPTX presentation document
+    # Edits the input PowerPoint PPTX presentation document to remove the specified slides
+    # @param req_config Presentation input request
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_document_pptx_delete_slides(req_config, opts = {})
+      data, _status_code, _headers = edit_document_pptx_delete_slides_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Delete, remove slides from a PowerPoint PPTX presentation document
+    # Edits the input PowerPoint PPTX presentation document to remove the specified slides
+    # @param req_config Presentation input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_pptx_delete_slides_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_pptx_delete_slides ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_pptx_delete_slides"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pptx/delete-slides"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_delete_slides\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

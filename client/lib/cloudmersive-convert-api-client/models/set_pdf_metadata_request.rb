@@ -13,10 +13,12 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-
+  # Request to set PDF metadata
   class SetPdfMetadataRequest
+    # Input file contents bytes for the file to modify
     attr_accessor :input_file_bytes
 
+    # PDF metadata to set on the file
     attr_accessor :metadata_to_set
 
 

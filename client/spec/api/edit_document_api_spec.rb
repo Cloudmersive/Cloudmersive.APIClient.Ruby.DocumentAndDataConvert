@@ -70,7 +70,7 @@ describe 'EditDocumentApi' do
 
   # unit tests for edit_document_docx_delete_pages
   # Delete, remove pages from a Word DOCX document
-  # Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+  # Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
   # @param req_config Document input request
   # @param [Hash] opts the optional parameters
   # @return [String]
@@ -339,6 +339,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_document_finish_editing test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_pptx_delete_slides
+  # Delete, remove slides from a PowerPoint PPTX presentation document
+  # Edits the input PowerPoint PPTX presentation document to remove the specified slides
+  # @param req_config Presentation input request
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_pptx_delete_slides test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

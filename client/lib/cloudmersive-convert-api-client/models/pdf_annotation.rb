@@ -13,38 +13,78 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
-  class WorksheetResult
-    # Worksheet number of the converted page, starting with 1 for the left-most worksheet
-    attr_accessor :worksheet_number
+  # PDF Annotation details
+  class PdfAnnotation
+    # Title of the annotation; this is often the author of the annotation in Acrobat-created PDF files
+    attr_accessor :title
 
-    # The name of the worksheet
-    attr_accessor :worksheet_name
+    # Type of the annotation; possible values are Text
+    attr_accessor :annotation_type
 
-    # URL to the XLSX file of this worksheet; file is stored in an in-memory cache and will be deleted
-    attr_accessor :url
+    # The 1-based index of the page containing the annotation
+    attr_accessor :page_number
 
-    # Contents of the worksheet in bytes
-    attr_accessor :worksheet_contents
+    # The 0-based index of the annotation in the document
+    attr_accessor :annotation_index
+
+    # Subject of the annotation
+    attr_accessor :subject
+
+    # Text contents of the annotation
+    attr_accessor :text_contents
+
+    # Date that the annotation was created
+    attr_accessor :creation_date
+
+    # Date that the annotation was last modified
+    attr_accessor :modified_date
+
+    # Left X coordinate for the location of the annotation
+    attr_accessor :left_x
+
+    # Top Y coordination of the location of the annotation
+    attr_accessor :top_y
+
+    # Width of the annotation
+    attr_accessor :width
+
+    # Height of the annotation
+    attr_accessor :height
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'worksheet_number' => :'WorksheetNumber',
-        :'worksheet_name' => :'WorksheetName',
-        :'url' => :'URL',
-        :'worksheet_contents' => :'WorksheetContents'
+        :'title' => :'Title',
+        :'annotation_type' => :'AnnotationType',
+        :'page_number' => :'PageNumber',
+        :'annotation_index' => :'AnnotationIndex',
+        :'subject' => :'Subject',
+        :'text_contents' => :'TextContents',
+        :'creation_date' => :'CreationDate',
+        :'modified_date' => :'ModifiedDate',
+        :'left_x' => :'LeftX',
+        :'top_y' => :'TopY',
+        :'width' => :'Width',
+        :'height' => :'Height'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'worksheet_number' => :'Integer',
-        :'worksheet_name' => :'String',
-        :'url' => :'String',
-        :'worksheet_contents' => :'String'
+        :'title' => :'String',
+        :'annotation_type' => :'String',
+        :'page_number' => :'Integer',
+        :'annotation_index' => :'Integer',
+        :'subject' => :'String',
+        :'text_contents' => :'String',
+        :'creation_date' => :'DateTime',
+        :'modified_date' => :'DateTime',
+        :'left_x' => :'Float',
+        :'top_y' => :'Float',
+        :'width' => :'Float',
+        :'height' => :'Float'
       }
     end
 
@@ -56,20 +96,52 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'WorksheetNumber')
-        self.worksheet_number = attributes[:'WorksheetNumber']
+      if attributes.has_key?(:'Title')
+        self.title = attributes[:'Title']
       end
 
-      if attributes.has_key?(:'WorksheetName')
-        self.worksheet_name = attributes[:'WorksheetName']
+      if attributes.has_key?(:'AnnotationType')
+        self.annotation_type = attributes[:'AnnotationType']
       end
 
-      if attributes.has_key?(:'URL')
-        self.url = attributes[:'URL']
+      if attributes.has_key?(:'PageNumber')
+        self.page_number = attributes[:'PageNumber']
       end
 
-      if attributes.has_key?(:'WorksheetContents')
-        self.worksheet_contents = attributes[:'WorksheetContents']
+      if attributes.has_key?(:'AnnotationIndex')
+        self.annotation_index = attributes[:'AnnotationIndex']
+      end
+
+      if attributes.has_key?(:'Subject')
+        self.subject = attributes[:'Subject']
+      end
+
+      if attributes.has_key?(:'TextContents')
+        self.text_contents = attributes[:'TextContents']
+      end
+
+      if attributes.has_key?(:'CreationDate')
+        self.creation_date = attributes[:'CreationDate']
+      end
+
+      if attributes.has_key?(:'ModifiedDate')
+        self.modified_date = attributes[:'ModifiedDate']
+      end
+
+      if attributes.has_key?(:'LeftX')
+        self.left_x = attributes[:'LeftX']
+      end
+
+      if attributes.has_key?(:'TopY')
+        self.top_y = attributes[:'TopY']
+      end
+
+      if attributes.has_key?(:'Width')
+        self.width = attributes[:'Width']
+      end
+
+      if attributes.has_key?(:'Height')
+        self.height = attributes[:'Height']
       end
 
     end
@@ -78,29 +150,13 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        invalid_properties.push("invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] worksheet_contents Value to be assigned
-    def worksheet_contents=(worksheet_contents)
-
-      if !worksheet_contents.nil? && worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        fail ArgumentError, "invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
-      end
-
-      @worksheet_contents = worksheet_contents
     end
 
     # Checks equality by comparing each attribute.
@@ -108,10 +164,18 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          worksheet_number == o.worksheet_number &&
-          worksheet_name == o.worksheet_name &&
-          url == o.url &&
-          worksheet_contents == o.worksheet_contents
+          title == o.title &&
+          annotation_type == o.annotation_type &&
+          page_number == o.page_number &&
+          annotation_index == o.annotation_index &&
+          subject == o.subject &&
+          text_contents == o.text_contents &&
+          creation_date == o.creation_date &&
+          modified_date == o.modified_date &&
+          left_x == o.left_x &&
+          top_y == o.top_y &&
+          width == o.width &&
+          height == o.height
     end
 
     # @see the `==` method
@@ -123,7 +187,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [worksheet_number, worksheet_name, url, worksheet_contents].hash
+      [title, annotation_type, page_number, annotation_index, subject, text_contents, creation_date, modified_date, left_x, top_y, width, height].hash
     end
 
     # Builds the object from hash

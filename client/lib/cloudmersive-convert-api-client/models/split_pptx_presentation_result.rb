@@ -13,38 +13,27 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
-  class WorksheetResult
-    # Worksheet number of the converted page, starting with 1 for the left-most worksheet
-    attr_accessor :worksheet_number
+  # The result of splitting a presentation into individual PowerPoint PPTX slides
+  class SplitPptxPresentationResult
+    attr_accessor :result_presentations
 
-    # The name of the worksheet
-    attr_accessor :worksheet_name
-
-    # URL to the XLSX file of this worksheet; file is stored in an in-memory cache and will be deleted
-    attr_accessor :url
-
-    # Contents of the worksheet in bytes
-    attr_accessor :worksheet_contents
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'worksheet_number' => :'WorksheetNumber',
-        :'worksheet_name' => :'WorksheetName',
-        :'url' => :'URL',
-        :'worksheet_contents' => :'WorksheetContents'
+        :'result_presentations' => :'ResultPresentations',
+        :'successful' => :'Successful'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'worksheet_number' => :'Integer',
-        :'worksheet_name' => :'String',
-        :'url' => :'String',
-        :'worksheet_contents' => :'String'
+        :'result_presentations' => :'Array<PresentationResult>',
+        :'successful' => :'BOOLEAN'
       }
     end
 
@@ -56,20 +45,14 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'WorksheetNumber')
-        self.worksheet_number = attributes[:'WorksheetNumber']
+      if attributes.has_key?(:'ResultPresentations')
+        if (value = attributes[:'ResultPresentations']).is_a?(Array)
+          self.result_presentations = value
+        end
       end
 
-      if attributes.has_key?(:'WorksheetName')
-        self.worksheet_name = attributes[:'WorksheetName']
-      end
-
-      if attributes.has_key?(:'URL')
-        self.url = attributes[:'URL']
-      end
-
-      if attributes.has_key?(:'WorksheetContents')
-        self.worksheet_contents = attributes[:'WorksheetContents']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
     end
@@ -78,29 +61,13 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        invalid_properties.push("invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] worksheet_contents Value to be assigned
-    def worksheet_contents=(worksheet_contents)
-
-      if !worksheet_contents.nil? && worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        fail ArgumentError, "invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
-      end
-
-      @worksheet_contents = worksheet_contents
     end
 
     # Checks equality by comparing each attribute.
@@ -108,10 +75,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          worksheet_number == o.worksheet_number &&
-          worksheet_name == o.worksheet_name &&
-          url == o.url &&
-          worksheet_contents == o.worksheet_contents
+          result_presentations == o.result_presentations &&
+          successful == o.successful
     end
 
     # @see the `==` method
@@ -123,7 +88,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [worksheet_number, worksheet_name, url, worksheet_contents].hash
+      [result_presentations, successful].hash
     end
 
     # Builds the object from hash

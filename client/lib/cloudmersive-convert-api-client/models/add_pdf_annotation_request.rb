@@ -13,38 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
-  class WorksheetResult
-    # Worksheet number of the converted page, starting with 1 for the left-most worksheet
-    attr_accessor :worksheet_number
+  # Request to add annotations to a PDF
+  class AddPdfAnnotationRequest
+    # Input file contents bytes for the file to modify
+    attr_accessor :input_file_bytes
 
-    # The name of the worksheet
-    attr_accessor :worksheet_name
-
-    # URL to the XLSX file of this worksheet; file is stored in an in-memory cache and will be deleted
-    attr_accessor :url
-
-    # Contents of the worksheet in bytes
-    attr_accessor :worksheet_contents
+    # Annotations to add to the PDF file
+    attr_accessor :annotations_to_add
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'worksheet_number' => :'WorksheetNumber',
-        :'worksheet_name' => :'WorksheetName',
-        :'url' => :'URL',
-        :'worksheet_contents' => :'WorksheetContents'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'annotations_to_add' => :'AnnotationsToAdd'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'worksheet_number' => :'Integer',
-        :'worksheet_name' => :'String',
-        :'url' => :'String',
-        :'worksheet_contents' => :'String'
+        :'input_file_bytes' => :'String',
+        :'annotations_to_add' => :'Array<PdfAnnotation>'
       }
     end
 
@@ -56,20 +46,14 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'WorksheetNumber')
-        self.worksheet_number = attributes[:'WorksheetNumber']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'WorksheetName')
-        self.worksheet_name = attributes[:'WorksheetName']
-      end
-
-      if attributes.has_key?(:'URL')
-        self.url = attributes[:'URL']
-      end
-
-      if attributes.has_key?(:'WorksheetContents')
-        self.worksheet_contents = attributes[:'WorksheetContents']
+      if attributes.has_key?(:'AnnotationsToAdd')
+        if (value = attributes[:'AnnotationsToAdd']).is_a?(Array)
+          self.annotations_to_add = value
+        end
       end
 
     end
@@ -78,8 +62,8 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        invalid_properties.push("invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
       end
 
       return invalid_properties
@@ -88,19 +72,19 @@ module CloudmersiveConvertApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@worksheet_contents.nil? && @worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] worksheet_contents Value to be assigned
-    def worksheet_contents=(worksheet_contents)
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
 
-      if !worksheet_contents.nil? && worksheet_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
-        fail ArgumentError, "invalid value for 'worksheet_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
       end
 
-      @worksheet_contents = worksheet_contents
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -108,10 +92,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          worksheet_number == o.worksheet_number &&
-          worksheet_name == o.worksheet_name &&
-          url == o.url &&
-          worksheet_contents == o.worksheet_contents
+          input_file_bytes == o.input_file_bytes &&
+          annotations_to_add == o.annotations_to_add
     end
 
     # @see the `==` method
@@ -123,7 +105,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [worksheet_number, worksheet_name, url, worksheet_contents].hash
+      [input_file_bytes, annotations_to_add].hash
     end
 
     # Builds the object from hash

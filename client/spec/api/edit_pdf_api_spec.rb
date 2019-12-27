@@ -32,6 +32,18 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_add_annotations
+  # Add one or more PDF annotations, comments in the PDF document
+  # Adds one or more annotations, comments to a PDF document.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_add_annotations test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_decrypt
   # Decrypt and password-protect a PDF
   # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
@@ -69,6 +81,18 @@ describe 'EditPdfApi' do
   # @option opts [String] :encryption_key_length Possible values are \&quot;128\&quot; (128-bit RC4 encryption) and \&quot;256\&quot; (256-bit AES encryption).  Default is 256.
   # @return [String]
   describe 'edit_pdf_encrypt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_get_annotations
+  # Get PDF annotations, including comments in the document
+  # Enumerates the annotations, including comments and notes, in a PDF document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetPdfAnnotationsResult]
+  describe 'edit_pdf_get_annotations test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -133,6 +157,59 @@ describe 'EditPdfApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_pdf_rasterize test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_remove_all_annotations
+  # Remove all PDF annotations, including comments in the document
+  # Removes all of the annotations, including comments and notes, in a PDF document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_remove_all_annotations test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_remove_annotation_item
+  # Remove a specific PDF annotation, comment in the document
+  # Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+  # @param input_file Input file to perform the operation on.
+  # @param annotation_index The 0-based index of the annotation in the document
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_remove_annotation_item test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_rotate_all_pages
+  # Rotate all pages in a PDF document
+  # Rotate all of the pages in a PDF document by a multiple of 90 degrees
+  # @param input_file Input file to perform the operation on.
+  # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_rotate_all_pages test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_rotate_page_range
+  # Rotate a range, subset of pages in a PDF document
+  # Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+  # @param input_file Input file to perform the operation on.
+  # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+  # @param page_start Page number (1 based) to start rotating pages from (inclusive).
+  # @param page_end Page number (1 based) to stop rotating pages from (inclusive).
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_rotate_page_range test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -20,6 +20,61 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Add one or more PDF annotations, comments in the PDF document
+    # Adds one or more annotations, comments to a PDF document.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_add_annotations(request, opts = {})
+      data, _status_code, _headers = edit_pdf_add_annotations_with_http_info(request, opts)
+      return data
+    end
+
+    # Add one or more PDF annotations, comments in the PDF document
+    # Adds one or more annotations, comments to a PDF document.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_add_annotations_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_add_annotations ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditPdfApi.edit_pdf_add_annotations"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/annotations/add-item"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_add_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Decrypt and password-protect a PDF
     # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
     # @param password Valid password for the PDF file
@@ -214,6 +269,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_encrypt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get PDF annotations, including comments in the document
+    # Enumerates the annotations, including comments and notes, in a PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetPdfAnnotationsResult]
+    def edit_pdf_get_annotations(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_get_annotations_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Get PDF annotations, including comments in the document
+    # Enumerates the annotations, including comments and notes, in a PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetPdfAnnotationsResult, Fixnum, Hash)>] GetPdfAnnotationsResult data, response status code and response headers
+    def edit_pdf_get_annotations_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_get_annotations ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_get_annotations"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/annotations/list"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetPdfAnnotationsResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -522,6 +633,265 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove all PDF annotations, including comments in the document
+    # Removes all of the annotations, including comments and notes, in a PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_remove_all_annotations(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_remove_all_annotations_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Remove all PDF annotations, including comments in the document
+    # Removes all of the annotations, including comments and notes, in a PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_remove_all_annotations_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_remove_all_annotations ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_remove_all_annotations"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/annotations/remove-all"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_remove_all_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove a specific PDF annotation, comment in the document
+    # Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+    # @param input_file Input file to perform the operation on.
+    # @param annotation_index The 0-based index of the annotation in the document
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_remove_annotation_item(input_file, annotation_index, opts = {})
+      data, _status_code, _headers = edit_pdf_remove_annotation_item_with_http_info(input_file, annotation_index, opts)
+      return data
+    end
+
+    # Remove a specific PDF annotation, comment in the document
+    # Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+    # @param input_file Input file to perform the operation on.
+    # @param annotation_index The 0-based index of the annotation in the document
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_remove_annotation_item_with_http_info(input_file, annotation_index, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_remove_annotation_item ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_remove_annotation_item"
+      end
+      # verify the required parameter 'annotation_index' is set
+      if @api_client.config.client_side_validation && annotation_index.nil?
+        fail ArgumentError, "Missing the required parameter 'annotation_index' when calling EditPdfApi.edit_pdf_remove_annotation_item"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/annotations/remove-item"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'annotationIndex'] = annotation_index
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_remove_annotation_item\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rotate all pages in a PDF document
+    # Rotate all of the pages in a PDF document by a multiple of 90 degrees
+    # @param input_file Input file to perform the operation on.
+    # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_rotate_all_pages(input_file, rotation_angle, opts = {})
+      data, _status_code, _headers = edit_pdf_rotate_all_pages_with_http_info(input_file, rotation_angle, opts)
+      return data
+    end
+
+    # Rotate all pages in a PDF document
+    # Rotate all of the pages in a PDF document by a multiple of 90 degrees
+    # @param input_file Input file to perform the operation on.
+    # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_rotate_all_pages_with_http_info(input_file, rotation_angle, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_rotate_all_pages ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_rotate_all_pages"
+      end
+      # verify the required parameter 'rotation_angle' is set
+      if @api_client.config.client_side_validation && rotation_angle.nil?
+        fail ArgumentError, "Missing the required parameter 'rotation_angle' when calling EditPdfApi.edit_pdf_rotate_all_pages"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/pages/rotate/all"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'rotationAngle'] = rotation_angle
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rotate_all_pages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rotate a range, subset of pages in a PDF document
+    # Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+    # @param input_file Input file to perform the operation on.
+    # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+    # @param page_start Page number (1 based) to start rotating pages from (inclusive).
+    # @param page_end Page number (1 based) to stop rotating pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_rotate_page_range(input_file, rotation_angle, page_start, page_end, opts = {})
+      data, _status_code, _headers = edit_pdf_rotate_page_range_with_http_info(input_file, rotation_angle, page_start, page_end, opts)
+      return data
+    end
+
+    # Rotate a range, subset of pages in a PDF document
+    # Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+    # @param input_file Input file to perform the operation on.
+    # @param rotation_angle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
+    # @param page_start Page number (1 based) to start rotating pages from (inclusive).
+    # @param page_end Page number (1 based) to stop rotating pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_rotate_page_range_with_http_info(input_file, rotation_angle, page_start, page_end, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditPdfApi.edit_pdf_rotate_page_range ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_rotate_page_range"
+      end
+      # verify the required parameter 'rotation_angle' is set
+      if @api_client.config.client_side_validation && rotation_angle.nil?
+        fail ArgumentError, "Missing the required parameter 'rotation_angle' when calling EditPdfApi.edit_pdf_rotate_page_range"
+      end
+      # verify the required parameter 'page_start' is set
+      if @api_client.config.client_side_validation && page_start.nil?
+        fail ArgumentError, "Missing the required parameter 'page_start' when calling EditPdfApi.edit_pdf_rotate_page_range"
+      end
+      # verify the required parameter 'page_end' is set
+      if @api_client.config.client_side_validation && page_end.nil?
+        fail ArgumentError, "Missing the required parameter 'page_end' when calling EditPdfApi.edit_pdf_rotate_page_range"
+      end
+      # resource path
+      local_var_path = "/convert/edit/pdf/pages/rotate/page-range"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'rotationAngle'] = rotation_angle
+      header_params[:'pageStart'] = page_start
+      header_params[:'pageEnd'] = page_end
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rotate_page_range\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
