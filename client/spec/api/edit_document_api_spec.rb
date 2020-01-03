@@ -380,6 +380,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_create_spreadsheet_from_data
+  # Create a new Excel XLSX spreadsheet from column and row data
+  # Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [CreateSpreadsheetFromDataResponse]
+  describe 'edit_document_xlsx_create_spreadsheet_from_data test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_get_cell_by_index
   # Get cell from an Excel XLSX spreadsheet, worksheet by index
   # Returns the rows and cells defined in the Excel Spreadsheet worksheet

@@ -1616,6 +1616,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Create a new Excel XLSX spreadsheet from column and row data
+    # Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [CreateSpreadsheetFromDataResponse]
+    def edit_document_xlsx_create_spreadsheet_from_data(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_create_spreadsheet_from_data_with_http_info(input, opts)
+      return data
+    end
+
+    # Create a new Excel XLSX spreadsheet from column and row data
+    # Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreateSpreadsheetFromDataResponse, Fixnum, Hash)>] CreateSpreadsheetFromDataResponse data, response status code and response headers
+    def edit_document_xlsx_create_spreadsheet_from_data_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_create_spreadsheet_from_data ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_create_spreadsheet_from_data"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/create/from/data"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CreateSpreadsheetFromDataResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_create_spreadsheet_from_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cell from an Excel XLSX spreadsheet, worksheet by index
     # Returns the rows and cells defined in the Excel Spreadsheet worksheet
     # @param input Document input request
