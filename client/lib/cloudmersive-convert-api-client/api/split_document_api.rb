@@ -20,6 +20,65 @@ module CloudmersiveConvertApiClient
       @api_client = api_client
     end
 
+    # Split a single Word Document DOCX into Separate Documents by Page
+    # Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true.
+    # @return [SplitDocxDocumentResult]
+    def split_document_docx(input_file, opts = {})
+      data, _status_code, _headers = split_document_docx_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Split a single Word Document DOCX into Separate Documents by Page
+    # Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true.
+    # @return [Array<(SplitDocxDocumentResult, Fixnum, Hash)>] SplitDocxDocumentResult data, response status code and response headers
+    def split_document_docx_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SplitDocumentApi.split_document_docx ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling SplitDocumentApi.split_document_docx"
+      end
+      # resource path
+      local_var_path = "/convert/split/docx"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'returnDocumentContents'] = opts[:'return_document_contents'] if !opts[:'return_document_contents'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SplitDocxDocumentResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_docx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Split a PDF file into separate PDF files, one per page
     # Split an input PDF file into separate pages, comprised of one PDF file per page.
     # @param input_file Input file to perform the operation on.
@@ -83,7 +142,7 @@ module CloudmersiveConvertApiClient
     # Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true.
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
     # @return [SplitPptxPresentationResult]
     def split_document_pptx(input_file, opts = {})
       data, _status_code, _headers = split_document_pptx_with_http_info(input_file, opts)
@@ -94,7 +153,7 @@ module CloudmersiveConvertApiClient
     # Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true.
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
     # @return [Array<(SplitPptxPresentationResult, Fixnum, Hash)>] SplitPptxPresentationResult data, response status code and response headers
     def split_document_pptx_with_http_info(input_file, opts = {})
       if @api_client.config.debugging

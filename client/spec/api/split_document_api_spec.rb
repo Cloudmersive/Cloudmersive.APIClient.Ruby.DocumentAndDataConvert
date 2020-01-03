@@ -32,6 +32,19 @@ describe 'SplitDocumentApi' do
     end
   end
 
+  # unit tests for split_document_docx
+  # Split a single Word Document DOCX into Separate Documents by Page
+  # Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true.
+  # @return [SplitDocxDocumentResult]
+  describe 'split_document_docx test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for split_document_pdf_by_page
   # Split a PDF file into separate PDF files, one per page
   # Split an input PDF file into separate pages, comprised of one PDF file per page.
@@ -50,7 +63,7 @@ describe 'SplitDocumentApi' do
   # Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true.
+  # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
   # @return [SplitPptxPresentationResult]
   describe 'split_document_pptx test' do
     it "should work" do
