@@ -368,6 +368,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_clear_cell_by_index
+  # Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+  # Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [ClearXlsxCellResponse]
+  describe 'edit_document_xlsx_clear_cell_by_index test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_create_blank_spreadsheet
   # Create a blank Excel XLSX spreadsheet
   # Returns a blank Excel XLSX Spreadsheet (XLSX) format file
@@ -387,6 +399,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [CreateSpreadsheetFromDataResponse]
   describe 'edit_document_xlsx_create_spreadsheet_from_data test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_delete_worksheet
+  # Delete, remove worksheet from an Excel XLSX spreadsheet document
+  # Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+  # @param req_config Spreadsheet input request
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'edit_document_xlsx_delete_worksheet test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -471,6 +495,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [InsertXlsxWorksheetResponse]
   describe 'edit_document_xlsx_insert_worksheet test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_set_cell_by_index
+  # Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+  # Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [SetXlsxCellResponse]
+  describe 'edit_document_xlsx_set_cell_by_index test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

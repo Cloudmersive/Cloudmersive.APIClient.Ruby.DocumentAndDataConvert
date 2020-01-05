@@ -32,8 +32,10 @@ Method | HTTP request | Description
 [**edit_document_finish_editing**](EditDocumentApi.md#edit_document_finish_editing) | **POST** /convert/edit/finish-editing | Download result from document editing
 [**edit_document_pptx_delete_slides**](EditDocumentApi.md#edit_document_pptx_delete_slides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 [**edit_document_pptx_replace**](EditDocumentApi.md#edit_document_pptx_replace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+[**edit_document_xlsx_clear_cell_by_index**](EditDocumentApi.md#edit_document_xlsx_clear_cell_by_index) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
 [**edit_document_xlsx_create_blank_spreadsheet**](EditDocumentApi.md#edit_document_xlsx_create_blank_spreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**edit_document_xlsx_create_spreadsheet_from_data**](EditDocumentApi.md#edit_document_xlsx_create_spreadsheet_from_data) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
+[**edit_document_xlsx_delete_worksheet**](EditDocumentApi.md#edit_document_xlsx_delete_worksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
 [**edit_document_xlsx_get_cell_by_index**](EditDocumentApi.md#edit_document_xlsx_get_cell_by_index) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
 [**edit_document_xlsx_get_columns**](EditDocumentApi.md#edit_document_xlsx_get_columns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
 [**edit_document_xlsx_get_images**](EditDocumentApi.md#edit_document_xlsx_get_images) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
@@ -41,6 +43,7 @@ Method | HTTP request | Description
 [**edit_document_xlsx_get_styles**](EditDocumentApi.md#edit_document_xlsx_get_styles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 [**edit_document_xlsx_get_worksheets**](EditDocumentApi.md#edit_document_xlsx_get_worksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 [**edit_document_xlsx_insert_worksheet**](EditDocumentApi.md#edit_document_xlsx_insert_worksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+[**edit_document_xlsx_set_cell_by_index**](EditDocumentApi.md#edit_document_xlsx_set_cell_by_index) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
 
 
 # **edit_document_begin_editing**
@@ -1555,6 +1558,60 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_document_xlsx_clear_cell_by_index**
+> ClearXlsxCellResponse edit_document_xlsx_clear_cell_by_index(input)
+
+Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+
+Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+input = CloudmersiveConvertApiClient::ClearXlsxCellRequest.new # ClearXlsxCellRequest | Document input request
+
+
+begin
+  #Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+  result = api_instance.edit_document_xlsx_clear_cell_by_index(input)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_xlsx_clear_cell_by_index: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**ClearXlsxCellRequest**](ClearXlsxCellRequest.md)| Document input request | 
+
+### Return type
+
+[**ClearXlsxCellResponse**](ClearXlsxCellResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **edit_document_xlsx_create_blank_spreadsheet**
 > CreateBlankSpreadsheetResponse edit_document_xlsx_create_blank_spreadsheet(input)
 
@@ -1660,6 +1717,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_xlsx_delete_worksheet**
+> Object edit_document_xlsx_delete_worksheet(req_config)
+
+Delete, remove worksheet from an Excel XLSX spreadsheet document
+
+Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+req_config = CloudmersiveConvertApiClient::RemoveXlsxWorksheetRequest.new # RemoveXlsxWorksheetRequest | Spreadsheet input request
+
+
+begin
+  #Delete, remove worksheet from an Excel XLSX spreadsheet document
+  result = api_instance.edit_document_xlsx_delete_worksheet(req_config)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_xlsx_delete_worksheet: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **req_config** | [**RemoveXlsxWorksheetRequest**](RemoveXlsxWorksheetRequest.md)| Spreadsheet input request | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
 
 
 
@@ -2029,6 +2140,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InsertXlsxWorksheetResponse**](InsertXlsxWorksheetResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_document_xlsx_set_cell_by_index**
+> SetXlsxCellResponse edit_document_xlsx_set_cell_by_index(input)
+
+Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+
+Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditDocumentApi.new
+
+input = CloudmersiveConvertApiClient::SetXlsxCellRequest.new # SetXlsxCellRequest | Document input request
+
+
+begin
+  #Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+  result = api_instance.edit_document_xlsx_set_cell_by_index(input)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditDocumentApi->edit_document_xlsx_set_cell_by_index: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SetXlsxCellRequest**](SetXlsxCellRequest.md)| Document input request | 
+
+### Return type
+
+[**SetXlsxCellResponse**](SetXlsxCellResponse.md)
 
 ### Authorization
 
