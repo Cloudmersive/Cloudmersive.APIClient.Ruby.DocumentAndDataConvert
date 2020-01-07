@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_autodetect_to_txt**
-> TextConversionResult convert_document_autodetect_to_txt(input_file)
+> TextConversionResult convert_document_autodetect_to_txt(input_file, opts)
 
 Convert Document to Text (txt)
 
@@ -220,10 +220,13 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
+opts = { 
+  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
+}
 
 begin
   #Convert Document to Text (txt)
-  result = api_instance.convert_document_autodetect_to_txt(input_file)
+  result = api_instance.convert_document_autodetect_to_txt(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_autodetect_to_txt: #{e}"
@@ -235,6 +238,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **text_formatting_mode** | **String**| Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. | [optional] 
 
 ### Return type
 
@@ -954,7 +958,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_pdf_to_txt**
-> TextConversionResult convert_document_pdf_to_txt(input_file)
+> TextConversionResult convert_document_pdf_to_txt(input_file, opts)
 
 Convert PDF Document to Text (txt)
 
@@ -976,10 +980,13 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
+opts = { 
+  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
+}
 
 begin
   #Convert PDF Document to Text (txt)
-  result = api_instance.convert_document_pdf_to_txt(input_file)
+  result = api_instance.convert_document_pdf_to_txt(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_txt: #{e}"
@@ -991,6 +998,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **text_formatting_mode** | **String**| Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;. | [optional] 
 
 ### Return type
 
