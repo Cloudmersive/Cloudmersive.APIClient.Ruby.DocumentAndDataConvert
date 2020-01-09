@@ -92,6 +92,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_delete_table_row_range
+  # Deletes a range of multiple table rows in an existing table in a Word DOCX document
+  # Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [DeleteDocxTableRowRangeResponse]
+  describe 'edit_document_docx_delete_table_row_range test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a Word DOCX document
   # Returns the footer content from a Word Document (DOCX) format file
@@ -416,9 +428,21 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_get_cell_by_identifier
+  # Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+  # Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxCellByIdentifierResponse]
+  describe 'edit_document_xlsx_get_cell_by_identifier test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_get_cell_by_index
   # Get cell from an Excel XLSX spreadsheet, worksheet by index
-  # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+  # Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
   # @param input Document input request
   # @param [Hash] opts the optional parameters
   # @return [GetXlsxCellResponse]
@@ -495,6 +519,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [InsertXlsxWorksheetResponse]
   describe 'edit_document_xlsx_insert_worksheet test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_set_cell_by_identifier
+  # Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+  # Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [SetXlsxCellByIdentifierResponse]
+  describe 'edit_document_xlsx_set_cell_by_identifier test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

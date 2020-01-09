@@ -18,7 +18,7 @@ module CloudmersiveConvertApiClient
     # The ID of the table; leave blank for new tables
     attr_accessor :table_id
 
-    # The Path of the location of this object; leave blank for new tables
+    # The Path of the location of this table object; leave blank for new tables
     attr_accessor :path
 
     # The Width of the table, or 0 if not specified

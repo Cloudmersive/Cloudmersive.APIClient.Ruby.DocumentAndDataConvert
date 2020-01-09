@@ -296,6 +296,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Deletes a range of multiple table rows in an existing table in a Word DOCX document
+    # Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [DeleteDocxTableRowRangeResponse]
+    def edit_document_docx_delete_table_row_range(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_delete_table_row_range_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Deletes a range of multiple table rows in an existing table in a Word DOCX document
+    # Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DeleteDocxTableRowRangeResponse, Fixnum, Hash)>] DeleteDocxTableRowRangeResponse data, response status code and response headers
+    def edit_document_docx_delete_table_row_range_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_delete_table_row_range ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_delete_table_row_range"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/delete-table-row/range"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DeleteDocxTableRowRangeResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_delete_table_row_range\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config Document input request
@@ -1781,8 +1836,63 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+    # Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxCellByIdentifierResponse]
+    def edit_document_xlsx_get_cell_by_identifier(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_cell_by_identifier_with_http_info(input, opts)
+      return data
+    end
+
+    # Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+    # Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxCellByIdentifierResponse, Fixnum, Hash)>] GetXlsxCellByIdentifierResponse data, response status code and response headers
+    def edit_document_xlsx_get_cell_by_identifier_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_get_cell_by_identifier ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_cell_by_identifier"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/get-cell/by-identifier"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxCellByIdentifierResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_cell_by_identifier\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get cell from an Excel XLSX spreadsheet, worksheet by index
-    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
     # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [GetXlsxCellResponse]
@@ -1792,7 +1902,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Get cell from an Excel XLSX spreadsheet, worksheet by index
-    # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+    # Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
     # @param input Document input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetXlsxCellResponse, Fixnum, Hash)>] GetXlsxCellResponse data, response status code and response headers
@@ -2162,6 +2272,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'InsertXlsxWorksheetResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_insert_worksheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+    # Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [SetXlsxCellByIdentifierResponse]
+    def edit_document_xlsx_set_cell_by_identifier(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_set_cell_by_identifier_with_http_info(input, opts)
+      return data
+    end
+
+    # Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+    # Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SetXlsxCellByIdentifierResponse, Fixnum, Hash)>] SetXlsxCellByIdentifierResponse data, response status code and response headers
+    def edit_document_xlsx_set_cell_by_identifier_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_set_cell_by_identifier ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_set_cell_by_identifier"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/set-cell/by-identifier"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SetXlsxCellByIdentifierResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_set_cell_by_identifier\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

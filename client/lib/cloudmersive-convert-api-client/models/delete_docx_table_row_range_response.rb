@@ -13,33 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A row in a Word Document (DOCX) file
-  class DocxTableRow
-    # Index of the row, 0-based
-    attr_accessor :row_index
+  # Result of running an Delete Table Row Range command
+  class DeleteDocxTableRowRangeResponse
+    # True if successful, false otherwise
+    attr_accessor :successful
 
-    # The Path of the location of this table row object; leave blank for new tables
-    attr_accessor :path
-
-    # Cells in the row; this is where the contents of the row is stored
-    attr_accessor :row_cells
+    # URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
+    attr_accessor :edited_document_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'row_index' => :'RowIndex',
-        :'path' => :'Path',
-        :'row_cells' => :'RowCells'
+        :'successful' => :'Successful',
+        :'edited_document_url' => :'EditedDocumentURL'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'row_index' => :'Integer',
-        :'path' => :'String',
-        :'row_cells' => :'Array<DocxTableCell>'
+        :'successful' => :'BOOLEAN',
+        :'edited_document_url' => :'String'
       }
     end
 
@@ -51,18 +46,12 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'RowIndex')
-        self.row_index = attributes[:'RowIndex']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
-      end
-
-      if attributes.has_key?(:'RowCells')
-        if (value = attributes[:'RowCells']).is_a?(Array)
-          self.row_cells = value
-        end
+      if attributes.has_key?(:'EditedDocumentURL')
+        self.edited_document_url = attributes[:'EditedDocumentURL']
       end
 
     end
@@ -85,9 +74,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          row_index == o.row_index &&
-          path == o.path &&
-          row_cells == o.row_cells
+          successful == o.successful &&
+          edited_document_url == o.edited_document_url
     end
 
     # @see the `==` method
@@ -99,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [row_index, path, row_cells].hash
+      [successful, edited_document_url].hash
     end
 
     # Builds the object from hash

@@ -13,33 +13,43 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A row in a Word Document (DOCX) file
-  class DocxTableRow
-    # Index of the row, 0-based
-    attr_accessor :row_index
+  # Input to a delete DOCX table row range request
+  class DeleteDocxTableRowRangeRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # The Path of the location of this table row object; leave blank for new tables
-    attr_accessor :path
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
-    # Cells in the row; this is where the contents of the row is stored
-    attr_accessor :row_cells
+    # Path to the table to delete the row from
+    attr_accessor :table_path
+
+    # 0-based index of the row to begin deleting rows (e.g. 0, 1, 2, ...) in the table
+    attr_accessor :table_row_row_index_start
+
+    # 0-based index of the row to stop deleting rows (e.g. 0, 1, 2, ...) in the table
+    attr_accessor :table_row_row_index_end
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'row_index' => :'RowIndex',
-        :'path' => :'Path',
-        :'row_cells' => :'RowCells'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'table_path' => :'TablePath',
+        :'table_row_row_index_start' => :'TableRowRowIndexStart',
+        :'table_row_row_index_end' => :'TableRowRowIndexEnd'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'row_index' => :'Integer',
-        :'path' => :'String',
-        :'row_cells' => :'Array<DocxTableCell>'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'table_path' => :'String',
+        :'table_row_row_index_start' => :'Integer',
+        :'table_row_row_index_end' => :'Integer'
       }
     end
 
@@ -51,18 +61,24 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'RowIndex')
-        self.row_index = attributes[:'RowIndex']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
-      if attributes.has_key?(:'RowCells')
-        if (value = attributes[:'RowCells']).is_a?(Array)
-          self.row_cells = value
-        end
+      if attributes.has_key?(:'TablePath')
+        self.table_path = attributes[:'TablePath']
+      end
+
+      if attributes.has_key?(:'TableRowRowIndexStart')
+        self.table_row_row_index_start = attributes[:'TableRowRowIndexStart']
+      end
+
+      if attributes.has_key?(:'TableRowRowIndexEnd')
+        self.table_row_row_index_end = attributes[:'TableRowRowIndexEnd']
       end
 
     end
@@ -71,13 +87,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -85,9 +117,11 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          row_index == o.row_index &&
-          path == o.path &&
-          row_cells == o.row_cells
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          table_path == o.table_path &&
+          table_row_row_index_start == o.table_row_row_index_start &&
+          table_row_row_index_end == o.table_row_row_index_end
     end
 
     # @see the `==` method
@@ -99,7 +133,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [row_index, path, row_cells].hash
+      [input_file_bytes, input_file_url, table_path, table_row_row_index_start, table_row_row_index_end].hash
     end
 
     # Builds the object from hash
