@@ -117,6 +117,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_doc_to_txt
+  # Convert Word DOC (97-03) Document to Text (txt)
+  # Convert Office Word DOC (97-03) Document (doc) to text
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [TextConversionResult]
+  describe 'convert_document_doc_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_docx_to_pdf
   # Convert Word DOCX Document to PDF
   # Convert Office Word Documents (docx) to standard PDF

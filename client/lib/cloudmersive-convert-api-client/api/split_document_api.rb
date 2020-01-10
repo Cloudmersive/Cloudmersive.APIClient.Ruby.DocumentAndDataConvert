@@ -197,6 +197,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Split a single Text file (txt) into lines
+    # Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [SplitTextDocumentByLinesResult]
+    def split_document_txt_by_line(input_file, opts = {})
+      data, _status_code, _headers = split_document_txt_by_line_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Split a single Text file (txt) into lines
+    # Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SplitTextDocumentByLinesResult, Fixnum, Hash)>] SplitTextDocumentByLinesResult data, response status code and response headers
+    def split_document_txt_by_line_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SplitDocumentApi.split_document_txt_by_line ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling SplitDocumentApi.split_document_txt_by_line"
+      end
+      # resource path
+      local_var_path = "/convert/split/txt/by-line"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SplitTextDocumentByLinesResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_txt_by_line\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Split a single Excel XLSX into Separate Worksheets
     # Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
     # @param input_file Input file to perform the operation on.

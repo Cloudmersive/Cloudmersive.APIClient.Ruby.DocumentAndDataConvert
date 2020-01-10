@@ -71,6 +71,18 @@ describe 'SplitDocumentApi' do
     end
   end
 
+  # unit tests for split_document_txt_by_line
+  # Split a single Text file (txt) into lines
+  # Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [SplitTextDocumentByLinesResult]
+  describe 'split_document_txt_by_line test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for split_document_xlsx
   # Split a single Excel XLSX into Separate Worksheets
   # Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
