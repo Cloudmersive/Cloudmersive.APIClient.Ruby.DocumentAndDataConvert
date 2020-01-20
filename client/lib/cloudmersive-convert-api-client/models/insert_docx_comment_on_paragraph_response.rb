@@ -13,24 +13,20 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of getting pages from a Word Document DOCX
-  class GetDocxPagesResponse
+  # Result of running an Insert-Comment-on-Paragraph command
+  class InsertDocxCommentOnParagraphResponse
     # True if successful, false otherwise
     attr_accessor :successful
 
-    # Pages in the document
-    attr_accessor :pages
-
-    # Count of pages
-    attr_accessor :page_count
+    # URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
+    attr_accessor :edited_document_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'pages' => :'Pages',
-        :'page_count' => :'PageCount'
+        :'edited_document_url' => :'EditedDocumentURL'
       }
     end
 
@@ -38,8 +34,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'pages' => :'Array<DocxPage>',
-        :'page_count' => :'Integer'
+        :'edited_document_url' => :'String'
       }
     end
 
@@ -55,14 +50,8 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Pages')
-        if (value = attributes[:'Pages']).is_a?(Array)
-          self.pages = value
-        end
-      end
-
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'EditedDocumentURL')
+        self.edited_document_url = attributes[:'EditedDocumentURL']
       end
 
     end
@@ -86,8 +75,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          pages == o.pages &&
-          page_count == o.page_count
+          edited_document_url == o.edited_document_url
     end
 
     # @see the `==` method
@@ -99,7 +87,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, pages, page_count].hash
+      [successful, edited_document_url].hash
     end
 
     # Builds the object from hash

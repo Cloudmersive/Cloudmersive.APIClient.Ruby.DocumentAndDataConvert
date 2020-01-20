@@ -351,6 +351,116 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Get comments from a Word DOCX document as a flat list
+    # Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxCommentsResponse]
+    def edit_document_docx_get_comments(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_comments_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get comments from a Word DOCX document as a flat list
+    # Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxCommentsResponse, Fixnum, Hash)>] GetDocxCommentsResponse data, response status code and response headers
+    def edit_document_docx_get_comments_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_comments ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_comments"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-comments/flat-list"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxCommentsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_comments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get comments from a Word DOCX document hierarchically
+    # Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxCommentsHierarchicalResponse]
+    def edit_document_docx_get_comments_hierarchical(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_comments_hierarchical_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Get comments from a Word DOCX document hierarchically
+    # Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxCommentsHierarchicalResponse, Fixnum, Hash)>] GetDocxCommentsHierarchicalResponse data, response status code and response headers
+    def edit_document_docx_get_comments_hierarchical_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_get_comments_hierarchical ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_get_comments_hierarchical"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/get-comments/hierarchical"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxCommentsHierarchicalResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_comments_hierarchical\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config Document input request
@@ -732,6 +842,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'GetDocxTablesResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_tables\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Insert a new comment into a Word DOCX document attached to a paragraph
+    # Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [InsertDocxCommentOnParagraphResponse]
+    def edit_document_docx_insert_comment_on_paragraph(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_insert_comment_on_paragraph_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Insert a new comment into a Word DOCX document attached to a paragraph
+    # Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InsertDocxCommentOnParagraphResponse, Fixnum, Hash)>] InsertDocxCommentOnParagraphResponse data, response status code and response headers
+    def edit_document_docx_insert_comment_on_paragraph_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_insert_comment_on_paragraph ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_insert_comment_on_paragraph"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/insert-comment/on/paragraph"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InsertDocxCommentOnParagraphResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_insert_comment_on_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

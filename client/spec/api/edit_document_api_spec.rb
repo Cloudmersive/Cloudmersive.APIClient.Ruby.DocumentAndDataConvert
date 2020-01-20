@@ -104,6 +104,30 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_get_comments
+  # Get comments from a Word DOCX document as a flat list
+  # Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxCommentsResponse]
+  describe 'edit_document_docx_get_comments test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_get_comments_hierarchical
+  # Get comments from a Word DOCX document hierarchically
+  # Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxCommentsHierarchicalResponse]
+  describe 'edit_document_docx_get_comments_hierarchical test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a Word DOCX document
   # Returns the footer content from a Word Document (DOCX) format file
@@ -183,6 +207,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetDocxTablesResponse]
   describe 'edit_document_docx_get_tables test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_insert_comment_on_paragraph
+  # Insert a new comment into a Word DOCX document attached to a paragraph
+  # Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [InsertDocxCommentOnParagraphResponse]
+  describe 'edit_document_docx_insert_comment_on_paragraph test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -13,24 +13,24 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of getting pages from a Word Document DOCX
-  class GetDocxPagesResponse
+  # Result of getting comments from a Word Document DOCX
+  class GetDocxCommentsResponse
     # True if successful, false otherwise
     attr_accessor :successful
 
-    # Pages in the document
-    attr_accessor :pages
+    # Comments in the document
+    attr_accessor :comments
 
-    # Count of pages
-    attr_accessor :page_count
+    # The number of comments in the document
+    attr_accessor :comment_count
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'pages' => :'Pages',
-        :'page_count' => :'PageCount'
+        :'comments' => :'Comments',
+        :'comment_count' => :'CommentCount'
       }
     end
 
@@ -38,8 +38,8 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'pages' => :'Array<DocxPage>',
-        :'page_count' => :'Integer'
+        :'comments' => :'Array<DocxComment>',
+        :'comment_count' => :'Integer'
       }
     end
 
@@ -55,14 +55,14 @@ module CloudmersiveConvertApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Pages')
-        if (value = attributes[:'Pages']).is_a?(Array)
-          self.pages = value
+      if attributes.has_key?(:'Comments')
+        if (value = attributes[:'Comments']).is_a?(Array)
+          self.comments = value
         end
       end
 
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'CommentCount')
+        self.comment_count = attributes[:'CommentCount']
       end
 
     end
@@ -86,8 +86,8 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          pages == o.pages &&
-          page_count == o.page_count
+          comments == o.comments &&
+          comment_count == o.comment_count
     end
 
     # @see the `==` method
@@ -99,7 +99,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, pages, page_count].hash
+      [successful, comments, comment_count].hash
     end
 
     # Builds the object from hash

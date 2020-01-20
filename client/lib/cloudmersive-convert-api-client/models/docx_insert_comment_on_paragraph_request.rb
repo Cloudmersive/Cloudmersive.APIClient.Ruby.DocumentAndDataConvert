@@ -13,33 +13,38 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of getting pages from a Word Document DOCX
-  class GetDocxPagesResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # Input to a Insert Comment on Paragraph request
+  class DocxInsertCommentOnParagraphRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # Pages in the document
-    attr_accessor :pages
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
-    # Count of pages
-    attr_accessor :page_count
+    # Path to the paragraph to attach the comment to.  You can get the Path by retrieving all of the Paragraphs in document by calling Get Body and taking the Path property of the desired paragraph to add the comment to.
+    attr_accessor :paragraph_path
+
+    # Comment to insert
+    attr_accessor :comment_to_insert
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'pages' => :'Pages',
-        :'page_count' => :'PageCount'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'paragraph_path' => :'ParagraphPath',
+        :'comment_to_insert' => :'CommentToInsert'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'pages' => :'Array<DocxPage>',
-        :'page_count' => :'Integer'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'paragraph_path' => :'String',
+        :'comment_to_insert' => :'DocxComment'
       }
     end
 
@@ -51,18 +56,20 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Pages')
-        if (value = attributes[:'Pages']).is_a?(Array)
-          self.pages = value
-        end
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'ParagraphPath')
+        self.paragraph_path = attributes[:'ParagraphPath']
+      end
+
+      if attributes.has_key?(:'CommentToInsert')
+        self.comment_to_insert = attributes[:'CommentToInsert']
       end
 
     end
@@ -71,13 +78,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -85,9 +108,10 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          pages == o.pages &&
-          page_count == o.page_count
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          paragraph_path == o.paragraph_path &&
+          comment_to_insert == o.comment_to_insert
     end
 
     # @see the `==` method
@@ -99,7 +123,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, pages, page_count].hash
+      [input_file_bytes, input_file_url, paragraph_path, comment_to_insert].hash
     end
 
     # Builds the object from hash

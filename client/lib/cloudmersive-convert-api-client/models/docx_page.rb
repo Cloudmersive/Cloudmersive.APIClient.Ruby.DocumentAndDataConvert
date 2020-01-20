@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-
+  # One page in a Word Document DOCX
   class DocxPage
     # Page number of this page, 1-based
     attr_accessor :page_number

@@ -13,33 +13,53 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of getting pages from a Word Document DOCX
-  class GetDocxPagesResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # Top-level Comment in a Word Document
+  class DocxTopLevelComment
+    # Path to the comment in the document
+    attr_accessor :path
 
-    # Pages in the document
-    attr_accessor :pages
+    # Author name of the comment
+    attr_accessor :author
 
-    # Count of pages
-    attr_accessor :page_count
+    # Initials of the author of the comment
+    attr_accessor :author_initials
+
+    # Text content of the comment
+    attr_accessor :comment_text
+
+    # Date timestamp of the comment
+    attr_accessor :comment_date
+
+    # Child comments, that are replies to this one
+    attr_accessor :reply_child_comments
+
+    # True if this comment is marked as Done in Word, otherwise it is false
+    attr_accessor :done
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'pages' => :'Pages',
-        :'page_count' => :'PageCount'
+        :'path' => :'Path',
+        :'author' => :'Author',
+        :'author_initials' => :'AuthorInitials',
+        :'comment_text' => :'CommentText',
+        :'comment_date' => :'CommentDate',
+        :'reply_child_comments' => :'ReplyChildComments',
+        :'done' => :'Done'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'pages' => :'Array<DocxPage>',
-        :'page_count' => :'Integer'
+        :'path' => :'String',
+        :'author' => :'String',
+        :'author_initials' => :'String',
+        :'comment_text' => :'String',
+        :'comment_date' => :'DateTime',
+        :'reply_child_comments' => :'Array<DocxComment>',
+        :'done' => :'BOOLEAN'
       }
     end
 
@@ -51,18 +71,34 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'Path')
+        self.path = attributes[:'Path']
       end
 
-      if attributes.has_key?(:'Pages')
-        if (value = attributes[:'Pages']).is_a?(Array)
-          self.pages = value
+      if attributes.has_key?(:'Author')
+        self.author = attributes[:'Author']
+      end
+
+      if attributes.has_key?(:'AuthorInitials')
+        self.author_initials = attributes[:'AuthorInitials']
+      end
+
+      if attributes.has_key?(:'CommentText')
+        self.comment_text = attributes[:'CommentText']
+      end
+
+      if attributes.has_key?(:'CommentDate')
+        self.comment_date = attributes[:'CommentDate']
+      end
+
+      if attributes.has_key?(:'ReplyChildComments')
+        if (value = attributes[:'ReplyChildComments']).is_a?(Array)
+          self.reply_child_comments = value
         end
       end
 
-      if attributes.has_key?(:'PageCount')
-        self.page_count = attributes[:'PageCount']
+      if attributes.has_key?(:'Done')
+        self.done = attributes[:'Done']
       end
 
     end
@@ -85,9 +121,13 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          pages == o.pages &&
-          page_count == o.page_count
+          path == o.path &&
+          author == o.author &&
+          author_initials == o.author_initials &&
+          comment_text == o.comment_text &&
+          comment_date == o.comment_date &&
+          reply_child_comments == o.reply_child_comments &&
+          done == o.done
     end
 
     # @see the `==` method
@@ -99,7 +139,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, pages, page_count].hash
+      [path, author, author_initials, comment_text, comment_date, reply_child_comments, done].hash
     end
 
     # Builds the object from hash
