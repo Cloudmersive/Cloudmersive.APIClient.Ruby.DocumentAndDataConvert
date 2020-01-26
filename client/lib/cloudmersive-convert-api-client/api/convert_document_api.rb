@@ -531,6 +531,7 @@ module CloudmersiveConvertApiClient
     # Convert Office Word Documents (docx) to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :text_formatting_mode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;minimizeWhitespace&#39;.
     # @return [TextConversionResult]
     def convert_document_docx_to_txt(input_file, opts = {})
       data, _status_code, _headers = convert_document_docx_to_txt_with_http_info(input_file, opts)
@@ -541,6 +542,7 @@ module CloudmersiveConvertApiClient
     # Convert Office Word Documents (docx) to text
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :text_formatting_mode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;minimizeWhitespace&#39;.
     # @return [Array<(TextConversionResult, Fixnum, Hash)>] TextConversionResult data, response status code and response headers
     def convert_document_docx_to_txt_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -562,6 +564,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'textFormattingMode'] = opts[:'text_formatting_mode'] if !opts[:'text_formatting_mode'].nil?
 
       # form parameters
       form_params = {}

@@ -533,6 +533,156 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Merge Two Text (TXT) Files Together
+    # Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_txt(input_file1, input_file2, opts = {})
+      data, _status_code, _headers = merge_document_txt_with_http_info(input_file1, input_file2, opts)
+      return data
+    end
+
+    # Merge Two Text (TXT) Files Together
+    # Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_txt_with_http_info(input_file1, input_file2, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MergeDocumentApi.merge_document_txt ..."
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling MergeDocumentApi.merge_document_txt"
+      end
+      # verify the required parameter 'input_file2' is set
+      if @api_client.config.client_side_validation && input_file2.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file2' when calling MergeDocumentApi.merge_document_txt"
+      end
+      # resource path
+      local_var_path = "/convert/merge/txt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile1"] = input_file1
+      form_params["inputFile2"] = input_file2
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Merge Multple Text (TXT) Files Together
+    # Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [String]
+    def merge_document_txt_multi(input_file1, input_file2, opts = {})
+      data, _status_code, _headers = merge_document_txt_multi_with_http_info(input_file1, input_file2, opts)
+      return data
+    end
+
+    # Merge Multple Text (TXT) Files Together
+    # Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def merge_document_txt_multi_with_http_info(input_file1, input_file2, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MergeDocumentApi.merge_document_txt_multi ..."
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling MergeDocumentApi.merge_document_txt_multi"
+      end
+      # verify the required parameter 'input_file2' is set
+      if @api_client.config.client_side_validation && input_file2.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file2' when calling MergeDocumentApi.merge_document_txt_multi"
+      end
+      # resource path
+      local_var_path = "/convert/merge/txt/multi"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile1"] = input_file1
+      form_params["inputFile2"] = input_file2
+      form_params["inputFile3"] = opts[:'input_file3'] if !opts[:'input_file3'].nil?
+      form_params["inputFile4"] = opts[:'input_file4'] if !opts[:'input_file4'].nil?
+      form_params["inputFile5"] = opts[:'input_file5'] if !opts[:'input_file5'].nil?
+      form_params["inputFile6"] = opts[:'input_file6'] if !opts[:'input_file6'].nil?
+      form_params["inputFile7"] = opts[:'input_file7'] if !opts[:'input_file7'].nil?
+      form_params["inputFile8"] = opts[:'input_file8'] if !opts[:'input_file8'].nil?
+      form_params["inputFile9"] = opts[:'input_file9'] if !opts[:'input_file9'].nil?
+      form_params["inputFile10"] = opts[:'input_file10'] if !opts[:'input_file10'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_txt_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Merge Two Excel XLSX Together
     # Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
     # @param input_file1 First input file to perform the operation on.

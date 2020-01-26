@@ -253,6 +253,72 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Split a single Text file (txt) by a string delimiter
+    # Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+    # @param input_file Input file to perform the operation on.
+    # @param split_delimiter Required; String to split up the input file on
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :skip_empty_elements Optional; If true, empty elements will be skipped in the output
+    # @return [SplitTextDocumentByStringResult]
+    def split_document_txt_by_string(input_file, split_delimiter, opts = {})
+      data, _status_code, _headers = split_document_txt_by_string_with_http_info(input_file, split_delimiter, opts)
+      return data
+    end
+
+    # Split a single Text file (txt) by a string delimiter
+    # Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+    # @param input_file Input file to perform the operation on.
+    # @param split_delimiter Required; String to split up the input file on
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :skip_empty_elements Optional; If true, empty elements will be skipped in the output
+    # @return [Array<(SplitTextDocumentByStringResult, Fixnum, Hash)>] SplitTextDocumentByStringResult data, response status code and response headers
+    def split_document_txt_by_string_with_http_info(input_file, split_delimiter, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SplitDocumentApi.split_document_txt_by_string ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling SplitDocumentApi.split_document_txt_by_string"
+      end
+      # verify the required parameter 'split_delimiter' is set
+      if @api_client.config.client_side_validation && split_delimiter.nil?
+        fail ArgumentError, "Missing the required parameter 'split_delimiter' when calling SplitDocumentApi.split_document_txt_by_string"
+      end
+      # resource path
+      local_var_path = "/convert/split/txt/by-string"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'splitDelimiter'] = split_delimiter
+      header_params[:'skipEmptyElements'] = opts[:'skip_empty_elements'] if !opts[:'skip_empty_elements'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SplitTextDocumentByStringResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_txt_by_string\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Split a single Excel XLSX into Separate Worksheets
     # Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
     # @param input_file Input file to perform the operation on.

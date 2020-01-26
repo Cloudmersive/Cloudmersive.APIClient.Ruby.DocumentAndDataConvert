@@ -147,6 +147,40 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_txt
+  # Merge Two Text (TXT) Files Together
+  # Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_txt_multi
+  # Merge Multple Text (TXT) Files Together
+  # Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'merge_document_txt_multi test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_xlsx
   # Merge Two Excel XLSX Together
   # Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet

@@ -83,6 +83,20 @@ describe 'SplitDocumentApi' do
     end
   end
 
+  # unit tests for split_document_txt_by_string
+  # Split a single Text file (txt) by a string delimiter
+  # Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+  # @param input_file Input file to perform the operation on.
+  # @param split_delimiter Required; String to split up the input file on
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :skip_empty_elements Optional; If true, empty elements will be skipped in the output
+  # @return [SplitTextDocumentByStringResult]
+  describe 'split_document_txt_by_string test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for split_document_xlsx
   # Split a single Excel XLSX into Separate Worksheets
   # Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.

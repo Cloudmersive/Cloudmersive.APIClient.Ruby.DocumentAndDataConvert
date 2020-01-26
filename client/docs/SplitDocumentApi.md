@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**split_document_pdf_by_page**](SplitDocumentApi.md#split_document_pdf_by_page) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 [**split_document_pptx**](SplitDocumentApi.md#split_document_pptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 [**split_document_txt_by_line**](SplitDocumentApi.md#split_document_txt_by_line) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
+[**split_document_txt_by_string**](SplitDocumentApi.md#split_document_txt_by_string) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 [**split_document_xlsx**](SplitDocumentApi.md#split_document_xlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 
 
@@ -227,6 +228,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SplitTextDocumentByLinesResult**](SplitTextDocumentByLinesResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **split_document_txt_by_string**
+> SplitTextDocumentByStringResult split_document_txt_by_string(input_file, split_delimiter, opts)
+
+Split a single Text file (txt) by a string delimiter
+
+Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+split_delimiter = "split_delimiter_example" # String | Required; String to split up the input file on
+
+opts = { 
+  skip_empty_elements: true # BOOLEAN | Optional; If true, empty elements will be skipped in the output
+}
+
+begin
+  #Split a single Text file (txt) by a string delimiter
+  result = api_instance.split_document_txt_by_string(input_file, split_delimiter, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling SplitDocumentApi->split_document_txt_by_string: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **split_delimiter** | **String**| Required; String to split up the input file on | 
+ **skip_empty_elements** | **BOOLEAN**| Optional; If true, empty elements will be skipped in the output | [optional] 
+
+### Return type
+
+[**SplitTextDocumentByStringResult**](SplitTextDocumentByStringResult.md)
 
 ### Authorization
 
