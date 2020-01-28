@@ -69,24 +69,12 @@ describe 'ConvertWebApi' do
   end
 
   # unit tests for convert_web_html_to_txt
-  # Convert website URL page to text (txt)
-  # Converts a website URL page into text (txt); extracts text from HTML
-  # @param input HTML to Text request parameters
-  # @param [Hash] opts the optional parameters
-  # @return [UrlToTextResponse]
-  describe 'convert_web_html_to_txt test' do
-    it "should work" do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for convert_web_html_to_txt_0
   # Convert HTML string to text (txt)
   # Converts an HTML string input into text (txt); extracts text from HTML
   # @param input HTML to Text request parameters
   # @param [Hash] opts the optional parameters
   # @return [HtmlToTextResponse]
-  describe 'convert_web_html_to_txt_0 test' do
+  describe 'convert_web_html_to_txt test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -123,6 +111,18 @@ describe 'ConvertWebApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_web_url_to_screenshot test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_web_url_to_txt
+  # Convert website URL page to text (txt)
+  # Converts a website URL page into text (txt); extracts text from HTML
+  # @param input HTML to Text request parameters
+  # @param [Hash] opts the optional parameters
+  # @return [UrlToTextResponse]
+  describe 'convert_web_url_to_txt test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

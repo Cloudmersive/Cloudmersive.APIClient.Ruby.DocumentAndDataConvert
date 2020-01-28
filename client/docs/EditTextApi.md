@@ -9,8 +9,12 @@ Method | HTTP request | Description
 [**edit_text_base64_encode**](EditTextApi.md#edit_text_base64_encode) | **POST** /convert/edit/text/encoding/base64/encode | Base 64 encode, convert binary or file data to a text string
 [**edit_text_change_line_endings**](EditTextApi.md#edit_text_change_line_endings) | **POST** /convert/edit/text/line-endings/change | Set, change line endings of a text file
 [**edit_text_detect_line_endings**](EditTextApi.md#edit_text_detect_line_endings) | **POST** /convert/edit/text/line-endings/detect | Detect line endings of a text file
+[**edit_text_find_regex**](EditTextApi.md#edit_text_find_regex) | **POST** /convert/edit/text/find/regex | Find a regular expression regex in text input
+[**edit_text_find_simple**](EditTextApi.md#edit_text_find_simple) | **POST** /convert/edit/text/find/string | Find a string in text input
 [**edit_text_remove_all_whitespace**](EditTextApi.md#edit_text_remove_all_whitespace) | **POST** /convert/edit/text/remove/whitespace/all | Remove whitespace from text string
 [**edit_text_remove_html**](EditTextApi.md#edit_text_remove_html) | **POST** /convert/edit/text/remove/html | Remove HTML from text string
+[**edit_text_replace_regex**](EditTextApi.md#edit_text_replace_regex) | **POST** /convert/edit/text/replace/regex | Replace a string in text with a regex regular expression string
+[**edit_text_replace_simple**](EditTextApi.md#edit_text_replace_simple) | **POST** /convert/edit/text/replace/string | Replace a string in text with another string value
 [**edit_text_text_encoding_detect**](EditTextApi.md#edit_text_text_encoding_detect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
 [**edit_text_trim_whitespace**](EditTextApi.md#edit_text_trim_whitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 
@@ -36,7 +40,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::Base64DecodeRequest.new # Base64DecodeRequest | 
+request = CloudmersiveConvertApiClient::Base64DecodeRequest.new # Base64DecodeRequest | Input request
 
 
 begin
@@ -52,7 +56,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64DecodeRequest**](Base64DecodeRequest.md)|  | 
+ **request** | [**Base64DecodeRequest**](Base64DecodeRequest.md)| Input request | 
 
 ### Return type
 
@@ -90,7 +94,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::Base64DetectRequest.new # Base64DetectRequest | 
+request = CloudmersiveConvertApiClient::Base64DetectRequest.new # Base64DetectRequest | Input request
 
 
 begin
@@ -106,7 +110,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64DetectRequest**](Base64DetectRequest.md)|  | 
+ **request** | [**Base64DetectRequest**](Base64DetectRequest.md)| Input request | 
 
 ### Return type
 
@@ -144,7 +148,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::Base64EncodeRequest.new # Base64EncodeRequest | 
+request = CloudmersiveConvertApiClient::Base64EncodeRequest.new # Base64EncodeRequest | Input request
 
 
 begin
@@ -160,7 +164,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Base64EncodeRequest**](Base64EncodeRequest.md)|  | 
+ **request** | [**Base64EncodeRequest**](Base64EncodeRequest.md)| Input request | 
 
 ### Return type
 
@@ -288,6 +292,114 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_text_find_regex**
+> FindStringRegexResponse edit_text_find_regex(request)
+
+Find a regular expression regex in text input
+
+Find all occurrences of the input regular expression in the input content, and returns the matches
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditTextApi.new
+
+request = CloudmersiveConvertApiClient::FindStringRegexRequest.new # FindStringRegexRequest | Input request
+
+
+begin
+  #Find a regular expression regex in text input
+  result = api_instance.edit_text_find_regex(request)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditTextApi->edit_text_find_regex: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**FindStringRegexRequest**](FindStringRegexRequest.md)| Input request | 
+
+### Return type
+
+[**FindStringRegexResponse**](FindStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_text_find_simple**
+> FindStringSimpleResponse edit_text_find_simple(request)
+
+Find a string in text input
+
+Finds all occurrences of the input string in the input content, and returns the matches
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditTextApi.new
+
+request = CloudmersiveConvertApiClient::FindStringSimpleRequest.new # FindStringSimpleRequest | Input request
+
+
+begin
+  #Find a string in text input
+  result = api_instance.edit_text_find_simple(request)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditTextApi->edit_text_find_simple: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**FindStringSimpleRequest**](FindStringSimpleRequest.md)| Input request | 
+
+### Return type
+
+[**FindStringSimpleResponse**](FindStringSimpleResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **edit_text_remove_all_whitespace**
 > RemoveWhitespaceFromTextResponse edit_text_remove_all_whitespace(request)
 
@@ -309,7 +421,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::RemoveWhitespaceFromTextRequest.new # RemoveWhitespaceFromTextRequest | 
+request = CloudmersiveConvertApiClient::RemoveWhitespaceFromTextRequest.new # RemoveWhitespaceFromTextRequest | Input request
 
 
 begin
@@ -325,7 +437,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)|  | 
+ **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)| Input request | 
 
 ### Return type
 
@@ -363,7 +475,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::RemoveHtmlFromTextRequest.new # RemoveHtmlFromTextRequest | 
+request = CloudmersiveConvertApiClient::RemoveHtmlFromTextRequest.new # RemoveHtmlFromTextRequest | Input request
 
 
 begin
@@ -379,11 +491,119 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveHtmlFromTextRequest**](RemoveHtmlFromTextRequest.md)|  | 
+ **request** | [**RemoveHtmlFromTextRequest**](RemoveHtmlFromTextRequest.md)| Input request | 
 
 ### Return type
 
 [**RemoveHtmlFromTextResponse**](RemoveHtmlFromTextResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_text_replace_regex**
+> ReplaceStringRegexResponse edit_text_replace_regex(request)
+
+Replace a string in text with a regex regular expression string
+
+Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditTextApi.new
+
+request = CloudmersiveConvertApiClient::ReplaceStringRegexRequest.new # ReplaceStringRegexRequest | Input request
+
+
+begin
+  #Replace a string in text with a regex regular expression string
+  result = api_instance.edit_text_replace_regex(request)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditTextApi->edit_text_replace_regex: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ReplaceStringRegexRequest**](ReplaceStringRegexRequest.md)| Input request | 
+
+### Return type
+
+[**ReplaceStringRegexResponse**](ReplaceStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_text_replace_simple**
+> ReplaceStringSimpleResponse edit_text_replace_simple(request)
+
+Replace a string in text with another string value
+
+Replaces all occurrences of the input string in the input content, and returns the result
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditTextApi.new
+
+request = CloudmersiveConvertApiClient::ReplaceStringSimpleRequest.new # ReplaceStringSimpleRequest | Input request
+
+
+begin
+  #Replace a string in text with another string value
+  result = api_instance.edit_text_replace_simple(request)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditTextApi->edit_text_replace_simple: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ReplaceStringSimpleRequest**](ReplaceStringSimpleRequest.md)| Input request | 
+
+### Return type
+
+[**ReplaceStringSimpleResponse**](ReplaceStringSimpleResponse.md)
 
 ### Authorization
 
@@ -471,7 +691,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-request = CloudmersiveConvertApiClient::RemoveWhitespaceFromTextRequest.new # RemoveWhitespaceFromTextRequest | 
+request = CloudmersiveConvertApiClient::RemoveWhitespaceFromTextRequest.new # RemoveWhitespaceFromTextRequest | Input request
 
 
 begin
@@ -487,7 +707,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)|  | 
+ **request** | [**RemoveWhitespaceFromTextRequest**](RemoveWhitespaceFromTextRequest.md)| Input request | 
 
 ### Return type
 

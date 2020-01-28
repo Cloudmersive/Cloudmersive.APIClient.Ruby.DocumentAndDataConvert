@@ -35,7 +35,7 @@ describe 'EditTextApi' do
   # unit tests for edit_text_base64_decode
   # Base 64 decode, convert base 64 string to binary content
   # Decodes / converts base 64 UTF-8 text string to binary content
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [Base64DecodeResponse]
   describe 'edit_text_base64_decode test' do
@@ -47,7 +47,7 @@ describe 'EditTextApi' do
   # unit tests for edit_text_base64_detect
   # Detect, check if text string is base 64 encoded
   # Checks, detects if input string is base 64 encoded
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [Base64DetectResponse]
   describe 'edit_text_base64_detect test' do
@@ -59,7 +59,7 @@ describe 'EditTextApi' do
   # unit tests for edit_text_base64_encode
   # Base 64 encode, convert binary or file data to a text string
   # Encodes / converts binary or file data to a text string
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [Base64EncodeResponse]
   describe 'edit_text_base64_encode test' do
@@ -93,10 +93,34 @@ describe 'EditTextApi' do
     end
   end
 
+  # unit tests for edit_text_find_regex
+  # Find a regular expression regex in text input
+  # Find all occurrences of the input regular expression in the input content, and returns the matches
+  # @param request Input request
+  # @param [Hash] opts the optional parameters
+  # @return [FindStringRegexResponse]
+  describe 'edit_text_find_regex test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_text_find_simple
+  # Find a string in text input
+  # Finds all occurrences of the input string in the input content, and returns the matches
+  # @param request Input request
+  # @param [Hash] opts the optional parameters
+  # @return [FindStringSimpleResponse]
+  describe 'edit_text_find_simple test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_text_remove_all_whitespace
   # Remove whitespace from text string
   # Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [RemoveWhitespaceFromTextResponse]
   describe 'edit_text_remove_all_whitespace test' do
@@ -108,10 +132,34 @@ describe 'EditTextApi' do
   # unit tests for edit_text_remove_html
   # Remove HTML from text string
   # Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [RemoveHtmlFromTextResponse]
   describe 'edit_text_remove_html test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_text_replace_regex
+  # Replace a string in text with a regex regular expression string
+  # Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+  # @param request Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ReplaceStringRegexResponse]
+  describe 'edit_text_replace_regex test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_text_replace_simple
+  # Replace a string in text with another string value
+  # Replaces all occurrences of the input string in the input content, and returns the result
+  # @param request Input request
+  # @param [Hash] opts the optional parameters
+  # @return [ReplaceStringSimpleResponse]
+  describe 'edit_text_replace_simple test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -132,7 +180,7 @@ describe 'EditTextApi' do
   # unit tests for edit_text_trim_whitespace
   # Trim leading and trailing whitespace from text string
   # Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-  # @param request 
+  # @param request Input request
   # @param [Hash] opts the optional parameters
   # @return [RemoveWhitespaceFromTextResponse]
   describe 'edit_text_trim_whitespace test' do

@@ -96,7 +96,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-json_object = nil # Object | 
+json_object = nil # Object | Input JSON to convert to XML
 
 
 begin
@@ -112,7 +112,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **json_object** | **Object**|  | 
+ **json_object** | **Object**| Input JSON to convert to XML | 
 
 ### Return type
 

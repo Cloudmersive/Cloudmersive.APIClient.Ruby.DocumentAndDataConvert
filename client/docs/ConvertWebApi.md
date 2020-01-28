@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**convert_web_html_to_docx**](ConvertWebApi.md#convert_web_html_to_docx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 [**convert_web_html_to_pdf**](ConvertWebApi.md#convert_web_html_to_pdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
 [**convert_web_html_to_png**](ConvertWebApi.md#convert_web_html_to_png) | **POST** /convert/web/html/to/png | Convert HTML string to PNG screenshot
-[**convert_web_html_to_txt**](ConvertWebApi.md#convert_web_html_to_txt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
-[**convert_web_html_to_txt_0**](ConvertWebApi.md#convert_web_html_to_txt_0) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
+[**convert_web_html_to_txt**](ConvertWebApi.md#convert_web_html_to_txt) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
 [**convert_web_md_to_html**](ConvertWebApi.md#convert_web_md_to_html) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
 [**convert_web_url_to_pdf**](ConvertWebApi.md#convert_web_url_to_pdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 [**convert_web_url_to_screenshot**](ConvertWebApi.md#convert_web_url_to_screenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
+[**convert_web_url_to_txt**](ConvertWebApi.md#convert_web_url_to_txt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
 
 
 # **convert_web_html_to_docx**
@@ -177,61 +177,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_web_html_to_txt**
-> UrlToTextResponse convert_web_html_to_txt(input)
-
-Convert website URL page to text (txt)
-
-Converts a website URL page into text (txt); extracts text from HTML
-
-### Example
-```ruby
-# load the gem
-require 'cloudmersive-convert-api-client'
-# setup authorization
-CloudmersiveConvertApiClient.configure do |config|
-  # Configure API key authorization: Apikey
-  config.api_key['Apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Apikey'] = 'Bearer'
-end
-
-api_instance = CloudmersiveConvertApiClient::ConvertWebApi.new
-
-input = CloudmersiveConvertApiClient::UrlToTextRequest.new # UrlToTextRequest | HTML to Text request parameters
-
-
-begin
-  #Convert website URL page to text (txt)
-  result = api_instance.convert_web_html_to_txt(input)
-  p result
-rescue CloudmersiveConvertApiClient::ApiError => e
-  puts "Exception when calling ConvertWebApi->convert_web_html_to_txt: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **input** | [**UrlToTextRequest**](UrlToTextRequest.md)| HTML to Text request parameters | 
-
-### Return type
-
-[**UrlToTextResponse**](UrlToTextResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/octet-stream
-
-
-
-# **convert_web_html_to_txt_0**
-> HtmlToTextResponse convert_web_html_to_txt_0(input)
+> HtmlToTextResponse convert_web_html_to_txt(input)
 
 Convert HTML string to text (txt)
 
@@ -256,10 +202,10 @@ input = CloudmersiveConvertApiClient::HtmlToTextRequest.new # HtmlToTextRequest 
 
 begin
   #Convert HTML string to text (txt)
-  result = api_instance.convert_web_html_to_txt_0(input)
+  result = api_instance.convert_web_html_to_txt(input)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
-  puts "Exception when calling ConvertWebApi->convert_web_html_to_txt_0: #{e}"
+  puts "Exception when calling ConvertWebApi->convert_web_html_to_txt: #{e}"
 end
 ```
 
@@ -434,6 +380,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_web_url_to_txt**
+> UrlToTextResponse convert_web_url_to_txt(input)
+
+Convert website URL page to text (txt)
+
+Converts a website URL page into text (txt); extracts text from HTML
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertWebApi.new
+
+input = CloudmersiveConvertApiClient::UrlToTextRequest.new # UrlToTextRequest | HTML to Text request parameters
+
+
+begin
+  #Convert website URL page to text (txt)
+  result = api_instance.convert_web_url_to_txt(input)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertWebApi->convert_web_url_to_txt: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**UrlToTextRequest**](UrlToTextRequest.md)| HTML to Text request parameters | 
+
+### Return type
+
+[**UrlToTextResponse**](UrlToTextResponse.md)
 
 ### Authorization
 

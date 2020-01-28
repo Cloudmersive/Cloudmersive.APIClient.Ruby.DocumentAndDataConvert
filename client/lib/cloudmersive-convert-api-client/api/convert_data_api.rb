@@ -78,7 +78,7 @@ module CloudmersiveConvertApiClient
 
     # Convert JSON to XML conversion
     # Convert a JSON object into XML
-    # @param json_object 
+    # @param json_object Input JSON to convert to XML
     # @param [Hash] opts the optional parameters
     # @return [String]
     def convert_data_json_to_xml(json_object, opts = {})
@@ -88,7 +88,7 @@ module CloudmersiveConvertApiClient
 
     # Convert JSON to XML conversion
     # Convert a JSON object into XML
-    # @param json_object 
+    # @param json_object Input JSON to convert to XML
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_data_json_to_xml_with_http_info(json_object, opts = {})

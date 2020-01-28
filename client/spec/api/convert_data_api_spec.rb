@@ -47,7 +47,7 @@ describe 'ConvertDataApi' do
   # unit tests for convert_data_json_to_xml
   # Convert JSON to XML conversion
   # Convert a JSON object into XML
-  # @param json_object 
+  # @param json_object Input JSON to convert to XML
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_data_json_to_xml test' do

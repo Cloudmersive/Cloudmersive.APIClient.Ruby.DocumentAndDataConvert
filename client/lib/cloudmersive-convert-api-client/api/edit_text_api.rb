@@ -22,7 +22,7 @@ module CloudmersiveConvertApiClient
 
     # Base 64 decode, convert base 64 string to binary content
     # Decodes / converts base 64 UTF-8 text string to binary content
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Base64DecodeResponse]
     def edit_text_base64_decode(request, opts = {})
@@ -32,7 +32,7 @@ module CloudmersiveConvertApiClient
 
     # Base 64 decode, convert base 64 string to binary content
     # Decodes / converts base 64 UTF-8 text string to binary content
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Base64DecodeResponse, Fixnum, Hash)>] Base64DecodeResponse data, response status code and response headers
     def edit_text_base64_decode_with_http_info(request, opts = {})
@@ -77,7 +77,7 @@ module CloudmersiveConvertApiClient
 
     # Detect, check if text string is base 64 encoded
     # Checks, detects if input string is base 64 encoded
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Base64DetectResponse]
     def edit_text_base64_detect(request, opts = {})
@@ -87,7 +87,7 @@ module CloudmersiveConvertApiClient
 
     # Detect, check if text string is base 64 encoded
     # Checks, detects if input string is base 64 encoded
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Base64DetectResponse, Fixnum, Hash)>] Base64DetectResponse data, response status code and response headers
     def edit_text_base64_detect_with_http_info(request, opts = {})
@@ -132,7 +132,7 @@ module CloudmersiveConvertApiClient
 
     # Base 64 encode, convert binary or file data to a text string
     # Encodes / converts binary or file data to a text string
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Base64EncodeResponse]
     def edit_text_base64_encode(request, opts = {})
@@ -142,7 +142,7 @@ module CloudmersiveConvertApiClient
 
     # Base 64 encode, convert binary or file data to a text string
     # Encodes / converts binary or file data to a text string
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Base64EncodeResponse, Fixnum, Hash)>] Base64EncodeResponse data, response status code and response headers
     def edit_text_base64_encode_with_http_info(request, opts = {})
@@ -304,9 +304,119 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Find a regular expression regex in text input
+    # Find all occurrences of the input regular expression in the input content, and returns the matches
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [FindStringRegexResponse]
+    def edit_text_find_regex(request, opts = {})
+      data, _status_code, _headers = edit_text_find_regex_with_http_info(request, opts)
+      return data
+    end
+
+    # Find a regular expression regex in text input
+    # Find all occurrences of the input regular expression in the input content, and returns the matches
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FindStringRegexResponse, Fixnum, Hash)>] FindStringRegexResponse data, response status code and response headers
+    def edit_text_find_regex_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditTextApi.edit_text_find_regex ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditTextApi.edit_text_find_regex"
+      end
+      # resource path
+      local_var_path = "/convert/edit/text/find/regex"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'FindStringRegexResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditTextApi#edit_text_find_regex\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Find a string in text input
+    # Finds all occurrences of the input string in the input content, and returns the matches
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [FindStringSimpleResponse]
+    def edit_text_find_simple(request, opts = {})
+      data, _status_code, _headers = edit_text_find_simple_with_http_info(request, opts)
+      return data
+    end
+
+    # Find a string in text input
+    # Finds all occurrences of the input string in the input content, and returns the matches
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FindStringSimpleResponse, Fixnum, Hash)>] FindStringSimpleResponse data, response status code and response headers
+    def edit_text_find_simple_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditTextApi.edit_text_find_simple ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditTextApi.edit_text_find_simple"
+      end
+      # resource path
+      local_var_path = "/convert/edit/text/find/string"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'FindStringSimpleResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditTextApi#edit_text_find_simple\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove whitespace from text string
     # Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [RemoveWhitespaceFromTextResponse]
     def edit_text_remove_all_whitespace(request, opts = {})
@@ -316,7 +426,7 @@ module CloudmersiveConvertApiClient
 
     # Remove whitespace from text string
     # Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemoveWhitespaceFromTextResponse, Fixnum, Hash)>] RemoveWhitespaceFromTextResponse data, response status code and response headers
     def edit_text_remove_all_whitespace_with_http_info(request, opts = {})
@@ -361,7 +471,7 @@ module CloudmersiveConvertApiClient
 
     # Remove HTML from text string
     # Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [RemoveHtmlFromTextResponse]
     def edit_text_remove_html(request, opts = {})
@@ -371,7 +481,7 @@ module CloudmersiveConvertApiClient
 
     # Remove HTML from text string
     # Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemoveHtmlFromTextResponse, Fixnum, Hash)>] RemoveHtmlFromTextResponse data, response status code and response headers
     def edit_text_remove_html_with_http_info(request, opts = {})
@@ -410,6 +520,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'RemoveHtmlFromTextResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditTextApi#edit_text_remove_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace a string in text with a regex regular expression string
+    # Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [ReplaceStringRegexResponse]
+    def edit_text_replace_regex(request, opts = {})
+      data, _status_code, _headers = edit_text_replace_regex_with_http_info(request, opts)
+      return data
+    end
+
+    # Replace a string in text with a regex regular expression string
+    # Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReplaceStringRegexResponse, Fixnum, Hash)>] ReplaceStringRegexResponse data, response status code and response headers
+    def edit_text_replace_regex_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditTextApi.edit_text_replace_regex ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditTextApi.edit_text_replace_regex"
+      end
+      # resource path
+      local_var_path = "/convert/edit/text/replace/regex"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ReplaceStringRegexResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditTextApi#edit_text_replace_regex\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace a string in text with another string value
+    # Replaces all occurrences of the input string in the input content, and returns the result
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [ReplaceStringSimpleResponse]
+    def edit_text_replace_simple(request, opts = {})
+      data, _status_code, _headers = edit_text_replace_simple_with_http_info(request, opts)
+      return data
+    end
+
+    # Replace a string in text with another string value
+    # Replaces all occurrences of the input string in the input content, and returns the result
+    # @param request Input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReplaceStringSimpleResponse, Fixnum, Hash)>] ReplaceStringSimpleResponse data, response status code and response headers
+    def edit_text_replace_simple_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditTextApi.edit_text_replace_simple ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditTextApi.edit_text_replace_simple"
+      end
+      # resource path
+      local_var_path = "/convert/edit/text/replace/string"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ReplaceStringSimpleResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditTextApi#edit_text_replace_simple\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -472,7 +692,7 @@ module CloudmersiveConvertApiClient
 
     # Trim leading and trailing whitespace from text string
     # Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [RemoveWhitespaceFromTextResponse]
     def edit_text_trim_whitespace(request, opts = {})
@@ -482,7 +702,7 @@ module CloudmersiveConvertApiClient
 
     # Trim leading and trailing whitespace from text string
     # Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-    # @param request 
+    # @param request Input request
     # @param [Hash] opts the optional parameters
     # @return [Array<(RemoveWhitespaceFromTextResponse, Fixnum, Hash)>] RemoveWhitespaceFromTextResponse data, response status code and response headers
     def edit_text_trim_whitespace_with_http_info(request, opts = {})
