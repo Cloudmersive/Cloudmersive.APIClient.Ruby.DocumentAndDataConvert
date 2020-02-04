@@ -13,19 +13,16 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Details of the screenshot request
-  class ScreenshotRequest
+  # Request to convert a URL to a PDF file
+  class UrlToPdfRequest
     # URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
     attr_accessor :url
 
     # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)
     attr_accessor :extra_loading_wait
 
-    # Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024
-    attr_accessor :screenshot_width
-
-    # Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
-    attr_accessor :screenshot_height
+    # Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+    attr_accessor :include_background_graphics
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -33,8 +30,7 @@ module CloudmersiveConvertApiClient
       {
         :'url' => :'Url',
         :'extra_loading_wait' => :'ExtraLoadingWait',
-        :'screenshot_width' => :'ScreenshotWidth',
-        :'screenshot_height' => :'ScreenshotHeight'
+        :'include_background_graphics' => :'IncludeBackgroundGraphics'
       }
     end
 
@@ -43,8 +39,7 @@ module CloudmersiveConvertApiClient
       {
         :'url' => :'String',
         :'extra_loading_wait' => :'Integer',
-        :'screenshot_width' => :'Integer',
-        :'screenshot_height' => :'Integer'
+        :'include_background_graphics' => :'BOOLEAN'
       }
     end
 
@@ -64,12 +59,8 @@ module CloudmersiveConvertApiClient
         self.extra_loading_wait = attributes[:'ExtraLoadingWait']
       end
 
-      if attributes.has_key?(:'ScreenshotWidth')
-        self.screenshot_width = attributes[:'ScreenshotWidth']
-      end
-
-      if attributes.has_key?(:'ScreenshotHeight')
-        self.screenshot_height = attributes[:'ScreenshotHeight']
+      if attributes.has_key?(:'IncludeBackgroundGraphics')
+        self.include_background_graphics = attributes[:'IncludeBackgroundGraphics']
       end
 
     end
@@ -94,8 +85,7 @@ module CloudmersiveConvertApiClient
       self.class == o.class &&
           url == o.url &&
           extra_loading_wait == o.extra_loading_wait &&
-          screenshot_width == o.screenshot_width &&
-          screenshot_height == o.screenshot_height
+          include_background_graphics == o.include_background_graphics
     end
 
     # @see the `==` method
@@ -107,7 +97,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, extra_loading_wait, screenshot_width, screenshot_height].hash
+      [url, extra_loading_wait, include_background_graphics].hash
     end
 
     # Builds the object from hash

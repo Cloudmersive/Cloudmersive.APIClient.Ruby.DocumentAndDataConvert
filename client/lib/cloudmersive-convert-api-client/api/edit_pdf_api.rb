@@ -138,7 +138,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Remove / delete pages from a PDF document
+    # Remove, delete pages from a PDF document
     # Remove one or more pages from a PDF document
     # @param input_file Input file to perform the operation on.
     # @param page_start Page number (1 based) to start deleting pages from (inclusive).
@@ -150,7 +150,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Remove / delete pages from a PDF document
+    # Remove, delete pages from a PDF document
     # Remove one or more pages from a PDF document
     # @param input_file Input file to perform the operation on.
     # @param page_start Page number (1 based) to start deleting pages from (inclusive).
@@ -497,7 +497,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Insert / copy pages from one PDF document into another
+    # Insert, copy pages from one PDF document into another
     # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
     # @param source_file Source PDF file to copy pages from.
     # @param destination_file Destination PDF file to copy pages into.
@@ -511,7 +511,7 @@ module CloudmersiveConvertApiClient
       return data
     end
 
-    # Insert / copy pages from one PDF document into another
+    # Insert, copy pages from one PDF document into another
     # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
     # @param source_file Source PDF file to copy pages from.
     # @param destination_file Destination PDF file to copy pages into.

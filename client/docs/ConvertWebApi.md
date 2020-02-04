@@ -305,7 +305,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertWebApi.new
 
-input = CloudmersiveConvertApiClient::ScreenshotRequest.new # ScreenshotRequest | URL to PDF request parameters
+input = CloudmersiveConvertApiClient::UrlToPdfRequest.new # UrlToPdfRequest | URL to PDF request parameters
 
 
 begin
@@ -321,7 +321,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**ScreenshotRequest**](ScreenshotRequest.md)| URL to PDF request parameters | 
+ **input** | [**UrlToPdfRequest**](UrlToPdfRequest.md)| URL to PDF request parameters | 
 
 ### Return type
 

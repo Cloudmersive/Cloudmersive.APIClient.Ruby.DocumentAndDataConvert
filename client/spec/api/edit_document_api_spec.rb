@@ -489,8 +489,8 @@ describe 'EditDocumentApi' do
   end
 
   # unit tests for edit_document_xlsx_get_columns
-  # Get rows and cells from a Excel XLSX spreadsheet, worksheet
-  # Returns the rows and cells defined in the Excel Spreadsheet worksheet
+  # Get columns from a Excel XLSX spreadsheet, worksheet
+  # Returns the columns defined in the Excel Spreadsheet worksheet
   # @param input Document input request
   # @param [Hash] opts the optional parameters
   # @return [GetXlsxColumnsResponse]

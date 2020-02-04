@@ -6,13 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edit_pdf_add_annotations**](EditPdfApi.md#edit_pdf_add_annotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 [**edit_pdf_decrypt**](EditPdfApi.md#edit_pdf_decrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
-[**edit_pdf_delete_pages**](EditPdfApi.md#edit_pdf_delete_pages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
+[**edit_pdf_delete_pages**](EditPdfApi.md#edit_pdf_delete_pages) | **POST** /convert/edit/pdf/pages/delete | Remove, delete pages from a PDF document
 [**edit_pdf_encrypt**](EditPdfApi.md#edit_pdf_encrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**edit_pdf_get_annotations**](EditPdfApi.md#edit_pdf_get_annotations) | **POST** /convert/edit/pdf/annotations/list | Get PDF annotations, including comments in the document
 [**edit_pdf_get_form_fields**](EditPdfApi.md#edit_pdf_get_form_fields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**edit_pdf_get_metadata**](EditPdfApi.md#edit_pdf_get_metadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
 [**edit_pdf_get_pdf_text_by_pages**](EditPdfApi.md#edit_pdf_get_pdf_text_by_pages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
-[**edit_pdf_insert_pages**](EditPdfApi.md#edit_pdf_insert_pages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
+[**edit_pdf_insert_pages**](EditPdfApi.md#edit_pdf_insert_pages) | **POST** /convert/edit/pdf/pages/insert | Insert, copy pages from one PDF document into another
 [**edit_pdf_rasterize**](EditPdfApi.md#edit_pdf_rasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**edit_pdf_remove_all_annotations**](EditPdfApi.md#edit_pdf_remove_all_annotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
 [**edit_pdf_remove_annotation_item**](EditPdfApi.md#edit_pdf_remove_annotation_item) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 # **edit_pdf_delete_pages**
 > String edit_pdf_delete_pages(input_file, page_start, page_end)
 
-Remove / delete pages from a PDF document
+Remove, delete pages from a PDF document
 
 Remove one or more pages from a PDF document
 
@@ -164,7 +164,7 @@ page_end = 56 # Integer | Page number (1 based) to stop deleting pages from (inc
 
 
 begin
-  #Remove / delete pages from a PDF document
+  #Remove, delete pages from a PDF document
   result = api_instance.edit_pdf_delete_pages(input_file, page_start, page_end)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 # **edit_pdf_insert_pages**
 > String edit_pdf_insert_pages(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation)
 
-Insert / copy pages from one PDF document into another
+Insert, copy pages from one PDF document into another
 
 Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
 
@@ -506,7 +506,7 @@ page_insert_before_desitnation = 56 # Integer | Page number (1 based) to insert 
 
 
 begin
-  #Insert / copy pages from one PDF document into another
+  #Insert, copy pages from one PDF document into another
   result = api_instance.edit_pdf_insert_pages(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
