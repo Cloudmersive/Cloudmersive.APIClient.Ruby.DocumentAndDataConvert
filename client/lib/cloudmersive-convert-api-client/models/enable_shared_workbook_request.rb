@@ -13,28 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a insert worksheet command
-  class InsertXlsxWorksheetResponse
-    # True if successful, false otherwise
-    attr_accessor :successful
+  # Input to a Enabled Shared Workbook request
+  class EnableSharedWorkbookRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
-    attr_accessor :edited_document_url
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'successful' => :'Successful',
-        :'edited_document_url' => :'EditedDocumentURL'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'successful' => :'BOOLEAN',
-        :'edited_document_url' => :'String'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'Successful')
-        self.successful = attributes[:'Successful']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'EditedDocumentURL')
-        self.edited_document_url = attributes[:'EditedDocumentURL']
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
     end
@@ -60,13 +60,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -74,8 +90,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          successful == o.successful &&
-          edited_document_url == o.edited_document_url
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url
     end
 
     # @see the `==` method
@@ -87,7 +103,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, edited_document_url].hash
+      [input_file_bytes, input_file_url].hash
     end
 
     # Builds the object from hash

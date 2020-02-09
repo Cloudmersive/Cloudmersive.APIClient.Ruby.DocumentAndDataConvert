@@ -464,6 +464,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_enable_shared_workbook
+  # Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
+  # Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [EnableSharedWorkbookResponse]
+  describe 'edit_document_xlsx_enable_shared_workbook test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_get_cell_by_identifier
   # Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
   # Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet

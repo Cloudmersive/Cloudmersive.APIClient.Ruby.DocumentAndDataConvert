@@ -13,8 +13,8 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Result of running a insert worksheet command
-  class InsertXlsxWorksheetResponse
+  # Result of running a Enable Shared Workbook command
+  class EnableSharedWorkbookResponse
     # True if successful, false otherwise
     attr_accessor :successful
 

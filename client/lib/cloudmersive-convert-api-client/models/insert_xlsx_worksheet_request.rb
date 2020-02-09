@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Input to a Get Worksheets request
+  # Input to a Insert Worksheets request
   class InsertXlsxWorksheetRequest
     # Optional: Bytes of the input file to operate on
     attr_accessor :input_file_bytes

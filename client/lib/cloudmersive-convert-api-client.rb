@@ -74,6 +74,8 @@ require 'cloudmersive-convert-api-client/models/docx_template_application_reques
 require 'cloudmersive-convert-api-client/models/docx_template_operation'
 require 'cloudmersive-convert-api-client/models/docx_text'
 require 'cloudmersive-convert-api-client/models/docx_top_level_comment'
+require 'cloudmersive-convert-api-client/models/enable_shared_workbook_request'
+require 'cloudmersive-convert-api-client/models/enable_shared_workbook_response'
 require 'cloudmersive-convert-api-client/models/exif_value'
 require 'cloudmersive-convert-api-client/models/find_regex_match'
 require 'cloudmersive-convert-api-client/models/find_string_match'
