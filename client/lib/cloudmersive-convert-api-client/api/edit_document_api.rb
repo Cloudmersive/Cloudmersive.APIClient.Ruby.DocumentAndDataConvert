@@ -2001,6 +2001,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
+    # Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [DisableSharedWorkbookResponse]
+    def edit_document_xlsx_disable_shared_workbook(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_disable_shared_workbook_with_http_info(input, opts)
+      return data
+    end
+
+    # Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
+    # Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DisableSharedWorkbookResponse, Fixnum, Hash)>] DisableSharedWorkbookResponse data, response status code and response headers
+    def edit_document_xlsx_disable_shared_workbook_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_xlsx_disable_shared_workbook ..."
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_disable_shared_workbook"
+      end
+      # resource path
+      local_var_path = "/convert/edit/xlsx/configuration/disable-shared-workbook"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DisableSharedWorkbookResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_disable_shared_workbook\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
     # Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
     # @param input Document input request

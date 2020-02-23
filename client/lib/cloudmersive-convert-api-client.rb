@@ -44,6 +44,8 @@ require 'cloudmersive-convert-api-client/models/delete_docx_table_row_range_resp
 require 'cloudmersive-convert-api-client/models/delete_docx_table_row_request'
 require 'cloudmersive-convert-api-client/models/delete_docx_table_row_response'
 require 'cloudmersive-convert-api-client/models/detect_line_endings_response'
+require 'cloudmersive-convert-api-client/models/disable_shared_workbook_request'
+require 'cloudmersive-convert-api-client/models/disable_shared_workbook_response'
 require 'cloudmersive-convert-api-client/models/document_validation_error'
 require 'cloudmersive-convert-api-client/models/document_validation_result'
 require 'cloudmersive-convert-api-client/models/docx_body'
