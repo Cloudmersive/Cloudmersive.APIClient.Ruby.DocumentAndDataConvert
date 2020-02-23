@@ -24,13 +24,17 @@ module CloudmersiveConvertApiClient
     # Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
     attr_accessor :include_background_graphics
 
+    # Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%
+    attr_accessor :scale_factor
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'url' => :'Url',
         :'extra_loading_wait' => :'ExtraLoadingWait',
-        :'include_background_graphics' => :'IncludeBackgroundGraphics'
+        :'include_background_graphics' => :'IncludeBackgroundGraphics',
+        :'scale_factor' => :'ScaleFactor'
       }
     end
 
@@ -39,7 +43,8 @@ module CloudmersiveConvertApiClient
       {
         :'url' => :'String',
         :'extra_loading_wait' => :'Integer',
-        :'include_background_graphics' => :'BOOLEAN'
+        :'include_background_graphics' => :'BOOLEAN',
+        :'scale_factor' => :'Integer'
       }
     end
 
@@ -61,6 +66,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'IncludeBackgroundGraphics')
         self.include_background_graphics = attributes[:'IncludeBackgroundGraphics']
+      end
+
+      if attributes.has_key?(:'ScaleFactor')
+        self.scale_factor = attributes[:'ScaleFactor']
       end
 
     end
@@ -85,7 +94,8 @@ module CloudmersiveConvertApiClient
       self.class == o.class &&
           url == o.url &&
           extra_loading_wait == o.extra_loading_wait &&
-          include_background_graphics == o.include_background_graphics
+          include_background_graphics == o.include_background_graphics &&
+          scale_factor == o.scale_factor
     end
 
     # @see the `==` method
@@ -97,7 +107,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, extra_loading_wait, include_background_graphics].hash
+      [url, extra_loading_wait, include_background_graphics, scale_factor].hash
     end
 
     # Builds the object from hash
