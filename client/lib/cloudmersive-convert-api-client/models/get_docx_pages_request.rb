@@ -21,12 +21,16 @@ module CloudmersiveConvertApiClient
     # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
     attr_accessor :input_file_url
 
+    # Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages
+    attr_accessor :maximum_pages
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'input_file_bytes' => :'InputFileBytes',
-        :'input_file_url' => :'InputFileUrl'
+        :'input_file_url' => :'InputFileUrl',
+        :'maximum_pages' => :'MaximumPages'
       }
     end
 
@@ -34,7 +38,8 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'input_file_bytes' => :'String',
-        :'input_file_url' => :'String'
+        :'input_file_url' => :'String',
+        :'maximum_pages' => :'Integer'
       }
     end
 
@@ -52,6 +57,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'InputFileUrl')
         self.input_file_url = attributes[:'InputFileUrl']
+      end
+
+      if attributes.has_key?(:'MaximumPages')
+        self.maximum_pages = attributes[:'MaximumPages']
       end
 
     end
@@ -91,7 +100,8 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           input_file_bytes == o.input_file_bytes &&
-          input_file_url == o.input_file_url
+          input_file_url == o.input_file_url &&
+          maximum_pages == o.maximum_pages
     end
 
     # @see the `==` method
@@ -103,7 +113,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [input_file_bytes, input_file_url].hash
+      [input_file_bytes, input_file_url, maximum_pages].hash
     end
 
     # Builds the object from hash

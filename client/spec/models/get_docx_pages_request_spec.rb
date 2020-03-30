@@ -44,5 +44,11 @@ describe 'GetDocxPagesRequest' do
     end
   end
 
+  describe 'test attribute "maximum_pages"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
 

@@ -127,6 +127,7 @@ describe 'EditPdfApi' do
   # Gets the text in a PDF by page
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :text_formatting_mode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;preserveWhitespace&#39;.
   # @return [PdfTextByPageResult]
   describe 'edit_pdf_get_pdf_text_by_pages test' do
     it "should work" do
