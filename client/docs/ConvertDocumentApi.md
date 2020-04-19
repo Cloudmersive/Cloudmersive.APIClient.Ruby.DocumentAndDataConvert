@@ -31,7 +31,8 @@ Method | HTTP request | Description
 [**convert_document_xls_to_csv**](ConvertDocumentApi.md#convert_document_xls_to_csv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 [**convert_document_xls_to_pdf**](ConvertDocumentApi.md#convert_document_xls_to_pdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 [**convert_document_xls_to_xlsx**](ConvertDocumentApi.md#convert_document_xls_to_xlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
-[**convert_document_xlsx_to_csv**](ConvertDocumentApi.md#convert_document_xlsx_to_csv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV
+[**convert_document_xlsx_to_csv**](ConvertDocumentApi.md#convert_document_xlsx_to_csv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+[**convert_document_xlsx_to_csv_multi**](ConvertDocumentApi.md#convert_document_xlsx_to_csv_multi) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
 [**convert_document_xlsx_to_pdf**](ConvertDocumentApi.md#convert_document_xlsx_to_pdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
 [**convert_document_xlsx_to_txt**](ConvertDocumentApi.md#convert_document_xlsx_to_txt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
 
@@ -1530,9 +1531,9 @@ Name | Type | Description  | Notes
 # **convert_document_xlsx_to_csv**
 > String convert_document_xlsx_to_csv(input_file, opts)
 
-Convert Excel XLSX Spreadsheet to CSV
+Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
 
-Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
 
 ### Example
 ```ruby
@@ -1551,11 +1552,11 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
 opts = { 
-  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
+  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
 }
 
 begin
-  #Convert Excel XLSX Spreadsheet to CSV
+  #Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
   result = api_instance.convert_document_xlsx_to_csv(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -1568,11 +1569,69 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
- **output_encoding** | **String**| Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. | [optional] 
+ **output_encoding** | **String**| Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. | [optional] 
 
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_xlsx_to_csv_multi**
+> CsvCollection convert_document_xlsx_to_csv_multi(input_file, opts)
+
+Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+
+Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+opts = { 
+  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+}
+
+begin
+  #Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+  result = api_instance.convert_document_xlsx_to_csv_multi(input_file, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_xlsx_to_csv_multi: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **output_encoding** | **String**| Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. | [optional] 
+
+### Return type
+
+[**CsvCollection**](CsvCollection.md)
 
 ### Authorization
 

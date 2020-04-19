@@ -13,43 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Document validation result
-  class DocumentValidationResult
-    # True if the document is valid and has no errors, false otherwise
-    attr_accessor :document_is_valid
+  # Collection of CSV Files
+  class CsvCollection
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-    # True if the document is password protected, false otherwise
-    attr_accessor :password_protected
+    # Array of CSV File results
+    attr_accessor :csv_files
 
-    # Number of validation errors found in the document
-    attr_accessor :error_count
-
-    # Number of validation warnings found in the document
-    attr_accessor :warning_count
-
-    # Details of errors and warnings found
-    attr_accessor :errors_and_warnings
+    # Count of the number of CSV files produced
+    attr_accessor :file_count
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'document_is_valid' => :'DocumentIsValid',
-        :'password_protected' => :'PasswordProtected',
-        :'error_count' => :'ErrorCount',
-        :'warning_count' => :'WarningCount',
-        :'errors_and_warnings' => :'ErrorsAndWarnings'
+        :'successful' => :'Successful',
+        :'csv_files' => :'CsvFiles',
+        :'file_count' => :'FileCount'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'document_is_valid' => :'BOOLEAN',
-        :'password_protected' => :'BOOLEAN',
-        :'error_count' => :'Integer',
-        :'warning_count' => :'Integer',
-        :'errors_and_warnings' => :'Array<DocumentValidationError>'
+        :'successful' => :'BOOLEAN',
+        :'csv_files' => :'Array<CsvFileResult>',
+        :'file_count' => :'Integer'
       }
     end
 
@@ -61,26 +51,18 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'DocumentIsValid')
-        self.document_is_valid = attributes[:'DocumentIsValid']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'PasswordProtected')
-        self.password_protected = attributes[:'PasswordProtected']
-      end
-
-      if attributes.has_key?(:'ErrorCount')
-        self.error_count = attributes[:'ErrorCount']
-      end
-
-      if attributes.has_key?(:'WarningCount')
-        self.warning_count = attributes[:'WarningCount']
-      end
-
-      if attributes.has_key?(:'ErrorsAndWarnings')
-        if (value = attributes[:'ErrorsAndWarnings']).is_a?(Array)
-          self.errors_and_warnings = value
+      if attributes.has_key?(:'CsvFiles')
+        if (value = attributes[:'CsvFiles']).is_a?(Array)
+          self.csv_files = value
         end
+      end
+
+      if attributes.has_key?(:'FileCount')
+        self.file_count = attributes[:'FileCount']
       end
 
     end
@@ -103,11 +85,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          document_is_valid == o.document_is_valid &&
-          password_protected == o.password_protected &&
-          error_count == o.error_count &&
-          warning_count == o.warning_count &&
-          errors_and_warnings == o.errors_and_warnings
+          successful == o.successful &&
+          csv_files == o.csv_files &&
+          file_count == o.file_count
     end
 
     # @see the `==` method
@@ -119,7 +99,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [document_is_valid, password_protected, error_count, warning_count, errors_and_warnings].hash
+      [successful, csv_files, file_count].hash
     end
 
     # Builds the object from hash

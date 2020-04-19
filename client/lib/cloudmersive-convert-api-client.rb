@@ -39,6 +39,8 @@ require 'cloudmersive-convert-api-client/models/create_blank_spreadsheet_respons
 require 'cloudmersive-convert-api-client/models/create_spreadsheet_from_data_request'
 require 'cloudmersive-convert-api-client/models/create_spreadsheet_from_data_response'
 require 'cloudmersive-convert-api-client/models/create_zip_archive_request'
+require 'cloudmersive-convert-api-client/models/csv_collection'
+require 'cloudmersive-convert-api-client/models/csv_file_result'
 require 'cloudmersive-convert-api-client/models/delete_docx_table_row_range_request'
 require 'cloudmersive-convert-api-client/models/delete_docx_table_row_range_response'
 require 'cloudmersive-convert-api-client/models/delete_docx_table_row_request'

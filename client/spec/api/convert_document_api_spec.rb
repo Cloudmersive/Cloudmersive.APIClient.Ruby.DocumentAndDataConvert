@@ -369,13 +369,26 @@ describe 'ConvertDocumentApi' do
   end
 
   # unit tests for convert_document_xlsx_to_csv
-  # Convert Excel XLSX Spreadsheet to CSV
-  # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+  # Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+  # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
+  # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
   # @return [String]
   describe 'convert_document_xlsx_to_csv test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_xlsx_to_csv_multi
+  # Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+  # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+  # @return [CsvCollection]
+  describe 'convert_document_xlsx_to_csv_multi test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

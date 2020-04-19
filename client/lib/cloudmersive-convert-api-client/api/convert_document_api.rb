@@ -1572,22 +1572,22 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
-    # Convert Excel XLSX Spreadsheet to CSV
-    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+    # Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
+    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
     # @return [String]
     def convert_document_xlsx_to_csv(input_file, opts = {})
       data, _status_code, _headers = convert_document_xlsx_to_csv_with_http_info(input_file, opts)
       return data
     end
 
-    # Convert Excel XLSX Spreadsheet to CSV
-    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+    # Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32.
+    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_xlsx_to_csv_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -1627,6 +1627,65 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_csv\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+    # @return [CsvCollection]
+    def convert_document_xlsx_to_csv_multi(input_file, opts = {})
+      data, _status_code, _headers = convert_document_xlsx_to_csv_multi_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+    # Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+    # @return [Array<(CsvCollection, Fixnum, Hash)>] CsvCollection data, response status code and response headers
+    def convert_document_xlsx_to_csv_multi_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_xlsx_to_csv_multi ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_xlsx_to_csv_multi"
+      end
+      # resource path
+      local_var_path = "/convert/xlsx/to/csv/multi"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'outputEncoding'] = opts[:'output_encoding'] if !opts[:'output_encoding'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'CsvCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_csv_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

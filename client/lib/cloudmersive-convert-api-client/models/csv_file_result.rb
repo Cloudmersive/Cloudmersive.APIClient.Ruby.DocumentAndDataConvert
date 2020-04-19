@@ -13,43 +13,28 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Document validation result
-  class DocumentValidationResult
-    # True if the document is valid and has no errors, false otherwise
-    attr_accessor :document_is_valid
+  # CSV file result
+  class CsvFileResult
+    # Title of the CSV file
+    attr_accessor :title
 
-    # True if the document is password protected, false otherwise
-    attr_accessor :password_protected
-
-    # Number of validation errors found in the document
-    attr_accessor :error_count
-
-    # Number of validation warnings found in the document
-    attr_accessor :warning_count
-
-    # Details of errors and warnings found
-    attr_accessor :errors_and_warnings
+    # Contents of the CSV file
+    attr_accessor :file_contents
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'document_is_valid' => :'DocumentIsValid',
-        :'password_protected' => :'PasswordProtected',
-        :'error_count' => :'ErrorCount',
-        :'warning_count' => :'WarningCount',
-        :'errors_and_warnings' => :'ErrorsAndWarnings'
+        :'title' => :'Title',
+        :'file_contents' => :'FileContents'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'document_is_valid' => :'BOOLEAN',
-        :'password_protected' => :'BOOLEAN',
-        :'error_count' => :'Integer',
-        :'warning_count' => :'Integer',
-        :'errors_and_warnings' => :'Array<DocumentValidationError>'
+        :'title' => :'String',
+        :'file_contents' => :'String'
       }
     end
 
@@ -61,26 +46,12 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'DocumentIsValid')
-        self.document_is_valid = attributes[:'DocumentIsValid']
+      if attributes.has_key?(:'Title')
+        self.title = attributes[:'Title']
       end
 
-      if attributes.has_key?(:'PasswordProtected')
-        self.password_protected = attributes[:'PasswordProtected']
-      end
-
-      if attributes.has_key?(:'ErrorCount')
-        self.error_count = attributes[:'ErrorCount']
-      end
-
-      if attributes.has_key?(:'WarningCount')
-        self.warning_count = attributes[:'WarningCount']
-      end
-
-      if attributes.has_key?(:'ErrorsAndWarnings')
-        if (value = attributes[:'ErrorsAndWarnings']).is_a?(Array)
-          self.errors_and_warnings = value
-        end
+      if attributes.has_key?(:'FileContents')
+        self.file_contents = attributes[:'FileContents']
       end
 
     end
@@ -89,13 +60,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@file_contents.nil? && @file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'file_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@file_contents.nil? && @file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] file_contents Value to be assigned
+    def file_contents=(file_contents)
+
+      if !file_contents.nil? && file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'file_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @file_contents = file_contents
     end
 
     # Checks equality by comparing each attribute.
@@ -103,11 +90,8 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          document_is_valid == o.document_is_valid &&
-          password_protected == o.password_protected &&
-          error_count == o.error_count &&
-          warning_count == o.warning_count &&
-          errors_and_warnings == o.errors_and_warnings
+          title == o.title &&
+          file_contents == o.file_contents
     end
 
     # @see the `==` method
@@ -119,7 +103,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [document_is_valid, password_protected, error_count, warning_count, errors_and_warnings].hash
+      [title, file_contents].hash
     end
 
     # Builds the object from hash

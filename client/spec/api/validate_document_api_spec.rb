@@ -82,7 +82,7 @@ describe 'ValidateDocumentApi' do
 
   # unit tests for validate_document_pdf_validation
   # Validate a PDF document file
-  # Validate a PDF document; if the document is not valid, identifies the errors in the document
+  # Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]

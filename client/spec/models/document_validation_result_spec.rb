@@ -38,6 +38,12 @@ describe 'DocumentValidationResult' do
     end
   end
 
+  describe 'test attribute "password_protected"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "error_count"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

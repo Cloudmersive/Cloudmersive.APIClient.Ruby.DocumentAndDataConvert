@@ -245,7 +245,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Validate a PDF document file
-    # Validate a PDF document; if the document is not valid, identifies the errors in the document
+    # Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [DocumentValidationResult]
@@ -255,7 +255,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Validate a PDF document file
-    # Validate a PDF document; if the document is not valid, identifies the errors in the document
+    # Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
