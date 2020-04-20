@@ -22,20 +22,44 @@ module CloudmersiveConvertApiClient
 
     # Compress files to create a new zip archive
     # Create a new zip archive by compressing input files.
+    # @param input_file1 First input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
-    def zip_archive_zip_create(opts = {})
-      data, _status_code, _headers = zip_archive_zip_create_with_http_info(opts)
+    # @option opts [File] :input_file2 Second input file to perform the operation on.
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [String]
+    def zip_archive_zip_create(input_file1, opts = {})
+      data, _status_code, _headers = zip_archive_zip_create_with_http_info(input_file1, opts)
       return data
     end
 
     # Compress files to create a new zip archive
     # Create a new zip archive by compressing input files.
+    # @param input_file1 First input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
-    def zip_archive_zip_create_with_http_info(opts = {})
+    # @option opts [File] :input_file2 Second input file to perform the operation on.
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def zip_archive_zip_create_with_http_info(input_file1, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ZipArchiveApi.zip_archive_zip_create ..."
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling ZipArchiveApi.zip_archive_zip_create"
       end
       # resource path
       local_var_path = "/convert/archive/zip/create"
@@ -47,9 +71,21 @@ module CloudmersiveConvertApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
+      form_params["inputFile1"] = input_file1
+      form_params["inputFile2"] = opts[:'input_file2'] if !opts[:'input_file2'].nil?
+      form_params["inputFile3"] = opts[:'input_file3'] if !opts[:'input_file3'].nil?
+      form_params["inputFile4"] = opts[:'input_file4'] if !opts[:'input_file4'].nil?
+      form_params["inputFile5"] = opts[:'input_file5'] if !opts[:'input_file5'].nil?
+      form_params["inputFile6"] = opts[:'input_file6'] if !opts[:'input_file6'].nil?
+      form_params["inputFile7"] = opts[:'input_file7'] if !opts[:'input_file7'].nil?
+      form_params["inputFile8"] = opts[:'input_file8'] if !opts[:'input_file8'].nil?
+      form_params["inputFile9"] = opts[:'input_file9'] if !opts[:'input_file9'].nil?
+      form_params["inputFile10"] = opts[:'input_file10'] if !opts[:'input_file10'].nil?
 
       # http body (model)
       post_body = nil
@@ -60,7 +96,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -118,6 +154,124 @@ module CloudmersiveConvertApiClient
         :return_type => 'Object')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_create_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Decrypt and remove password protection on a zip file
+    # Decrypts and removes password protection from an encrypted zip file with the specified password
+    # @param input_file Input file to perform the operation on.
+    # @param zip_password Required; Password for the input archive
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def zip_archive_zip_decrypt(input_file, zip_password, opts = {})
+      data, _status_code, _headers = zip_archive_zip_decrypt_with_http_info(input_file, zip_password, opts)
+      return data
+    end
+
+    # Decrypt and remove password protection on a zip file
+    # Decrypts and removes password protection from an encrypted zip file with the specified password
+    # @param input_file Input file to perform the operation on.
+    # @param zip_password Required; Password for the input archive
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def zip_archive_zip_decrypt_with_http_info(input_file, zip_password, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ZipArchiveApi.zip_archive_zip_decrypt ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ZipArchiveApi.zip_archive_zip_decrypt"
+      end
+      # verify the required parameter 'zip_password' is set
+      if @api_client.config.client_side_validation && zip_password.nil?
+        fail ArgumentError, "Missing the required parameter 'zip_password' when calling ZipArchiveApi.zip_archive_zip_decrypt"
+      end
+      # resource path
+      local_var_path = "/convert/archive/zip/decrypt"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'zipPassword'] = zip_password
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_decrypt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Encrypt and password protect a zip file
+    # Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+    # @param encryption_request Encryption request
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def zip_archive_zip_encrypt_advanced(encryption_request, opts = {})
+      data, _status_code, _headers = zip_archive_zip_encrypt_advanced_with_http_info(encryption_request, opts)
+      return data
+    end
+
+    # Encrypt and password protect a zip file
+    # Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+    # @param encryption_request Encryption request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def zip_archive_zip_encrypt_advanced_with_http_info(encryption_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ZipArchiveApi.zip_archive_zip_encrypt_advanced ..."
+      end
+      # verify the required parameter 'encryption_request' is set
+      if @api_client.config.client_side_validation && encryption_request.nil?
+        fail ArgumentError, "Missing the required parameter 'encryption_request' when calling ZipArchiveApi.zip_archive_zip_encrypt_advanced"
+      end
+      # resource path
+      local_var_path = "/convert/archive/zip/encrypt/advanced"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(encryption_request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_encrypt_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -11,5 +11,5 @@ Swagger Codegen version: 2.3.1
 =end
 
 module CloudmersiveConvertApiClient
-  VERSION = "1.7.4"
+  VERSION = "1.7.5"
 end

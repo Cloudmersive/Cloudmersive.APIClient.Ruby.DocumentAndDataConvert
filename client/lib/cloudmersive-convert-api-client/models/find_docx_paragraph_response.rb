@@ -13,38 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML
-  class DocxParagraph
-    # The index of the paragraph; 0-based
-    attr_accessor :paragraph_index
+  # Result of performing a find matching paragraphs operation on a Word Document
+  class FindDocxParagraphResponse
+    # True if successful; false otherwise
+    attr_accessor :successful
 
-    # The Path of the location of this Paragraph object; leave blank during creation
-    attr_accessor :path
+    # Matching paragraphs
+    attr_accessor :matching_paragraphs
 
-    # The content runs in the paragraph - this is where text is stored; similar to a span in HTML
-    attr_accessor :content_runs
-
-    # Style ID of the style applied to the paragraph; null if no style is applied
-    attr_accessor :style_id
+    # Count of matching paragraphs
+    attr_accessor :count
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'paragraph_index' => :'ParagraphIndex',
-        :'path' => :'Path',
-        :'content_runs' => :'ContentRuns',
-        :'style_id' => :'StyleID'
+        :'successful' => :'Successful',
+        :'matching_paragraphs' => :'MatchingParagraphs',
+        :'count' => :'Count'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'paragraph_index' => :'Integer',
-        :'path' => :'String',
-        :'content_runs' => :'Array<DocxRun>',
-        :'style_id' => :'String'
+        :'successful' => :'BOOLEAN',
+        :'matching_paragraphs' => :'Array<DocxParagraph>',
+        :'count' => :'Integer'
       }
     end
 
@@ -56,22 +51,18 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ParagraphIndex')
-        self.paragraph_index = attributes[:'ParagraphIndex']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
-      end
-
-      if attributes.has_key?(:'ContentRuns')
-        if (value = attributes[:'ContentRuns']).is_a?(Array)
-          self.content_runs = value
+      if attributes.has_key?(:'MatchingParagraphs')
+        if (value = attributes[:'MatchingParagraphs']).is_a?(Array)
+          self.matching_paragraphs = value
         end
       end
 
-      if attributes.has_key?(:'StyleID')
-        self.style_id = attributes[:'StyleID']
+      if attributes.has_key?(:'Count')
+        self.count = attributes[:'Count']
       end
 
     end
@@ -94,10 +85,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          paragraph_index == o.paragraph_index &&
-          path == o.path &&
-          content_runs == o.content_runs &&
-          style_id == o.style_id
+          successful == o.successful &&
+          matching_paragraphs == o.matching_paragraphs &&
+          count == o.count
     end
 
     # @see the `==` method
@@ -109,7 +99,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [paragraph_index, path, content_runs, style_id].hash
+      [successful, matching_paragraphs, count].hash
     end
 
     # Builds the object from hash

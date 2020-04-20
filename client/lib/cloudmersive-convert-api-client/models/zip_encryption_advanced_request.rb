@@ -13,38 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML
-  class DocxParagraph
-    # The index of the paragraph; 0-based
-    attr_accessor :paragraph_index
+  # Request to encrypt an existing Zip Archive file and protect it with a password
+  class ZipEncryptionAdvancedRequest
+    # Input Zip File archive contents in bytes
+    attr_accessor :input_file_contents
 
-    # The Path of the location of this Paragraph object; leave blank during creation
-    attr_accessor :path
+    # Password to place on the Zip file; the longer the password, the more secure
+    attr_accessor :password
 
-    # The content runs in the paragraph - this is where text is stored; similar to a span in HTML
-    attr_accessor :content_runs
-
-    # Style ID of the style applied to the paragraph; null if no style is applied
-    attr_accessor :style_id
+    # Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm).  Default is AES-256.
+    attr_accessor :encryption_algorithm
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'paragraph_index' => :'ParagraphIndex',
-        :'path' => :'Path',
-        :'content_runs' => :'ContentRuns',
-        :'style_id' => :'StyleID'
+        :'input_file_contents' => :'InputFileContents',
+        :'password' => :'Password',
+        :'encryption_algorithm' => :'EncryptionAlgorithm'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'paragraph_index' => :'Integer',
-        :'path' => :'String',
-        :'content_runs' => :'Array<DocxRun>',
-        :'style_id' => :'String'
+        :'input_file_contents' => :'String',
+        :'password' => :'String',
+        :'encryption_algorithm' => :'String'
       }
     end
 
@@ -56,22 +51,16 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ParagraphIndex')
-        self.paragraph_index = attributes[:'ParagraphIndex']
+      if attributes.has_key?(:'InputFileContents')
+        self.input_file_contents = attributes[:'InputFileContents']
       end
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
+      if attributes.has_key?(:'Password')
+        self.password = attributes[:'Password']
       end
 
-      if attributes.has_key?(:'ContentRuns')
-        if (value = attributes[:'ContentRuns']).is_a?(Array)
-          self.content_runs = value
-        end
-      end
-
-      if attributes.has_key?(:'StyleID')
-        self.style_id = attributes[:'StyleID']
+      if attributes.has_key?(:'EncryptionAlgorithm')
+        self.encryption_algorithm = attributes[:'EncryptionAlgorithm']
       end
 
     end
@@ -80,13 +69,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_contents.nil? && @input_file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_contents.nil? && @input_file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_contents Value to be assigned
+    def input_file_contents=(input_file_contents)
+
+      if !input_file_contents.nil? && input_file_contents !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_contents', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_contents = input_file_contents
     end
 
     # Checks equality by comparing each attribute.
@@ -94,10 +99,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          paragraph_index == o.paragraph_index &&
-          path == o.path &&
-          content_runs == o.content_runs &&
-          style_id == o.style_id
+          input_file_contents == o.input_file_contents &&
+          password == o.password &&
+          encryption_algorithm == o.encryption_algorithm
     end
 
     # @see the `==` method
@@ -109,7 +113,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [paragraph_index, path, content_runs, style_id].hash
+      [input_file_contents, password, encryption_algorithm].hash
     end
 
     # Builds the object from hash

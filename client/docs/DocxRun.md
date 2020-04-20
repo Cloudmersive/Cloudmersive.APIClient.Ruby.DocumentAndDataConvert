@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **run_index** | **Integer** | Index of the run, 0-based | [optional] 
-**path** | **String** | The Path of the location of this object; leave blank for new tables | [optional] 
+**path** | **String** | The Path of the location of this Run object; leave blank for creation | [optional] 
 **text_items** | [**Array&lt;DocxText&gt;**](DocxText.md) | Text items inside the run; this is where the actual text content is stored | [optional] 
 **bold** | **BOOLEAN** | True to make the text bold, false otherwise | [optional] 
 **italic** | **BOOLEAN** | True to make the text italic, false otherwise | [optional] 

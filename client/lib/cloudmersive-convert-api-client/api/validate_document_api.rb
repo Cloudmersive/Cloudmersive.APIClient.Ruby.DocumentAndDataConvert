@@ -188,6 +188,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Validate a GZip Archive file (gzip or gz)
+    # Validate a GZip archive file (GZIP or GZ)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_g_zip_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_g_zip_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Validate a GZip Archive file (gzip or gz)
+    # Validate a GZip archive file (GZIP or GZ)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_g_zip_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_g_zip_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_g_zip_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/gzip"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_g_zip_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate a JSON file
     # Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
     # @param input_file Input file to perform the operation on.
@@ -356,6 +412,118 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Validate a RAR Archive file (RAR)
+    # Validate a RAR archive file (RAR)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_rar_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_rar_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Validate a RAR Archive file (RAR)
+    # Validate a RAR archive file (RAR)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_rar_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_rar_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_rar_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/rar"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_rar_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate a TAR Tarball Archive file (TAR)
+    # Validate a TAR tarball archive file (TAR)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_tar_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_tar_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Validate a TAR Tarball Archive file (TAR)
+    # Validate a TAR tarball archive file (TAR)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_tar_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_tar_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_tar_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/tar"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_tar_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate a Excel document (XLSX)
     # Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
     # @param input_file Input file to perform the operation on.
@@ -464,6 +632,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocumentValidationResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_xml_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validate a Zip Archive file (zip)
+    # Validate a Zip archive file (ZIP)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_zip_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_zip_validation_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Validate a Zip Archive file (zip)
+    # Validate a Zip archive file (ZIP)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_zip_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ValidateDocumentApi.validate_document_zip_validation ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_zip_validation"
+      end
+      # resource path
+      local_var_path = "/convert/validate/zip"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_zip_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

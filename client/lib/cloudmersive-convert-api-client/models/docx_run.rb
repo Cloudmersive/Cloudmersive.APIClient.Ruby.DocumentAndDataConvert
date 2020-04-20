@@ -18,7 +18,7 @@ module CloudmersiveConvertApiClient
     # Index of the run, 0-based
     attr_accessor :run_index
 
-    # The Path of the location of this object; leave blank for new tables
+    # The Path of the location of this Run object; leave blank for creation
     attr_accessor :path
 
     # Text items inside the run; this is where the actual text content is stored

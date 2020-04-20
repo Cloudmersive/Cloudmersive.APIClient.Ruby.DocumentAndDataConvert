@@ -104,6 +104,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_find_paragraph
+  # Find matching paragraphs in a Word DOCX document
+  # Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [FindDocxParagraphResponse]
+  describe 'edit_document_docx_find_paragraph test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_comments
   # Get comments from a Word DOCX document as a flat list
   # Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
@@ -315,6 +327,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_document_docx_replace test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_replace_paragraph
+  # Replace matching paragraphs in a Word DOCX document
+  # Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+  # @param req_config Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [ReplaceDocxParagraphResponse]
+  describe 'edit_document_docx_replace_paragraph test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

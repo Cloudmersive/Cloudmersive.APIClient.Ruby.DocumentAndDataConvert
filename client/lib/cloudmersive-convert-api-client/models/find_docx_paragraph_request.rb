@@ -13,38 +13,38 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A paragraph in a Word Document (DOCX) file; there is where text, content and formatting are stored - similar to the paragraph tag in HTML
-  class DocxParagraph
-    # The index of the paragraph; 0-based
-    attr_accessor :paragraph_index
+  # Input to a request to find matching paragraphs in a Word DOCX document
+  class FindDocxParagraphRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # The Path of the location of this Paragraph object; leave blank during creation
-    attr_accessor :path
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
-    # The content runs in the paragraph - this is where text is stored; similar to a span in HTML
-    attr_accessor :content_runs
+    # Required: The target string to search for in the paragraphs of the document
+    attr_accessor :find_string
 
-    # Style ID of the style applied to the paragraph; null if no style is applied
-    attr_accessor :style_id
+    # Optional: True to match case, false to ignore case when matching
+    attr_accessor :match_case
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'paragraph_index' => :'ParagraphIndex',
-        :'path' => :'Path',
-        :'content_runs' => :'ContentRuns',
-        :'style_id' => :'StyleID'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'find_string' => :'FindString',
+        :'match_case' => :'MatchCase'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'paragraph_index' => :'Integer',
-        :'path' => :'String',
-        :'content_runs' => :'Array<DocxRun>',
-        :'style_id' => :'String'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'find_string' => :'String',
+        :'match_case' => :'BOOLEAN'
       }
     end
 
@@ -56,22 +56,20 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ParagraphIndex')
-        self.paragraph_index = attributes[:'ParagraphIndex']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'Path')
-        self.path = attributes[:'Path']
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
-      if attributes.has_key?(:'ContentRuns')
-        if (value = attributes[:'ContentRuns']).is_a?(Array)
-          self.content_runs = value
-        end
+      if attributes.has_key?(:'FindString')
+        self.find_string = attributes[:'FindString']
       end
 
-      if attributes.has_key?(:'StyleID')
-        self.style_id = attributes[:'StyleID']
+      if attributes.has_key?(:'MatchCase')
+        self.match_case = attributes[:'MatchCase']
       end
 
     end
@@ -80,13 +78,29 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push("invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, "invalid value for 'input_file_bytes', must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/."
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -94,10 +108,10 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          paragraph_index == o.paragraph_index &&
-          path == o.path &&
-          content_runs == o.content_runs &&
-          style_id == o.style_id
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          find_string == o.find_string &&
+          match_case == o.match_case
     end
 
     # @see the `==` method
@@ -109,7 +123,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [paragraph_index, path, content_runs, style_id].hash
+      [input_file_bytes, input_file_url, find_string, match_case].hash
     end
 
     # Builds the object from hash

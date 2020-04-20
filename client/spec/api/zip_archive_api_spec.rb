@@ -35,8 +35,18 @@ describe 'ZipArchiveApi' do
   # unit tests for zip_archive_zip_create
   # Compress files to create a new zip archive
   # Create a new zip archive by compressing input files.
+  # @param input_file1 First input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @option opts [File] :input_file2 Second input file to perform the operation on.
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
   describe 'zip_archive_zip_create test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -50,6 +60,31 @@ describe 'ZipArchiveApi' do
   # @param [Hash] opts the optional parameters
   # @return [Object]
   describe 'zip_archive_zip_create_advanced test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for zip_archive_zip_decrypt
+  # Decrypt and remove password protection on a zip file
+  # Decrypts and removes password protection from an encrypted zip file with the specified password
+  # @param input_file Input file to perform the operation on.
+  # @param zip_password Required; Password for the input archive
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'zip_archive_zip_decrypt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for zip_archive_zip_encrypt_advanced
+  # Encrypt and password protect a zip file
+  # Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+  # @param encryption_request Encryption request
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'zip_archive_zip_encrypt_advanced test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -18,7 +18,7 @@ module CloudmersiveConvertApiClient
     # Index of the text content in the run; 0-based
     attr_accessor :text_index
 
-    # The Path of the location of this object; leave blank for new tables
+    # The Path of the location of this Text object; leave blank for creation
     attr_accessor :path
 
     # Text string containing the text content of this text content item

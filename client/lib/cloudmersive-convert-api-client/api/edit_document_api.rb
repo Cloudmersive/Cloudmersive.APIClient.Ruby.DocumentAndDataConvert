@@ -351,6 +351,61 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Find matching paragraphs in a Word DOCX document
+    # Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [FindDocxParagraphResponse]
+    def edit_document_docx_find_paragraph(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_find_paragraph_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Find matching paragraphs in a Word DOCX document
+    # Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FindDocxParagraphResponse, Fixnum, Hash)>] FindDocxParagraphResponse data, response status code and response headers
+    def edit_document_docx_find_paragraph_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_find_paragraph ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_find_paragraph"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/find/paragraph"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'FindDocxParagraphResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_find_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get comments from a Word DOCX document as a flat list
     # Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
     # @param req_config Document input request
@@ -1337,6 +1392,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Replace matching paragraphs in a Word DOCX document
+    # Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [ReplaceDocxParagraphResponse]
+    def edit_document_docx_replace_paragraph(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_replace_paragraph_with_http_info(req_config, opts)
+      return data
+    end
+
+    # Replace matching paragraphs in a Word DOCX document
+    # Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+    # @param req_config Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ReplaceDocxParagraphResponse, Fixnum, Hash)>] ReplaceDocxParagraphResponse data, response status code and response headers
+    def edit_document_docx_replace_paragraph_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditDocumentApi.edit_document_docx_replace_paragraph ..."
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_replace_paragraph"
+      end
+      # resource path
+      local_var_path = "/convert/edit/docx/replace/paragraph"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ReplaceDocxParagraphResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
