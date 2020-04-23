@@ -44,6 +44,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_csv_validation
+  # Validate a CSV file document (CSV)
+  # Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_csv_validation test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_docx_validation
   # Validate a Word document (DOCX)
   # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document

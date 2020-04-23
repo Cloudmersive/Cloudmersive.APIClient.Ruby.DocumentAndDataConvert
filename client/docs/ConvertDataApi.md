@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **convert_data_csv_to_json**
-> Object convert_data_csv_to_json(input_file)
+> Object convert_data_csv_to_json(input_file, opts)
 
 Convert CSV to JSON conversion
 
@@ -44,10 +44,13 @@ api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
 input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
 
+opts = { 
+  column_names_from_first_row: true # BOOLEAN | Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
+}
 
 begin
   #Convert CSV to JSON conversion
-  result = api_instance.convert_data_csv_to_json(input_file)
+  result = api_instance.convert_data_csv_to_json(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDataApi->convert_data_csv_to_json: #{e}"
@@ -59,6 +62,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **column_names_from_first_row** | **BOOLEAN**| Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. | [optional] 
 
 ### Return type
 

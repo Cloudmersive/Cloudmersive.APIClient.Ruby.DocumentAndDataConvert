@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**validate_document_autodetect_validation**](ValidateDocumentApi.md#validate_document_autodetect_validation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
+[**validate_document_csv_validation**](ValidateDocumentApi.md#validate_document_csv_validation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validate_document_docx_validation**](ValidateDocumentApi.md#validate_document_docx_validation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 [**validate_document_executable_validation**](ValidateDocumentApi.md#validate_document_executable_validation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validate_document_g_zip_validation**](ValidateDocumentApi.md#validate_document_g_zip_validation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
@@ -60,6 +61,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AutodetectDocumentValidationResult**](AutodetectDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_csv_validation**
+> DocumentValidationResult validate_document_csv_validation(input_file)
+
+Validate a CSV file document (CSV)
+
+Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Validate a CSV file document (CSV)
+  result = api_instance.validate_document_csv_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_csv_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
 
 ### Authorization
 

@@ -37,6 +37,7 @@ describe 'ConvertDataApi' do
   # Convert a CSV file to a JSON object array
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :column_names_from_first_row Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
   # @return [Object]
   describe 'convert_data_csv_to_json test' do
     it "should work" do
