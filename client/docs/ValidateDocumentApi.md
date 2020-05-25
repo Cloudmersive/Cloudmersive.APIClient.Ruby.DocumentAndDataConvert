@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**validate_document_autodetect_validation**](ValidateDocumentApi.md#validate_document_autodetect_validation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 [**validate_document_csv_validation**](ValidateDocumentApi.md#validate_document_csv_validation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validate_document_docx_validation**](ValidateDocumentApi.md#validate_document_docx_validation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
+[**validate_document_eml_validation**](ValidateDocumentApi.md#validate_document_eml_validation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 [**validate_document_executable_validation**](ValidateDocumentApi.md#validate_document_executable_validation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validate_document_g_zip_validation**](ValidateDocumentApi.md#validate_document_g_zip_validation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
 [**validate_document_json_validation**](ValidateDocumentApi.md#validate_document_json_validation) | **POST** /convert/validate/json | Validate a JSON file
+[**validate_document_msg_validation**](ValidateDocumentApi.md#validate_document_msg_validation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
 [**validate_document_pdf_validation**](ValidateDocumentApi.md#validate_document_pdf_validation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validate_document_pptx_validation**](ValidateDocumentApi.md#validate_document_pptx_validation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 [**validate_document_rar_validation**](ValidateDocumentApi.md#validate_document_rar_validation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
@@ -181,6 +183,60 @@ Name | Type | Description  | Notes
 
 
 
+# **validate_document_eml_validation**
+> DocumentValidationResult validate_document_eml_validation(input_file)
+
+Validate if an EML file is executable
+
+Validate if an input file is an EML email file; if the document is not valid
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Validate if an EML file is executable
+  result = api_instance.validate_document_eml_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_eml_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **validate_document_executable_validation**
 > DocumentValidationResult validate_document_executable_validation(input_file)
 
@@ -319,6 +375,60 @@ begin
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ValidateDocumentApi->validate_document_json_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_msg_validation**
+> DocumentValidationResult validate_document_msg_validation(input_file)
+
+Validate if an MSG file is executable
+
+Validate if an input file is an MSG email file; if the document is not valid
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+
+
+begin
+  #Validate if an MSG file is executable
+  result = api_instance.validate_document_msg_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_msg_validation: #{e}"
 end
 ```
 

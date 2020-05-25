@@ -68,6 +68,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_eml_validation
+  # Validate if an EML file is executable
+  # Validate if an input file is an EML email file; if the document is not valid
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_eml_validation test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_executable_validation
   # Validate if a file is executable
   # Validate if an input file is a binary executable file; if the document is not valid
@@ -99,6 +111,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_json_validation test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_msg_validation
+  # Validate if an MSG file is executable
+  # Validate if an input file is an MSG email file; if the document is not valid
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_msg_validation test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

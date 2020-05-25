@@ -68,6 +68,37 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_autodetect_to_thumbnail
+  # Convert File to Thumbnail Image
+  # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+  # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+  # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+  # @return [Object]
+  describe 'convert_document_autodetect_to_thumbnail test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_autodetect_to_thumbnails_advanced
+  # Convert File to Thumbnail Image Object
+  # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
+  # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+  # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+  # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+  # @return [AutodetectToThumbnailsResult]
+  describe 'convert_document_autodetect_to_thumbnails_advanced test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_autodetect_to_txt
   # Convert Document to Text (txt)
   # Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
@@ -141,6 +172,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_docx_to_png
+  # Convert DOCX document to PNG image array
+  # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocxToPngResult]
+  describe 'convert_document_docx_to_png test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_docx_to_txt
   # Convert Word DOCX Document to Text (txt)
   # Convert Office Word Documents (docx) to text
@@ -149,6 +192,59 @@ describe 'ConvertDocumentApi' do
   # @option opts [String] :text_formatting_mode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are &#39;preserveWhitespace&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and &#39;minimizeWhitespace&#39; which will not insert additional spaces into the document in most cases.  Default is &#39;minimizeWhitespace&#39;.
   # @return [TextConversionResult]
   describe 'convert_document_docx_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_eml_to_html
+  # Convert Email EML file to HTML string
+  # Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+  # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+  # @return [EmlToHtmlResult]
+  describe 'convert_document_eml_to_html test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_eml_to_pdf
+  # Convert Email EML file to PDF document
+  # Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+  # @return [Object]
+  describe 'convert_document_eml_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_get_file_type_icon
+  # Get PNG icon file for the file extension
+  # Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+  # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+  # @return [Object]
+  describe 'convert_document_get_file_type_icon test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_get_file_type_icon_advanced
+  # Get PNG icon byte array for the file extension
+  # Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+  # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+  # @return [GetFileTypeIconResult]
+  describe 'convert_document_get_file_type_icon_advanced test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -185,6 +281,33 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [TextConversionResult]
   describe 'convert_document_html_to_txt test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_msg_to_html
+  # Convert Email MSG file to HTML string
+  # Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false.
+  # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+  # @return [MsgToHtmlResult]
+  describe 'convert_document_msg_to_html test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_msg_to_pdf
+  # Convert Email MSG file to PDF document
+  # Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+  # @return [Object]
+  describe 'convert_document_msg_to_pdf test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -320,6 +443,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pptx_to_png
+  # Convert PowerPoint PPTX to PNG image array
+  # Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [PptxToPngResult]
+  describe 'convert_document_pptx_to_png test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pptx_to_txt
   # Convert PowerPoint PPTX Presentation to Text (txt)
   # Convert Office PowerPoint Documents (pptx) to standard Text
@@ -401,6 +536,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_xlsx_to_pdf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_xlsx_to_png
+  # Convert Excel XLSX spreadsheet to PNG image array
+  # Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [XlsxToPngResult]
+  describe 'convert_document_xlsx_to_png test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

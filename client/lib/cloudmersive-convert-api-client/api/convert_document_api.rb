@@ -188,6 +188,139 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Convert File to Thumbnail Image
+    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+    # @return [Object]
+    def convert_document_autodetect_to_thumbnail(input_file, opts = {})
+      data, _status_code, _headers = convert_document_autodetect_to_thumbnail_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert File to Thumbnail Image
+    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_autodetect_to_thumbnail_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_autodetect_to_thumbnail ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_autodetect_to_thumbnail"
+      end
+      # resource path
+      local_var_path = "/convert/autodetect/to/thumbnail"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'maxWidth'] = opts[:'max_width'] if !opts[:'max_width'].nil?
+      header_params[:'maxHeight'] = opts[:'max_height'] if !opts[:'max_height'].nil?
+      header_params[:'extension'] = opts[:'extension'] if !opts[:'extension'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_thumbnail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert File to Thumbnail Image Object
+    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
+    # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+    # @return [AutodetectToThumbnailsResult]
+    def convert_document_autodetect_to_thumbnails_advanced(input_file, opts = {})
+      data, _status_code, _headers = convert_document_autodetect_to_thumbnails_advanced_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert File to Thumbnail Image Object
+    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
+    # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
+    # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+    # @return [Array<(AutodetectToThumbnailsResult, Fixnum, Hash)>] AutodetectToThumbnailsResult data, response status code and response headers
+    def convert_document_autodetect_to_thumbnails_advanced_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_autodetect_to_thumbnails_advanced ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_autodetect_to_thumbnails_advanced"
+      end
+      # resource path
+      local_var_path = "/convert/autodetect/to/thumbnail/advanced"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'pages'] = opts[:'pages'] if !opts[:'pages'].nil?
+      header_params[:'maxWidth'] = opts[:'max_width'] if !opts[:'max_width'].nil?
+      header_params[:'maxHeight'] = opts[:'max_height'] if !opts[:'max_height'].nil?
+      header_params[:'extension'] = opts[:'extension'] if !opts[:'extension'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AutodetectToThumbnailsResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_thumbnails_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert Document to Text (txt)
     # Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
     # @param input_file Input file to perform the operation on.
@@ -527,6 +660,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Convert DOCX document to PNG image array
+    # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocxToPngResult]
+    def convert_document_docx_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_docx_to_png_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert DOCX document to PNG image array
+    # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocxToPngResult, Fixnum, Hash)>] DocxToPngResult data, response status code and response headers
+    def convert_document_docx_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_docx_to_png ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_docx_to_png"
+      end
+      # resource path
+      local_var_path = "/convert/docx/to/png"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocxToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert Word DOCX Document to Text (txt)
     # Convert Office Word Documents (docx) to text
     # @param input_file Input file to perform the operation on.
@@ -582,6 +771,241 @@ module CloudmersiveConvertApiClient
         :return_type => 'TextConversionResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Email EML file to HTML string
+    # Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+    # @return [EmlToHtmlResult]
+    def convert_document_eml_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_eml_to_html_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Email EML file to HTML string
+    # Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+    # @return [Array<(EmlToHtmlResult, Fixnum, Hash)>] EmlToHtmlResult data, response status code and response headers
+    def convert_document_eml_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_eml_to_html ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_eml_to_html"
+      end
+      # resource path
+      local_var_path = "/convert/eml/to/html"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'bodyOnly'] = opts[:'body_only'] if !opts[:'body_only'].nil?
+      header_params[:'includeAttachments'] = opts[:'include_attachments'] if !opts[:'include_attachments'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EmlToHtmlResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Email EML file to PDF document
+    # Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @return [Object]
+    def convert_document_eml_to_pdf(input_file, opts = {})
+      data, _status_code, _headers = convert_document_eml_to_pdf_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Email EML file to PDF document
+    # Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_eml_to_pdf_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_eml_to_pdf ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_eml_to_pdf"
+      end
+      # resource path
+      local_var_path = "/convert/eml/to/pdf"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'bodyOnly'] = opts[:'body_only'] if !opts[:'body_only'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get PNG icon file for the file extension
+    # Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+    # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+    # @return [Object]
+    def convert_document_get_file_type_icon(file_extension, opts = {})
+      data, _status_code, _headers = convert_document_get_file_type_icon_with_http_info(file_extension, opts)
+      return data
+    end
+
+    # Get PNG icon file for the file extension
+    # Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+    # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_get_file_type_icon_with_http_info(file_extension, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_get_file_type_icon ..."
+      end
+      # verify the required parameter 'file_extension' is set
+      if @api_client.config.client_side_validation && file_extension.nil?
+        fail ArgumentError, "Missing the required parameter 'file_extension' when calling ConvertDocumentApi.convert_document_get_file_type_icon"
+      end
+      # resource path
+      local_var_path = "/convert/autodetect/get-icon"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params[:'fileExtension'] = file_extension
+      header_params[:'iconSize'] = opts[:'icon_size'] if !opts[:'icon_size'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_get_file_type_icon\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get PNG icon byte array for the file extension
+    # Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+    # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+    # @return [GetFileTypeIconResult]
+    def convert_document_get_file_type_icon_advanced(file_extension, opts = {})
+      data, _status_code, _headers = convert_document_get_file_type_icon_advanced_with_http_info(file_extension, opts)
+      return data
+    end
+
+    # Get PNG icon byte array for the file extension
+    # Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+    # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
+    # @return [Array<(GetFileTypeIconResult, Fixnum, Hash)>] GetFileTypeIconResult data, response status code and response headers
+    def convert_document_get_file_type_icon_advanced_with_http_info(file_extension, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_get_file_type_icon_advanced ..."
+      end
+      # verify the required parameter 'file_extension' is set
+      if @api_client.config.client_side_validation && file_extension.nil?
+        fail ArgumentError, "Missing the required parameter 'file_extension' when calling ConvertDocumentApi.convert_document_get_file_type_icon_advanced"
+      end
+      # resource path
+      local_var_path = "/convert/autodetect/get-icon-advanced"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'fileExtension'] = file_extension
+      header_params[:'iconSize'] = opts[:'icon_size'] if !opts[:'icon_size'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetFileTypeIconResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_get_file_type_icon_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -750,6 +1174,127 @@ module CloudmersiveConvertApiClient
         :return_type => 'TextConversionResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_html_to_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Email MSG file to HTML string
+    # Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+    # @return [MsgToHtmlResult]
+    def convert_document_msg_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_msg_to_html_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Email MSG file to HTML string
+    # Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @option opts [BOOLEAN] :include_attachments Optional; If false, the response object will not include any attachment files from the input file. Default is true.
+    # @return [Array<(MsgToHtmlResult, Fixnum, Hash)>] MsgToHtmlResult data, response status code and response headers
+    def convert_document_msg_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_msg_to_html ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_msg_to_html"
+      end
+      # resource path
+      local_var_path = "/convert/msg/to/html"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'bodyOnly'] = opts[:'body_only'] if !opts[:'body_only'].nil?
+      header_params[:'includeAttachments'] = opts[:'include_attachments'] if !opts[:'include_attachments'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MsgToHtmlResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_msg_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Email MSG file to PDF document
+    # Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @return [Object]
+    def convert_document_msg_to_pdf(input_file, opts = {})
+      data, _status_code, _headers = convert_document_msg_to_pdf_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Email MSG file to PDF document
+    # Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_msg_to_pdf_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_msg_to_pdf ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_msg_to_pdf"
+      end
+      # resource path
+      local_var_path = "/convert/msg/to/pdf"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'bodyOnly'] = opts[:'body_only'] if !opts[:'body_only'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_msg_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1348,6 +1893,62 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
 
+    # Convert PowerPoint PPTX to PNG image array
+    # Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [PptxToPngResult]
+    def convert_document_pptx_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pptx_to_png_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert PowerPoint PPTX to PNG image array
+    # Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PptxToPngResult, Fixnum, Hash)>] PptxToPngResult data, response status code and response headers
+    def convert_document_pptx_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_pptx_to_png ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pptx_to_png"
+      end
+      # resource path
+      local_var_path = "/convert/pptx/to/png"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PptxToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pptx_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Convert PowerPoint PPTX Presentation to Text (txt)
     # Convert Office PowerPoint Documents (pptx) to standard Text
     # @param input_file Input file to perform the operation on.
@@ -1742,6 +2343,62 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Convert Excel XLSX spreadsheet to PNG image array
+    # Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [XlsxToPngResult]
+    def convert_document_xlsx_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_xlsx_to_png_with_http_info(input_file, opts)
+      return data
+    end
+
+    # Convert Excel XLSX spreadsheet to PNG image array
+    # Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(XlsxToPngResult, Fixnum, Hash)>] XlsxToPngResult data, response status code and response headers
+    def convert_document_xlsx_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_xlsx_to_png ..."
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_xlsx_to_png"
+      end
+      # resource path
+      local_var_path = "/convert/xlsx/to/png"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputFile"] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'XlsxToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
