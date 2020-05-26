@@ -9,10 +9,8 @@ Name | Type | Description | Notes
 **from** | **String** | The From sender of the EML file&#39;s email | [optional] 
 **to** | **String** | The To recipients of the EML file&#39;s email | [optional] 
 **cc** | **String** | The CC recipients of the EML file&#39;s email | [optional] 
-**bcc** | **String** | The BCC recipients of the EML file&#39;s email | [optional] 
-**received_time** | **String** | The time that the EML file&#39;s email was received | [optional] 
+**date_sent** | **String** | The date and time that the EML file&#39;s email was sent | [optional] 
 **subject** | **String** | The subject of the EML file&#39;s email | [optional] 
-**organization** | **String** | The Organization of the EML file&#39;s email | [optional] 
 **attachments** | [**Array&lt;EmlAttachment&gt;**](EmlAttachment.md) | List of all attachments for the EML file | [optional] 
 
 

@@ -33,17 +33,11 @@ module CloudmersiveConvertApiClient
     # The CC recipients of the EML file's email
     attr_accessor :cc
 
-    # The BCC recipients of the EML file's email
-    attr_accessor :bcc
-
-    # The time that the EML file's email was received
-    attr_accessor :received_time
+    # The date and time that the EML file's email was sent
+    attr_accessor :date_sent
 
     # The subject of the EML file's email
     attr_accessor :subject
-
-    # The Organization of the EML file's email
-    attr_accessor :organization
 
     # List of all attachments for the EML file
     attr_accessor :attachments
@@ -58,10 +52,8 @@ module CloudmersiveConvertApiClient
         :'from' => :'From',
         :'to' => :'To',
         :'cc' => :'Cc',
-        :'bcc' => :'Bcc',
-        :'received_time' => :'ReceivedTime',
+        :'date_sent' => :'DateSent',
         :'subject' => :'Subject',
-        :'organization' => :'Organization',
         :'attachments' => :'Attachments'
       }
     end
@@ -75,10 +67,8 @@ module CloudmersiveConvertApiClient
         :'from' => :'String',
         :'to' => :'String',
         :'cc' => :'String',
-        :'bcc' => :'String',
-        :'received_time' => :'String',
+        :'date_sent' => :'String',
         :'subject' => :'String',
-        :'organization' => :'String',
         :'attachments' => :'Array<EmlAttachment>'
       }
     end
@@ -115,20 +105,12 @@ module CloudmersiveConvertApiClient
         self.cc = attributes[:'Cc']
       end
 
-      if attributes.has_key?(:'Bcc')
-        self.bcc = attributes[:'Bcc']
-      end
-
-      if attributes.has_key?(:'ReceivedTime')
-        self.received_time = attributes[:'ReceivedTime']
+      if attributes.has_key?(:'DateSent')
+        self.date_sent = attributes[:'DateSent']
       end
 
       if attributes.has_key?(:'Subject')
         self.subject = attributes[:'Subject']
-      end
-
-      if attributes.has_key?(:'Organization')
-        self.organization = attributes[:'Organization']
       end
 
       if attributes.has_key?(:'Attachments')
@@ -163,10 +145,8 @@ module CloudmersiveConvertApiClient
           from == o.from &&
           to == o.to &&
           cc == o.cc &&
-          bcc == o.bcc &&
-          received_time == o.received_time &&
+          date_sent == o.date_sent &&
           subject == o.subject &&
-          organization == o.organization &&
           attachments == o.attachments
     end
 
@@ -179,7 +159,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, content, body, from, to, cc, bcc, received_time, subject, organization, attachments].hash
+      [successful, content, body, from, to, cc, date_sent, subject, attachments].hash
     end
 
     # Builds the object from hash

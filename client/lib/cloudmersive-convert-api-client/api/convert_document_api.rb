@@ -195,7 +195,7 @@ module CloudmersiveConvertApiClient
     # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
     # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
     # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
-    # @return [Object]
+    # @return [String]
     def convert_document_autodetect_to_thumbnail(input_file, opts = {})
       data, _status_code, _headers = convert_document_autodetect_to_thumbnail_with_http_info(input_file, opts)
       return data
@@ -208,7 +208,7 @@ module CloudmersiveConvertApiClient
     # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
     # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
     # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_autodetect_to_thumbnail_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_autodetect_to_thumbnail ..."
@@ -246,7 +246,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_thumbnail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -842,7 +842,7 @@ module CloudmersiveConvertApiClient
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-    # @return [Object]
+    # @return [String]
     def convert_document_eml_to_pdf(input_file, opts = {})
       data, _status_code, _headers = convert_document_eml_to_pdf_with_http_info(input_file, opts)
       return data
@@ -853,7 +853,7 @@ module CloudmersiveConvertApiClient
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_eml_to_pdf_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_eml_to_pdf ..."
@@ -889,7 +889,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -901,7 +901,7 @@ module CloudmersiveConvertApiClient
     # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
-    # @return [Object]
+    # @return [String]
     def convert_document_get_file_type_icon(file_extension, opts = {})
       data, _status_code, _headers = convert_document_get_file_type_icon_with_http_info(file_extension, opts)
       return data
@@ -912,7 +912,7 @@ module CloudmersiveConvertApiClient
     # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_get_file_type_icon_with_http_info(file_extension, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_get_file_type_icon ..."
@@ -946,7 +946,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_get_file_type_icon\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -979,7 +979,7 @@ module CloudmersiveConvertApiClient
         fail ArgumentError, "Missing the required parameter 'file_extension' when calling ConvertDocumentApi.convert_document_get_file_type_icon_advanced"
       end
       # resource path
-      local_var_path = "/convert/autodetect/get-icon-advanced"
+      local_var_path = "/convert/autodetect/get-icon/advanced"
 
       # query parameters
       query_params = {}
@@ -1245,7 +1245,7 @@ module CloudmersiveConvertApiClient
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-    # @return [Object]
+    # @return [String]
     def convert_document_msg_to_pdf(input_file, opts = {})
       data, _status_code, _headers = convert_document_msg_to_pdf_with_http_info(input_file, opts)
       return data
@@ -1256,7 +1256,7 @@ module CloudmersiveConvertApiClient
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_msg_to_pdf_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ConvertDocumentApi.convert_document_msg_to_pdf ..."
@@ -1292,7 +1292,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_msg_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

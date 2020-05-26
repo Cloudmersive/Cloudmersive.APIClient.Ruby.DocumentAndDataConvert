@@ -76,7 +76,7 @@ describe 'ConvertDocumentApi' do
   # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
   # @option opts [Integer] :max_height Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
   # @option opts [String] :extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_autodetect_to_thumbnail test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -217,7 +217,7 @@ describe 'ConvertDocumentApi' do
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_eml_to_pdf test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -230,7 +230,7 @@ describe 'ConvertDocumentApi' do
   # @param file_extension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :icon_size Optional; The desired width of the icon, preserving its aspect ratio.
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_get_file_type_icon test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -306,7 +306,7 @@ describe 'ConvertDocumentApi' do
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_msg_to_pdf test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
