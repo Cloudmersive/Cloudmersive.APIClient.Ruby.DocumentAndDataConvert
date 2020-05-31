@@ -33,7 +33,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   return_document_contents: true # BOOLEAN | Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true.
@@ -91,7 +91,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   return_document_contents: true # BOOLEAN | Set to true to directly return all of the document contents in the DocumentContents field; set to false to return contents as temporary URLs (more efficient for large operations).  Default is false.
@@ -149,7 +149,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   return_document_contents: true # BOOLEAN | Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
@@ -207,7 +207,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -261,9 +261,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
-split_delimiter = "split_delimiter_example" # String | Required; String to split up the input file on
+split_delimiter = 'split_delimiter_example' # String | Required; String to split up the input file on
 
 opts = { 
   skip_empty_elements: true # BOOLEAN | Optional; If true, empty elements will be skipped in the output
@@ -322,7 +322,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::SplitDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   return_document_contents: true # BOOLEAN | Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true.

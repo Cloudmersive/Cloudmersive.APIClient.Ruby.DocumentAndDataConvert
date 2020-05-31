@@ -42,7 +42,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   column_names_from_first_row: true # BOOLEAN | Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
@@ -154,7 +154,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -208,7 +208,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -262,13 +262,13 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-xml_attribute_name = "xml_attribute_name_example" # String | Name of the XML attribute to add
+xml_attribute_name = 'xml_attribute_name_example' # String | Name of the XML attribute to add
 
-xml_attribute_value = "xml_attribute_value_example" # String | Value of the XML attribute to add
+xml_attribute_value = 'xml_attribute_value_example' # String | Value of the XML attribute to add
 
 
 begin
@@ -325,11 +325,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-xml_node_to_add = "xml_node_to_add_example" # String | XML Node to add as a child
+xml_node_to_add = 'xml_node_to_add_example' # String | XML Node to add as a child
 
 
 begin
@@ -385,9 +385,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
 
 begin
@@ -442,11 +442,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-xml_node_replacement = "xml_node_replacement_example" # String | XML Node replacement content
+xml_node_replacement = 'xml_node_replacement_example' # String | XML Node replacement content
 
 
 begin
@@ -502,11 +502,11 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-xml_value = "xml_value_example" # String | XML Value to set into the matching XML nodes
+xml_value = 'xml_value_example' # String | XML Value to set into the matching XML nodes
 
 
 begin
@@ -562,9 +562,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -619,9 +619,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-x_query = "x_query_example" # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+x_query = 'x_query_example' # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
 
 
 begin
@@ -676,20 +676,20 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input XML file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input XML file to perform the operation on.
 
-x_query = "x_query_example" # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
+x_query = 'x_query_example' # String | Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported
 
 opts = { 
-  input_file2: File.new("/path/to/file.txt"), # File | Second input XML file to perform the operation on.
-  input_file3: File.new("/path/to/file.txt"), # File | Third input XML file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input XML file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input XML file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input XML file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input XML file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input XML file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input XML file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input XML file to perform the operation on.
+  input_file2: File.new('/path/to/file.txt'), # File | Second input XML file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input XML file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input XML file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input XML file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input XML file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input XML file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input XML file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input XML file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input XML file to perform the operation on.
 }
 
 begin
@@ -753,9 +753,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-x_path_expression = "x_path_expression_example" # String | Valid XML XPath query expression
+x_path_expression = 'x_path_expression_example' # String | Valid XML XPath query expression
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -810,7 +810,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -864,9 +864,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input XML file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input XML file to perform the operation on.
 
-transform_file = File.new("/path/to/file.txt") # File | Input XSLT file to use to transform the input XML file.
+transform_file = File.new('/path/to/file.txt') # File | Input XSLT file to use to transform the input XML file.
 
 
 begin

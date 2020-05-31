@@ -29,10 +29,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertTemplateApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  template_definition: "template_definition_example" # String | Template definition for the document, including what values to replace
+  template_definition: nil # Object | Template definition for the document, including what values to replace
 }
 
 begin
@@ -49,7 +49,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
- **template_definition** | **String**| Template definition for the document, including what values to replace | [optional] 
+ **template_definition** | [**Object**](.md)| Template definition for the document, including what values to replace | [optional] 
 
 ### Return type
 

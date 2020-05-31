@@ -99,9 +99,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-password = "password_example" # String | Valid password for the PDF file
+password = 'password_example' # String | Valid password for the PDF file
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -156,7 +156,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 page_start = 56 # Integer | Page number (1 based) to start deleting pages from (inclusive).
 
@@ -216,12 +216,12 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  user_password: "user_password_example", # String | Password of a user (reader) of the PDF file
-  owner_password: "owner_password_example", # String | Password of a owner (creator/editor) of the PDF file
-  encryption_key_length: "encryption_key_length_example" # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
+  user_password: 'user_password_example', # String | Password of a user (reader) of the PDF file
+  owner_password: 'owner_password_example', # String | Password of a owner (creator/editor) of the PDF file
+  encryption_key_length: 'encryption_key_length_example' # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
 }
 
 begin
@@ -278,7 +278,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -332,7 +332,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -386,7 +386,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -440,10 +440,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
+  text_formatting_mode: 'text_formatting_mode_example' # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
 }
 
 begin
@@ -498,9 +498,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-source_file = File.new("/path/to/file.txt") # File | Source PDF file to copy pages from.
+source_file = File.new('/path/to/file.txt') # File | Source PDF file to copy pages from.
 
-destination_file = File.new("/path/to/file.txt") # File | Destination PDF file to copy pages into.
+destination_file = File.new('/path/to/file.txt') # File | Destination PDF file to copy pages into.
 
 page_start_source = 56 # Integer | Page number (1 based) to start copying pages from (inclusive) in the Source file.
 
@@ -564,7 +564,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -618,7 +618,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -672,7 +672,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 annotation_index = 56 # Integer | The 0-based index of the annotation in the document
 
@@ -729,7 +729,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 rotation_angle = 56 # Integer | The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
 
@@ -786,7 +786,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 rotation_angle = 56 # Integer | The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc.
 
@@ -957,14 +957,14 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-owner_password = "owner_password_example" # String | Password of a owner (creator/editor) of the PDF file (required)
+owner_password = 'owner_password_example' # String | Password of a owner (creator/editor) of the PDF file (required)
 
-user_password = "user_password_example" # String | Password of a user (reader) of the PDF file (optional)
+user_password = 'user_password_example' # String | Password of a user (reader) of the PDF file (optional)
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  encryption_key_length: "encryption_key_length_example", # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
+  encryption_key_length: 'encryption_key_length_example', # String | Possible values are \"128\" (128-bit RC4 encryption) and \"256\" (256-bit AES encryption).  Default is 256.
   allow_printing: true, # BOOLEAN | Set to false to disable printing through DRM.  Default is true.
   allow_document_assembly: true, # BOOLEAN | Set to false to disable document assembly through DRM.  Default is true.
   allow_content_extraction: true, # BOOLEAN | Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true.
@@ -1035,14 +1035,14 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
-watermark_text = "watermark_text_example" # String | Watermark text to add to the PDF (required)
+watermark_text = 'watermark_text_example' # String | Watermark text to add to the PDF (required)
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  font_name: "font_name_example", # String | Font Family Name for the watermark text; default is Times New Roman
+  font_name: 'font_name_example', # String | Font Family Name for the watermark text; default is Times New Roman
   font_size: 8.14, # Float | Font Size in points of the text; default is 150
-  font_color: "font_color_example", # String | Font color in hexadecimal or HTML color name; default is Red
+  font_color: 'font_color_example', # String | Font color in hexadecimal or HTML color name; default is Red
   font_transparency: 8.14 # Float | Font transparency between 0.0 (completely transparent) to 1.0 (fully opaque); default is 0.5
 }
 

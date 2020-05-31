@@ -69,7 +69,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -123,7 +123,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -177,7 +177,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -231,12 +231,12 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   max_width: 56, # Integer | Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
   max_height: 56, # Integer | Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
-  extension: "extension_example" # String | Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+  extension: 'extension_example' # String | Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
 }
 
 begin
@@ -293,13 +293,13 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   pages: 56, # Integer | Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
   max_width: 56, # Integer | Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
   max_height: 56, # Integer | Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
-  extension: "extension_example" # String | Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
+  extension: 'extension_example' # String | Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon.
 }
 
 begin
@@ -357,10 +357,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
+  text_formatting_mode: 'text_formatting_mode_example' # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
 }
 
 begin
@@ -415,7 +415,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -469,7 +469,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -523,7 +523,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -577,7 +577,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -631,7 +631,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -685,7 +685,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -739,10 +739,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'minimizeWhitespace'.
+  text_formatting_mode: 'text_formatting_mode_example' # String | Optional; specify how whitespace should be handled when converting the document to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'minimizeWhitespace'.
 }
 
 begin
@@ -797,7 +797,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   body_only: true, # BOOLEAN | Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
@@ -857,7 +857,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   body_only: true # BOOLEAN | Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
@@ -915,7 +915,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-file_extension = "file_extension_example" # String | Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+file_extension = 'file_extension_example' # String | Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
 
 opts = { 
   icon_size: 56 # Integer | Optional; The desired width of the icon, preserving its aspect ratio.
@@ -973,7 +973,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-file_extension = "file_extension_example" # String | Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
+file_extension = 'file_extension_example' # String | Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters.
 
 opts = { 
   icon_size: 56 # Integer | Optional; The desired width of the icon, preserving its aspect ratio.
@@ -1031,7 +1031,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1085,7 +1085,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1139,7 +1139,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1193,7 +1193,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   body_only: true, # BOOLEAN | Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false.
@@ -1253,7 +1253,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
   body_only: true # BOOLEAN | Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
@@ -1311,7 +1311,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1365,7 +1365,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1419,7 +1419,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1473,7 +1473,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1527,7 +1527,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1581,10 +1581,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  text_formatting_mode: "text_formatting_mode_example" # String | Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
+  text_formatting_mode: 'text_formatting_mode_example' # String | Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are 'preserveWhitespace' which will attempt to preserve whitespace in the document and relative positioning of text within the document, and 'minimizeWhitespace' which will not insert additional spaces into the document in most cases.  Default is 'preserveWhitespace'.
 }
 
 begin
@@ -1639,19 +1639,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -1714,7 +1714,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1768,7 +1768,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1822,7 +1822,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1876,7 +1876,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1930,7 +1930,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -1984,7 +1984,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -2038,7 +2038,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -2092,7 +2092,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -2146,10 +2146,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+  output_encoding: 'output_encoding_example' # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
 }
 
 begin
@@ -2204,10 +2204,10 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 opts = { 
-  output_encoding: "output_encoding_example" # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
+  output_encoding: 'output_encoding_example' # String | Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
 }
 
 begin
@@ -2262,7 +2262,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -2316,7 +2316,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -2370,7 +2370,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin

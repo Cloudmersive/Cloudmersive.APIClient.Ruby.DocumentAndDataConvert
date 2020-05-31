@@ -28,9 +28,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::CompareDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin

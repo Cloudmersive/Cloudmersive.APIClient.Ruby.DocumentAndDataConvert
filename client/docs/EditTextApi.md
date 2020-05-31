@@ -202,9 +202,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-line_ending_type = "line_ending_type_example" # String | Required; 'Windows' will use carriage return and line feed, 'Unix' will use newline, and 'Mac' will use carriage return
+line_ending_type = 'line_ending_type_example' # String | Required; 'Windows' will use carriage return and line feed, 'Unix' will use newline, and 'Mac' will use carriage return
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -259,7 +259,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -637,7 +637,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::EditTextApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin

@@ -39,9 +39,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -96,19 +96,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -171,9 +171,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -228,19 +228,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -303,9 +303,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -360,19 +360,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -435,9 +435,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -492,19 +492,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -567,9 +567,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -624,19 +624,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin
@@ -699,9 +699,9 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on (more than 2 can be supplied).
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
 
 begin
@@ -756,19 +756,19 @@ end
 
 api_instance = CloudmersiveConvertApiClient::MergeDocumentApi.new
 
-input_file1 = File.new("/path/to/file.txt") # File | First input file to perform the operation on.
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
 
-input_file2 = File.new("/path/to/file.txt") # File | Second input file to perform the operation on.
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
 
 opts = { 
-  input_file3: File.new("/path/to/file.txt"), # File | Third input file to perform the operation on.
-  input_file4: File.new("/path/to/file.txt"), # File | Fourth input file to perform the operation on.
-  input_file5: File.new("/path/to/file.txt"), # File | Fifth input file to perform the operation on.
-  input_file6: File.new("/path/to/file.txt"), # File | Sixth input file to perform the operation on.
-  input_file7: File.new("/path/to/file.txt"), # File | Seventh input file to perform the operation on.
-  input_file8: File.new("/path/to/file.txt"), # File | Eighth input file to perform the operation on.
-  input_file9: File.new("/path/to/file.txt"), # File | Ninth input file to perform the operation on.
-  input_file10: File.new("/path/to/file.txt") # File | Tenth input file to perform the operation on.
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt') # File | Tenth input file to perform the operation on.
 }
 
 begin

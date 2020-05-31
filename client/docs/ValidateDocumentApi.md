@@ -42,7 +42,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -96,7 +96,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -150,7 +150,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -204,7 +204,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -258,7 +258,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -312,7 +312,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -366,7 +366,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -420,7 +420,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -474,7 +474,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -528,7 +528,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -582,7 +582,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -636,7 +636,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -690,7 +690,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -744,7 +744,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
@@ -798,7 +798,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
 
-input_file = File.new("/path/to/file.txt") # File | Input file to perform the operation on.
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
 
 begin
