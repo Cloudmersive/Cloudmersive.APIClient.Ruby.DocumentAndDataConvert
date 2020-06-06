@@ -1856,6 +1856,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Append row to a Excel XLSX spreadsheet, worksheet
+    # Appends a row to the end of an Excel Spreadsheet worksheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [AppendXlsxRowResponse]
+    def edit_document_xlsx_append_row(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_append_row_with_http_info(input, opts)
+      data
+    end
+
+    # Append row to a Excel XLSX spreadsheet, worksheet
+    # Appends a row to the end of an Excel Spreadsheet worksheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AppendXlsxRowResponse, Fixnum, Hash)>] AppendXlsxRowResponse data, response status code and response headers
+    def edit_document_xlsx_append_row_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_append_row ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_append_row"
+      end
+      # resource path
+      local_var_path = '/convert/edit/xlsx/append-row'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AppendXlsxRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_append_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
     # Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
     # @param input Document input request
@@ -1907,6 +1961,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'ClearXlsxCellResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_clear_cell_by_index\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Clear row from a Excel XLSX spreadsheet, worksheet
+    # Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [ClearXlsxRowResponse]
+    def edit_document_xlsx_clear_row(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_clear_row_with_http_info(input, opts)
+      data
+    end
+
+    # Clear row from a Excel XLSX spreadsheet, worksheet
+    # Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ClearXlsxRowResponse, Fixnum, Hash)>] ClearXlsxRowResponse data, response status code and response headers
+    def edit_document_xlsx_clear_row_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_clear_row ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_clear_row"
+      end
+      # resource path
+      local_var_path = '/convert/edit/xlsx/clear-row'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ClearXlsxRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_clear_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2022,7 +2130,7 @@ module CloudmersiveConvertApiClient
     # Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
     # @param req_config Spreadsheet input request
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def edit_document_xlsx_delete_worksheet(req_config, opts = {})
       data, _status_code, _headers = edit_document_xlsx_delete_worksheet_with_http_info(req_config, opts)
       data
@@ -2032,7 +2140,7 @@ module CloudmersiveConvertApiClient
     # Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
     # @param req_config Spreadsheet input request
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_document_xlsx_delete_worksheet_with_http_info(req_config, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_delete_worksheet ...'
@@ -2066,7 +2174,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_delete_worksheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -2450,6 +2558,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+    # Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [GetXlsxSpecificRowResponse]
+    def edit_document_xlsx_get_specific_row(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_specific_row_with_http_info(input, opts)
+      data
+    end
+
+    # Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+    # Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetXlsxSpecificRowResponse, Fixnum, Hash)>] GetXlsxSpecificRowResponse data, response status code and response headers
+    def edit_document_xlsx_get_specific_row_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_get_specific_row ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_get_specific_row"
+      end
+      # resource path
+      local_var_path = '/convert/edit/xlsx/get-specific-row'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetXlsxSpecificRowResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_specific_row\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get styles from a Excel XLSX spreadsheet, worksheet
     # Returns the style defined in the Excel Spreadsheet
     # @param input Document input request
@@ -2609,6 +2771,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'InsertXlsxWorksheetResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_insert_worksheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Rename a specific worksheet in a Excel XLSX spreadsheet
+    # Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [RenameXlsxWorksheetResponse]
+    def edit_document_xlsx_rename_worksheet(input, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_rename_worksheet_with_http_info(input, opts)
+      data
+    end
+
+    # Rename a specific worksheet in a Excel XLSX spreadsheet
+    # Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+    # @param input Document input request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RenameXlsxWorksheetResponse, Fixnum, Hash)>] RenameXlsxWorksheetResponse data, response status code and response headers
+    def edit_document_xlsx_rename_worksheet_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_rename_worksheet ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_xlsx_rename_worksheet"
+      end
+      # resource path
+      local_var_path = '/convert/edit/xlsx/rename-worksheet'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RenameXlsxWorksheetResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_rename_worksheet\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

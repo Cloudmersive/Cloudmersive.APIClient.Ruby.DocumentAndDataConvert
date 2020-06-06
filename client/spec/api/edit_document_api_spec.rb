@@ -440,6 +440,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_append_row
+  # Append row to a Excel XLSX spreadsheet, worksheet
+  # Appends a row to the end of an Excel Spreadsheet worksheet.
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [AppendXlsxRowResponse]
+  describe 'edit_document_xlsx_append_row test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_clear_cell_by_index
   # Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
   # Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
@@ -447,6 +459,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [ClearXlsxCellResponse]
   describe 'edit_document_xlsx_clear_cell_by_index test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_clear_row
+  # Clear row from a Excel XLSX spreadsheet, worksheet
+  # Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [ClearXlsxRowResponse]
+  describe 'edit_document_xlsx_clear_row test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -481,7 +505,7 @@ describe 'EditDocumentApi' do
   # Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
   # @param req_config Spreadsheet input request
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'edit_document_xlsx_delete_worksheet test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -572,6 +596,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_xlsx_get_specific_row
+  # Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+  # Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [GetXlsxSpecificRowResponse]
+  describe 'edit_document_xlsx_get_specific_row test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_xlsx_get_styles
   # Get styles from a Excel XLSX spreadsheet, worksheet
   # Returns the style defined in the Excel Spreadsheet
@@ -603,6 +639,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [InsertXlsxWorksheetResponse]
   describe 'edit_document_xlsx_insert_worksheet test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_rename_worksheet
+  # Rename a specific worksheet in a Excel XLSX spreadsheet
+  # Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+  # @param input Document input request
+  # @param [Hash] opts the optional parameters
+  # @return [RenameXlsxWorksheetResponse]
+  describe 'edit_document_xlsx_rename_worksheet test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
