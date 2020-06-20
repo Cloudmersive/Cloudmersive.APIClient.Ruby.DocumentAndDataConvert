@@ -286,6 +286,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_keynote_to_pdf
+  # Convert Keynote Presentation (KEY) to PDF
+  # Convert Mac Keynote Presentation (KEY) to standard PDF
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_keynote_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_msg_to_html
   # Convert Email MSG file to HTML string
   # Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -308,6 +320,54 @@ describe 'ConvertDocumentApi' do
   # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
   # @return [String]
   describe 'convert_document_msg_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odp_to_pdf
+  # Convert Office Open Document Presentation ODP to PDF
+  # Convert Office Open Document Presentation (ODP) to standard PDF
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_odp_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_ods_to_pdf
+  # Convert Office Open Document Spreadsheet ODS to PDF
+  # Convert Office Open Document Spreadsheet (ODS) to standard PDF
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_ods_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odt_to_docx
+  # Convert Office Open Document ODT to Word DOCX
+  # Convert Office Open Document Text File (ODT) to Word DOCX Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_odt_to_docx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odt_to_pdf
+  # Convert Office Open Document ODT to PDF
+  # Convert Office Open Document Text File (ODT) to standard PDF
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_odt_to_pdf test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -462,6 +522,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [TextConversionResult]
   describe 'convert_document_pptx_to_txt test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_rtf_to_pdf
+  # Convert Rich Text Format RTF to PDF
+  # Convert Rich Text Format Document (RTF) to standard PDF
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_rtf_to_pdf test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
