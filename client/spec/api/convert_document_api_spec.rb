@@ -44,6 +44,19 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_autodetect_to_jpg
+  # Convert Document to JPG/JPEG image array
+  # Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [AutodetectToJpgResult]
+  describe 'convert_document_autodetect_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_autodetect_to_pdf
   # Convert Document to PDF
   # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
@@ -70,7 +83,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_autodetect_to_thumbnail
   # Convert File to Thumbnail Image
-  # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+  # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
@@ -85,7 +98,7 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_autodetect_to_thumbnails_advanced
   # Convert File to Thumbnail Image Object
-  # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+  # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
@@ -160,6 +173,31 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_docx_to_html
+  # Convert Word DOCX Document to HTML Document
+  # Convert Office Word Document (DOCX) to HTML Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_docx_to_html test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_docx_to_jpg
+  # Convert Word DOCX Document to JPG/JPEG image array
+  # Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [DocxToJpgResult]
+  describe 'convert_document_docx_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_docx_to_pdf
   # Convert Word DOCX Document to PDF
   # Convert Office Word Documents (docx) to standard PDF
@@ -173,12 +211,24 @@ describe 'ConvertDocumentApi' do
   end
 
   # unit tests for convert_document_docx_to_png
-  # Convert DOCX document to PNG image array
+  # Convert Word DOCX Document to PNG image array
   # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [DocxToPngResult]
   describe 'convert_document_docx_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_docx_to_rtf
+  # Convert Word DOCX Document to RTF
+  # Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_docx_to_rtf test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -211,6 +261,19 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_eml_to_jpg
+  # Convert Email EML file to JPG/JPEG image array
+  # Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [EmlToJpgResult]
+  describe 'convert_document_eml_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_eml_to_pdf
   # Convert Email EML file to PDF document
   # Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
@@ -219,6 +282,18 @@ describe 'ConvertDocumentApi' do
   # @option opts [BOOLEAN] :body_only Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false.
   # @return [String]
   describe 'convert_document_eml_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_eml_to_png
+  # Convert Email EML file to PNG image array
+  # Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [EmlToPngResult]
+  describe 'convert_document_eml_to_png test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -286,6 +361,19 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_keynote_to_jpg
+  # Convert Keynote Presentation (KEY) to JPG/JPEG image array
+  # Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [KeynoteToJpgResult]
+  describe 'convert_document_keynote_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_keynote_to_pdf
   # Convert Keynote Presentation (KEY) to PDF
   # Convert Mac Keynote Presentation (KEY) to standard PDF
@@ -293,6 +381,30 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_keynote_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_keynote_to_png
+  # Convert Keynote Presentation (KEY) to PNG image array
+  # Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [KeynoteToPngResult]
+  describe 'convert_document_keynote_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_keynote_to_pptx
+  # Convert Keynote Presentation (KEY) to PPTX
+  # Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_keynote_to_pptx test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -312,6 +424,19 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_msg_to_jpg
+  # Convert Email MSG file to JPG/JPEG image array
+  # Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [MsgToJpgResult]
+  describe 'convert_document_msg_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_msg_to_pdf
   # Convert Email MSG file to PDF document
   # Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -325,8 +450,33 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_msg_to_png
+  # Convert Email MSG file to PNG image array
+  # Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [MsgToPngResult]
+  describe 'convert_document_msg_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odp_to_jpg
+  # Convert ODP Presentation to JPG/JPEG image array
+  # Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [OdpToJpgResult]
+  describe 'convert_document_odp_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_odp_to_pdf
-  # Convert Office Open Document Presentation ODP to PDF
+  # Convert ODP Presentation to PDF
   # Convert Office Open Document Presentation (ODP) to standard PDF
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -337,8 +487,45 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_odp_to_png
+  # Convert ODP Presentation to PNG image array
+  # Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [OdpToPngResult]
+  describe 'convert_document_odp_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odp_to_pptx
+  # Convert ODP Presentation to PPTX
+  # Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_odp_to_pptx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_ods_to_jpg
+  # Convert ODS Spreadsheet to JPG/JPEG image array
+  # Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [OdsToJpgResult]
+  describe 'convert_document_ods_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_ods_to_pdf
-  # Convert Office Open Document Spreadsheet ODS to PDF
+  # Convert ODS Spreadsheet to PDF
   # Convert Office Open Document Spreadsheet (ODS) to standard PDF
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -349,8 +536,32 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_ods_to_png
+  # Convert ODS Spreadsheet to PNG image array
+  # Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [OdsToPngResult]
+  describe 'convert_document_ods_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_ods_to_xlsx
+  # Convert ODS Spreadsheet to XLSX
+  # Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_ods_to_xlsx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_odt_to_docx
-  # Convert Office Open Document ODT to Word DOCX
+  # Convert ODT Text File to Word DOCX
   # Convert Office Open Document Text File (ODT) to Word DOCX Document
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -361,13 +572,38 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_odt_to_jpg
+  # Convert ODT Text File to JPG/JPEG image array
+  # Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [OdtToJpgResult]
+  describe 'convert_document_odt_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_odt_to_pdf
-  # Convert Office Open Document ODT to PDF
+  # Convert ODT Text File to PDF
   # Convert Office Open Document Text File (ODT) to standard PDF
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_odt_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_odt_to_png
+  # Convert ODT Text File to PNG image array
+  # Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [OdtToPngResult]
+  describe 'convert_document_odt_to_png test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -527,6 +763,43 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_rtf_to_docx
+  # Convert Rich Text Format RTF to DOCX Document
+  # Convert Rich Text Format Document (RTF) to Word DOCX Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_rtf_to_docx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_rtf_to_html
+  # Convert Rich Text Format RTF to HTML Document
+  # Convert Rich Text Format Document (RTF) to HTML Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_rtf_to_html test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_rtf_to_jpg
+  # Convert Rich Text Format RTF to JPG/JPEG image array
+  # Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [RtfToJpgResult]
+  describe 'convert_document_rtf_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_rtf_to_pdf
   # Convert Rich Text Format RTF to PDF
   # Convert Rich Text Format Document (RTF) to standard PDF
@@ -534,6 +807,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_rtf_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_rtf_to_png
+  # Convert Rich Text Format RTF to PNG image array
+  # Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [RtfToPngResult]
+  describe 'convert_document_rtf_to_png test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -74,6 +74,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Document to JPG/JPEG image array
+    # Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [AutodetectToJpgResult]
+    def convert_document_autodetect_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_autodetect_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Document to JPG/JPEG image array
+    # Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(AutodetectToJpgResult, Fixnum, Hash)>] AutodetectToJpgResult data, response status code and response headers
+    def convert_document_autodetect_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_autodetect_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_autodetect_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/autodetect/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'AutodetectToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Document to PDF
     # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
     # @param input_file Input file to perform the operation on.
@@ -185,7 +243,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
     # Convert File to Thumbnail Image
-    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
@@ -198,7 +256,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert File to Thumbnail Image
-    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :max_width Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128.
@@ -249,7 +307,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
     # Convert File to Thumbnail Image Object
-    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
@@ -263,7 +321,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert File to Thumbnail Image Object
-    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+    # Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page.
@@ -593,6 +651,119 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Word DOCX Document to HTML Document
+    # Convert Office Word Document (DOCX) to HTML Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_docx_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_docx_to_html_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Word DOCX Document to HTML Document
+    # Convert Office Word Document (DOCX) to HTML Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_docx_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_docx_to_html ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_docx_to_html"
+      end
+      # resource path
+      local_var_path = '/convert/docx/to/html'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Word DOCX Document to JPG/JPEG image array
+    # Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [DocxToJpgResult]
+    def convert_document_docx_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_docx_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Word DOCX Document to JPG/JPEG image array
+    # Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(DocxToJpgResult, Fixnum, Hash)>] DocxToJpgResult data, response status code and response headers
+    def convert_document_docx_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_docx_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_docx_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/docx/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocxToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Word DOCX Document to PDF
     # Convert Office Word Documents (docx) to standard PDF
     # @param input_file Input file to perform the operation on.
@@ -648,7 +819,7 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert DOCX document to PNG image array
+    # Convert Word DOCX Document to PNG image array
     # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -658,7 +829,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert DOCX document to PNG image array
+    # Convert Word DOCX Document to PNG image array
     # Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -700,6 +871,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocxToPngResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Word DOCX Document to RTF
+    # Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_docx_to_rtf(input_file, opts = {})
+      data, _status_code, _headers = convert_document_docx_to_rtf_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Word DOCX Document to RTF
+    # Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_docx_to_rtf_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_docx_to_rtf ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_docx_to_rtf"
+      end
+      # resource path
+      local_var_path = '/convert/docx/to/rtf'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_rtf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -822,6 +1048,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Email EML file to JPG/JPEG image array
+    # Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [EmlToJpgResult]
+    def convert_document_eml_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_eml_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Email EML file to JPG/JPEG image array
+    # Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(EmlToJpgResult, Fixnum, Hash)>] EmlToJpgResult data, response status code and response headers
+    def convert_document_eml_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_eml_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_eml_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/eml/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EmlToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Email EML file to PDF document
     # Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
     # @param input_file Input file to perform the operation on.
@@ -877,6 +1161,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Email EML file to PNG image array
+    # Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [EmlToPngResult]
+    def convert_document_eml_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_eml_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Email EML file to PNG image array
+    # Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EmlToPngResult, Fixnum, Hash)>] EmlToPngResult data, response status code and response headers
+    def convert_document_eml_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_eml_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_eml_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/eml/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EmlToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1157,6 +1496,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Keynote Presentation (KEY) to JPG/JPEG image array
+    # Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [KeynoteToJpgResult]
+    def convert_document_keynote_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_keynote_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Keynote Presentation (KEY) to JPG/JPEG image array
+    # Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(KeynoteToJpgResult, Fixnum, Hash)>] KeynoteToJpgResult data, response status code and response headers
+    def convert_document_keynote_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_keynote_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_keynote_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/key/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'KeynoteToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_keynote_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Keynote Presentation (KEY) to PDF
     # Convert Mac Keynote Presentation (KEY) to standard PDF
     # @param input_file Input file to perform the operation on.
@@ -1181,7 +1578,7 @@ module CloudmersiveConvertApiClient
         fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_keynote_to_pdf"
       end
       # resource path
-      local_var_path = '/convert/keynote/to/pdf'
+      local_var_path = '/convert/key/to/pdf'
 
       # query parameters
       query_params = {}
@@ -1209,6 +1606,116 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_keynote_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Keynote Presentation (KEY) to PNG image array
+    # Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [KeynoteToPngResult]
+    def convert_document_keynote_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_keynote_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Keynote Presentation (KEY) to PNG image array
+    # Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(KeynoteToPngResult, Fixnum, Hash)>] KeynoteToPngResult data, response status code and response headers
+    def convert_document_keynote_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_keynote_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_keynote_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/key/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'KeynoteToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_keynote_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Keynote Presentation (KEY) to PPTX
+    # Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_keynote_to_pptx(input_file, opts = {})
+      data, _status_code, _headers = convert_document_keynote_to_pptx_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Keynote Presentation (KEY) to PPTX
+    # Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_keynote_to_pptx_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_keynote_to_pptx ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_keynote_to_pptx"
+      end
+      # resource path
+      local_var_path = '/convert/key/to/pptx'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_keynote_to_pptx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1273,6 +1780,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Email MSG file to JPG/JPEG image array
+    # Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [MsgToJpgResult]
+    def convert_document_msg_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_msg_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Email MSG file to JPG/JPEG image array
+    # Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(MsgToJpgResult, Fixnum, Hash)>] MsgToJpgResult data, response status code and response headers
+    def convert_document_msg_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_msg_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_msg_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/msg/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MsgToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_msg_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Email MSG file to PDF document
     # Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
     # @param input_file Input file to perform the operation on.
@@ -1331,7 +1896,120 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert Office Open Document Presentation ODP to PDF
+    # Convert Email MSG file to PNG image array
+    # Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [MsgToPngResult]
+    def convert_document_msg_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_msg_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Email MSG file to PNG image array
+    # Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsgToPngResult, Fixnum, Hash)>] MsgToPngResult data, response status code and response headers
+    def convert_document_msg_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_msg_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_msg_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/msg/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MsgToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_msg_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODP Presentation to JPG/JPEG image array
+    # Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [OdpToJpgResult]
+    def convert_document_odp_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_odp_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODP Presentation to JPG/JPEG image array
+    # Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(OdpToJpgResult, Fixnum, Hash)>] OdpToJpgResult data, response status code and response headers
+    def convert_document_odp_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_odp_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_odp_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/odp/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdpToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odp_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODP Presentation to PDF
     # Convert Office Open Document Presentation (ODP) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1341,7 +2019,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert Office Open Document Presentation ODP to PDF
+    # Convert ODP Presentation to PDF
     # Convert Office Open Document Presentation (ODP) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1386,7 +2064,175 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert Office Open Document Spreadsheet ODS to PDF
+    # Convert ODP Presentation to PNG image array
+    # Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [OdpToPngResult]
+    def convert_document_odp_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_odp_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODP Presentation to PNG image array
+    # Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OdpToPngResult, Fixnum, Hash)>] OdpToPngResult data, response status code and response headers
+    def convert_document_odp_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_odp_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_odp_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/odp/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdpToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odp_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODP Presentation to PPTX
+    # Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_odp_to_pptx(input_file, opts = {})
+      data, _status_code, _headers = convert_document_odp_to_pptx_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODP Presentation to PPTX
+    # Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_odp_to_pptx_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_odp_to_pptx ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_odp_to_pptx"
+      end
+      # resource path
+      local_var_path = '/convert/odp/to/pptx'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odp_to_pptx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODS Spreadsheet to JPG/JPEG image array
+    # Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [OdsToJpgResult]
+    def convert_document_ods_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_ods_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODS Spreadsheet to JPG/JPEG image array
+    # Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(OdsToJpgResult, Fixnum, Hash)>] OdsToJpgResult data, response status code and response headers
+    def convert_document_ods_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_ods_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_ods_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/ods/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdsToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_ods_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODS Spreadsheet to PDF
     # Convert Office Open Document Spreadsheet (ODS) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1396,7 +2242,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert Office Open Document Spreadsheet ODS to PDF
+    # Convert ODS Spreadsheet to PDF
     # Convert Office Open Document Spreadsheet (ODS) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1441,7 +2287,117 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert Office Open Document ODT to Word DOCX
+    # Convert ODS Spreadsheet to PNG image array
+    # Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [OdsToPngResult]
+    def convert_document_ods_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_ods_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODS Spreadsheet to PNG image array
+    # Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OdsToPngResult, Fixnum, Hash)>] OdsToPngResult data, response status code and response headers
+    def convert_document_ods_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_ods_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_ods_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/ods/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdsToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_ods_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODS Spreadsheet to XLSX
+    # Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_ods_to_xlsx(input_file, opts = {})
+      data, _status_code, _headers = convert_document_ods_to_xlsx_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODS Spreadsheet to XLSX
+    # Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_ods_to_xlsx_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_ods_to_xlsx ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_ods_to_xlsx"
+      end
+      # resource path
+      local_var_path = '/convert/ods/to/xlsx'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_ods_to_xlsx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODT Text File to Word DOCX
     # Convert Office Open Document Text File (ODT) to Word DOCX Document
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1451,7 +2407,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert Office Open Document ODT to Word DOCX
+    # Convert ODT Text File to Word DOCX
     # Convert Office Open Document Text File (ODT) to Word DOCX Document
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1496,7 +2452,65 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert Office Open Document ODT to PDF
+    # Convert ODT Text File to JPG/JPEG image array
+    # Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [OdtToJpgResult]
+    def convert_document_odt_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_odt_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODT Text File to JPG/JPEG image array
+    # Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(OdtToJpgResult, Fixnum, Hash)>] OdtToJpgResult data, response status code and response headers
+    def convert_document_odt_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_odt_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_odt_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/odt/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdtToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odt_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODT Text File to PDF
     # Convert Office Open Document Text File (ODT) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1506,7 +2520,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert Office Open Document ODT to PDF
+    # Convert ODT Text File to PDF
     # Convert Office Open Document Text File (ODT) to standard PDF
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -1548,6 +2562,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odt_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert ODT Text File to PNG image array
+    # Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [OdtToPngResult]
+    def convert_document_odt_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_odt_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert ODT Text File to PNG image array
+    # Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(OdtToPngResult, Fixnum, Hash)>] OdtToPngResult data, response status code and response headers
+    def convert_document_odt_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_odt_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_odt_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/odt/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'OdtToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_odt_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2245,6 +3314,174 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Rich Text Format RTF to DOCX Document
+    # Convert Rich Text Format Document (RTF) to Word DOCX Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_rtf_to_docx(input_file, opts = {})
+      data, _status_code, _headers = convert_document_rtf_to_docx_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Rich Text Format RTF to DOCX Document
+    # Convert Rich Text Format Document (RTF) to Word DOCX Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_rtf_to_docx_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_rtf_to_docx ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_rtf_to_docx"
+      end
+      # resource path
+      local_var_path = '/convert/rtf/to/docx'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_rtf_to_docx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Rich Text Format RTF to HTML Document
+    # Convert Rich Text Format Document (RTF) to HTML Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_rtf_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_rtf_to_html_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Rich Text Format RTF to HTML Document
+    # Convert Rich Text Format Document (RTF) to HTML Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_rtf_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_rtf_to_html ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_rtf_to_html"
+      end
+      # resource path
+      local_var_path = '/convert/rtf/to/html'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_rtf_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Rich Text Format RTF to JPG/JPEG image array
+    # Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [RtfToJpgResult]
+    def convert_document_rtf_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_rtf_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Rich Text Format RTF to JPG/JPEG image array
+    # Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(RtfToJpgResult, Fixnum, Hash)>] RtfToJpgResult data, response status code and response headers
+    def convert_document_rtf_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_rtf_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_rtf_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/rtf/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RtfToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_rtf_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Rich Text Format RTF to PDF
     # Convert Rich Text Format Document (RTF) to standard PDF
     # @param input_file Input file to perform the operation on.
@@ -2297,6 +3534,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_rtf_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Rich Text Format RTF to PNG image array
+    # Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [RtfToPngResult]
+    def convert_document_rtf_to_png(input_file, opts = {})
+      data, _status_code, _headers = convert_document_rtf_to_png_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Rich Text Format RTF to PNG image array
+    # Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RtfToPngResult, Fixnum, Hash)>] RtfToPngResult data, response status code and response headers
+    def convert_document_rtf_to_png_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_rtf_to_png ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_rtf_to_png"
+      end
+      # resource path
+      local_var_path = '/convert/rtf/to/png'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'RtfToPngResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_rtf_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
