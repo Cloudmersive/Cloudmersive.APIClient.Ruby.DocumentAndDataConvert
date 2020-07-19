@@ -35,7 +35,7 @@ describe 'ConvertWebApi' do
   # unit tests for convert_web_html_to_docx
   # Convert HTML to Word DOCX Document
   # Convert HTML to Office Word Document (DOCX) format
-  # @param input_request HTL input to convert to DOCX
+  # @param input_request HTML input to convert to DOCX
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_web_html_to_docx test' do

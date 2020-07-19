@@ -2730,6 +2730,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert PDF to JPG/JPEG image array
+    # Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [PdfToJpgResult]
+    def convert_document_pdf_to_jpg(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pdf_to_jpg_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert PDF to JPG/JPEG image array
+    # Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+    # @return [Array<(PdfToJpgResult, Fixnum, Hash)>] PdfToJpgResult data, response status code and response headers
+    def convert_document_pdf_to_jpg_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_pdf_to_jpg ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pdf_to_jpg"
+      end
+      # resource path
+      local_var_path = '/convert/pdf/to/jpg'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PdfToJpgResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_jpg\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert PDF to PNG Image Array
     # Convert PDF document to PNG array, one image per page.
     # @param input_file Input file to perform the operation on.

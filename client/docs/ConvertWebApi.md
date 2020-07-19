@@ -35,7 +35,7 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertWebApi.new
 
-input_request = CloudmersiveConvertApiClient::HtmlToOfficeRequest.new # HtmlToOfficeRequest | HTL input to convert to DOCX
+input_request = CloudmersiveConvertApiClient::HtmlToOfficeRequest.new # HtmlToOfficeRequest | HTML input to convert to DOCX
 
 
 begin
@@ -51,7 +51,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input_request** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)| HTL input to convert to DOCX | 
+ **input_request** | [**HtmlToOfficeRequest**](HtmlToOfficeRequest.md)| HTML input to convert to DOCX | 
 
 ### Return type
 

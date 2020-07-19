@@ -21,7 +21,7 @@ module CloudmersiveConvertApiClient
     end
     # Convert HTML to Word DOCX Document
     # Convert HTML to Office Word Document (DOCX) format
-    # @param input_request HTL input to convert to DOCX
+    # @param input_request HTML input to convert to DOCX
     # @param [Hash] opts the optional parameters
     # @return [String]
     def convert_web_html_to_docx(input_request, opts = {})
@@ -31,7 +31,7 @@ module CloudmersiveConvertApiClient
 
     # Convert HTML to Word DOCX Document
     # Convert HTML to Office Word Document (DOCX) format
-    # @param input_request HTL input to convert to DOCX
+    # @param input_request HTML input to convert to DOCX
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_web_html_to_docx_with_http_info(input_request, opts = {})

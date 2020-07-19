@@ -633,6 +633,19 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pdf_to_jpg
+  # Convert PDF to JPG/JPEG image array
+  # Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75.
+  # @return [PdfToJpgResult]
+  describe 'convert_document_pdf_to_jpg test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pdf_to_png_array
   # Convert PDF to PNG Image Array
   # Convert PDF document to PNG array, one image per page.
