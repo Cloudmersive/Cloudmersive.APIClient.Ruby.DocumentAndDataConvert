@@ -13,37 +13,32 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Request to convert a URL to a PDF file
-  class UrlToPdfRequest
-    # URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
-    attr_accessor :url
+  # A single string replacement request
+  class SingleReplaceString
+    # String to search for and match against, to be replaced
+    attr_accessor :match_string
 
-    # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 20000 milliseconds (20 seconds).
-    attr_accessor :extra_loading_wait
+    # String to replace the matched values with
+    attr_accessor :replace_string
 
-    # Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
-    attr_accessor :include_background_graphics
-
-    # Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%
-    attr_accessor :scale_factor
+    # True if the case should be matched, false for case insensitive match
+    attr_accessor :match_case
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'Url',
-        :'extra_loading_wait' => :'ExtraLoadingWait',
-        :'include_background_graphics' => :'IncludeBackgroundGraphics',
-        :'scale_factor' => :'ScaleFactor'
+        :'match_string' => :'MatchString',
+        :'replace_string' => :'ReplaceString',
+        :'match_case' => :'MatchCase'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'extra_loading_wait' => :'Integer',
-        :'include_background_graphics' => :'BOOLEAN',
-        :'scale_factor' => :'Integer'
+        :'match_string' => :'String',
+        :'replace_string' => :'String',
+        :'match_case' => :'BOOLEAN'
       }
     end
 
@@ -55,20 +50,16 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'Url')
-        self.url = attributes[:'Url']
+      if attributes.has_key?(:'MatchString')
+        self.match_string = attributes[:'MatchString']
       end
 
-      if attributes.has_key?(:'ExtraLoadingWait')
-        self.extra_loading_wait = attributes[:'ExtraLoadingWait']
+      if attributes.has_key?(:'ReplaceString')
+        self.replace_string = attributes[:'ReplaceString']
       end
 
-      if attributes.has_key?(:'IncludeBackgroundGraphics')
-        self.include_background_graphics = attributes[:'IncludeBackgroundGraphics']
-      end
-
-      if attributes.has_key?(:'ScaleFactor')
-        self.scale_factor = attributes[:'ScaleFactor']
+      if attributes.has_key?(:'MatchCase')
+        self.match_case = attributes[:'MatchCase']
       end
     end
 
@@ -90,10 +81,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          extra_loading_wait == o.extra_loading_wait &&
-          include_background_graphics == o.include_background_graphics &&
-          scale_factor == o.scale_factor
+          match_string == o.match_string &&
+          replace_string == o.replace_string &&
+          match_case == o.match_case
     end
 
     # @see the `==` method
@@ -105,7 +95,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, extra_loading_wait, include_background_graphics, scale_factor].hash
+      [match_string, replace_string, match_case].hash
     end
 
     # Builds the object from hash

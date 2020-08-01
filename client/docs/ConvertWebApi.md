@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_web_html_to_png**
-> Object convert_web_html_to_png(input)
+> String convert_web_html_to_png(input)
 
 Convert HTML string to PNG screenshot
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 

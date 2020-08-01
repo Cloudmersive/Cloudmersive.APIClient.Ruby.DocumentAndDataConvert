@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**convert_document_autodetect_to_thumbnail**](ConvertDocumentApi.md#convert_document_autodetect_to_thumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
 [**convert_document_autodetect_to_thumbnails_advanced**](ConvertDocumentApi.md#convert_document_autodetect_to_thumbnails_advanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
 [**convert_document_autodetect_to_txt**](ConvertDocumentApi.md#convert_document_autodetect_to_txt) | **POST** /convert/autodetect/to/txt | Convert Document to Text (txt)
+[**convert_document_csv_multi_to_xlsx**](ConvertDocumentApi.md#convert_document_csv_multi_to_xlsx) | **POST** /convert/csv/multi/to/xlsx | Convert Multiple CSV Files into a Single XLSX Spreadsheet
+[**convert_document_csv_to_html**](ConvertDocumentApi.md#convert_document_csv_to_html) | **POST** /convert/csv/to/html | Convert CSV to HTML document
+[**convert_document_csv_to_pdf**](ConvertDocumentApi.md#convert_document_csv_to_pdf) | **POST** /convert/csv/to/pdf | Convert CSV to PDF document
 [**convert_document_csv_to_xlsx**](ConvertDocumentApi.md#convert_document_csv_to_xlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
 [**convert_document_doc_to_docx**](ConvertDocumentApi.md#convert_document_doc_to_docx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 [**convert_document_doc_to_pdf**](ConvertDocumentApi.md#convert_document_doc_to_pdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
@@ -73,6 +76,7 @@ Method | HTTP request | Description
 [**convert_document_xls_to_xlsx**](ConvertDocumentApi.md#convert_document_xls_to_xlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
 [**convert_document_xlsx_to_csv**](ConvertDocumentApi.md#convert_document_xlsx_to_csv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
 [**convert_document_xlsx_to_csv_multi**](ConvertDocumentApi.md#convert_document_xlsx_to_csv_multi) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+[**convert_document_xlsx_to_html**](ConvertDocumentApi.md#convert_document_xlsx_to_html) | **POST** /convert/xlsx/to/html | Convert Excel XLSX Spreadsheet to HTML Document
 [**convert_document_xlsx_to_pdf**](ConvertDocumentApi.md#convert_document_xlsx_to_pdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
 [**convert_document_xlsx_to_png**](ConvertDocumentApi.md#convert_document_xlsx_to_png) | **POST** /convert/xlsx/to/png | Convert Excel XLSX spreadsheet to PNG image array
 [**convert_document_xlsx_to_txt**](ConvertDocumentApi.md#convert_document_xlsx_to_txt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
@@ -479,6 +483,191 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **convert_document_csv_multi_to_xlsx**
+> String convert_document_csv_multi_to_xlsx(input_file1, input_file2, opts)
+
+Convert Multiple CSV Files into a Single XLSX Spreadsheet
+
+Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
+
+input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on.
+
+opts = { 
+  input_file3: File.new('/path/to/file.txt'), # File | Third input file to perform the operation on.
+  input_file4: File.new('/path/to/file.txt'), # File | Fourth input file to perform the operation on.
+  input_file5: File.new('/path/to/file.txt'), # File | Fifth input file to perform the operation on.
+  input_file6: File.new('/path/to/file.txt'), # File | Sixth input file to perform the operation on.
+  input_file7: File.new('/path/to/file.txt'), # File | Seventh input file to perform the operation on.
+  input_file8: File.new('/path/to/file.txt'), # File | Eighth input file to perform the operation on.
+  input_file9: File.new('/path/to/file.txt'), # File | Ninth input file to perform the operation on.
+  input_file10: File.new('/path/to/file.txt'), # File | Tenth input file to perform the operation on.
+  worksheet_names: 'worksheet_names_example' # String | Optional; Specify the name of each CSV's worksheet in order, separated with commas (e.g. \"worksheet1,worksheet2,worksheet3\"). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names.
+}
+
+begin
+  #Convert Multiple CSV Files into a Single XLSX Spreadsheet
+  result = api_instance.convert_document_csv_multi_to_xlsx(input_file1, input_file2, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_csv_multi_to_xlsx: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file1** | **File**| First input file to perform the operation on. | 
+ **input_file2** | **File**| Second input file to perform the operation on. | 
+ **input_file3** | **File**| Third input file to perform the operation on. | [optional] 
+ **input_file4** | **File**| Fourth input file to perform the operation on. | [optional] 
+ **input_file5** | **File**| Fifth input file to perform the operation on. | [optional] 
+ **input_file6** | **File**| Sixth input file to perform the operation on. | [optional] 
+ **input_file7** | **File**| Seventh input file to perform the operation on. | [optional] 
+ **input_file8** | **File**| Eighth input file to perform the operation on. | [optional] 
+ **input_file9** | **File**| Ninth input file to perform the operation on. | [optional] 
+ **input_file10** | **File**| Tenth input file to perform the operation on. | [optional] 
+ **worksheet_names** | **String**| Optional; Specify the name of each CSV&#39;s worksheet in order, separated with commas (e.g. \&quot;worksheet1,worksheet2,worksheet3\&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_csv_to_html**
+> String convert_document_csv_to_html(input_file)
+
+Convert CSV to HTML document
+
+Convert Comma-Separated Values (CSV) file to HTML document.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Convert CSV to HTML document
+  result = api_instance.convert_document_csv_to_html(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_csv_to_html: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_csv_to_pdf**
+> String convert_document_csv_to_pdf(input_file)
+
+Convert CSV to PDF document
+
+Convert Comma-Separated Values (CSV) file to PDF document.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Convert CSV to PDF document
+  result = api_instance.convert_document_csv_to_pdf(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_csv_to_pdf: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 
 
@@ -1377,7 +1566,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_html_to_pdf**
-> String convert_document_html_to_pdf(input_file)
+> String convert_document_html_to_pdf(input_file, opts)
 
 Convert HTML document file to PDF Document
 
@@ -1399,10 +1588,14 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
 input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
+opts = { 
+  include_background_graphics: true, # BOOLEAN | Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+  scale_factor: 56 # Integer | Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+}
 
 begin
   #Convert HTML document file to PDF Document
-  result = api_instance.convert_document_html_to_pdf(input_file)
+  result = api_instance.convert_document_html_to_pdf(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_html_to_pdf: #{e}"
@@ -1414,6 +1607,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **include_background_graphics** | **BOOLEAN**| Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true. | [optional] 
+ **scale_factor** | **Integer**| Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. | [optional] 
 
 ### Return type
 
@@ -3919,6 +4114,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CsvCollection**](CsvCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_xlsx_to_html**
+> String convert_document_xlsx_to_html(input_file)
+
+Convert Excel XLSX Spreadsheet to HTML Document
+
+Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Convert Excel XLSX Spreadsheet to HTML Document
+  result = api_instance.convert_document_xlsx_to_html(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_xlsx_to_html: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
 
 ### Authorization
 

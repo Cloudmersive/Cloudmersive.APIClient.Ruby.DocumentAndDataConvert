@@ -332,6 +332,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_replace_multi
+  # Replace multiple strings in Word DOCX document
+  # Replace all instances of multiple strings in an Office Word Document (docx)
+  # @param req_config Document string replacement configuration input
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_replace_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_replace_paragraph
   # Replace matching paragraphs in a Word DOCX document
   # Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.

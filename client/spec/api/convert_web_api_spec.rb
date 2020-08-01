@@ -61,7 +61,7 @@ describe 'ConvertWebApi' do
   # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
   # @param input HTML to PNG request parameters
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'convert_web_html_to_png test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

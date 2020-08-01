@@ -13,37 +13,32 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # Request to convert a URL to a PDF file
-  class UrlToPdfRequest
-    # URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
-    attr_accessor :url
+  # Input to a multiple string replacement request
+  class MultiReplaceStringRequest
+    # Optional: Bytes of the input file to operate on
+    attr_accessor :input_file_bytes
 
-    # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 20000 milliseconds (20 seconds).
-    attr_accessor :extra_loading_wait
+    # Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    attr_accessor :input_file_url
 
-    # Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
-    attr_accessor :include_background_graphics
-
-    # Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%
-    attr_accessor :scale_factor
+    # An array of individual string replacement requests
+    attr_accessor :replace_strings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'url' => :'Url',
-        :'extra_loading_wait' => :'ExtraLoadingWait',
-        :'include_background_graphics' => :'IncludeBackgroundGraphics',
-        :'scale_factor' => :'ScaleFactor'
+        :'input_file_bytes' => :'InputFileBytes',
+        :'input_file_url' => :'InputFileUrl',
+        :'replace_strings' => :'ReplaceStrings'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'url' => :'String',
-        :'extra_loading_wait' => :'Integer',
-        :'include_background_graphics' => :'BOOLEAN',
-        :'scale_factor' => :'Integer'
+        :'input_file_bytes' => :'String',
+        :'input_file_url' => :'String',
+        :'replace_strings' => :'Array<SingleReplaceString>'
       }
     end
 
@@ -55,20 +50,18 @@ module CloudmersiveConvertApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'Url')
-        self.url = attributes[:'Url']
+      if attributes.has_key?(:'InputFileBytes')
+        self.input_file_bytes = attributes[:'InputFileBytes']
       end
 
-      if attributes.has_key?(:'ExtraLoadingWait')
-        self.extra_loading_wait = attributes[:'ExtraLoadingWait']
+      if attributes.has_key?(:'InputFileUrl')
+        self.input_file_url = attributes[:'InputFileUrl']
       end
 
-      if attributes.has_key?(:'IncludeBackgroundGraphics')
-        self.include_background_graphics = attributes[:'IncludeBackgroundGraphics']
-      end
-
-      if attributes.has_key?(:'ScaleFactor')
-        self.scale_factor = attributes[:'ScaleFactor']
+      if attributes.has_key?(:'ReplaceStrings')
+        if (value = attributes[:'ReplaceStrings']).is_a?(Array)
+          self.replace_strings = value
+        end
       end
     end
 
@@ -76,13 +69,28 @@ module CloudmersiveConvertApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        invalid_properties.push('invalid value for "input_file_bytes", must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@input_file_bytes.nil? && @input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input_file_bytes Value to be assigned
+    def input_file_bytes=(input_file_bytes)
+      if !input_file_bytes.nil? && input_file_bytes !~ Regexp.new(/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/)
+        fail ArgumentError, 'invalid value for "input_file_bytes", must conform to the pattern /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.'
+      end
+
+      @input_file_bytes = input_file_bytes
     end
 
     # Checks equality by comparing each attribute.
@@ -90,10 +98,9 @@ module CloudmersiveConvertApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          url == o.url &&
-          extra_loading_wait == o.extra_loading_wait &&
-          include_background_graphics == o.include_background_graphics &&
-          scale_factor == o.scale_factor
+          input_file_bytes == o.input_file_bytes &&
+          input_file_url == o.input_file_url &&
+          replace_strings == o.replace_strings
     end
 
     # @see the `==` method
@@ -105,7 +112,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [url, extra_loading_wait, include_background_graphics, scale_factor].hash
+      [input_file_bytes, input_file_url, replace_strings].hash
     end
 
     # Builds the object from hash

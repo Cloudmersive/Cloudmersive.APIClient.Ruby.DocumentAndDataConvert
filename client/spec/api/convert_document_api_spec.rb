@@ -125,6 +125,52 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_csv_multi_to_xlsx
+  # Convert Multiple CSV Files into a Single XLSX Spreadsheet
+  # Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+  # @param input_file1 First input file to perform the operation on.
+  # @param input_file2 Second input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @option opts [String] :worksheet_names Optional; Specify the name of each CSV&#39;s worksheet in order, separated with commas (e.g. \&quot;worksheet1,worksheet2,worksheet3\&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names.
+  # @return [String]
+  describe 'convert_document_csv_multi_to_xlsx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_csv_to_html
+  # Convert CSV to HTML document
+  # Convert Comma-Separated Values (CSV) file to HTML document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_csv_to_html test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_csv_to_pdf
+  # Convert CSV to PDF document
+  # Convert Comma-Separated Values (CSV) file to PDF document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_csv_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_csv_to_xlsx
   # Convert CSV to Excel XLSX Spreadsheet
   # Convert CSV file to Office Excel XLSX Workbooks file format.
@@ -330,6 +376,8 @@ describe 'ConvertDocumentApi' do
   # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :include_background_graphics Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+  # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
   # @return [String]
   describe 'convert_document_html_to_pdf test' do
     it 'should work' do
@@ -894,6 +942,18 @@ describe 'ConvertDocumentApi' do
   # @option opts [String] :output_encoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8.
   # @return [CsvCollection]
   describe 'convert_document_xlsx_to_csv_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_xlsx_to_html
+  # Convert Excel XLSX Spreadsheet to HTML Document
+  # Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_xlsx_to_html test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -131,7 +131,7 @@ module CloudmersiveConvertApiClient
     # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
     # @param input HTML to PNG request parameters
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def convert_web_html_to_png(input, opts = {})
       data, _status_code, _headers = convert_web_html_to_png_with_http_info(input, opts)
       data
@@ -141,7 +141,7 @@ module CloudmersiveConvertApiClient
     # Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
     # @param input HTML to PNG request parameters
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_web_html_to_png_with_http_info(input, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConvertWebApi.convert_web_html_to_png ...'
@@ -175,7 +175,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertWebApi#convert_web_html_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

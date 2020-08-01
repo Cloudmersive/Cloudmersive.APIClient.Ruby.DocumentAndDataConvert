@@ -1370,6 +1370,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Replace multiple strings in Word DOCX document
+    # Replace all instances of multiple strings in an Office Word Document (docx)
+    # @param req_config Document string replacement configuration input
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_document_docx_replace_multi(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_replace_multi_with_http_info(req_config, opts)
+      data
+    end
+
+    # Replace multiple strings in Word DOCX document
+    # Replace all instances of multiple strings in an Office Word Document (docx)
+    # @param req_config Document string replacement configuration input
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_docx_replace_multi_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_replace_multi ...'
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_replace_multi"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/replace-all/multi'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Replace matching paragraphs in a Word DOCX document
     # Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
     # @param req_config Document input request

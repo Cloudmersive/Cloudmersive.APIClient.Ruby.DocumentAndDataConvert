@@ -431,6 +431,205 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Multiple CSV Files into a Single XLSX Spreadsheet
+    # Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @option opts [String] :worksheet_names Optional; Specify the name of each CSV&#39;s worksheet in order, separated with commas (e.g. \&quot;worksheet1,worksheet2,worksheet3\&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names.
+    # @return [String]
+    def convert_document_csv_multi_to_xlsx(input_file1, input_file2, opts = {})
+      data, _status_code, _headers = convert_document_csv_multi_to_xlsx_with_http_info(input_file1, input_file2, opts)
+      data
+    end
+
+    # Convert Multiple CSV Files into a Single XLSX Spreadsheet
+    # Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+    # @param input_file1 First input file to perform the operation on.
+    # @param input_file2 Second input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @option opts [String] :worksheet_names Optional; Specify the name of each CSV&#39;s worksheet in order, separated with commas (e.g. \&quot;worksheet1,worksheet2,worksheet3\&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_csv_multi_to_xlsx_with_http_info(input_file1, input_file2, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_csv_multi_to_xlsx ...'
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling ConvertDocumentApi.convert_document_csv_multi_to_xlsx"
+      end
+      # verify the required parameter 'input_file2' is set
+      if @api_client.config.client_side_validation && input_file2.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file2' when calling ConvertDocumentApi.convert_document_csv_multi_to_xlsx"
+      end
+      # resource path
+      local_var_path = '/convert/csv/multi/to/xlsx'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'worksheetNames'] = opts[:'worksheet_names'] if !opts[:'worksheet_names'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile1'] = input_file1
+      form_params['inputFile2'] = input_file2
+      form_params['inputFile3'] = opts[:'input_file3'] if !opts[:'input_file3'].nil?
+      form_params['inputFile4'] = opts[:'input_file4'] if !opts[:'input_file4'].nil?
+      form_params['inputFile5'] = opts[:'input_file5'] if !opts[:'input_file5'].nil?
+      form_params['inputFile6'] = opts[:'input_file6'] if !opts[:'input_file6'].nil?
+      form_params['inputFile7'] = opts[:'input_file7'] if !opts[:'input_file7'].nil?
+      form_params['inputFile8'] = opts[:'input_file8'] if !opts[:'input_file8'].nil?
+      form_params['inputFile9'] = opts[:'input_file9'] if !opts[:'input_file9'].nil?
+      form_params['inputFile10'] = opts[:'input_file10'] if !opts[:'input_file10'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_csv_multi_to_xlsx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert CSV to HTML document
+    # Convert Comma-Separated Values (CSV) file to HTML document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_csv_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_csv_to_html_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert CSV to HTML document
+    # Convert Comma-Separated Values (CSV) file to HTML document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_csv_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_csv_to_html ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_csv_to_html"
+      end
+      # resource path
+      local_var_path = '/convert/csv/to/html'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_csv_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert CSV to PDF document
+    # Convert Comma-Separated Values (CSV) file to PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_csv_to_pdf(input_file, opts = {})
+      data, _status_code, _headers = convert_document_csv_to_pdf_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert CSV to PDF document
+    # Convert Comma-Separated Values (CSV) file to PDF document.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_csv_to_pdf_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_csv_to_pdf ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_csv_to_pdf"
+      end
+      # resource path
+      local_var_path = '/convert/csv/to/pdf'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_csv_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert CSV to Excel XLSX Spreadsheet
     # Convert CSV file to Office Excel XLSX Workbooks file format.
     # @param input_file Input file to perform the operation on.
@@ -1335,6 +1534,8 @@ module CloudmersiveConvertApiClient
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_background_graphics Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+    # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
     # @return [String]
     def convert_document_html_to_pdf(input_file, opts = {})
       data, _status_code, _headers = convert_document_html_to_pdf_with_http_info(input_file, opts)
@@ -1345,6 +1546,8 @@ module CloudmersiveConvertApiClient
     # Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :include_background_graphics Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+    # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_document_html_to_pdf_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -1366,6 +1569,8 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'includeBackgroundGraphics'] = opts[:'include_background_graphics'] if !opts[:'include_background_graphics'].nil?
+      header_params[:'scaleFactor'] = opts[:'scale_factor'] if !opts[:'scale_factor'].nil?
 
       # form parameters
       form_params = {}
@@ -3928,6 +4133,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'CsvCollection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_csv_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Excel XLSX Spreadsheet to HTML Document
+    # Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_xlsx_to_html(input_file, opts = {})
+      data, _status_code, _headers = convert_document_xlsx_to_html_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Excel XLSX Spreadsheet to HTML Document
+    # Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_xlsx_to_html_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_xlsx_to_html ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_xlsx_to_html"
+      end
+      # resource path
+      local_var_path = '/convert/xlsx/to/html'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

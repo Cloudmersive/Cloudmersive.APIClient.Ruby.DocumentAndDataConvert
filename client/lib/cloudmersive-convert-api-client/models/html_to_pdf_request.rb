@@ -18,14 +18,22 @@ module CloudmersiveConvertApiClient
     # HTML to render to PDF
     attr_accessor :html
 
-    # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
+    # Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites. Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 30000 milliseconds (30 seconds).
     attr_accessor :extra_loading_wait
+
+    # Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+    attr_accessor :include_background_graphics
+
+    # Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+    attr_accessor :scale_factor
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'html' => :'Html',
-        :'extra_loading_wait' => :'ExtraLoadingWait'
+        :'extra_loading_wait' => :'ExtraLoadingWait',
+        :'include_background_graphics' => :'IncludeBackgroundGraphics',
+        :'scale_factor' => :'ScaleFactor'
       }
     end
 
@@ -33,7 +41,9 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'html' => :'String',
-        :'extra_loading_wait' => :'Integer'
+        :'extra_loading_wait' => :'Integer',
+        :'include_background_graphics' => :'BOOLEAN',
+        :'scale_factor' => :'Integer'
       }
     end
 
@@ -51,6 +61,14 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'ExtraLoadingWait')
         self.extra_loading_wait = attributes[:'ExtraLoadingWait']
+      end
+
+      if attributes.has_key?(:'IncludeBackgroundGraphics')
+        self.include_background_graphics = attributes[:'IncludeBackgroundGraphics']
+      end
+
+      if attributes.has_key?(:'ScaleFactor')
+        self.scale_factor = attributes[:'ScaleFactor']
       end
     end
 
@@ -73,7 +91,9 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           html == o.html &&
-          extra_loading_wait == o.extra_loading_wait
+          extra_loading_wait == o.extra_loading_wait &&
+          include_background_graphics == o.include_background_graphics &&
+          scale_factor == o.scale_factor
     end
 
     # @see the `==` method
@@ -85,7 +105,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [html, extra_loading_wait].hash
+      [html, extra_loading_wait, include_background_graphics, scale_factor].hash
     end
 
     # Builds the object from hash
