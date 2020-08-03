@@ -1,6 +1,7 @@
 ﻿Remove-Item –path ./client –recurse
 Remove-Item *.gem
 Remove-Item ./client/*.gem
+new-item -Name ./client -ItemType directory
 & java -jar swagger-codegen-cli-2.4.14.jar generate -i https://api.cloudmersive.com/swagger/api/convert -l ruby -o client -c packageconfig.json
 #(Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
