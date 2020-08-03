@@ -6,7 +6,7 @@ new-item -Name ./client -ItemType directory
 #(Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
 
-(Get-Content ./client/cloudmersive-convert-api-client.gemspec).replace('`find *`.split("\n").uniq.sort.select{|f| !f.empty? }', "Dir['./**/*']") | Set-Content ./client/cloudmersive-convert-api-client.gemspec
+(Get-Content ./client/cloudmersive-convert-api-client.gemspec).replace('`find *`.split("\n").uniq.sort.select { |f| !f.empty? }', "Dir['./**/*']") | Set-Content ./client/cloudmersive-convert-api-client.gemspec
 #& npm build ./client
 
 
