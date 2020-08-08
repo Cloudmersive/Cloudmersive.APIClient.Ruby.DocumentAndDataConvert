@@ -38,8 +38,9 @@ describe 'EditHtmlApi' do
   # @param heading_text The text content to be used in the header.
   # @param [Hash] opts the optional parameters
   # @option opts [File] :input_file Optional: Input file to perform the operation on.
-  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
-  # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1. Accepts values between 1 and 6.
+  # @option opts [String] :css_style Optional: The CSS style for the heading.
   # @return [String]
   describe 'edit_html_html_append_heading test' do
     it 'should work' do
@@ -53,7 +54,7 @@ describe 'EditHtmlApi' do
   # @param image_url The URL for the image.
   # @param [Hash] opts the optional parameters
   # @option opts [File] :input_file Optional: Input file to perform the operation on.
-  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
   # @option opts [String] :css_style Optional: CSS style for the image.
   # @return [String]
   describe 'edit_html_html_append_image_from_url test' do
@@ -67,11 +68,11 @@ describe 'EditHtmlApi' do
   # Appends a base64 inline image to the end of an HTML document from an input file or URL.
   # @param [Hash] opts the optional parameters
   # @option opts [File] :input_file Optional: Input file to perform the operation on.
-  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
   # @option opts [File] :image_file Optional: Image file to be appended as base64 inline image.
   # @option opts [String] :image_url Optional: Image URL to be appended as base64 inline image.
   # @option opts [String] :css_style Optional: CSS style for the image.
-  # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG.
+  # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG.
   # @return [String]
   describe 'edit_html_html_append_image_inline test' do
     it 'should work' do
@@ -85,9 +86,26 @@ describe 'EditHtmlApi' do
   # @param paragraph_text The text content to be used in the paragraph.
   # @param [Hash] opts the optional parameters
   # @option opts [File] :input_file Optional: Input file to perform the operation on.
-  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @option opts [String] :css_style Optional: The CSS style for the paragraph.
   # @return [String]
   describe 'edit_html_html_append_paragraph test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_create_blank_document
+  # Create a Blank HTML Document
+  # Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :title Optional: The title of the HTML document
+  # @option opts [String] :css_url Optional: A CSS style URL to be added to the document.
+  # @option opts [String] :css_inline Optional: An inline CSS style to be added to the document.
+  # @option opts [String] :javascript_url Optional: Javascript URL to be added to the document.
+  # @option opts [String] :javascript_inline Optional: Inline Javascript to be added to the document.
+  # @return [String]
+  describe 'edit_html_html_create_blank_document test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

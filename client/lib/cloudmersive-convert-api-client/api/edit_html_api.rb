@@ -24,8 +24,9 @@ module CloudmersiveConvertApiClient
     # @param heading_text The text content to be used in the header.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
-    # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1. Accepts values between 1 and 6.
+    # @option opts [String] :css_style Optional: The CSS style for the heading.
     # @return [String]
     def edit_html_html_append_heading(heading_text, opts = {})
       data, _status_code, _headers = edit_html_html_append_heading_with_http_info(heading_text, opts)
@@ -37,8 +38,9 @@ module CloudmersiveConvertApiClient
     # @param heading_text The text content to be used in the header.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
-    # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [Integer] :heading_size Optional: The heading size number. Default is 1. Accepts values between 1 and 6.
+    # @option opts [String] :css_style Optional: The CSS style for the heading.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_html_html_append_heading_with_http_info(heading_text, opts = {})
       if @api_client.config.debugging
@@ -61,6 +63,7 @@ module CloudmersiveConvertApiClient
       header_params[:'headingText'] = heading_text
       header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
       header_params[:'headingSize'] = opts[:'heading_size'] if !opts[:'heading_size'].nil?
+      header_params[:'cssStyle'] = opts[:'css_style'] if !opts[:'css_style'].nil?
 
       # form parameters
       form_params = {}
@@ -86,7 +89,7 @@ module CloudmersiveConvertApiClient
     # @param image_url The URL for the image.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
     # @option opts [String] :css_style Optional: CSS style for the image.
     # @return [String]
     def edit_html_html_append_image_from_url(image_url, opts = {})
@@ -99,7 +102,7 @@ module CloudmersiveConvertApiClient
     # @param image_url The URL for the image.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
     # @option opts [String] :css_style Optional: CSS style for the image.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_html_html_append_image_from_url_with_http_info(image_url, opts = {})
@@ -147,11 +150,11 @@ module CloudmersiveConvertApiClient
     # Appends a base64 inline image to the end of an HTML document from an input file or URL.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
     # @option opts [File] :image_file Optional: Image file to be appended as base64 inline image.
     # @option opts [String] :image_url Optional: Image URL to be appended as base64 inline image.
     # @option opts [String] :css_style Optional: CSS style for the image.
-    # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG.
+    # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG.
     # @return [String]
     def edit_html_html_append_image_inline(opts = {})
       data, _status_code, _headers = edit_html_html_append_image_inline_with_http_info(opts)
@@ -162,11 +165,11 @@ module CloudmersiveConvertApiClient
     # Appends a base64 inline image to the end of an HTML document from an input file or URL.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
     # @option opts [File] :image_file Optional: Image file to be appended as base64 inline image.
     # @option opts [String] :image_url Optional: Image URL to be appended as base64 inline image.
     # @option opts [String] :css_style Optional: CSS style for the image.
-    # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG.
+    # @option opts [String] :image_extension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_html_html_append_image_inline_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -182,6 +185,8 @@ module CloudmersiveConvertApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
       header_params[:'imageUrl'] = opts[:'image_url'] if !opts[:'image_url'].nil?
       header_params[:'cssStyle'] = opts[:'css_style'] if !opts[:'css_style'].nil?
@@ -212,7 +217,8 @@ module CloudmersiveConvertApiClient
     # @param paragraph_text The text content to be used in the paragraph.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [String] :css_style Optional: The CSS style for the paragraph.
     # @return [String]
     def edit_html_html_append_paragraph(paragraph_text, opts = {})
       data, _status_code, _headers = edit_html_html_append_paragraph_with_http_info(paragraph_text, opts)
@@ -224,7 +230,8 @@ module CloudmersiveConvertApiClient
     # @param paragraph_text The text content to be used in the paragraph.
     # @param [Hash] opts the optional parameters
     # @option opts [File] :input_file Optional: Input file to perform the operation on.
-    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public).
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [String] :css_style Optional: The CSS style for the paragraph.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_html_html_append_paragraph_with_http_info(paragraph_text, opts = {})
       if @api_client.config.debugging
@@ -246,6 +253,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       header_params[:'paragraphText'] = paragraph_text
       header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+      header_params[:'cssStyle'] = opts[:'css_style'] if !opts[:'css_style'].nil?
 
       # form parameters
       form_params = {}
@@ -263,6 +271,67 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_append_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Create a Blank HTML Document
+    # Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :title Optional: The title of the HTML document
+    # @option opts [String] :css_url Optional: A CSS style URL to be added to the document.
+    # @option opts [String] :css_inline Optional: An inline CSS style to be added to the document.
+    # @option opts [String] :javascript_url Optional: Javascript URL to be added to the document.
+    # @option opts [String] :javascript_inline Optional: Inline Javascript to be added to the document.
+    # @return [String]
+    def edit_html_html_create_blank_document(opts = {})
+      data, _status_code, _headers = edit_html_html_create_blank_document_with_http_info(opts)
+      data
+    end
+
+    # Create a Blank HTML Document
+    # Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :title Optional: The title of the HTML document
+    # @option opts [String] :css_url Optional: A CSS style URL to be added to the document.
+    # @option opts [String] :css_inline Optional: An inline CSS style to be added to the document.
+    # @option opts [String] :javascript_url Optional: Javascript URL to be added to the document.
+    # @option opts [String] :javascript_inline Optional: Inline Javascript to be added to the document.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_html_html_create_blank_document_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_create_blank_document ...'
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/create/blank'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'title'] = opts[:'title'] if !opts[:'title'].nil?
+      header_params[:'cssUrl'] = opts[:'css_url'] if !opts[:'css_url'].nil?
+      header_params[:'cssInline'] = opts[:'css_inline'] if !opts[:'css_inline'].nil?
+      header_params[:'javascriptUrl'] = opts[:'javascript_url'] if !opts[:'javascript_url'].nil?
+      header_params[:'javascriptInline'] = opts[:'javascript_inline'] if !opts[:'javascript_inline'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_create_blank_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

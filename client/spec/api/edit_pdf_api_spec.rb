@@ -188,6 +188,19 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_resize
+  # Change PDF Document&#39;s Paper Size
+  # Resizes a PDF document&#39;s paper size.
+  # @param input_file Input file to perform the operation on.
+  # @param paper_size The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest).
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_resize test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_rotate_all_pages
   # Rotate all pages in a PDF document
   # Rotate all of the pages in a PDF document by a multiple of 90 degrees
