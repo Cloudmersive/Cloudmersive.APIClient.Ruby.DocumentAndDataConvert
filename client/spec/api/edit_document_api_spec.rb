@@ -44,6 +44,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_accept_all_track_changes
+  # Accept all tracked changes, revisions in a Word DOCX document
+  # Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_accept_all_track_changes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_body
   # Get body from a Word DOCX document
   # Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
@@ -99,6 +111,30 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DeleteDocxTableRowRangeResponse]
   describe 'edit_document_docx_delete_table_row_range test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_disable_track_changes
+  # Disable track changes, revisions in a Word DOCX document
+  # Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_disable_track_changes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_enable_track_changes
+  # Enable track changes, revisions in a Word DOCX document
+  # Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_enable_track_changes test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -291,6 +327,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetDocxPagesResponse]
   describe 'edit_document_docx_pages test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_remove_all_comments
+  # Remove all comments from a Word DOCX document
+  # Removes all of the comments from a Word Document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_remove_all_comments test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
