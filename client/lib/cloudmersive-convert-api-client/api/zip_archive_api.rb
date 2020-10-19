@@ -155,6 +155,98 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Compress files to create a new, encrypted and password-protected zip archive
+    # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+    # @param password Password to place on the Zip file; the longer the password, the more secure
+    # @param input_file1 First input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
+    # @option opts [File] :input_file2 Second input file to perform the operation on.
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [String]
+    def zip_archive_zip_create_encrypted(password, input_file1, opts = {})
+      data, _status_code, _headers = zip_archive_zip_create_encrypted_with_http_info(password, input_file1, opts)
+      data
+    end
+
+    # Compress files to create a new, encrypted and password-protected zip archive
+    # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+    # @param password Password to place on the Zip file; the longer the password, the more secure
+    # @param input_file1 First input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
+    # @option opts [File] :input_file2 Second input file to perform the operation on.
+    # @option opts [File] :input_file3 Third input file to perform the operation on.
+    # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+    # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+    # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+    # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+    # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+    # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+    # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def zip_archive_zip_create_encrypted_with_http_info(password, input_file1, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ZipArchiveApi.zip_archive_zip_create_encrypted ...'
+      end
+      # verify the required parameter 'password' is set
+      if @api_client.config.client_side_validation && password.nil?
+        fail ArgumentError, "Missing the required parameter 'password' when calling ZipArchiveApi.zip_archive_zip_create_encrypted"
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling ZipArchiveApi.zip_archive_zip_create_encrypted"
+      end
+      # resource path
+      local_var_path = '/convert/archive/zip/create/encrypted'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'password'] = password
+      header_params[:'encryptionAlgorithm'] = opts[:'encryption_algorithm'] if !opts[:'encryption_algorithm'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile1'] = input_file1
+      form_params['inputFile2'] = opts[:'input_file2'] if !opts[:'input_file2'].nil?
+      form_params['inputFile3'] = opts[:'input_file3'] if !opts[:'input_file3'].nil?
+      form_params['inputFile4'] = opts[:'input_file4'] if !opts[:'input_file4'].nil?
+      form_params['inputFile5'] = opts[:'input_file5'] if !opts[:'input_file5'].nil?
+      form_params['inputFile6'] = opts[:'input_file6'] if !opts[:'input_file6'].nil?
+      form_params['inputFile7'] = opts[:'input_file7'] if !opts[:'input_file7'].nil?
+      form_params['inputFile8'] = opts[:'input_file8'] if !opts[:'input_file8'].nil?
+      form_params['inputFile9'] = opts[:'input_file9'] if !opts[:'input_file9'].nil?
+      form_params['inputFile10'] = opts[:'input_file10'] if !opts[:'input_file10'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_create_encrypted\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Decrypt and remove password protection on a zip file
     # Decrypts and removes password protection from an encrypted zip file with the specified password
     # @param input_file Input file to perform the operation on.

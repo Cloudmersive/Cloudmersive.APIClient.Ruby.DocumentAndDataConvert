@@ -65,6 +65,29 @@ describe 'ZipArchiveApi' do
     end
   end
 
+  # unit tests for zip_archive_zip_create_encrypted
+  # Compress files to create a new, encrypted and password-protected zip archive
+  # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+  # @param password Password to place on the Zip file; the longer the password, the more secure
+  # @param input_file1 First input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
+  # @option opts [File] :input_file2 Second input file to perform the operation on.
+  # @option opts [File] :input_file3 Third input file to perform the operation on.
+  # @option opts [File] :input_file4 Fourth input file to perform the operation on.
+  # @option opts [File] :input_file5 Fifth input file to perform the operation on.
+  # @option opts [File] :input_file6 Sixth input file to perform the operation on.
+  # @option opts [File] :input_file7 Seventh input file to perform the operation on.
+  # @option opts [File] :input_file8 Eighth input file to perform the operation on.
+  # @option opts [File] :input_file9 Ninth input file to perform the operation on.
+  # @option opts [File] :input_file10 Tenth input file to perform the operation on.
+  # @return [String]
+  describe 'zip_archive_zip_create_encrypted test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for zip_archive_zip_decrypt
   # Decrypt and remove password protection on a zip file
   # Decrypts and removes password protection from an encrypted zip file with the specified password
