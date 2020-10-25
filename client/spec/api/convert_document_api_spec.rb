@@ -219,6 +219,18 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_docx_to_doc
+  # Convert Word DOCX Document to Legacy Word DOC (97-03)
+  # Convert/downgrade modern Office Word DOCX Documents (DOCX) to the legacy Word DOC (97-2003 Format) format
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_docx_to_doc test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_docx_to_html
   # Convert Word DOCX Document to HTML Document
   # Convert Office Word Document (DOCX) to HTML Document
@@ -812,6 +824,17 @@ describe 'ConvertDocumentApi' do
     end
   end
 
+  # unit tests for convert_document_pptx_to_ppt
+  # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
+  # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'convert_document_pptx_to_ppt test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_document_pptx_to_txt
   # Convert PowerPoint PPTX Presentation to Text (txt)
   # Convert Office PowerPoint Documents (pptx) to standard Text
@@ -990,6 +1013,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [TextConversionResult]
   describe 'convert_document_xlsx_to_txt test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_xlsx_to_xls
+  # Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
+  # Convert/downgrade modern Office Excel XLSX Spreadsheet to the legacy Excel XLS (97-2003 Format) format
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_document_xlsx_to_xls test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

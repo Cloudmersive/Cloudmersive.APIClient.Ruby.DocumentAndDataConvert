@@ -73,6 +73,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert a PDF file to PDF/A
+    # Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :conformance_level Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b
+    # @return [String]
+    def edit_pdf_convert_to_pdf_a(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_convert_to_pdf_a_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert a PDF file to PDF/A
+    # Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :conformance_level Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_convert_to_pdf_a_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_convert_to_pdf_a ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_convert_to_pdf_a"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/optimize/pdf-a'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'conformanceLevel'] = opts[:'conformance_level'] if !opts[:'conformance_level'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_convert_to_pdf_a\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Decrypt and password-protect a PDF
     # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
     # @param password Valid password for the PDF file
@@ -574,6 +632,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Linearize and optimize a PDF for streaming download
+    # Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_linearize(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_linearize_with_http_info(input_file, opts)
+      data
+    end
+
+    # Linearize and optimize a PDF for streaming download
+    # Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_linearize_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_linearize ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_linearize"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/optimize/linearize'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_linearize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Rasterize a PDF to an image-based PDF
     # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
     # @param input_file Input file to perform the operation on.
@@ -626,6 +739,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Reduce the file size and optimize a PDF
+    # Reduces the file size and optimizes the content of a PDF to minimize its file size.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_pdf_reduce_file_size(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_reduce_file_size_with_http_info(input_file, opts)
+      data
+    end
+
+    # Reduce the file size and optimize a PDF
+    # Reduces the file size and optimizes the content of a PDF to minimize its file size.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_pdf_reduce_file_size_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_reduce_file_size ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_reduce_file_size"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/optimize/reduce-file-size'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_reduce_file_size\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

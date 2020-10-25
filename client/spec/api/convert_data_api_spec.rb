@@ -45,6 +45,19 @@ describe 'ConvertDataApi' do
     end
   end
 
+  # unit tests for convert_data_csv_to_xml
+  # Convert CSV to XML conversion
+  # Convert a CSV file to a XML file
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :column_names_from_first_row Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
+  # @return [String]
+  describe 'convert_data_csv_to_xml test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for convert_data_json_to_xml
   # Convert JSON to XML conversion
   # Convert a JSON object into XML
@@ -74,8 +87,20 @@ describe 'ConvertDataApi' do
   # Convert an Excel XLSX file to a JSON object array
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'convert_data_xlsx_to_json test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_data_xlsx_to_xml
+  # Convert Excel XLSX to XML conversion
+  # Convert an Excel XLSX file to a XML file
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'convert_data_xlsx_to_xml test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -77,6 +77,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert CSV to XML conversion
+    # Convert a CSV file to a XML file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :column_names_from_first_row Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
+    # @return [String]
+    def convert_data_csv_to_xml(input_file, opts = {})
+      data, _status_code, _headers = convert_data_csv_to_xml_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert CSV to XML conversion
+    # Convert a CSV file to a XML file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :column_names_from_first_row Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_data_csv_to_xml_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDataApi.convert_data_csv_to_xml ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_csv_to_xml"
+      end
+      # resource path
+      local_var_path = '/convert/csv/to/xml'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'columnNamesFromFirstRow'] = opts[:'column_names_from_first_row'] if !opts[:'column_names_from_first_row'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_csv_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert JSON to XML conversion
     # Convert a JSON object into XML
     # @param json_object Input JSON to convert to XML
@@ -190,7 +248,7 @@ module CloudmersiveConvertApiClient
     # Convert an Excel XLSX file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def convert_data_xlsx_to_json(input_file, opts = {})
       data, _status_code, _headers = convert_data_xlsx_to_json_with_http_info(input_file, opts)
       data
@@ -200,7 +258,7 @@ module CloudmersiveConvertApiClient
     # Convert an Excel XLSX file to a JSON object array
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_data_xlsx_to_json_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConvertDataApi.convert_data_xlsx_to_json ...'
@@ -218,7 +276,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -235,9 +293,64 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xlsx_to_json\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Excel XLSX to XML conversion
+    # Convert an Excel XLSX file to a XML file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_data_xlsx_to_xml(input_file, opts = {})
+      data, _status_code, _headers = convert_data_xlsx_to_xml_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Excel XLSX to XML conversion
+    # Convert an Excel XLSX file to a XML file
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_data_xlsx_to_xml_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDataApi.convert_data_xlsx_to_xml ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDataApi.convert_data_xlsx_to_xml"
+      end
+      # resource path
+      local_var_path = '/convert/xlsx/to/xml'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_xlsx_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

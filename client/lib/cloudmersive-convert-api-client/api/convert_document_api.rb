@@ -850,6 +850,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert Word DOCX Document to Legacy Word DOC (97-03)
+    # Convert/downgrade modern Office Word DOCX Documents (DOCX) to the legacy Word DOC (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_docx_to_doc(input_file, opts = {})
+      data, _status_code, _headers = convert_document_docx_to_doc_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Word DOCX Document to Legacy Word DOC (97-03)
+    # Convert/downgrade modern Office Word DOCX Documents (DOCX) to the legacy Word DOC (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_docx_to_doc_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_docx_to_doc ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_docx_to_doc"
+      end
+      # resource path
+      local_var_path = '/convert/docx/to/doc'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_docx_to_doc\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Word DOCX Document to HTML Document
     # Convert Office Word Document (DOCX) to HTML Document
     # @param input_file Input file to perform the operation on.
@@ -3522,6 +3577,52 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
+    # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def convert_document_pptx_to_ppt(opts = {})
+      data, _status_code, _headers = convert_document_pptx_to_ppt_with_http_info(opts)
+      data
+    end
+
+    # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
+    # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_pptx_to_ppt_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_pptx_to_ppt ...'
+      end
+      # resource path
+      local_var_path = '/convert/pptx/to/ppt'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pptx_to_ppt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert PowerPoint PPTX Presentation to Text (txt)
     # Convert Office PowerPoint Documents (pptx) to standard Text
     # @param input_file Input file to perform the operation on.
@@ -4353,6 +4454,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'TextConversionResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_txt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
+    # Convert/downgrade modern Office Excel XLSX Spreadsheet to the legacy Excel XLS (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def convert_document_xlsx_to_xls(input_file, opts = {})
+      data, _status_code, _headers = convert_document_xlsx_to_xls_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Excel XLSX Spreadsheet to Legacy Excel XLS (97-03)
+    # Convert/downgrade modern Office Excel XLSX Spreadsheet to the legacy Excel XLS (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_xlsx_to_xls_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_xlsx_to_xls ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_xlsx_to_xls"
+      end
+      # resource path
+      local_var_path = '/convert/xlsx/to/xls'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_xlsx_to_xls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

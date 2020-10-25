@@ -44,6 +44,19 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_convert_to_pdf_a
+  # Convert a PDF file to PDF/A
+  # Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :conformance_level Optional: Select the conformance level for PDF/A - specify &#39;1b&#39; for PDF/A-1b or specify &#39;2b&#39; for PDF/A-2b; default is PDF/A-1b
+  # @return [String]
+  describe 'edit_pdf_convert_to_pdf_a test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_decrypt
   # Decrypt and password-protect a PDF
   # Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
@@ -151,6 +164,18 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_linearize
+  # Linearize and optimize a PDF for streaming download
+  # Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_linearize test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_rasterize
   # Rasterize a PDF to an image-based PDF
   # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -158,6 +183,18 @@ describe 'EditPdfApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_pdf_rasterize test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_reduce_file_size
+  # Reduce the file size and optimize a PDF
+  # Reduces the file size and optimizes the content of a PDF to minimize its file size.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_pdf_reduce_file_size test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
