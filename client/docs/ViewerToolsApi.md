@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **viewer_tools_create_simple**
-> ViewerResponse viewer_tools_create_simple(input_file)
+> ViewerResponse viewer_tools_create_simple(input_file, opts)
 
 Create a web-based viewer
 
@@ -30,10 +30,14 @@ api_instance = CloudmersiveConvertApiClient::ViewerToolsApi.new
 
 input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
+opts = { 
+  width: 56, # Integer | Optional; width of the output viewer in pixels
+  height: 56 # Integer | Optional; height of the output viewer in pixels
+}
 
 begin
   #Create a web-based viewer
-  result = api_instance.viewer_tools_create_simple(input_file)
+  result = api_instance.viewer_tools_create_simple(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ViewerToolsApi->viewer_tools_create_simple: #{e}"
@@ -45,6 +49,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **width** | **Integer**| Optional; width of the output viewer in pixels | [optional] 
+ **height** | **Integer**| Optional; height of the output viewer in pixels | [optional] 
 
 ### Return type
 

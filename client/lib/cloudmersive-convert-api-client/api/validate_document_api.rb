@@ -789,6 +789,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Validate an TXT file
+    # Validate an TXT document file; if the document is not valid, identifies the errors in the document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentValidationResult]
+    def validate_document_txt_validation(input_file, opts = {})
+      data, _status_code, _headers = validate_document_txt_validation_with_http_info(input_file, opts)
+      data
+    end
+
+    # Validate an TXT file
+    # Validate an TXT document file; if the document is not valid, identifies the errors in the document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentValidationResult, Fixnum, Hash)>] DocumentValidationResult data, response status code and response headers
+    def validate_document_txt_validation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ValidateDocumentApi.validate_document_txt_validation ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_txt_validation"
+      end
+      # resource path
+      local_var_path = '/convert/validate/txt'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentValidationResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_txt_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate a Excel document (XLSX)
     # Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
     # @param input_file Input file to perform the operation on.

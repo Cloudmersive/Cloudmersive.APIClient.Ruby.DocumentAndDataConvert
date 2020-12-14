@@ -23,6 +23,8 @@ module CloudmersiveConvertApiClient
     # Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional; width of the output viewer in pixels
+    # @option opts [Integer] :height Optional; height of the output viewer in pixels
     # @return [ViewerResponse]
     def viewer_tools_create_simple(input_file, opts = {})
       data, _status_code, _headers = viewer_tools_create_simple_with_http_info(input_file, opts)
@@ -33,6 +35,8 @@ module CloudmersiveConvertApiClient
     # Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional; width of the output viewer in pixels
+    # @option opts [Integer] :height Optional; height of the output viewer in pixels
     # @return [Array<(ViewerResponse, Fixnum, Hash)>] ViewerResponse data, response status code and response headers
     def viewer_tools_create_simple_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -54,6 +58,8 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
 
       # form parameters
       form_params = {}

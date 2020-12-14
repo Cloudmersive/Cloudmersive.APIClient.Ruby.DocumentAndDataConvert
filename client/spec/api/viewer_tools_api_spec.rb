@@ -37,6 +37,8 @@ describe 'ViewerToolsApi' do
   # Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :width Optional; width of the output viewer in pixels
+  # @option opts [Integer] :height Optional; height of the output viewer in pixels
   # @return [ViewerResponse]
   describe 'viewer_tools_create_simple test' do
     it 'should work' do
