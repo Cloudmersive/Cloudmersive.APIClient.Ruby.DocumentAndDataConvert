@@ -779,6 +779,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Get all metadata properties in Word DOCX document
+    # Returns all the metadata properties in an Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxMetadataPropertiesResponse]
+    def edit_document_docx_get_metadata_properties(input_file, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_metadata_properties_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get all metadata properties in Word DOCX document
+    # Returns all the metadata properties in an Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxMetadataPropertiesResponse, Fixnum, Hash)>] GetDocxMetadataPropertiesResponse data, response status code and response headers
+    def edit_document_docx_get_metadata_properties_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_get_metadata_properties ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_docx_get_metadata_properties"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/get-metadata'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxMetadataPropertiesResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_metadata_properties\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get sections from a Word DOCX document
     # Returns the sections defined in the Word Document (DOCX) format file
     # @param req_config Document input request
@@ -1695,6 +1750,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'ReplaceDocxParagraphResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace_paragraph\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Set custom property metadata properties in Word DOCX document
+    # Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_document_docx_set_custom_metadata_properties(input, opts = {})
+      data, _status_code, _headers = edit_document_docx_set_custom_metadata_properties_with_http_info(input, opts)
+      data
+    end
+
+    # Set custom property metadata properties in Word DOCX document
+    # Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_docx_set_custom_metadata_properties_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_set_custom_metadata_properties ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling EditDocumentApi.edit_document_docx_set_custom_metadata_properties"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/set-metadata/custom-property'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_set_custom_metadata_properties\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

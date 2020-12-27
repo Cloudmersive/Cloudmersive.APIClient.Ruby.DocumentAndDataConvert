@@ -200,6 +200,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_get_metadata_properties
+  # Get all metadata properties in Word DOCX document
+  # Returns all the metadata properties in an Office Word Document (docx)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxMetadataPropertiesResponse]
+  describe 'edit_document_docx_get_metadata_properties test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_sections
   # Get sections from a Word DOCX document
   # Returns the sections defined in the Word Document (DOCX) format file
@@ -399,6 +411,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [ReplaceDocxParagraphResponse]
   describe 'edit_document_docx_replace_paragraph test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_set_custom_metadata_properties
+  # Set custom property metadata properties in Word DOCX document
+  # Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_set_custom_metadata_properties test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
