@@ -128,6 +128,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_jpg_validation
+  # Validate a JPG File
+  # Validate a JPEG image file; if the document is not valid, identifies the errors in the document..
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_jpg_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_json_validation
   # Validate a JSON file
   # Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
@@ -159,6 +171,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_pdf_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_png_validation
+  # Validate a PNG File
+  # Validate a PNG image file; if the document is not valid, identifies the errors in the document.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_png_validation test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
