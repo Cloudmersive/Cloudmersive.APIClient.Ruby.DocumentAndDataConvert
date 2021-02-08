@@ -104,6 +104,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_html_ssrf_validation
+  # Validate an HTML file and checks for SSRF threats
+  # Validate an HTML document file and checks for SSRF (Server-side Request Forgery) threats in the file; if the document is not valid, identifies the errors in the document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [HtmlSsrfThreatCheckResult]
+  describe 'validate_document_html_ssrf_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_html_validation
   # Validate an HTML file
   # Validate an HTML document file; if the document is not valid, identifies the errors in the document

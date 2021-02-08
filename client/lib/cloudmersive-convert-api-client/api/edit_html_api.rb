@@ -335,5 +335,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Extract resolved link URLs from HTML File
+    # Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [String] :base_url Optional: Base URL of the page, such as https://mydomain.com
+    # @return [HtmlGetLinksResponse]
+    def edit_html_html_get_links(opts = {})
+      data, _status_code, _headers = edit_html_html_get_links_with_http_info(opts)
+      data
+    end
+
+    # Extract resolved link URLs from HTML File
+    # Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @option opts [String] :base_url Optional: Base URL of the page, such as https://mydomain.com
+    # @return [Array<(HtmlGetLinksResponse, Fixnum, Hash)>] HtmlGetLinksResponse data, response status code and response headers
+    def edit_html_html_get_links_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_get_links ...'
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/extract/links'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+      header_params[:'baseUrl'] = opts[:'base_url'] if !opts[:'base_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlGetLinksResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_get_links\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

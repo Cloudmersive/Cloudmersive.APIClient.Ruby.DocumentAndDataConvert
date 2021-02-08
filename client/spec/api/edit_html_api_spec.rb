@@ -111,4 +111,18 @@ describe 'EditHtmlApi' do
     end
   end
 
+  # unit tests for edit_html_html_get_links
+  # Extract resolved link URLs from HTML File
+  # Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @option opts [String] :base_url Optional: Base URL of the page, such as https://mydomain.com
+  # @return [HtmlGetLinksResponse]
+  describe 'edit_html_html_get_links test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

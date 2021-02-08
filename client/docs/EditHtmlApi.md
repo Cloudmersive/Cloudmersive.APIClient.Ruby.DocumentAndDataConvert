@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**edit_html_html_append_image_inline**](EditHtmlApi.md#edit_html_html_append_image_inline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 [**edit_html_html_append_paragraph**](EditHtmlApi.md#edit_html_html_append_paragraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
 [**edit_html_html_create_blank_document**](EditHtmlApi.md#edit_html_html_create_blank_document) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
+[**edit_html_html_get_links**](EditHtmlApi.md#edit_html_html_get_links) | **POST** /convert/edit/html/extract/links | Extract resolved link URLs from HTML File
 
 
 # **edit_html_html_append_heading**
@@ -315,6 +316,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **edit_html_html_get_links**
+> HtmlGetLinksResponse edit_html_html_get_links(opts)
+
+Extract resolved link URLs from HTML File
+
+Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::EditHtmlApi.new
+
+opts = { 
+  input_file: File.new('/path/to/file.txt'), # File | Optional: Input file to perform the operation on.
+  input_file_url: 'input_file_url_example', # String | Optional: URL of a file to operate on as input.
+  base_url: 'base_url_example' # String | Optional: Base URL of the page, such as https://mydomain.com
+}
+
+begin
+  #Extract resolved link URLs from HTML File
+  result = api_instance.edit_html_html_get_links(opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling EditHtmlApi->edit_html_html_get_links: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Optional: Input file to perform the operation on. | [optional] 
+ **input_file_url** | **String**| Optional: URL of a file to operate on as input. | [optional] 
+ **base_url** | **String**| Optional: Base URL of the page, such as https://mydomain.com | [optional] 
+
+### Return type
+
+[**HtmlGetLinksResponse**](HtmlGetLinksResponse.md)
 
 ### Authorization
 
