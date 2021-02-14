@@ -779,6 +779,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Get macro information from a Word DOCX/DOCM document
+    # Returns information about the Macros (e.g. VBA) defined in the Word Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetMacrosResponse]
+    def edit_document_docx_get_macro_information(input_file, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_macro_information_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get macro information from a Word DOCX/DOCM document
+    # Returns information about the Macros (e.g. VBA) defined in the Word Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetMacrosResponse, Fixnum, Hash)>] GetMacrosResponse data, response status code and response headers
+    def edit_document_docx_get_macro_information_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_get_macro_information ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_docx_get_macro_information"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/get-macros'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetMacrosResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_macro_information\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get all metadata properties in Word DOCX document
     # Returns all the metadata properties in an Office Word Document (docx)
     # @param input_file Input file to perform the operation on.
@@ -2185,6 +2240,61 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Get macro information from a PowerPoint PPTX/PPTM presentation document
+    # Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetMacrosResponse]
+    def edit_document_pptx_get_macro_information(input_file, opts = {})
+      data, _status_code, _headers = edit_document_pptx_get_macro_information_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get macro information from a PowerPoint PPTX/PPTM presentation document
+    # Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetMacrosResponse, Fixnum, Hash)>] GetMacrosResponse data, response status code and response headers
+    def edit_document_pptx_get_macro_information_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_pptx_get_macro_information ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_pptx_get_macro_information"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pptx/get-macros'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetMacrosResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_get_macro_information\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Replace string in PowerPoint PPTX presentation
     # Replace all instances of a string in an Office PowerPoint Document (pptx)
     # @param req_config Replacement document configuration input
@@ -2884,6 +2994,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'GetXlsxImagesResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+    # Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetMacrosResponse]
+    def edit_document_xlsx_get_macro_information(input_file, opts = {})
+      data, _status_code, _headers = edit_document_xlsx_get_macro_information_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+    # Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetMacrosResponse, Fixnum, Hash)>] GetMacrosResponse data, response status code and response headers
+    def edit_document_xlsx_get_macro_information_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_xlsx_get_macro_information ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_xlsx_get_macro_information"
+      end
+      # resource path
+      local_var_path = '/convert/edit/xlsx/get-macros'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetMacrosResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_xlsx_get_macro_information\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

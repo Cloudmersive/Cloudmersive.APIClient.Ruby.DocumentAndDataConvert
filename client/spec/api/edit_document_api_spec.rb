@@ -200,6 +200,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_get_macro_information
+  # Get macro information from a Word DOCX/DOCM document
+  # Returns information about the Macros (e.g. VBA) defined in the Word Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetMacrosResponse]
+  describe 'edit_document_docx_get_macro_information test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_metadata_properties
   # Get all metadata properties in Word DOCX document
   # Returns all the metadata properties in an Office Word Document (docx)
@@ -512,6 +524,18 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_pptx_get_macro_information
+  # Get macro information from a PowerPoint PPTX/PPTM presentation document
+  # Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetMacrosResponse]
+  describe 'edit_document_pptx_get_macro_information test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_pptx_replace
   # Replace string in PowerPoint PPTX presentation
   # Replace all instances of a string in an Office PowerPoint Document (pptx)
@@ -663,6 +687,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetXlsxImagesResponse]
   describe 'edit_document_xlsx_get_images test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_xlsx_get_macro_information
+  # Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+  # Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetMacrosResponse]
+  describe 'edit_document_xlsx_get_macro_information test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
