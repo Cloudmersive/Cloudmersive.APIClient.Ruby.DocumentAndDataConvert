@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**validate_document_txt_validation**](ValidateDocumentApi.md#validate_document_txt_validation) | **POST** /convert/validate/txt | Validate an TXT file
 [**validate_document_xlsx_validation**](ValidateDocumentApi.md#validate_document_xlsx_validation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 [**validate_document_xml_validation**](ValidateDocumentApi.md#validate_document_xml_validation) | **POST** /convert/validate/xml | Validate an XML file
+[**validate_document_xml_xxe_threat_validation**](ValidateDocumentApi.md#validate_document_xml_xxe_threat_validation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
 [**validate_document_zip_validation**](ValidateDocumentApi.md#validate_document_zip_validation) | **POST** /convert/validate/zip | Validate a Zip Archive file (zip)
 
 
@@ -1095,6 +1096,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_xml_xxe_threat_validation**
+> XxeThreatDetectionResult validate_document_xml_xxe_threat_validation(input_file)
+
+Validate an XML file for XML External Entity (XXE) threats
+
+Validate an XML document file for XML External Entity (XXE) threats; if the document is not valid, identifies the errors in the document.  XXE threats are a type of threat that exploits vulnerabilities in the XML standard relating to external or local entity URIs in XML documents.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Validate an XML file for XML External Entity (XXE) threats
+  result = api_instance.validate_document_xml_xxe_threat_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_xml_xxe_threat_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**XxeThreatDetectionResult**](XxeThreatDetectionResult.md)
 
 ### Authorization
 

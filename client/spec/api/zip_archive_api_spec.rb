@@ -88,6 +88,17 @@ describe 'ZipArchiveApi' do
     end
   end
 
+  # unit tests for zip_archive_zip_create_quarantine
+  # Create an encrypted zip file to quarantine a dangerous file
+  # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'zip_archive_zip_create_quarantine test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for zip_archive_zip_decrypt
   # Decrypt and remove password protection on a zip file
   # Decrypts and removes password protection from an encrypted zip file with the specified password

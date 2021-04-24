@@ -261,6 +261,7 @@ require 'cloudmersive-convert-api-client/models/xml_remove_all_children_with_x_p
 require 'cloudmersive-convert-api-client/models/xml_remove_with_x_path_result'
 require 'cloudmersive-convert-api-client/models/xml_replace_with_x_path_result'
 require 'cloudmersive-convert-api-client/models/xml_set_value_with_x_path_result'
+require 'cloudmersive-convert-api-client/models/xxe_threat_detection_result'
 require 'cloudmersive-convert-api-client/models/zip_directory'
 require 'cloudmersive-convert-api-client/models/zip_encryption_advanced_request'
 require 'cloudmersive-convert-api-client/models/zip_extract_response'

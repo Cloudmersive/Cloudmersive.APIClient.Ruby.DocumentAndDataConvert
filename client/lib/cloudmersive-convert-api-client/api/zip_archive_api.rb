@@ -247,6 +247,52 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Create an encrypted zip file to quarantine a dangerous file
+    # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def zip_archive_zip_create_quarantine(opts = {})
+      data, _status_code, _headers = zip_archive_zip_create_quarantine_with_http_info(opts)
+      data
+    end
+
+    # Create an encrypted zip file to quarantine a dangerous file
+    # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def zip_archive_zip_create_quarantine_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ZipArchiveApi.zip_archive_zip_create_quarantine ...'
+      end
+      # resource path
+      local_var_path = '/convert/archive/zip/create/quarantine'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ZipArchiveApi#zip_archive_zip_create_quarantine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Decrypt and remove password protection on a zip file
     # Decrypts and removes password protection from an encrypted zip file with the specified password
     # @param input_file Input file to perform the operation on.
