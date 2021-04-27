@@ -91,7 +91,10 @@ describe 'ZipArchiveApi' do
   # unit tests for zip_archive_zip_create_quarantine
   # Create an encrypted zip file to quarantine a dangerous file
   # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+  # @param password Password to place on the Zip file; the longer the password, the more secure
+  # @param input_file1 First input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
   # @return [Object]
   describe 'zip_archive_zip_create_quarantine test' do
     it 'should work' do

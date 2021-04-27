@@ -249,20 +249,34 @@ module CloudmersiveConvertApiClient
     end
     # Create an encrypted zip file to quarantine a dangerous file
     # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+    # @param password Password to place on the Zip file; the longer the password, the more secure
+    # @param input_file1 First input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
     # @return [Object]
-    def zip_archive_zip_create_quarantine(opts = {})
-      data, _status_code, _headers = zip_archive_zip_create_quarantine_with_http_info(opts)
+    def zip_archive_zip_create_quarantine(password, input_file1, opts = {})
+      data, _status_code, _headers = zip_archive_zip_create_quarantine_with_http_info(password, input_file1, opts)
       data
     end
 
     # Create an encrypted zip file to quarantine a dangerous file
     # Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+    # @param password Password to place on the Zip file; the longer the password, the more secure
+    # @param input_file1 First input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :encryption_algorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
     # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
-    def zip_archive_zip_create_quarantine_with_http_info(opts = {})
+    def zip_archive_zip_create_quarantine_with_http_info(password, input_file1, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ZipArchiveApi.zip_archive_zip_create_quarantine ...'
+      end
+      # verify the required parameter 'password' is set
+      if @api_client.config.client_side_validation && password.nil?
+        fail ArgumentError, "Missing the required parameter 'password' when calling ZipArchiveApi.zip_archive_zip_create_quarantine"
+      end
+      # verify the required parameter 'input_file1' is set
+      if @api_client.config.client_side_validation && input_file1.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file1' when calling ZipArchiveApi.zip_archive_zip_create_quarantine"
       end
       # resource path
       local_var_path = '/convert/archive/zip/create/quarantine'
@@ -274,9 +288,12 @@ module CloudmersiveConvertApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params[:'password'] = password
+      header_params[:'encryptionAlgorithm'] = opts[:'encryption_algorithm'] if !opts[:'encryption_algorithm'].nil?
 
       # form parameters
       form_params = {}
+      form_params['inputFile1'] = input_file1
 
       # http body (model)
       post_body = nil

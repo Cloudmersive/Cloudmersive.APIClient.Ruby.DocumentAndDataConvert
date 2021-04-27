@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 
 # **zip_archive_zip_create_quarantine**
-> Object zip_archive_zip_create_quarantine
+> Object zip_archive_zip_create_quarantine(password, input_file1, opts)
 
 Create an encrypted zip file to quarantine a dangerous file
 
@@ -241,9 +241,17 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ZipArchiveApi.new
 
+password = 'password_example' # String | Password to place on the Zip file; the longer the password, the more secure
+
+input_file1 = File.new('/path/to/file.txt') # File | First input file to perform the operation on.
+
+opts = { 
+  encryption_algorithm: 'encryption_algorithm_example' # String | Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256.
+}
+
 begin
   #Create an encrypted zip file to quarantine a dangerous file
-  result = api_instance.zip_archive_zip_create_quarantine
+  result = api_instance.zip_archive_zip_create_quarantine(password, input_file1, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ZipArchiveApi->zip_archive_zip_create_quarantine: #{e}"
@@ -251,7 +259,12 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Password to place on the Zip file; the longer the password, the more secure | 
+ **input_file1** | **File**| First input file to perform the operation on. | 
+ **encryption_algorithm** | **String**| Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. | [optional] 
 
 ### Return type
 
