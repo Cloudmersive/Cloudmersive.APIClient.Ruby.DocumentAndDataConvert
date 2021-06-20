@@ -746,6 +746,7 @@ module CloudmersiveConvertApiClient
     # Reduces the file size and optimizes the content of a PDF to minimize its file size.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3
     # @return [String]
     def edit_pdf_reduce_file_size(input_file, opts = {})
       data, _status_code, _headers = edit_pdf_reduce_file_size_with_http_info(input_file, opts)
@@ -756,6 +757,7 @@ module CloudmersiveConvertApiClient
     # Reduces the file size and optimizes the content of a PDF to minimize its file size.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Float] :quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_pdf_reduce_file_size_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -777,6 +779,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'quality'] = opts[:'quality'] if !opts[:'quality'].nil?
 
       # form parameters
       form_params = {}

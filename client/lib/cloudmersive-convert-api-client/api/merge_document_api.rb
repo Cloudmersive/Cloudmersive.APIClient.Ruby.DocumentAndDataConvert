@@ -172,7 +172,7 @@ module CloudmersiveConvertApiClient
     # @param input_file1 First input file to perform the operation on.
     # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def merge_document_html(input_file1, input_file2, opts = {})
       data, _status_code, _headers = merge_document_html_with_http_info(input_file1, input_file2, opts)
       data
@@ -183,7 +183,7 @@ module CloudmersiveConvertApiClient
     # @param input_file1 First input file to perform the operation on.
     # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def merge_document_html_with_http_info(input_file1, input_file2, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_html ...'
@@ -223,7 +223,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_html\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_pdf_reduce_file_size**
-> String edit_pdf_reduce_file_size(input_file)
+> String edit_pdf_reduce_file_size(input_file, opts)
 
 Reduce the file size and optimize a PDF
 
@@ -736,10 +736,13 @@ api_instance = CloudmersiveConvertApiClient::EditPdfApi.new
 
 input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
+opts = { 
+  quality: 8.14 # Float | Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3
+}
 
 begin
   #Reduce the file size and optimize a PDF
-  result = api_instance.edit_pdf_reduce_file_size(input_file)
+  result = api_instance.edit_pdf_reduce_file_size(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling EditPdfApi->edit_pdf_reduce_file_size: #{e}"
@@ -751,6 +754,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **quality** | **Float**| Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 | [optional] 
 
 ### Return type
 

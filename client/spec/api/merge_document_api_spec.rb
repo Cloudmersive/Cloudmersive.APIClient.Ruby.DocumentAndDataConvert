@@ -72,7 +72,7 @@ describe 'MergeDocumentApi' do
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'merge_document_html test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -19,6 +19,65 @@ module CloudmersiveConvertApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Append an HTML tag to the HEAD section of an HTML Document
+    # Appends an HTML tag to the HEAD section of an HTML document.
+    # @param html_tag The HTML tag to append.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [String]
+    def edit_html_html_append_header_tag(html_tag, opts = {})
+      data, _status_code, _headers = edit_html_html_append_header_tag_with_http_info(html_tag, opts)
+      data
+    end
+
+    # Append an HTML tag to the HEAD section of an HTML Document
+    # Appends an HTML tag to the HEAD section of an HTML document.
+    # @param html_tag The HTML tag to append.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_html_html_append_header_tag_with_http_info(html_tag, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_append_header_tag ...'
+      end
+      # verify the required parameter 'html_tag' is set
+      if @api_client.config.client_side_validation && html_tag.nil?
+        fail ArgumentError, "Missing the required parameter 'html_tag' when calling EditHtmlApi.edit_html_html_append_header_tag"
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/append/tag'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'htmlTag'] = html_tag
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_append_header_tag\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Append a Heading to an HTML Document
     # Appends a heading to the end of an HTML document.
     # @param heading_text The text content to be used in the header.
@@ -335,6 +394,58 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Gets the language for the HTML document
+    # Retrieves the language code (e.g. \"en\" or \"de\") of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [HtmlGetLanguageResult]
+    def edit_html_html_get_language(opts = {})
+      data, _status_code, _headers = edit_html_html_get_language_with_http_info(opts)
+      data
+    end
+
+    # Gets the language for the HTML document
+    # Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(HtmlGetLanguageResult, Fixnum, Hash)>] HtmlGetLanguageResult data, response status code and response headers
+    def edit_html_html_get_language_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_get_language ...'
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/get/language'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlGetLanguageResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_get_language\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Extract resolved link URLs from HTML File
     # Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
     # @param [Hash] opts the optional parameters
@@ -387,6 +498,287 @@ module CloudmersiveConvertApiClient
         :return_type => 'HtmlGetLinksResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_get_links\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Gets the rel canonical URL for the HTML document
+    # Gets the rel canonical URL of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [HtmlGetRelCanonicalUrlResult]
+    def edit_html_html_get_rel_canonical(opts = {})
+      data, _status_code, _headers = edit_html_html_get_rel_canonical_with_http_info(opts)
+      data
+    end
+
+    # Gets the rel canonical URL for the HTML document
+    # Gets the rel canonical URL of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(HtmlGetRelCanonicalUrlResult, Fixnum, Hash)>] HtmlGetRelCanonicalUrlResult data, response status code and response headers
+    def edit_html_html_get_rel_canonical_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_get_rel_canonical ...'
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/get/rel-canonical-url'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlGetRelCanonicalUrlResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_get_rel_canonical\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Gets the sitemap URL for the HTML document
+    # Gets the sitemap link URL of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [HtmlGetSitemapUrlResult]
+    def edit_html_html_get_sitemap(opts = {})
+      data, _status_code, _headers = edit_html_html_get_sitemap_with_http_info(opts)
+      data
+    end
+
+    # Gets the sitemap URL for the HTML document
+    # Gets the sitemap link URL of an HTML document.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(HtmlGetSitemapUrlResult, Fixnum, Hash)>] HtmlGetSitemapUrlResult data, response status code and response headers
+    def edit_html_html_get_sitemap_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_get_sitemap ...'
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/get/sitemap-url'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'HtmlGetSitemapUrlResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_get_sitemap\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Sets the language for the HTML document
+    # Sets the language code of an HTML document.
+    # @param language_code The HTML langauge code to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [String]
+    def edit_html_html_set_language(language_code, opts = {})
+      data, _status_code, _headers = edit_html_html_set_language_with_http_info(language_code, opts)
+      data
+    end
+
+    # Sets the language for the HTML document
+    # Sets the language code of an HTML document.
+    # @param language_code The HTML langauge code to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_html_html_set_language_with_http_info(language_code, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_set_language ...'
+      end
+      # verify the required parameter 'language_code' is set
+      if @api_client.config.client_side_validation && language_code.nil?
+        fail ArgumentError, "Missing the required parameter 'language_code' when calling EditHtmlApi.edit_html_html_set_language"
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/set/language'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'languageCode'] = language_code
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_set_language\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Sets the rel canonical URL for the HTML document
+    # Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel=canonical tag will be treated as duplicates of the canonical URL.
+    # @param canonical_url The HTML canonical URL to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [String]
+    def edit_html_html_set_rel_canonical(canonical_url, opts = {})
+      data, _status_code, _headers = edit_html_html_set_rel_canonical_with_http_info(canonical_url, opts)
+      data
+    end
+
+    # Sets the rel canonical URL for the HTML document
+    # Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+    # @param canonical_url The HTML canonical URL to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_html_html_set_rel_canonical_with_http_info(canonical_url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_set_rel_canonical ...'
+      end
+      # verify the required parameter 'canonical_url' is set
+      if @api_client.config.client_side_validation && canonical_url.nil?
+        fail ArgumentError, "Missing the required parameter 'canonical_url' when calling EditHtmlApi.edit_html_html_set_rel_canonical"
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/set/rel-canonical-url'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'canonicalUrl'] = canonical_url
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_set_rel_canonical\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Sets the sitemap URL for the HTML document
+    # Sets the sitemap URL of an HTML document.
+    # @param sitemap_url The HTML sitemap URL to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [String]
+    def edit_html_html_set_sitemap_url(sitemap_url, opts = {})
+      data, _status_code, _headers = edit_html_html_set_sitemap_url_with_http_info(sitemap_url, opts)
+      data
+    end
+
+    # Sets the sitemap URL for the HTML document
+    # Sets the sitemap URL of an HTML document.
+    # @param sitemap_url The HTML sitemap URL to set.
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :input_file Optional: Input file to perform the operation on.
+    # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_html_html_set_sitemap_url_with_http_info(sitemap_url, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditHtmlApi.edit_html_html_set_sitemap_url ...'
+      end
+      # verify the required parameter 'sitemap_url' is set
+      if @api_client.config.client_side_validation && sitemap_url.nil?
+        fail ArgumentError, "Missing the required parameter 'sitemap_url' when calling EditHtmlApi.edit_html_html_set_sitemap_url"
+      end
+      # resource path
+      local_var_path = '/convert/edit/html/head/set/sitemap-url'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      header_params[:'sitemapUrl'] = sitemap_url
+      header_params[:'inputFileUrl'] = opts[:'input_file_url'] if !opts[:'input_file_url'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = opts[:'input_file'] if !opts[:'input_file'].nil?
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditHtmlApi#edit_html_html_set_sitemap_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

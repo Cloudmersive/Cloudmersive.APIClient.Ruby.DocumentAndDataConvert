@@ -32,6 +32,20 @@ describe 'EditHtmlApi' do
     end
   end
 
+  # unit tests for edit_html_html_append_header_tag
+  # Append an HTML tag to the HEAD section of an HTML Document
+  # Appends an HTML tag to the HEAD section of an HTML document.
+  # @param html_tag The HTML tag to append.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [String]
+  describe 'edit_html_html_append_header_tag test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_html_html_append_heading
   # Append a Heading to an HTML Document
   # Appends a heading to the end of an HTML document.
@@ -111,6 +125,19 @@ describe 'EditHtmlApi' do
     end
   end
 
+  # unit tests for edit_html_html_get_language
+  # Gets the language for the HTML document
+  # Retrieves the language code (e.g. \&quot;en\&quot; or \&quot;de\&quot;) of an HTML document.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [HtmlGetLanguageResult]
+  describe 'edit_html_html_get_language test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_html_html_get_links
   # Extract resolved link URLs from HTML File
   # Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
@@ -120,6 +147,74 @@ describe 'EditHtmlApi' do
   # @option opts [String] :base_url Optional: Base URL of the page, such as https://mydomain.com
   # @return [HtmlGetLinksResponse]
   describe 'edit_html_html_get_links test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_get_rel_canonical
+  # Gets the rel canonical URL for the HTML document
+  # Gets the rel canonical URL of an HTML document.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [HtmlGetRelCanonicalUrlResult]
+  describe 'edit_html_html_get_rel_canonical test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_get_sitemap
+  # Gets the sitemap URL for the HTML document
+  # Gets the sitemap link URL of an HTML document.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [HtmlGetSitemapUrlResult]
+  describe 'edit_html_html_get_sitemap test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_set_language
+  # Sets the language for the HTML document
+  # Sets the language code of an HTML document.
+  # @param language_code The HTML langauge code to set.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [String]
+  describe 'edit_html_html_set_language test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_set_rel_canonical
+  # Sets the rel canonical URL for the HTML document
+  # Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+  # @param canonical_url The HTML canonical URL to set.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [String]
+  describe 'edit_html_html_set_rel_canonical test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_html_html_set_sitemap_url
+  # Sets the sitemap URL for the HTML document
+  # Sets the sitemap URL of an HTML document.
+  # @param sitemap_url The HTML sitemap URL to set.
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :input_file Optional: Input file to perform the operation on.
+  # @option opts [String] :input_file_url Optional: URL of a file to operate on as input.
+  # @return [String]
+  describe 'edit_html_html_set_sitemap_url test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 
 # **merge_document_html**
-> Object merge_document_html(input_file1, input_file2)
+> String merge_document_html(input_file1, input_file2)
 
 Merge Two HTML (HTM) Files Together
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 

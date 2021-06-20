@@ -193,6 +193,7 @@ describe 'EditPdfApi' do
   # Reduces the file size and optimizes the content of a PDF to minimize its file size.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [Float] :quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3
   # @return [String]
   describe 'edit_pdf_reduce_file_size test' do
     it 'should work' do
