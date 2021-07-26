@@ -48,6 +48,18 @@ describe 'TransformDocumentApi' do
     end
   end
 
+  # unit tests for transform_document_docx_table_fill_in
+  # Fill in data in a table in a Word DOCX document
+  # Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'transform_document_docx_table_fill_in test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for transform_document_pptx_replace
   # Replace string in PowerPoint PPTX presentation
   # Replace all instances of a string in an Office PowerPoint Document (pptx)
