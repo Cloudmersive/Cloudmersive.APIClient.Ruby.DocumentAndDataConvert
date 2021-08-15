@@ -405,12 +405,24 @@ describe 'EditDocumentApi' do
   end
 
   # unit tests for edit_document_docx_replace_multi
-  # Replace multiple strings in Word DOCX document
+  # Replace multiple strings in Word DOCX document, return result
   # Replace all instances of multiple strings in an Office Word Document (docx)
   # @param req_config Document string replacement configuration input
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_document_docx_replace_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_replace_multi_edit_session
+  # Replace multiple strings in Word DOCX document, return edit session
+  # Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+  # @param req_config Document string replacement configuration input
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentEditingEditSession]
+  describe 'edit_document_docx_replace_multi_edit_session test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

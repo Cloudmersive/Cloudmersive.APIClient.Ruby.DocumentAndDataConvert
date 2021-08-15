@@ -1700,7 +1700,7 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Replace multiple strings in Word DOCX document
+    # Replace multiple strings in Word DOCX document, return result
     # Replace all instances of multiple strings in an Office Word Document (docx)
     # @param req_config Document string replacement configuration input
     # @param [Hash] opts the optional parameters
@@ -1710,7 +1710,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Replace multiple strings in Word DOCX document
+    # Replace multiple strings in Word DOCX document, return result
     # Replace all instances of multiple strings in an Office Word Document (docx)
     # @param req_config Document string replacement configuration input
     # @param [Hash] opts the optional parameters
@@ -1751,6 +1751,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Replace multiple strings in Word DOCX document, return edit session
+    # Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+    # @param req_config Document string replacement configuration input
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentEditingEditSession]
+    def edit_document_docx_replace_multi_edit_session(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_replace_multi_edit_session_with_http_info(req_config, opts)
+      data
+    end
+
+    # Replace multiple strings in Word DOCX document, return edit session
+    # Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+    # @param req_config Document string replacement configuration input
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentEditingEditSession, Fixnum, Hash)>] DocumentEditingEditSession data, response status code and response headers
+    def edit_document_docx_replace_multi_edit_session_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_replace_multi_edit_session ...'
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_replace_multi_edit_session"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/replace-all/multi/edit-session'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'DocumentEditingEditSession')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_replace_multi_edit_session\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
