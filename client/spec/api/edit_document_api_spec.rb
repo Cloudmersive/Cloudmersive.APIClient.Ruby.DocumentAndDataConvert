@@ -176,6 +176,30 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_docx_get_content_controls
+  # Get all content controls (form fields) and values in a Word DOCX document
+  # Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxContentControlsResponse]
+  describe 'edit_document_docx_get_content_controls test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_get_form_fields
+  # Get all form fields in a Word DOCX document
+  # Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as \&quot;{{FieldName}}\&quot;, in a Office Word Document (docx)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [GetDocxGetFormFieldsResponse]
+  describe 'edit_document_docx_get_form_fields test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_docx_get_headers_and_footers
   # Get content of a footer from a Word DOCX document
   # Returns the footer content from a Word Document (DOCX) format file
@@ -471,6 +495,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocxSetFooterResponse]
   describe 'edit_document_docx_set_footer_add_page_number test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_docx_set_form_fields
+  # Set and fill values for form fields in a Word DOCX document
+  # Modifies a Office Word Document (docx) by filling in form fields using the provided values.
+  # @param req_config 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_document_docx_set_form_fields test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

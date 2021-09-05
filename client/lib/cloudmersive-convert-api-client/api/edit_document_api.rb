@@ -671,6 +671,116 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Get all content controls (form fields) and values in a Word DOCX document
+    # Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxContentControlsResponse]
+    def edit_document_docx_get_content_controls(input_file, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_content_controls_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get all content controls (form fields) and values in a Word DOCX document
+    # Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxContentControlsResponse, Fixnum, Hash)>] GetDocxContentControlsResponse data, response status code and response headers
+    def edit_document_docx_get_content_controls_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_get_content_controls ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_docx_get_content_controls"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/get-content-controls'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxContentControlsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_content_controls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get all form fields in a Word DOCX document
+    # Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as \"{{FieldName}}\", in a Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [GetDocxGetFormFieldsResponse]
+    def edit_document_docx_get_form_fields(input_file, opts = {})
+      data, _status_code, _headers = edit_document_docx_get_form_fields_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get all form fields in a Word DOCX document
+    # Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as \&quot;{{FieldName}}\&quot;, in a Office Word Document (docx)
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetDocxGetFormFieldsResponse, Fixnum, Hash)>] GetDocxGetFormFieldsResponse data, response status code and response headers
+    def edit_document_docx_get_form_fields_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_get_form_fields ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_docx_get_form_fields"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/get-form-fields'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'GetDocxGetFormFieldsResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_get_form_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get content of a footer from a Word DOCX document
     # Returns the footer content from a Word Document (DOCX) format file
     # @param req_config Document input request
@@ -2021,6 +2131,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocxSetFooterResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_set_footer_add_page_number\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Set and fill values for form fields in a Word DOCX document
+    # Modifies a Office Word Document (docx) by filling in form fields using the provided values.
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_document_docx_set_form_fields(req_config, opts = {})
+      data, _status_code, _headers = edit_document_docx_set_form_fields_with_http_info(req_config, opts)
+      data
+    end
+
+    # Set and fill values for form fields in a Word DOCX document
+    # Modifies a Office Word Document (docx) by filling in form fields using the provided values.
+    # @param req_config 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_docx_set_form_fields_with_http_info(req_config, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_docx_set_form_fields ...'
+      end
+      # verify the required parameter 'req_config' is set
+      if @api_client.config.client_side_validation && req_config.nil?
+        fail ArgumentError, "Missing the required parameter 'req_config' when calling EditDocumentApi.edit_document_docx_set_form_fields"
+      end
+      # resource path
+      local_var_path = '/convert/edit/docx/set-form-fields'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(req_config)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_docx_set_form_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
