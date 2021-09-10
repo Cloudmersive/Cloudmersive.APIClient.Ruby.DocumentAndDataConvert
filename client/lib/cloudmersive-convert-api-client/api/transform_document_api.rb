@@ -269,7 +269,7 @@ module CloudmersiveConvertApiClient
     # Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
     # @param request 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [String]
     def transform_document_docx_table_fill_in_multi(request, opts = {})
       data, _status_code, _headers = transform_document_docx_table_fill_in_multi_with_http_info(request, opts)
       data
@@ -279,7 +279,7 @@ module CloudmersiveConvertApiClient
     # Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
     # @param request 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def transform_document_docx_table_fill_in_multi_with_http_info(request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TransformDocumentApi.transform_document_docx_table_fill_in_multi ...'
@@ -297,7 +297,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -313,7 +313,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: TransformDocumentApi#transform_document_docx_table_fill_in_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

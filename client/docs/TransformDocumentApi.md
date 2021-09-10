@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 
 # **transform_document_docx_table_fill_in_multi**
-> Object transform_document_docx_table_fill_in_multi(request)
+> String transform_document_docx_table_fill_in_multi(request)
 
 Fill in data in multiple tables in a Word DOCX document, return result
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 
 

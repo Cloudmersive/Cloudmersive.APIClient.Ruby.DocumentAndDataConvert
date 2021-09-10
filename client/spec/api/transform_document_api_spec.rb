@@ -93,7 +93,7 @@ describe 'TransformDocumentApi' do
   # Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
   # @param request 
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'transform_document_docx_table_fill_in_multi test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
