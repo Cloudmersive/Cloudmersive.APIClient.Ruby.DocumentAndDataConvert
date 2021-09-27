@@ -56,6 +56,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_doc_validation
+  # Validate a Word 97-2003 Legacy document (DOC)
+  # Validate a Word 97-2003 Legacy document (DOC)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_doc_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_docx_validation
   # Validate a Word document (DOCX)
   # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -200,6 +212,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_ppt_validation
+  # Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+  # Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_ppt_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_pptx_validation
   # Validate a PowerPoint presentation (PPTX)
   # Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
@@ -224,6 +248,18 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_rtf_validation
+  # Validate a Rich Text Format document (RTF)
+  # Validate a Rich Text Format document (RTF)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_rtf_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_tar_validation
   # Validate a TAR Tarball Archive file (TAR)
   # Validate a TAR tarball archive file (TAR)
@@ -243,6 +279,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_txt_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_xls_validation
+  # Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+  # Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentValidationResult]
+  describe 'validate_document_xls_validation test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

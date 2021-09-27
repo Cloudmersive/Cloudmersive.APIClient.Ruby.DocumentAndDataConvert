@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**validate_document_autodetect_validation**](ValidateDocumentApi.md#validate_document_autodetect_validation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 [**validate_document_csv_validation**](ValidateDocumentApi.md#validate_document_csv_validation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
+[**validate_document_doc_validation**](ValidateDocumentApi.md#validate_document_doc_validation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
 [**validate_document_docx_validation**](ValidateDocumentApi.md#validate_document_docx_validation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 [**validate_document_eml_validation**](ValidateDocumentApi.md#validate_document_eml_validation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 [**validate_document_executable_validation**](ValidateDocumentApi.md#validate_document_executable_validation) | **POST** /convert/validate/executable | Validate if a file is executable
@@ -18,10 +19,13 @@ Method | HTTP request | Description
 [**validate_document_msg_validation**](ValidateDocumentApi.md#validate_document_msg_validation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
 [**validate_document_pdf_validation**](ValidateDocumentApi.md#validate_document_pdf_validation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validate_document_png_validation**](ValidateDocumentApi.md#validate_document_png_validation) | **POST** /convert/validate/png | Validate a PNG File
+[**validate_document_ppt_validation**](ValidateDocumentApi.md#validate_document_ppt_validation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
 [**validate_document_pptx_validation**](ValidateDocumentApi.md#validate_document_pptx_validation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 [**validate_document_rar_validation**](ValidateDocumentApi.md#validate_document_rar_validation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
+[**validate_document_rtf_validation**](ValidateDocumentApi.md#validate_document_rtf_validation) | **POST** /convert/validate/rtf | Validate a Rich Text Format document (RTF)
 [**validate_document_tar_validation**](ValidateDocumentApi.md#validate_document_tar_validation) | **POST** /convert/validate/tar | Validate a TAR Tarball Archive file (TAR)
 [**validate_document_txt_validation**](ValidateDocumentApi.md#validate_document_txt_validation) | **POST** /convert/validate/txt | Validate an TXT file
+[**validate_document_xls_validation**](ValidateDocumentApi.md#validate_document_xls_validation) | **POST** /convert/validate/xls | Validate a Excel 97-2003 Legacy spreadsheet (XLS)
 [**validate_document_xlsx_validation**](ValidateDocumentApi.md#validate_document_xlsx_validation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 [**validate_document_xml_validation**](ValidateDocumentApi.md#validate_document_xml_validation) | **POST** /convert/validate/xml | Validate an XML file
 [**validate_document_xml_xxe_threat_validation**](ValidateDocumentApi.md#validate_document_xml_xxe_threat_validation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
@@ -112,6 +116,60 @@ begin
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ValidateDocumentApi->validate_document_csv_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_doc_validation**
+> DocumentValidationResult validate_document_doc_validation(input_file)
+
+Validate a Word 97-2003 Legacy document (DOC)
+
+Validate a Word 97-2003 Legacy document (DOC)
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Validate a Word 97-2003 Legacy document (DOC)
+  result = api_instance.validate_document_doc_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_doc_validation: #{e}"
 end
 ```
 
@@ -784,6 +842,60 @@ Name | Type | Description  | Notes
 
 
 
+# **validate_document_ppt_validation**
+> DocumentValidationResult validate_document_ppt_validation(input_file)
+
+Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+
+Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+  result = api_instance.validate_document_ppt_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_ppt_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **validate_document_pptx_validation**
 > DocumentValidationResult validate_document_pptx_validation(input_file)
 
@@ -892,6 +1004,60 @@ Name | Type | Description  | Notes
 
 
 
+# **validate_document_rtf_validation**
+> DocumentValidationResult validate_document_rtf_validation(input_file)
+
+Validate a Rich Text Format document (RTF)
+
+Validate a Rich Text Format document (RTF)
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Validate a Rich Text Format document (RTF)
+  result = api_instance.validate_document_rtf_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_rtf_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **validate_document_tar_validation**
 > DocumentValidationResult validate_document_tar_validation(input_file)
 
@@ -976,6 +1142,60 @@ begin
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ValidateDocumentApi->validate_document_txt_validation: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_xls_validation**
+> DocumentValidationResult validate_document_xls_validation(input_file)
+
+Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+
+Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+  result = api_instance.validate_document_xls_validation(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_xls_validation: #{e}"
 end
 ```
 
