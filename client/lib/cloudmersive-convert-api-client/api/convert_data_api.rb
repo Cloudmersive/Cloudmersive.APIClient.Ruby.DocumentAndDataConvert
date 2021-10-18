@@ -135,9 +135,62 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Convert JSON to XML conversion
+    # Convert JSON String to XML conversion
     # Convert a JSON object into XML
-    # @param json_object Input JSON to convert to XML
+    # @param json_string Input JSON String to convert to XML
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def convert_data_json_string_to_xml(json_string, opts = {})
+      data, _status_code, _headers = convert_data_json_string_to_xml_with_http_info(json_string, opts)
+      data
+    end
+
+    # Convert JSON String to XML conversion
+    # Convert a JSON object into XML
+    # @param json_string Input JSON String to convert to XML
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_data_json_string_to_xml_with_http_info(json_string, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDataApi.convert_data_json_string_to_xml ...'
+      end
+      # verify the required parameter 'json_string' is set
+      if @api_client.config.client_side_validation && json_string.nil?
+        fail ArgumentError, "Missing the required parameter 'json_string' when calling ConvertDataApi.convert_data_json_string_to_xml"
+      end
+      # resource path
+      local_var_path = '/convert/json-string/to/xml'
+
+      # query parameters
+      query_params = {}
+      query_params[:'JsonString'] = json_string
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDataApi#convert_data_json_string_to_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert JSON Object to XML conversion
+    # Convert a JSON object into XML
+    # @param json_object Input JSON Object to convert to XML
     # @param [Hash] opts the optional parameters
     # @return [String]
     def convert_data_json_to_xml(json_object, opts = {})
@@ -145,9 +198,9 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Convert JSON to XML conversion
+    # Convert JSON Object to XML conversion
     # Convert a JSON object into XML
-    # @param json_object Input JSON to convert to XML
+    # @param json_object Input JSON Object to convert to XML
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def convert_data_json_to_xml_with_http_info(json_object, opts = {})

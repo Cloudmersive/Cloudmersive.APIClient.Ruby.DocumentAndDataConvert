@@ -6,7 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**convert_data_csv_to_json**](ConvertDataApi.md#convert_data_csv_to_json) | **POST** /convert/csv/to/json | Convert CSV to JSON conversion
 [**convert_data_csv_to_xml**](ConvertDataApi.md#convert_data_csv_to_xml) | **POST** /convert/csv/to/xml | Convert CSV to XML conversion
-[**convert_data_json_to_xml**](ConvertDataApi.md#convert_data_json_to_xml) | **POST** /convert/json/to/xml | Convert JSON to XML conversion
+[**convert_data_json_string_to_xml**](ConvertDataApi.md#convert_data_json_string_to_xml) | **POST** /convert/json-string/to/xml | Convert JSON String to XML conversion
+[**convert_data_json_to_xml**](ConvertDataApi.md#convert_data_json_to_xml) | **POST** /convert/json/to/xml | Convert JSON Object to XML conversion
 [**convert_data_xls_to_json**](ConvertDataApi.md#convert_data_xls_to_json) | **POST** /convert/xls/to/json | Convert Excel (97-2003) XLS to JSON conversion
 [**convert_data_xlsx_to_json**](ConvertDataApi.md#convert_data_xlsx_to_json) | **POST** /convert/xlsx/to/json | Convert Excel XLSX to JSON conversion
 [**convert_data_xlsx_to_xml**](ConvertDataApi.md#convert_data_xlsx_to_xml) | **POST** /convert/xlsx/to/xml | Convert Excel XLSX to XML conversion
@@ -139,10 +140,10 @@ Name | Type | Description  | Notes
 
 
 
-# **convert_data_json_to_xml**
-> String convert_data_json_to_xml(json_object)
+# **convert_data_json_string_to_xml**
+> Object convert_data_json_string_to_xml(json_string)
 
-Convert JSON to XML conversion
+Convert JSON String to XML conversion
 
 Convert a JSON object into XML
 
@@ -160,11 +161,65 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
 
-json_object = nil # Object | Input JSON to convert to XML
+json_string = 'json_string_example' # String | Input JSON String to convert to XML
 
 
 begin
-  #Convert JSON to XML conversion
+  #Convert JSON String to XML conversion
+  result = api_instance.convert_data_json_string_to_xml(json_string)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDataApi->convert_data_json_string_to_xml: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **json_string** | **String**| Input JSON String to convert to XML | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/xml
+
+
+
+# **convert_data_json_to_xml**
+> String convert_data_json_to_xml(json_object)
+
+Convert JSON Object to XML conversion
+
+Convert a JSON object into XML
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDataApi.new
+
+json_object = nil # Object | Input JSON Object to convert to XML
+
+
+begin
+  #Convert JSON Object to XML conversion
   result = api_instance.convert_data_json_to_xml(json_object)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -176,7 +231,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **json_object** | **Object**| Input JSON to convert to XML | 
+ **json_object** | **Object**| Input JSON Object to convert to XML | 
 
 ### Return type
 

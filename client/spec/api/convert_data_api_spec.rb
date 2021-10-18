@@ -58,10 +58,22 @@ describe 'ConvertDataApi' do
     end
   end
 
-  # unit tests for convert_data_json_to_xml
-  # Convert JSON to XML conversion
+  # unit tests for convert_data_json_string_to_xml
+  # Convert JSON String to XML conversion
   # Convert a JSON object into XML
-  # @param json_object Input JSON to convert to XML
+  # @param json_string Input JSON String to convert to XML
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'convert_data_json_string_to_xml test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_data_json_to_xml
+  # Convert JSON Object to XML conversion
+  # Convert a JSON object into XML
+  # @param json_object Input JSON Object to convert to XML
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_data_json_to_xml test' do
