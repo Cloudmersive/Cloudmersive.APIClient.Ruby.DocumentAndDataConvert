@@ -32,6 +32,18 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_batch_job_create
+  # Merge an array of Documents into a Single Document by Page as a Batch Job
+  # Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param input 
+  # @param [Hash] opts the optional parameters
+  # @return [MergeBatchJobCreateResult]
+  describe 'merge_document_batch_job_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_docx
   # Merge Two Word DOCX Together
   # Combine two Office Word Documents (docx) into one single Office Word document
@@ -61,6 +73,30 @@ describe 'MergeDocumentApi' do
   # @option opts [File] :input_file10 Tenth input file to perform the operation on.
   # @return [String]
   describe 'merge_document_docx_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_docx_multi_array
+  # Merge Multple Word DOCX Together from an array
+  # Combine multiple Office Word Documents (docx), stored in an array, into one single Office Word document
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_docx_multi_array test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_get_async_job_status
+  # Get the status and result of a Merge Document Batch Job
+  # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param async_job_id 
+  # @param [Hash] opts the optional parameters
+  # @return [MergeJobStatusResult]
+  describe 'merge_document_get_async_job_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -100,6 +136,18 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_html_multi_array
+  # Merge Multple HTML (HTM) Files Together from an array
+  # Combine multiple HTML (.HTM) files, from an array, into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_html_multi_array test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_pdf
   # Merge Two PDF Files Together
   # Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
@@ -129,6 +177,18 @@ describe 'MergeDocumentApi' do
   # @option opts [File] :input_file10 Tenth input file to perform the operation on.
   # @return [String]
   describe 'merge_document_pdf_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_pdf_multi_array
+  # Merge Multple PDF Files Together from an array
+  # Combine multiple PDF files (pdf), as an array, into a single PDF document, preserving the order of the input documents in the combined document
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_pdf_multi_array test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -168,6 +228,18 @@ describe 'MergeDocumentApi' do
     end
   end
 
+  # unit tests for merge_document_png_multi_array
+  # Merge Multple PNG Files Together from an array
+  # Combine multiple PNG files, from an array, into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_png_multi_array test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for merge_document_pptx
   # Merge Two PowerPoint PPTX Together
   # Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
@@ -197,6 +269,18 @@ describe 'MergeDocumentApi' do
   # @option opts [File] :input_file10 Tenth input file to perform the operation on.
   # @return [String]
   describe 'merge_document_pptx_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_pptx_multi_array
+  # Merge Multple PowerPoint PPTX Together from an array
+  # Combine multiple Office PowerPoint presentations (pptx), from an array, into one single Office PowerPoint presentation
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_pptx_multi_array test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -265,6 +349,18 @@ describe 'MergeDocumentApi' do
   # @option opts [File] :input_file10 Tenth input file to perform the operation on.
   # @return [String]
   describe 'merge_document_xlsx_multi test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for merge_document_xlsx_multi_array
+  # Merge Multple Excel XLSX Together from an Array
+  # Combine multiple Office Excel spreadsheets (xlsx), as an array, into a single Office Excel spreadsheet
+  # @param input Array of input files
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'merge_document_xlsx_multi_array test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

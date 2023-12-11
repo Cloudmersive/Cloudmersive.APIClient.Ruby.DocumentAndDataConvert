@@ -59,11 +59,23 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_autodetect_to_pdf
   # Convert Document to PDF
-  # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+  # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_autodetect_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_autodetect_to_pdf_batch_job
+  # Convert Document to PDF as Batch Job
+  # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [ConvertDocumentBatchJobCreateResult]
+  describe 'convert_document_autodetect_to_pdf_batch_job test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -352,6 +364,18 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [EmlToPngResult]
   describe 'convert_document_eml_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_get_async_job_status
+  # Get the status and result of a Convert Document Batch Job
+  # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param async_job_id 
+  # @param [Hash] opts the optional parameters
+  # @return [ConvertDocumentJobStatusResult]
+  describe 'convert_document_get_async_job_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -708,11 +732,25 @@ describe 'ConvertDocumentApi' do
 
   # unit tests for convert_document_pdf_to_png_array
   # Convert PDF to PNG Image Array
-  # Convert PDF document to PNG array, one image per page.
+  # Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
   # @return [PdfToPngResult]
   describe 'convert_document_pdf_to_png_array test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_pdf_to_png_array_direct
+  # Convert PDF to PNG Image Array (Direct)
+  # Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+  # @return [PdfToPngDirectResult]
+  describe 'convert_document_pdf_to_png_array_direct test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -737,6 +775,20 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'convert_document_pdf_to_pptx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_pdf_to_tiff
+  # Convert PDF to TIFF image
+  # Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+  # @option opts [BOOLEAN] :lzw_compression Optional; Enables LZW compression to reduce the size of the output image.
+  # @return [String]
+  describe 'convert_document_pdf_to_tiff test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -771,6 +823,17 @@ describe 'ConvertDocumentApi' do
   # @option opts [File] :input_file10 Tenth input file to perform the operation on.
   # @return [String]
   describe 'convert_document_png_array_to_pdf test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_png_array_to_pdf_flatten_transparency
+  # Convert PNG Array to PDF and remove transparency
+  # Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+  # @param [Hash] opts the optional parameters
+  # @return [Object]
+  describe 'convert_document_png_array_to_pdf_flatten_transparency test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -827,8 +890,9 @@ describe 'ConvertDocumentApi' do
   # unit tests for convert_document_pptx_to_ppt
   # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
   # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+  # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'convert_document_pptx_to_ppt test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -903,6 +967,19 @@ describe 'ConvertDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [RtfToPngResult]
   describe 'convert_document_rtf_to_png test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for convert_document_txt_to_pdf
+  # Convert TXT text file to PDF Document
+  # Convert simple text files to PDF.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+  # @return [String]
+  describe 'convert_document_txt_to_pdf test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

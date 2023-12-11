@@ -68,6 +68,19 @@ describe 'ValidateDocumentApi' do
     end
   end
 
+  # unit tests for validate_document_docx_repair
+  # Repair a Word document (DOCX) that contains errors
+  # Repair a Word document (DOCX) that contains errors or corruption, if possible.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :repair_mode Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced.
+  # @return [String]
+  describe 'validate_document_docx_repair test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for validate_document_docx_validation
   # Validate a Word document (DOCX)
   # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
@@ -81,7 +94,7 @@ describe 'ValidateDocumentApi' do
   end
 
   # unit tests for validate_document_eml_validation
-  # Validate if an EML file is executable
+  # Validate if input file is a valid EML file
   # Validate if an input file is an EML email file; if the document is not valid
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -177,7 +190,7 @@ describe 'ValidateDocumentApi' do
   end
 
   # unit tests for validate_document_msg_validation
-  # Validate if an MSG file is executable
+  # Validate if input file is a valid MSG file
   # Validate if an input file is an MSG email file; if the document is not valid
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
@@ -219,6 +232,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_ppt_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_pptx_repair
+  # Repair a PowerPoint presentation (PPTX) that contains errors
+  # Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'validate_document_pptx_repair test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -291,6 +316,18 @@ describe 'ValidateDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidationResult]
   describe 'validate_document_xls_validation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for validate_document_xlsx_repair
+  # Repair an Excel spreadsheet (XLSX) that contains errors
+  # Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'validate_document_xlsx_repair test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

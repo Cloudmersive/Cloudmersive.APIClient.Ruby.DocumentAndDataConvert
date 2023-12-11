@@ -133,7 +133,7 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
     # Convert Document to PDF
-    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [String]
@@ -143,7 +143,7 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert Document to PDF
-    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
@@ -184,6 +184,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert Document to PDF as Batch Job
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [ConvertDocumentBatchJobCreateResult]
+    def convert_document_autodetect_to_pdf_batch_job(input_file, opts = {})
+      data, _status_code, _headers = convert_document_autodetect_to_pdf_batch_job_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert Document to PDF as Batch Job
+    # Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ConvertDocumentBatchJobCreateResult, Fixnum, Hash)>] ConvertDocumentBatchJobCreateResult data, response status code and response headers
+    def convert_document_autodetect_to_pdf_batch_job_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_autodetect_to_pdf_batch_job ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_autodetect_to_pdf_batch_job"
+      end
+      # resource path
+      local_var_path = '/convert/autodetect/to/pdf/batch-job'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConvertDocumentBatchJobCreateResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_autodetect_to_pdf_batch_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1470,6 +1525,59 @@ module CloudmersiveConvertApiClient
         :return_type => 'EmlToPngResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_eml_to_png\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get the status and result of a Convert Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [ConvertDocumentJobStatusResult]
+    def convert_document_get_async_job_status(async_job_id, opts = {})
+      data, _status_code, _headers = convert_document_get_async_job_status_with_http_info(async_job_id, opts)
+      data
+    end
+
+    # Get the status and result of a Convert Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ConvertDocumentJobStatusResult, Fixnum, Hash)>] ConvertDocumentJobStatusResult data, response status code and response headers
+    def convert_document_get_async_job_status_with_http_info(async_job_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_get_async_job_status ...'
+      end
+      # verify the required parameter 'async_job_id' is set
+      if @api_client.config.client_side_validation && async_job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'async_job_id' when calling ConvertDocumentApi.convert_document_get_async_job_status"
+      end
+      # resource path
+      local_var_path = '/convert/batch-job/status'
+
+      # query parameters
+      query_params = {}
+      query_params[:'AsyncJobID'] = async_job_id
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ConvertDocumentJobStatusResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_get_async_job_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3049,9 +3157,10 @@ module CloudmersiveConvertApiClient
       return data, status_code, headers
     end
     # Convert PDF to PNG Image Array
-    # Convert PDF document to PNG array, one image per page.
+    # Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
     # @return [PdfToPngResult]
     def convert_document_pdf_to_png_array(input_file, opts = {})
       data, _status_code, _headers = convert_document_pdf_to_png_array_with_http_info(input_file, opts)
@@ -3059,9 +3168,10 @@ module CloudmersiveConvertApiClient
     end
 
     # Convert PDF to PNG Image Array
-    # Convert PDF document to PNG array, one image per page.
+    # Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
     # @return [Array<(PdfToPngResult, Fixnum, Hash)>] PdfToPngResult data, response status code and response headers
     def convert_document_pdf_to_png_array_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -3083,6 +3193,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'dpi'] = opts[:'dpi'] if !opts[:'dpi'].nil?
 
       # form parameters
       form_params = {}
@@ -3100,6 +3211,64 @@ module CloudmersiveConvertApiClient
         :return_type => 'PdfToPngResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_png_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert PDF to PNG Image Array (Direct)
+    # Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+    # @return [PdfToPngDirectResult]
+    def convert_document_pdf_to_png_array_direct(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pdf_to_png_array_direct_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert PDF to PNG Image Array (Direct)
+    # Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+    # @return [Array<(PdfToPngDirectResult, Fixnum, Hash)>] PdfToPngDirectResult data, response status code and response headers
+    def convert_document_pdf_to_png_array_direct_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_pdf_to_png_array_direct ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pdf_to_png_array_direct"
+      end
+      # resource path
+      local_var_path = '/convert/pdf/to/png/direct'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'dpi'] = opts[:'dpi'] if !opts[:'dpi'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PdfToPngDirectResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_png_array_direct\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3210,6 +3379,67 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_pptx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert PDF to TIFF image
+    # Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+    # @option opts [BOOLEAN] :lzw_compression Optional; Enables LZW compression to reduce the size of the output image.
+    # @return [String]
+    def convert_document_pdf_to_tiff(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pdf_to_tiff_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert PDF to TIFF image
+    # Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+    # @option opts [BOOLEAN] :lzw_compression Optional; Enables LZW compression to reduce the size of the output image.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_pdf_to_tiff_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_pdf_to_tiff ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pdf_to_tiff"
+      end
+      # resource path
+      local_var_path = '/convert/pdf/to/tiff'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'dpi'] = opts[:'dpi'] if !opts[:'dpi'].nil?
+      header_params[:'lzwCompression'] = opts[:'lzw_compression'] if !opts[:'lzw_compression'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pdf_to_tiff\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3354,6 +3584,52 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_png_array_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Convert PNG Array to PDF and remove transparency
+    # Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def convert_document_png_array_to_pdf_flatten_transparency(opts = {})
+      data, _status_code, _headers = convert_document_png_array_to_pdf_flatten_transparency_with_http_info(opts)
+      data
+    end
+
+    # Convert PNG Array to PDF and remove transparency
+    # Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def convert_document_png_array_to_pdf_flatten_transparency_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_png_array_to_pdf_flatten_transparency ...'
+      end
+      # resource path
+      local_var_path = '/convert/png/to/pdf/remove-transparency'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_png_array_to_pdf_flatten_transparency\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3579,20 +3855,26 @@ module CloudmersiveConvertApiClient
     end
     # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
     # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
-    def convert_document_pptx_to_ppt(opts = {})
-      data, _status_code, _headers = convert_document_pptx_to_ppt_with_http_info(opts)
+    # @return [String]
+    def convert_document_pptx_to_ppt(input_file, opts = {})
+      data, _status_code, _headers = convert_document_pptx_to_ppt_with_http_info(input_file, opts)
       data
     end
 
     # Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
     # Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
+    # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
-    def convert_document_pptx_to_ppt_with_http_info(opts = {})
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_pptx_to_ppt_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_pptx_to_ppt ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_pptx_to_ppt"
       end
       # resource path
       local_var_path = '/convert/pptx/to/ppt'
@@ -3604,9 +3886,12 @@ module CloudmersiveConvertApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
+      form_params['inputFile'] = input_file
 
       # http body (model)
       post_body = nil
@@ -3617,7 +3902,7 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_pptx_to_ppt\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -3956,6 +4241,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Convert TXT text file to PDF Document
+    # Convert simple text files to PDF.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+    # @return [String]
+    def convert_document_txt_to_pdf(input_file, opts = {})
+      data, _status_code, _headers = convert_document_txt_to_pdf_with_http_info(input_file, opts)
+      data
+    end
+
+    # Convert TXT text file to PDF Document
+    # Convert simple text files to PDF.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :scale_factor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def convert_document_txt_to_pdf_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ConvertDocumentApi.convert_document_txt_to_pdf ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ConvertDocumentApi.convert_document_txt_to_pdf"
+      end
+      # resource path
+      local_var_path = '/convert/txt/to/pdf'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'scaleFactor'] = opts[:'scale_factor'] if !opts[:'scale_factor'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ConvertDocumentApi#convert_document_txt_to_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Convert Excel XLS (97-03) Spreadsheet to CSV
     # Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
     # @param input_file Input file to perform the operation on.
@@ -4155,7 +4498,7 @@ module CloudmersiveConvertApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'outputEncoding'] = opts[:'output_encoding'] if !opts[:'output_encoding'].nil?

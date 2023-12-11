@@ -49,6 +49,7 @@ describe 'EditDocumentApi' do
   # Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
   # @return [String]
   describe 'edit_document_docx_accept_all_track_changes test' do
     it 'should work' do
@@ -572,6 +573,21 @@ describe 'EditDocumentApi' do
     end
   end
 
+  # unit tests for edit_document_pptx_edit_size_and_orientation
+  # Set the size and/or orientation of a PowerPoint PPTX presentation document
+  # Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :orientation Optional: The desired slide orientation; can be landscape or portrait.
+  # @option opts [Integer] :width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu.
+  # @option opts [Integer] :height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu
+  # @return [String]
+  describe 'edit_document_pptx_edit_size_and_orientation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_document_pptx_get_macro_information
   # Get macro information from a PowerPoint PPTX/PPTM presentation document
   # Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
@@ -579,6 +595,18 @@ describe 'EditDocumentApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetMacrosResponse]
   describe 'edit_document_pptx_get_macro_information test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_document_pptx_get_size_and_orientation
+  # Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
+  # Gets size and orientation of an input PowerPoint PPTX presentation
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [PptxPageLayoutInformation]
+  describe 'edit_document_pptx_get_size_and_orientation test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

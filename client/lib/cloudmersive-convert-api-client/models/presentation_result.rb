@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveConvertApiClient
-  # A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
+  # A single PowerPoint PPTX file corresponding to one slide in the original presentation
   class PresentationResult
     # Worksheet number of the converted page, starting with 1 for the left-most worksheet
     attr_accessor :slide_number

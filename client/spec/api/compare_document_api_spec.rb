@@ -38,6 +38,7 @@ describe 'CompareDocumentApi' do
   # @param input_file1 First input file to perform the operation on.
   # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
   # @return [String]
   describe 'compare_document_docx test' do
     it 'should work' do

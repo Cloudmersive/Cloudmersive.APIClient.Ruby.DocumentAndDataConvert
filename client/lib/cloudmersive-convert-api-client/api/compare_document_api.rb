@@ -24,6 +24,7 @@ module CloudmersiveConvertApiClient
     # @param input_file1 First input file to perform the operation on.
     # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
     # @return [String]
     def compare_document_docx(input_file1, input_file2, opts = {})
       data, _status_code, _headers = compare_document_docx_with_http_info(input_file1, input_file2, opts)
@@ -35,6 +36,7 @@ module CloudmersiveConvertApiClient
     # @param input_file1 First input file to perform the operation on.
     # @param input_file2 Second input file to perform the operation on (more than 2 can be supplied).
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def compare_document_docx_with_http_info(input_file1, input_file2, opts = {})
       if @api_client.config.debugging
@@ -60,6 +62,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'autorepair'] = opts[:'autorepair'] if !opts[:'autorepair'].nil?
 
       # form parameters
       form_params = {}

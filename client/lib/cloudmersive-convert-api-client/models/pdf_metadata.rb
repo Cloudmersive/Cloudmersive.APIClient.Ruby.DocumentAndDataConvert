@@ -18,6 +18,9 @@ module CloudmersiveConvertApiClient
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
+    # Details of any errors if the operation was unsucessful
+    attr_accessor :error_details
+
     # Title of the document
     attr_accessor :title
 
@@ -42,10 +45,14 @@ module CloudmersiveConvertApiClient
     # The number of pages in the document
     attr_accessor :page_count
 
+    # True if the PDF document is encrypted, false otherwise
+    attr_accessor :encrypted
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
+        :'error_details' => :'ErrorDetails',
         :'title' => :'Title',
         :'keywords' => :'Keywords',
         :'subject' => :'Subject',
@@ -53,7 +60,8 @@ module CloudmersiveConvertApiClient
         :'creator' => :'Creator',
         :'date_modified' => :'DateModified',
         :'date_created' => :'DateCreated',
-        :'page_count' => :'PageCount'
+        :'page_count' => :'PageCount',
+        :'encrypted' => :'Encrypted'
       }
     end
 
@@ -61,6 +69,7 @@ module CloudmersiveConvertApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
+        :'error_details' => :'String',
         :'title' => :'String',
         :'keywords' => :'String',
         :'subject' => :'String',
@@ -68,7 +77,8 @@ module CloudmersiveConvertApiClient
         :'creator' => :'String',
         :'date_modified' => :'DateTime',
         :'date_created' => :'DateTime',
-        :'page_count' => :'Integer'
+        :'page_count' => :'Integer',
+        :'encrypted' => :'BOOLEAN'
       }
     end
 
@@ -82,6 +92,10 @@ module CloudmersiveConvertApiClient
 
       if attributes.has_key?(:'Successful')
         self.successful = attributes[:'Successful']
+      end
+
+      if attributes.has_key?(:'ErrorDetails')
+        self.error_details = attributes[:'ErrorDetails']
       end
 
       if attributes.has_key?(:'Title')
@@ -115,6 +129,10 @@ module CloudmersiveConvertApiClient
       if attributes.has_key?(:'PageCount')
         self.page_count = attributes[:'PageCount']
       end
+
+      if attributes.has_key?(:'Encrypted')
+        self.encrypted = attributes[:'Encrypted']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -136,6 +154,7 @@ module CloudmersiveConvertApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
+          error_details == o.error_details &&
           title == o.title &&
           keywords == o.keywords &&
           subject == o.subject &&
@@ -143,7 +162,8 @@ module CloudmersiveConvertApiClient
           creator == o.creator &&
           date_modified == o.date_modified &&
           date_created == o.date_created &&
-          page_count == o.page_count
+          page_count == o.page_count &&
+          encrypted == o.encrypted
     end
 
     # @see the `==` method
@@ -155,7 +175,7 @@ module CloudmersiveConvertApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, title, keywords, subject, author, creator, date_modified, date_created, page_count].hash
+      [successful, error_details, title, keywords, subject, author, creator, date_modified, date_created, page_count, encrypted].hash
     end
 
     # Builds the object from hash

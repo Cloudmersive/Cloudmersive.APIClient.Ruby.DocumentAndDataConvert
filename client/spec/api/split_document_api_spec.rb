@@ -32,6 +32,19 @@ describe 'SplitDocumentApi' do
     end
   end
 
+  # unit tests for split_document_batch_job_create
+  # Split a single Document into Separate Documents by Page as a Batch Job
+  # Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
+  # @return [SplitBatchJobCreateResult]
+  describe 'split_document_batch_job_create test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for split_document_docx
   # Split a single Word Document DOCX into Separate Documents by Page
   # Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
@@ -40,6 +53,18 @@ describe 'SplitDocumentApi' do
   # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true.
   # @return [SplitDocxDocumentResult]
   describe 'split_document_docx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for split_document_get_async_job_status
+  # Get the status and result of a Split Document Batch Job
+  # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param async_job_id 
+  # @param [Hash] opts the optional parameters
+  # @return [JobStatusResult]
+  describe 'split_document_get_async_job_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -66,6 +91,18 @@ describe 'SplitDocumentApi' do
   # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
   # @return [SplitPptxPresentationResult]
   describe 'split_document_pptx test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for split_document_pptx_advanced
+  # Split a single PowerPoint Presentation PPTX into Separate Presentations
+  # Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [PptxSplitAdvancedResponse]
+  describe 'split_document_pptx_advanced test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

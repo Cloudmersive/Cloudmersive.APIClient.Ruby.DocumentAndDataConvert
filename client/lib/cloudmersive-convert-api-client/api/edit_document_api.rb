@@ -78,6 +78,7 @@ module CloudmersiveConvertApiClient
     # Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
     # @return [String]
     def edit_document_docx_accept_all_track_changes(input_file, opts = {})
       data, _status_code, _headers = edit_document_docx_accept_all_track_changes_with_http_info(input_file, opts)
@@ -88,6 +89,7 @@ module CloudmersiveConvertApiClient
     # Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :autorepair Optional; automatically repair input documents that have errors (default is true)
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_document_docx_accept_all_track_changes_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -109,6 +111,7 @@ module CloudmersiveConvertApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'autorepair'] = opts[:'autorepair'] if !opts[:'autorepair'].nil?
 
       # form parameters
       form_params = {}
@@ -2458,6 +2461,70 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Set the size and/or orientation of a PowerPoint PPTX presentation document
+    # Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :orientation Optional: The desired slide orientation; can be landscape or portrait.
+    # @option opts [Integer] :width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu.
+    # @option opts [Integer] :height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu
+    # @return [String]
+    def edit_document_pptx_edit_size_and_orientation(input_file, opts = {})
+      data, _status_code, _headers = edit_document_pptx_edit_size_and_orientation_with_http_info(input_file, opts)
+      data
+    end
+
+    # Set the size and/or orientation of a PowerPoint PPTX presentation document
+    # Edits the input PowerPoint PPTX presentation document to be a different orientation and/or size
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :orientation Optional: The desired slide orientation; can be landscape or portrait.
+    # @option opts [Integer] :width Optional: The desired slide width in Emu, where 1 inch equals 914400 emu.
+    # @option opts [Integer] :height Optional: The desired slide height in Emu, where 1 inch equals 914400 emu
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_document_pptx_edit_size_and_orientation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_pptx_edit_size_and_orientation ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_pptx_edit_size_and_orientation"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pptx/set-size-and-orientation'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'orientation'] = opts[:'orientation'] if !opts[:'orientation'].nil?
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_edit_size_and_orientation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Get macro information from a PowerPoint PPTX/PPTM presentation document
     # Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
     # @param input_file Input file to perform the operation on.
@@ -2510,6 +2577,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'GetMacrosResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_get_macro_information\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
+    # Gets size and orientation of an input PowerPoint PPTX presentation
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [PptxPageLayoutInformation]
+    def edit_document_pptx_get_size_and_orientation(input_file, opts = {})
+      data, _status_code, _headers = edit_document_pptx_get_size_and_orientation_with_http_info(input_file, opts)
+      data
+    end
+
+    # Get the page layout information, including size and orientation of a PowerPoint PPTX presentation document
+    # Gets size and orientation of an input PowerPoint PPTX presentation
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PptxPageLayoutInformation, Fixnum, Hash)>] PptxPageLayoutInformation data, response status code and response headers
+    def edit_document_pptx_get_size_and_orientation_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditDocumentApi.edit_document_pptx_get_size_and_orientation ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditDocumentApi.edit_document_pptx_get_size_and_orientation"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pptx/get-size-and-orientation'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PptxPageLayoutInformation')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditDocumentApi#edit_document_pptx_get_size_and_orientation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

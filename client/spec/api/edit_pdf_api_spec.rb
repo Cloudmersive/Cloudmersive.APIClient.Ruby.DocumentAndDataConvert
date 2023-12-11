@@ -84,6 +84,20 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_delete_pages_batch_job
+  # Remove, delete pages from a PDF document as Batch Job
+  # Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+  # @param input_file Input file to perform the operation on.
+  # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+  # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+  # @param [Hash] opts the optional parameters
+  # @return [EditPdfBatchJobCreateResult]
+  describe 'edit_pdf_delete_pages_batch_job test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_encrypt
   # Encrypt and password-protect a PDF
   # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -106,6 +120,18 @@ describe 'EditPdfApi' do
   # @param [Hash] opts the optional parameters
   # @return [GetPdfAnnotationsResult]
   describe 'edit_pdf_get_annotations test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_get_async_job_status
+  # Get the status and result of a PDF Batch Job
+  # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+  # @param async_job_id 
+  # @param [Hash] opts the optional parameters
+  # @return [EditPdfJobStatusResult]
+  describe 'edit_pdf_get_async_job_status test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -164,6 +190,22 @@ describe 'EditPdfApi' do
     end
   end
 
+  # unit tests for edit_pdf_insert_pages_batch_job
+  # Insert, copy pages from one PDF document into another as a batch job
+  # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+  # @param source_file Source PDF file to copy pages from.
+  # @param destination_file Destination PDF file to copy pages into.
+  # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+  # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+  # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+  # @param [Hash] opts the optional parameters
+  # @return [EditPdfBatchJobCreateResult]
+  describe 'edit_pdf_insert_pages_batch_job test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_pdf_linearize
   # Linearize and optimize a PDF for streaming download
   # Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
@@ -181,8 +223,21 @@ describe 'EditPdfApi' do
   # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
   # @param input_file Input file to perform the operation on.
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
   # @return [String]
   describe 'edit_pdf_rasterize test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_pdf_rasterize_batch_job
+  # Rasterize a PDF to an image-based PDF as Batch Job
+  # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+  # @param input_file Input file to perform the operation on.
+  # @param [Hash] opts the optional parameters
+  # @return [EditPdfBatchJobCreateResult]
+  describe 'edit_pdf_rasterize_batch_job test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

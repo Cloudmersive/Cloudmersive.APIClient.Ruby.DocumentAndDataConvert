@@ -184,6 +184,64 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Repair a Word document (DOCX) that contains errors
+    # Repair a Word document (DOCX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repair_mode Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced.
+    # @return [String]
+    def validate_document_docx_repair(input_file, opts = {})
+      data, _status_code, _headers = validate_document_docx_repair_with_http_info(input_file, opts)
+      data
+    end
+
+    # Repair a Word document (DOCX) that contains errors
+    # Repair a Word document (DOCX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repair_mode Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def validate_document_docx_repair_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ValidateDocumentApi.validate_document_docx_repair ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_docx_repair"
+      end
+      # resource path
+      local_var_path = '/convert/validate/docx/repair'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'repairMode'] = opts[:'repair_mode'] if !opts[:'repair_mode'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_docx_repair\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Validate a Word document (DOCX)
     # Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
     # @param input_file Input file to perform the operation on.
@@ -239,7 +297,7 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Validate if an EML file is executable
+    # Validate if input file is a valid EML file
     # Validate if an input file is an EML email file; if the document is not valid
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -249,7 +307,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Validate if an EML file is executable
+    # Validate if input file is a valid EML file
     # Validate if an input file is an EML email file; if the document is not valid
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -679,7 +737,7 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
-    # Validate if an MSG file is executable
+    # Validate if input file is a valid MSG file
     # Validate if an input file is an MSG email file; if the document is not valid
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -689,7 +747,7 @@ module CloudmersiveConvertApiClient
       data
     end
 
-    # Validate if an MSG file is executable
+    # Validate if input file is a valid MSG file
     # Validate if an input file is an MSG email file; if the document is not valid
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
@@ -896,6 +954,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocumentValidationResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_ppt_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Repair a PowerPoint presentation (PPTX) that contains errors
+    # Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def validate_document_pptx_repair(input_file, opts = {})
+      data, _status_code, _headers = validate_document_pptx_repair_with_http_info(input_file, opts)
+      data
+    end
+
+    # Repair a PowerPoint presentation (PPTX) that contains errors
+    # Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def validate_document_pptx_repair_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ValidateDocumentApi.validate_document_pptx_repair ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_pptx_repair"
+      end
+      # resource path
+      local_var_path = '/convert/validate/pptx/repair'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_pptx_repair\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1226,6 +1339,61 @@ module CloudmersiveConvertApiClient
         :return_type => 'DocumentValidationResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_xls_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Repair an Excel spreadsheet (XLSX) that contains errors
+    # Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def validate_document_xlsx_repair(input_file, opts = {})
+      data, _status_code, _headers = validate_document_xlsx_repair_with_http_info(input_file, opts)
+      data
+    end
+
+    # Repair an Excel spreadsheet (XLSX) that contains errors
+    # Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def validate_document_xlsx_repair_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ValidateDocumentApi.validate_document_xlsx_repair ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling ValidateDocumentApi.validate_document_xlsx_repair"
+      end
+      # resource path
+      local_var_path = '/convert/validate/xlsx/repair'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ValidateDocumentApi#validate_document_xlsx_repair\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

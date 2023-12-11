@@ -19,6 +19,64 @@ module CloudmersiveConvertApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Split a single Document into Separate Documents by Page as a Batch Job
+    # Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
+    # @return [SplitBatchJobCreateResult]
+    def split_document_batch_job_create(input_file, opts = {})
+      data, _status_code, _headers = split_document_batch_job_create_with_http_info(input_file, opts)
+      data
+    end
+
+    # Split a single Document into Separate Documents by Page as a Batch Job
+    # Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :return_document_contents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true.
+    # @return [Array<(SplitBatchJobCreateResult, Fixnum, Hash)>] SplitBatchJobCreateResult data, response status code and response headers
+    def split_document_batch_job_create_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SplitDocumentApi.split_document_batch_job_create ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling SplitDocumentApi.split_document_batch_job_create"
+      end
+      # resource path
+      local_var_path = '/convert/split/batch-job/create'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'returnDocumentContents'] = opts[:'return_document_contents'] if !opts[:'return_document_contents'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'SplitBatchJobCreateResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_batch_job_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Split a single Word Document DOCX into Separate Documents by Page
     # Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
     # @param input_file Input file to perform the operation on.
@@ -74,6 +132,59 @@ module CloudmersiveConvertApiClient
         :return_type => 'SplitDocxDocumentResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_docx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get the status and result of a Split Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [JobStatusResult]
+    def split_document_get_async_job_status(async_job_id, opts = {})
+      data, _status_code, _headers = split_document_get_async_job_status_with_http_info(async_job_id, opts)
+      data
+    end
+
+    # Get the status and result of a Split Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(JobStatusResult, Fixnum, Hash)>] JobStatusResult data, response status code and response headers
+    def split_document_get_async_job_status_with_http_info(async_job_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SplitDocumentApi.split_document_get_async_job_status ...'
+      end
+      # verify the required parameter 'async_job_id' is set
+      if @api_client.config.client_side_validation && async_job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'async_job_id' when calling SplitDocumentApi.split_document_get_async_job_status"
+      end
+      # resource path
+      local_var_path = '/convert/split/batch-job/status'
+
+      # query parameters
+      query_params = {}
+      query_params[:'AsyncJobID'] = async_job_id
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'JobStatusResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_get_async_job_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -190,6 +301,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'SplitPptxPresentationResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_pptx\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Split a single PowerPoint Presentation PPTX into Separate Presentations
+    # Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [PptxSplitAdvancedResponse]
+    def split_document_pptx_advanced(request, opts = {})
+      data, _status_code, _headers = split_document_pptx_advanced_with_http_info(request, opts)
+      data
+    end
+
+    # Split a single PowerPoint Presentation PPTX into Separate Presentations
+    # Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PptxSplitAdvancedResponse, Fixnum, Hash)>] PptxSplitAdvancedResponse data, response status code and response headers
+    def split_document_pptx_advanced_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SplitDocumentApi.split_document_pptx_advanced ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling SplitDocumentApi.split_document_pptx_advanced"
+      end
+      # resource path
+      local_var_path = '/convert/split/pptx/advanced'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'PptxSplitAdvancedResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SplitDocumentApi#split_document_pptx_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

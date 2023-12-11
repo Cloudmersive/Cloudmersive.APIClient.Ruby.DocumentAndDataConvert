@@ -19,6 +19,60 @@ module CloudmersiveConvertApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Merge an array of Documents into a Single Document by Page as a Batch Job
+    # Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [MergeBatchJobCreateResult]
+    def merge_document_batch_job_create(input, opts = {})
+      data, _status_code, _headers = merge_document_batch_job_create_with_http_info(input, opts)
+      data
+    end
+
+    # Merge an array of Documents into a Single Document by Page as a Batch Job
+    # Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param input 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MergeBatchJobCreateResult, Fixnum, Hash)>] MergeBatchJobCreateResult data, response status code and response headers
+    def merge_document_batch_job_create_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_batch_job_create ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_batch_job_create"
+      end
+      # resource path
+      local_var_path = '/convert/merge/batch-job/create'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MergeBatchJobCreateResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_batch_job_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Merge Two Word DOCX Together
     # Combine two Office Word Documents (docx) into one single Office Word document
     # @param input_file1 First input file to perform the operation on.
@@ -164,6 +218,113 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_docx_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Merge Multple Word DOCX Together from an array
+    # Combine multiple Office Word Documents (docx), stored in an array, into one single Office Word document
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_docx_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_docx_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple Word DOCX Together from an array
+    # Combine multiple Office Word Documents (docx), stored in an array, into one single Office Word document
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_docx_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_docx_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_docx_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/docx/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_docx_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get the status and result of a Merge Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [MergeJobStatusResult]
+    def merge_document_get_async_job_status(async_job_id, opts = {})
+      data, _status_code, _headers = merge_document_get_async_job_status_with_http_info(async_job_id, opts)
+      data
+    end
+
+    # Get the status and result of a Merge Document Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MergeJobStatusResult, Fixnum, Hash)>] MergeJobStatusResult data, response status code and response headers
+    def merge_document_get_async_job_status_with_http_info(async_job_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_get_async_job_status ...'
+      end
+      # verify the required parameter 'async_job_id' is set
+      if @api_client.config.client_side_validation && async_job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'async_job_id' when calling MergeDocumentApi.merge_document_get_async_job_status"
+      end
+      # resource path
+      local_var_path = '/convert/merge/batch-job/status'
+
+      # query parameters
+      query_params = {}
+      query_params[:'AsyncJobID'] = async_job_id
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'MergeJobStatusResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_get_async_job_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,6 +476,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Merge Multple HTML (HTM) Files Together from an array
+    # Combine multiple HTML (.HTM) files, from an array, into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_html_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_html_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple HTML (HTM) Files Together from an array
+    # Combine multiple HTML (.HTM) files, from an array, into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_html_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_html_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_html_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/html/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_html_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Merge Two PDF Files Together
     # Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
     # @param input_file1 First input file to perform the operation on.
@@ -460,6 +675,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_pdf_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Merge Multple PDF Files Together from an array
+    # Combine multiple PDF files (pdf), as an array, into a single PDF document, preserving the order of the input documents in the combined document
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_pdf_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_pdf_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple PDF Files Together from an array
+    # Combine multiple PDF files (pdf), as an array, into a single PDF document, preserving the order of the input documents in the combined document
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_pdf_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_pdf_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_pdf_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/pdf/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_pdf_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -611,6 +880,60 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Merge Multple PNG Files Together from an array
+    # Combine multiple PNG files, from an array, into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_png_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_png_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple PNG Files Together from an array
+    # Combine multiple PNG files, from an array, into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_png_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_png_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_png_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/png/vertical/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_png_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Merge Two PowerPoint PPTX Together
     # Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
     # @param input_file1 First input file to perform the operation on.
@@ -756,6 +1079,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_pptx_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Merge Multple PowerPoint PPTX Together from an array
+    # Combine multiple Office PowerPoint presentations (pptx), from an array, into one single Office PowerPoint presentation
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_pptx_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_pptx_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple PowerPoint PPTX Together from an array
+    # Combine multiple Office PowerPoint presentations (pptx), from an array, into one single Office PowerPoint presentation
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_pptx_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_pptx_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_pptx_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/pptx/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_pptx_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1052,6 +1429,60 @@ module CloudmersiveConvertApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_xlsx_multi\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Merge Multple Excel XLSX Together from an Array
+    # Combine multiple Office Excel spreadsheets (xlsx), as an array, into a single Office Excel spreadsheet
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def merge_document_xlsx_multi_array(input, opts = {})
+      data, _status_code, _headers = merge_document_xlsx_multi_array_with_http_info(input, opts)
+      data
+    end
+
+    # Merge Multple Excel XLSX Together from an Array
+    # Combine multiple Office Excel spreadsheets (xlsx), as an array, into a single Office Excel spreadsheet
+    # @param input Array of input files
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def merge_document_xlsx_multi_array_with_http_info(input, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MergeDocumentApi.merge_document_xlsx_multi_array ...'
+      end
+      # verify the required parameter 'input' is set
+      if @api_client.config.client_side_validation && input.nil?
+        fail ArgumentError, "Missing the required parameter 'input' when calling MergeDocumentApi.merge_document_xlsx_multi_array"
+      end
+      # resource path
+      local_var_path = '/convert/merge/xlsx/multi/array'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(input)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MergeDocumentApi#merge_document_xlsx_multi_array\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

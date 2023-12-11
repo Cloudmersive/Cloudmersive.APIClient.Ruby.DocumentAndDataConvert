@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**convert_document_autodetect_get_info**](ConvertDocumentApi.md#convert_document_autodetect_get_info) | **POST** /convert/autodetect/get-info | Get document type information
 [**convert_document_autodetect_to_jpg**](ConvertDocumentApi.md#convert_document_autodetect_to_jpg) | **POST** /convert/autodetect/to/jpg | Convert Document to JPG/JPEG image array
 [**convert_document_autodetect_to_pdf**](ConvertDocumentApi.md#convert_document_autodetect_to_pdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
+[**convert_document_autodetect_to_pdf_batch_job**](ConvertDocumentApi.md#convert_document_autodetect_to_pdf_batch_job) | **POST** /convert/autodetect/to/pdf/batch-job | Convert Document to PDF as Batch Job
 [**convert_document_autodetect_to_png_array**](ConvertDocumentApi.md#convert_document_autodetect_to_png_array) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
 [**convert_document_autodetect_to_thumbnail**](ConvertDocumentApi.md#convert_document_autodetect_to_thumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
 [**convert_document_autodetect_to_thumbnails_advanced**](ConvertDocumentApi.md#convert_document_autodetect_to_thumbnails_advanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**convert_document_eml_to_jpg**](ConvertDocumentApi.md#convert_document_eml_to_jpg) | **POST** /convert/eml/to/jpg | Convert Email EML file to JPG/JPEG image array
 [**convert_document_eml_to_pdf**](ConvertDocumentApi.md#convert_document_eml_to_pdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
 [**convert_document_eml_to_png**](ConvertDocumentApi.md#convert_document_eml_to_png) | **POST** /convert/eml/to/png | Convert Email EML file to PNG image array
+[**convert_document_get_async_job_status**](ConvertDocumentApi.md#convert_document_get_async_job_status) | **GET** /convert/batch-job/status | Get the status and result of a Convert Document Batch Job
 [**convert_document_get_file_type_icon**](ConvertDocumentApi.md#convert_document_get_file_type_icon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
 [**convert_document_get_file_type_icon_advanced**](ConvertDocumentApi.md#convert_document_get_file_type_icon_advanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 [**convert_document_html_to_pdf**](ConvertDocumentApi.md#convert_document_html_to_pdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
@@ -58,10 +60,13 @@ Method | HTTP request | Description
 [**convert_document_pdf_to_docx_rasterize**](ConvertDocumentApi.md#convert_document_pdf_to_docx_rasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 [**convert_document_pdf_to_jpg**](ConvertDocumentApi.md#convert_document_pdf_to_jpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 [**convert_document_pdf_to_png_array**](ConvertDocumentApi.md#convert_document_pdf_to_png_array) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
+[**convert_document_pdf_to_png_array_direct**](ConvertDocumentApi.md#convert_document_pdf_to_png_array_direct) | **POST** /convert/pdf/to/png/direct | Convert PDF to PNG Image Array (Direct)
 [**convert_document_pdf_to_png_single**](ConvertDocumentApi.md#convert_document_pdf_to_png_single) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 [**convert_document_pdf_to_pptx**](ConvertDocumentApi.md#convert_document_pdf_to_pptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
+[**convert_document_pdf_to_tiff**](ConvertDocumentApi.md#convert_document_pdf_to_tiff) | **POST** /convert/pdf/to/tiff | Convert PDF to TIFF image
 [**convert_document_pdf_to_txt**](ConvertDocumentApi.md#convert_document_pdf_to_txt) | **POST** /convert/pdf/to/txt | Convert PDF Document to Text (txt)
 [**convert_document_png_array_to_pdf**](ConvertDocumentApi.md#convert_document_png_array_to_pdf) | **POST** /convert/png/to/pdf | Convert PNG Array to PDF
+[**convert_document_png_array_to_pdf_flatten_transparency**](ConvertDocumentApi.md#convert_document_png_array_to_pdf_flatten_transparency) | **POST** /convert/png/to/pdf/remove-transparency | Convert PNG Array to PDF and remove transparency
 [**convert_document_ppt_to_pdf**](ConvertDocumentApi.md#convert_document_ppt_to_pdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
 [**convert_document_ppt_to_pptx**](ConvertDocumentApi.md#convert_document_ppt_to_pptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 [**convert_document_pptx_to_pdf**](ConvertDocumentApi.md#convert_document_pptx_to_pdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
@@ -73,6 +78,7 @@ Method | HTTP request | Description
 [**convert_document_rtf_to_jpg**](ConvertDocumentApi.md#convert_document_rtf_to_jpg) | **POST** /convert/rtf/to/jpg | Convert Rich Text Format RTF to JPG/JPEG image array
 [**convert_document_rtf_to_pdf**](ConvertDocumentApi.md#convert_document_rtf_to_pdf) | **POST** /convert/rtf/to/pdf | Convert Rich Text Format RTF to PDF
 [**convert_document_rtf_to_png**](ConvertDocumentApi.md#convert_document_rtf_to_png) | **POST** /convert/rtf/to/png | Convert Rich Text Format RTF to PNG image array
+[**convert_document_txt_to_pdf**](ConvertDocumentApi.md#convert_document_txt_to_pdf) | **POST** /convert/txt/to/pdf | Convert TXT text file to PDF Document
 [**convert_document_xls_to_csv**](ConvertDocumentApi.md#convert_document_xls_to_csv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 [**convert_document_xls_to_pdf**](ConvertDocumentApi.md#convert_document_xls_to_pdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 [**convert_document_xls_to_xlsx**](ConvertDocumentApi.md#convert_document_xls_to_xlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 Convert Document to PDF
 
-Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
 
 ### Example
 ```ruby
@@ -239,6 +245,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_autodetect_to_pdf_batch_job**
+> ConvertDocumentBatchJobCreateResult convert_document_autodetect_to_pdf_batch_job(input_file)
+
+Convert Document to PDF as Batch Job
+
+Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Convert Document to PDF as Batch Job
+  result = api_instance.convert_document_autodetect_to_pdf_batch_job(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_autodetect_to_pdf_batch_job: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+[**ConvertDocumentBatchJobCreateResult**](ConvertDocumentBatchJobCreateResult.md)
 
 ### Authorization
 
@@ -1502,6 +1562,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **convert_document_get_async_job_status**
+> ConvertDocumentJobStatusResult convert_document_get_async_job_status(async_job_id)
+
+Get the status and result of a Convert Document Batch Job
+
+Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+async_job_id = 'async_job_id_example' # String | 
+
+
+begin
+  #Get the status and result of a Convert Document Batch Job
+  result = api_instance.convert_document_get_async_job_status(async_job_id)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_get_async_job_status: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **async_job_id** | **String**|  | 
+
+### Return type
+
+[**ConvertDocumentJobStatusResult**](ConvertDocumentJobStatusResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
@@ -3067,11 +3181,11 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_pdf_to_png_array**
-> PdfToPngResult convert_document_pdf_to_png_array(input_file)
+> PdfToPngResult convert_document_pdf_to_png_array(input_file, opts)
 
 Convert PDF to PNG Image Array
 
-Convert PDF document to PNG array, one image per page.
+Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
 
 ### Example
 ```ruby
@@ -3089,10 +3203,13 @@ api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
 input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
 
+opts = { 
+  dpi: 56 # Integer | Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+}
 
 begin
   #Convert PDF to PNG Image Array
-  result = api_instance.convert_document_pdf_to_png_array(input_file)
+  result = api_instance.convert_document_pdf_to_png_array(input_file, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_png_array: #{e}"
@@ -3104,10 +3221,69 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **File**| Input file to perform the operation on. | 
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional] 
 
 ### Return type
 
 [**PdfToPngResult**](PdfToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **convert_document_pdf_to_png_array_direct**
+> PdfToPngDirectResult convert_document_pdf_to_png_array_direct(input_file, opts)
+
+Convert PDF to PNG Image Array (Direct)
+
+Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+opts = { 
+  dpi: 56 # Integer | Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+}
+
+begin
+  #Convert PDF to PNG Image Array (Direct)
+  result = api_instance.convert_document_pdf_to_png_array_direct(input_file, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_png_array_direct: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional] 
+
+### Return type
+
+[**PdfToPngDirectResult**](PdfToPngDirectResult.md)
 
 ### Authorization
 
@@ -3225,6 +3401,66 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
+
+
+
+# **convert_document_pdf_to_tiff**
+> String convert_document_pdf_to_tiff(input_file, opts)
+
+Convert PDF to TIFF image
+
+Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+opts = { 
+  dpi: 56, # Integer | Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
+  lzw_compression: true # BOOLEAN | Optional; Enables LZW compression to reduce the size of the output image.
+}
+
+begin
+  #Convert PDF to TIFF image
+  result = api_instance.convert_document_pdf_to_tiff(input_file, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_pdf_to_tiff: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional] 
+ **lzw_compression** | **BOOLEAN**| Optional; Enables LZW compression to reduce the size of the output image. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 
 
@@ -3357,6 +3593,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **convert_document_png_array_to_pdf_flatten_transparency**
+> Object convert_document_png_array_to_pdf_flatten_transparency
+
+Convert PNG Array to PDF and remove transparency
+
+Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+begin
+  #Convert PNG Array to PDF and remove transparency
+  result = api_instance.convert_document_png_array_to_pdf_flatten_transparency
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_png_array_to_pdf_flatten_transparency: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
 
@@ -3578,7 +3862,7 @@ Name | Type | Description  | Notes
 
 
 # **convert_document_pptx_to_ppt**
-> Object convert_document_pptx_to_ppt
+> String convert_document_pptx_to_ppt(input_file)
 
 Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
 
@@ -3598,9 +3882,12 @@ end
 
 api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
 
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
 begin
   #Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
-  result = api_instance.convert_document_pptx_to_ppt
+  result = api_instance.convert_document_pptx_to_ppt(input_file)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling ConvertDocumentApi->convert_document_pptx_to_ppt: #{e}"
@@ -3608,11 +3895,14 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -3620,7 +3910,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 
@@ -3953,6 +4243,64 @@ Name | Type | Description  | Notes
 
 
 
+# **convert_document_txt_to_pdf**
+> String convert_document_txt_to_pdf(input_file, opts)
+
+Convert TXT text file to PDF Document
+
+Convert simple text files to PDF.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ConvertDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+opts = { 
+  scale_factor: 56 # Integer | Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+}
+
+begin
+  #Convert TXT text file to PDF Document
+  result = api_instance.convert_document_txt_to_pdf(input_file, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ConvertDocumentApi->convert_document_txt_to_pdf: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **scale_factor** | **Integer**| Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
 # **convert_document_xls_to_csv**
 > String convert_document_xls_to_csv(input_file)
 
@@ -4169,7 +4517,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, text/json, application/xml, text/xml
 
 
 

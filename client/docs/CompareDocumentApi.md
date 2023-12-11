@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **compare_document_docx**
-> String compare_document_docx(input_file1, input_file2)
+> String compare_document_docx(input_file1, input_file2, opts)
 
 Compare Two Word DOCX
 
@@ -32,10 +32,13 @@ input_file1 = File.new('/path/to/file.txt') # File | First input file to perform
 
 input_file2 = File.new('/path/to/file.txt') # File | Second input file to perform the operation on (more than 2 can be supplied).
 
+opts = { 
+  autorepair: true # BOOLEAN | Optional; automatically repair input documents that have errors (default is true)
+}
 
 begin
   #Compare Two Word DOCX
-  result = api_instance.compare_document_docx(input_file1, input_file2)
+  result = api_instance.compare_document_docx(input_file1, input_file2, opts)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
   puts "Exception when calling CompareDocumentApi->compare_document_docx: #{e}"
@@ -48,6 +51,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file1** | **File**| First input file to perform the operation on. | 
  **input_file2** | **File**| Second input file to perform the operation on (more than 2 can be supplied). | 
+ **autorepair** | **BOOLEAN**| Optional; automatically repair input documents that have errors (default is true) | [optional] 
 
 ### Return type
 

@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**validate_document_autodetect_validation**](ValidateDocumentApi.md#validate_document_autodetect_validation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 [**validate_document_csv_validation**](ValidateDocumentApi.md#validate_document_csv_validation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validate_document_doc_validation**](ValidateDocumentApi.md#validate_document_doc_validation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
+[**validate_document_docx_repair**](ValidateDocumentApi.md#validate_document_docx_repair) | **POST** /convert/validate/docx/repair | Repair a Word document (DOCX) that contains errors
 [**validate_document_docx_validation**](ValidateDocumentApi.md#validate_document_docx_validation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
-[**validate_document_eml_validation**](ValidateDocumentApi.md#validate_document_eml_validation) | **POST** /convert/validate/eml | Validate if an EML file is executable
+[**validate_document_eml_validation**](ValidateDocumentApi.md#validate_document_eml_validation) | **POST** /convert/validate/eml | Validate if input file is a valid EML file
 [**validate_document_executable_validation**](ValidateDocumentApi.md#validate_document_executable_validation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validate_document_g_zip_validation**](ValidateDocumentApi.md#validate_document_g_zip_validation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
 [**validate_document_html_ssrf_validation**](ValidateDocumentApi.md#validate_document_html_ssrf_validation) | **POST** /convert/validate/html/ssrf-threat-check | Validate an HTML file and checks for SSRF threats
@@ -16,16 +17,18 @@ Method | HTTP request | Description
 [**validate_document_image_validation**](ValidateDocumentApi.md#validate_document_image_validation) | **POST** /convert/validate/image | Validate an Image File
 [**validate_document_jpg_validation**](ValidateDocumentApi.md#validate_document_jpg_validation) | **POST** /convert/validate/jpg | Validate a JPG File
 [**validate_document_json_validation**](ValidateDocumentApi.md#validate_document_json_validation) | **POST** /convert/validate/json | Validate a JSON file
-[**validate_document_msg_validation**](ValidateDocumentApi.md#validate_document_msg_validation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
+[**validate_document_msg_validation**](ValidateDocumentApi.md#validate_document_msg_validation) | **POST** /convert/validate/msg | Validate if input file is a valid MSG file
 [**validate_document_pdf_validation**](ValidateDocumentApi.md#validate_document_pdf_validation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validate_document_png_validation**](ValidateDocumentApi.md#validate_document_png_validation) | **POST** /convert/validate/png | Validate a PNG File
 [**validate_document_ppt_validation**](ValidateDocumentApi.md#validate_document_ppt_validation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+[**validate_document_pptx_repair**](ValidateDocumentApi.md#validate_document_pptx_repair) | **POST** /convert/validate/pptx/repair | Repair a PowerPoint presentation (PPTX) that contains errors
 [**validate_document_pptx_validation**](ValidateDocumentApi.md#validate_document_pptx_validation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 [**validate_document_rar_validation**](ValidateDocumentApi.md#validate_document_rar_validation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
 [**validate_document_rtf_validation**](ValidateDocumentApi.md#validate_document_rtf_validation) | **POST** /convert/validate/rtf | Validate a Rich Text Format document (RTF)
 [**validate_document_tar_validation**](ValidateDocumentApi.md#validate_document_tar_validation) | **POST** /convert/validate/tar | Validate a TAR Tarball Archive file (TAR)
 [**validate_document_txt_validation**](ValidateDocumentApi.md#validate_document_txt_validation) | **POST** /convert/validate/txt | Validate an TXT file
 [**validate_document_xls_validation**](ValidateDocumentApi.md#validate_document_xls_validation) | **POST** /convert/validate/xls | Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+[**validate_document_xlsx_repair**](ValidateDocumentApi.md#validate_document_xlsx_repair) | **POST** /convert/validate/xlsx/repair | Repair an Excel spreadsheet (XLSX) that contains errors
 [**validate_document_xlsx_validation**](ValidateDocumentApi.md#validate_document_xlsx_validation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 [**validate_document_xml_validation**](ValidateDocumentApi.md#validate_document_xml_validation) | **POST** /convert/validate/xml | Validate an XML file
 [**validate_document_xml_xxe_threat_validation**](ValidateDocumentApi.md#validate_document_xml_xxe_threat_validation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
@@ -194,6 +197,64 @@ Name | Type | Description  | Notes
 
 
 
+# **validate_document_docx_repair**
+> String validate_document_docx_repair(input_file, opts)
+
+Repair a Word document (DOCX) that contains errors
+
+Repair a Word document (DOCX) that contains errors or corruption, if possible.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+opts = { 
+  repair_mode: 'repair_mode_example' # String | Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced.
+}
+
+begin
+  #Repair a Word document (DOCX) that contains errors
+  result = api_instance.validate_document_docx_repair(input_file, opts)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_docx_repair: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+ **repair_mode** | **String**| Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
 # **validate_document_docx_validation**
 > DocumentValidationResult validate_document_docx_validation(input_file)
 
@@ -251,7 +312,7 @@ Name | Type | Description  | Notes
 # **validate_document_eml_validation**
 > DocumentValidationResult validate_document_eml_validation(input_file)
 
-Validate if an EML file is executable
+Validate if input file is a valid EML file
 
 Validate if an input file is an EML email file; if the document is not valid
 
@@ -273,7 +334,7 @@ input_file = File.new('/path/to/file.txt') # File | Input file to perform the op
 
 
 begin
-  #Validate if an EML file is executable
+  #Validate if input file is a valid EML file
   result = api_instance.validate_document_eml_validation(input_file)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -683,7 +744,7 @@ Name | Type | Description  | Notes
 # **validate_document_msg_validation**
 > DocumentValidationResult validate_document_msg_validation(input_file)
 
-Validate if an MSG file is executable
+Validate if input file is a valid MSG file
 
 Validate if an input file is an MSG email file; if the document is not valid
 
@@ -705,7 +766,7 @@ input_file = File.new('/path/to/file.txt') # File | Input file to perform the op
 
 
 begin
-  #Validate if an MSG file is executable
+  #Validate if input file is a valid MSG file
   result = api_instance.validate_document_msg_validation(input_file)
   p result
 rescue CloudmersiveConvertApiClient::ApiError => e
@@ -884,6 +945,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_pptx_repair**
+> String validate_document_pptx_repair(input_file)
+
+Repair a PowerPoint presentation (PPTX) that contains errors
+
+Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Repair a PowerPoint presentation (PPTX) that contains errors
+  result = api_instance.validate_document_pptx_repair(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_pptx_repair: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
 
 ### Authorization
 
@@ -1208,6 +1323,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentValidationResult**](DocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **validate_document_xlsx_repair**
+> String validate_document_xlsx_repair(input_file)
+
+Repair an Excel spreadsheet (XLSX) that contains errors
+
+Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-convert-api-client'
+# setup authorization
+CloudmersiveConvertApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveConvertApiClient::ValidateDocumentApi.new
+
+input_file = File.new('/path/to/file.txt') # File | Input file to perform the operation on.
+
+
+begin
+  #Repair an Excel spreadsheet (XLSX) that contains errors
+  result = api_instance.validate_document_xlsx_repair(input_file)
+  p result
+rescue CloudmersiveConvertApiClient::ApiError => e
+  puts "Exception when calling ValidateDocumentApi->validate_document_xlsx_repair: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_file** | **File**| Input file to perform the operation on. | 
+
+### Return type
+
+**String**
 
 ### Authorization
 

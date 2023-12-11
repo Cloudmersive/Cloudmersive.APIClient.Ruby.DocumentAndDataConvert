@@ -262,6 +262,75 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Remove, delete pages from a PDF document as Batch Job
+    # Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+    # @param input_file Input file to perform the operation on.
+    # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+    # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [EditPdfBatchJobCreateResult]
+    def edit_pdf_delete_pages_batch_job(input_file, page_start, page_end, opts = {})
+      data, _status_code, _headers = edit_pdf_delete_pages_batch_job_with_http_info(input_file, page_start, page_end, opts)
+      data
+    end
+
+    # Remove, delete pages from a PDF document as Batch Job
+    # Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+    # @param input_file Input file to perform the operation on.
+    # @param page_start Page number (1 based) to start deleting pages from (inclusive).
+    # @param page_end Page number (1 based) to stop deleting pages from (inclusive).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EditPdfBatchJobCreateResult, Fixnum, Hash)>] EditPdfBatchJobCreateResult data, response status code and response headers
+    def edit_pdf_delete_pages_batch_job_with_http_info(input_file, page_start, page_end, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_delete_pages_batch_job ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_delete_pages_batch_job"
+      end
+      # verify the required parameter 'page_start' is set
+      if @api_client.config.client_side_validation && page_start.nil?
+        fail ArgumentError, "Missing the required parameter 'page_start' when calling EditPdfApi.edit_pdf_delete_pages_batch_job"
+      end
+      # verify the required parameter 'page_end' is set
+      if @api_client.config.client_side_validation && page_end.nil?
+        fail ArgumentError, "Missing the required parameter 'page_end' when calling EditPdfApi.edit_pdf_delete_pages_batch_job"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/pages/delete/batch-job'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'pageStart'] = page_start
+      header_params[:'pageEnd'] = page_end
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EditPdfBatchJobCreateResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_delete_pages_batch_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Encrypt and password-protect a PDF
     # Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
     # @param input_file Input file to perform the operation on.
@@ -378,6 +447,59 @@ module CloudmersiveConvertApiClient
         :return_type => 'GetPdfAnnotationsResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_annotations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Get the status and result of a PDF Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [EditPdfJobStatusResult]
+    def edit_pdf_get_async_job_status(async_job_id, opts = {})
+      data, _status_code, _headers = edit_pdf_get_async_job_status_with_http_info(async_job_id, opts)
+      data
+    end
+
+    # Get the status and result of a PDF Batch Job
+    # Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+    # @param async_job_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EditPdfJobStatusResult, Fixnum, Hash)>] EditPdfJobStatusResult data, response status code and response headers
+    def edit_pdf_get_async_job_status_with_http_info(async_job_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_get_async_job_status ...'
+      end
+      # verify the required parameter 'async_job_id' is set
+      if @api_client.config.client_side_validation && async_job_id.nil?
+        fail ArgumentError, "Missing the required parameter 'async_job_id' when calling EditPdfApi.edit_pdf_get_async_job_status"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/batch-job/status'
+
+      # query parameters
+      query_params = {}
+      query_params[:'AsyncJobID'] = async_job_id
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EditPdfJobStatusResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_get_async_job_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -632,6 +754,89 @@ module CloudmersiveConvertApiClient
       end
       return data, status_code, headers
     end
+    # Insert, copy pages from one PDF document into another as a batch job
+    # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+    # @param source_file Source PDF file to copy pages from.
+    # @param destination_file Destination PDF file to copy pages into.
+    # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+    # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+    # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+    # @param [Hash] opts the optional parameters
+    # @return [EditPdfBatchJobCreateResult]
+    def edit_pdf_insert_pages_batch_job(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts = {})
+      data, _status_code, _headers = edit_pdf_insert_pages_batch_job_with_http_info(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts)
+      data
+    end
+
+    # Insert, copy pages from one PDF document into another as a batch job
+    # Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+    # @param source_file Source PDF file to copy pages from.
+    # @param destination_file Destination PDF file to copy pages into.
+    # @param page_start_source Page number (1 based) to start copying pages from (inclusive) in the Source file.
+    # @param page_end_source Page number (1 based) to stop copying pages pages from (inclusive) in the Source file.
+    # @param page_insert_before_desitnation Page number (1 based) to insert the pages before in the Destination file.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EditPdfBatchJobCreateResult, Fixnum, Hash)>] EditPdfBatchJobCreateResult data, response status code and response headers
+    def edit_pdf_insert_pages_batch_job_with_http_info(source_file, destination_file, page_start_source, page_end_source, page_insert_before_desitnation, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_insert_pages_batch_job ...'
+      end
+      # verify the required parameter 'source_file' is set
+      if @api_client.config.client_side_validation && source_file.nil?
+        fail ArgumentError, "Missing the required parameter 'source_file' when calling EditPdfApi.edit_pdf_insert_pages_batch_job"
+      end
+      # verify the required parameter 'destination_file' is set
+      if @api_client.config.client_side_validation && destination_file.nil?
+        fail ArgumentError, "Missing the required parameter 'destination_file' when calling EditPdfApi.edit_pdf_insert_pages_batch_job"
+      end
+      # verify the required parameter 'page_start_source' is set
+      if @api_client.config.client_side_validation && page_start_source.nil?
+        fail ArgumentError, "Missing the required parameter 'page_start_source' when calling EditPdfApi.edit_pdf_insert_pages_batch_job"
+      end
+      # verify the required parameter 'page_end_source' is set
+      if @api_client.config.client_side_validation && page_end_source.nil?
+        fail ArgumentError, "Missing the required parameter 'page_end_source' when calling EditPdfApi.edit_pdf_insert_pages_batch_job"
+      end
+      # verify the required parameter 'page_insert_before_desitnation' is set
+      if @api_client.config.client_side_validation && page_insert_before_desitnation.nil?
+        fail ArgumentError, "Missing the required parameter 'page_insert_before_desitnation' when calling EditPdfApi.edit_pdf_insert_pages_batch_job"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/pages/insert/batch-job'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'pageStartSource'] = page_start_source
+      header_params[:'pageEndSource'] = page_end_source
+      header_params[:'pageInsertBeforeDesitnation'] = page_insert_before_desitnation
+
+      # form parameters
+      form_params = {}
+      form_params['sourceFile'] = source_file
+      form_params['destinationFile'] = destination_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'EditPdfBatchJobCreateResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_insert_pages_batch_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Linearize and optimize a PDF for streaming download
     # Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
     # @param input_file Input file to perform the operation on.
@@ -691,6 +896,7 @@ module CloudmersiveConvertApiClient
     # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
     # @return [String]
     def edit_pdf_rasterize(input_file, opts = {})
       data, _status_code, _headers = edit_pdf_rasterize_with_http_info(input_file, opts)
@@ -701,6 +907,7 @@ module CloudmersiveConvertApiClient
     # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
     # @param input_file Input file to perform the operation on.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_pdf_rasterize_with_http_info(input_file, opts = {})
       if @api_client.config.debugging
@@ -712,6 +919,62 @@ module CloudmersiveConvertApiClient
       end
       # resource path
       local_var_path = '/convert/edit/pdf/rasterize'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'dpi'] = opts[:'dpi'] if !opts[:'dpi'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['inputFile'] = input_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Rasterize a PDF to an image-based PDF as Batch Job
+    # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [EditPdfBatchJobCreateResult]
+    def edit_pdf_rasterize_batch_job(input_file, opts = {})
+      data, _status_code, _headers = edit_pdf_rasterize_batch_job_with_http_info(input_file, opts)
+      data
+    end
+
+    # Rasterize a PDF to an image-based PDF as Batch Job
+    # Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+    # @param input_file Input file to perform the operation on.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EditPdfBatchJobCreateResult, Fixnum, Hash)>] EditPdfBatchJobCreateResult data, response status code and response headers
+    def edit_pdf_rasterize_batch_job_with_http_info(input_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditPdfApi.edit_pdf_rasterize_batch_job ...'
+      end
+      # verify the required parameter 'input_file' is set
+      if @api_client.config.client_side_validation && input_file.nil?
+        fail ArgumentError, "Missing the required parameter 'input_file' when calling EditPdfApi.edit_pdf_rasterize_batch_job"
+      end
+      # resource path
+      local_var_path = '/convert/edit/pdf/rasterize/batch-job'
 
       # query parameters
       query_params = {}
@@ -736,9 +999,9 @@ module CloudmersiveConvertApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'String')
+        :return_type => 'EditPdfBatchJobCreateResult')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EditPdfApi#edit_pdf_rasterize_batch_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
